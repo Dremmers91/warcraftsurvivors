@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "warcraft-survivors"
+version = "0.5.0"
+description = "A self-contained Pygame survival roguelite with permanent class progression"
+requires-python = ">=3.11,<3.15"
+dependencies = ["pygame-ce==2.5.8"]
+
+[project.optional-dependencies]
+dev = ["pytest==8.4.2", "ruff==0.13.3", "mypy==1.18.2", "pyinstaller==6.22.3", "Pillow==12.0.0"]
+
+[project.scripts]
+warcraft-survivors = "warcraft_survivors.launch:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+warcraft_survivors = ["data/*.json", "assets/*.json", "assets/*.png", "assets/*.ico", "assets/audio/*.wav", "assets/audio/*.json", "assets/actors/*.png", "assets/effects/*.png", "assets/images/*.png"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "--basetemp=artifacts/pytest-temp"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+files = ["src"]
+strict = true

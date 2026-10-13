@@ -1,0 +1,3541 @@
+{
+  "version": 1,
+  "actors": {
+    "paladin": {
+      "file": "actors/paladin.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "warrior": {
+      "file": "actors/warrior.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "mage": {
+      "file": "actors/mage.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "hunter": {
+      "file": "actors/hunter.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "warlock": {
+      "file": "actors/warlock.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "priest": {
+      "file": "actors/priest.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "kobold": {
+      "file": "actors/kobold.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "wolf": {
+      "file": "actors/wolf.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 10,
+      "active": true
+    },
+    "bandit": {
+      "file": "actors/bandit.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "felguard": {
+      "file": "actors/felguard.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "dreadguard": {
+      "file": "actors/dreadguard.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "imp": {
+      "file": "actors/imp.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "alpha_wolf": {
+      "file": "actors/alpha_wolf.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 10,
+      "active": true
+    },
+    "hogger": {
+      "file": "actors/hogger.png",
+      "frame_size": [
+        120,
+        120
+      ],
+      "anchor": [
+        60,
+        113
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "gnoll": {
+      "file": "actors/gnoll.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "gnoll_shaman": {
+      "file": "actors/gnoll_shaman.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "spider": {
+      "file": "actors/spider.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "forest_boar": {
+      "file": "actors/forest_boar.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "forest_bear": {
+      "file": "actors/forest_bear.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "gnoll_packlord": {
+      "file": "actors/gnoll_packlord.png",
+      "frame_size": [
+        96,
+        96
+      ],
+      "anchor": [
+        48,
+        89
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "broodmother": {
+      "file": "actors/broodmother.png",
+      "frame_size": [
+        104,
+        104
+      ],
+      "anchor": [
+        52,
+        97
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "kobold_geomancer": {
+      "file": "actors/kobold_geomancer.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "defias_cutpurse": {
+      "file": "actors/defias_cutpurse.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "defias_marksman": {
+      "file": "actors/defias_marksman.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "defias_captain": {
+      "file": "actors/defias_captain.png",
+      "frame_size": [
+        96,
+        96
+      ],
+      "anchor": [
+        48,
+        89
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "stitches": {
+      "file": "actors/stitches.png",
+      "frame_size": [
+        136,
+        136
+      ],
+      "anchor": [
+        68,
+        129
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "bangalash": {
+      "file": "actors/bangalash.png",
+      "frame_size": [
+        128,
+        128
+      ],
+      "anchor": [
+        64,
+        121
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "rivendare": {
+      "file": "actors/rivendare.png",
+      "frame_size": [
+        128,
+        128
+      ],
+      "anchor": [
+        64,
+        121
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "lich_king": {
+      "file": "actors/lich_king.png",
+      "frame_size": [
+        128,
+        128
+      ],
+      "anchor": [
+        64,
+        121
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "duskwood_zombie": {
+      "file": "actors/duskwood_zombie.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "duskwood_skeleton": {
+      "file": "actors/duskwood_skeleton.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "duskwood_nightwolf": {
+      "file": "actors/duskwood_nightwolf.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "duskwood_venom_spider": {
+      "file": "actors/duskwood_venom_spider.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "duskwood_grave_caster": {
+      "file": "actors/duskwood_grave_caster.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "duskwood_elite_0": {
+      "file": "actors/duskwood_elite_0.png",
+      "frame_size": [
+        104,
+        104
+      ],
+      "anchor": [
+        52,
+        97
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "duskwood_elite_1": {
+      "file": "actors/duskwood_elite_1.png",
+      "frame_size": [
+        104,
+        104
+      ],
+      "anchor": [
+        52,
+        97
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "stranglethorn_raptor": {
+      "file": "actors/stranglethorn_raptor.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "stranglethorn_troll": {
+      "file": "actors/stranglethorn_troll.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "stranglethorn_panther": {
+      "file": "actors/stranglethorn_panther.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "stranglethorn_jungle_boar": {
+      "file": "actors/stranglethorn_jungle_boar.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "stranglethorn_troll_shaman": {
+      "file": "actors/stranglethorn_troll_shaman.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "stranglethorn_elite_0": {
+      "file": "actors/stranglethorn_elite_0.png",
+      "frame_size": [
+        104,
+        104
+      ],
+      "anchor": [
+        52,
+        97
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "stranglethorn_elite_1": {
+      "file": "actors/stranglethorn_elite_1.png",
+      "frame_size": [
+        104,
+        104
+      ],
+      "anchor": [
+        52,
+        97
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "plaguelands_ghoul": {
+      "file": "actors/plaguelands_ghoul.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "plaguelands_cultist": {
+      "file": "actors/plaguelands_cultist.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "plaguelands_plague_hound": {
+      "file": "actors/plaguelands_plague_hound.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "plaguelands_crypt_fiend": {
+      "file": "actors/plaguelands_crypt_fiend.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "plaguelands_bone_knight": {
+      "file": "actors/plaguelands_bone_knight.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "plaguelands_elite_0": {
+      "file": "actors/plaguelands_elite_0.png",
+      "frame_size": [
+        104,
+        104
+      ],
+      "anchor": [
+        52,
+        97
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "plaguelands_elite_1": {
+      "file": "actors/plaguelands_elite_1.png",
+      "frame_size": [
+        104,
+        104
+      ],
+      "anchor": [
+        52,
+        97
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "icecrown_geist": {
+      "file": "actors/icecrown_geist.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "icecrown_vrykul": {
+      "file": "actors/icecrown_vrykul.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "icecrown_frost_hound": {
+      "file": "actors/icecrown_frost_hound.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "icecrown_frost_cultist": {
+      "file": "actors/icecrown_frost_cultist.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "icecrown_frost_abomination": {
+      "file": "actors/icecrown_frost_abomination.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "icecrown_elite_0": {
+      "file": "actors/icecrown_elite_0.png",
+      "frame_size": [
+        104,
+        104
+      ],
+      "anchor": [
+        52,
+        97
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "icecrown_elite_1": {
+      "file": "actors/icecrown_elite_1.png",
+      "frame_size": [
+        104,
+        104
+      ],
+      "anchor": [
+        52,
+        97
+      ],
+      "walk_fps": 9,
+      "active": true
+    }
+  },
+  "images": {
+    "fallback_actor": {
+      "file": "images/fallback_actor.png",
+      "size": [
+        80,
+        80
+      ]
+    },
+    "grass_0": {
+      "file": "images/grass_0.png",
+      "size": [
+        32,
+        32
+      ]
+    },
+    "road_0": {
+      "file": "images/road_0.png",
+      "size": [
+        32,
+        32
+      ]
+    },
+    "grass_1": {
+      "file": "images/grass_1.png",
+      "size": [
+        32,
+        32
+      ]
+    },
+    "road_1": {
+      "file": "images/road_1.png",
+      "size": [
+        32,
+        32
+      ]
+    },
+    "grass_2": {
+      "file": "images/grass_2.png",
+      "size": [
+        32,
+        32
+      ]
+    },
+    "road_2": {
+      "file": "images/road_2.png",
+      "size": [
+        32,
+        32
+      ]
+    },
+    "grass_3": {
+      "file": "images/grass_3.png",
+      "size": [
+        32,
+        32
+      ]
+    },
+    "road_3": {
+      "file": "images/road_3.png",
+      "size": [
+        32,
+        32
+      ]
+    },
+    "tree_0": {
+      "file": "images/tree_0.png",
+      "size": [
+        160,
+        192
+      ]
+    },
+    "tree_1": {
+      "file": "images/tree_1.png",
+      "size": [
+        160,
+        192
+      ]
+    },
+    "tree_2": {
+      "file": "images/tree_2.png",
+      "size": [
+        160,
+        192
+      ]
+    },
+    "bush": {
+      "file": "images/bush.png",
+      "size": [
+        72,
+        56
+      ]
+    },
+    "log": {
+      "file": "images/log.png",
+      "size": [
+        72,
+        56
+      ]
+    },
+    "rocks": {
+      "file": "images/rocks.png",
+      "size": [
+        72,
+        56
+      ]
+    },
+    "shadow": {
+      "file": "images/shadow.png",
+      "size": [
+        42,
+        20
+      ]
+    },
+    "spark_gold": {
+      "file": "images/spark_gold.png",
+      "size": [
+        7,
+        7
+      ]
+    },
+    "spark_frost": {
+      "file": "images/spark_frost.png",
+      "size": [
+        7,
+        7
+      ]
+    },
+    "spark_shadow": {
+      "file": "images/spark_shadow.png",
+      "size": [
+        7,
+        7
+      ]
+    },
+    "panel_material": {
+      "file": "images/panel_material.png",
+      "size": [
+        128,
+        128
+      ]
+    },
+    "icon_might": {
+      "file": "images/icon_might.png",
+      "size": [
+        32,
+        32
+      ]
+    },
+    "icon_area": {
+      "file": "images/icon_area.png",
+      "size": [
+        32,
+        32
+      ]
+    },
+    "icon_projectiles": {
+      "file": "images/icon_projectiles.png",
+      "size": [
+        32,
+        32
+      ]
+    },
+    "icon_armor": {
+      "file": "images/icon_armor.png",
+      "size": [
+        32,
+        32
+      ]
+    },
+    "icon_health": {
+      "file": "images/icon_health.png",
+      "size": [
+        32,
+        32
+      ]
+    },
+    "icon_haste": {
+      "file": "images/icon_haste.png",
+      "size": [
+        32,
+        32
+      ]
+    },
+    "icon_duration": {
+      "file": "images/icon_duration.png",
+      "size": [
+        32,
+        32
+      ]
+    },
+    "icon_velocity": {
+      "file": "images/icon_velocity.png",
+      "size": [
+        32,
+        32
+      ]
+    },
+    "icon_movement": {
+      "file": "images/icon_movement.png",
+      "size": [
+        32,
+        32
+      ]
+    },
+    "icon_pickup": {
+      "file": "images/icon_pickup.png",
+      "size": [
+        32,
+        32
+      ]
+    },
+    "icon_regen": {
+      "file": "images/icon_regen.png",
+      "size": [
+        32,
+        32
+      ]
+    },
+    "icon_piercing": {
+      "file": "images/icon_piercing.png",
+      "size": [
+        32,
+        32
+      ]
+    },
+    "chest": {
+      "file": "images/chest.png",
+      "size": [
+        40,
+        36
+      ]
+    },
+    "icon_heal": {
+      "file": "images/icon_health.png",
+      "size": [
+        32,
+        32
+      ]
+    },
+    "icon_power": {
+      "file": "images/icon_might.png",
+      "size": [
+        32,
+        32
+      ]
+    },
+    "icon_gold": {
+      "file": "images/chest.png",
+      "size": [
+        40,
+        36
+      ]
+    },
+    "duskwood_prop_0": {
+      "file": "images/duskwood_prop_0.png",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "duskwood_prop_1": {
+      "file": "images/duskwood_prop_1.png",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "duskwood_prop_2": {
+      "file": "images/duskwood_prop_2.png",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "duskwood_prop_3": {
+      "file": "images/duskwood_prop_3.png",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "duskwood_ground": {
+      "file": "images/duskwood_ground.png",
+      "size": [
+        64,
+        64
+      ]
+    },
+    "duskwood_road": {
+      "file": "images/duskwood_road.png",
+      "size": [
+        64,
+        64
+      ]
+    },
+    "stranglethorn_prop_0": {
+      "file": "images/stranglethorn_prop_0.png",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "stranglethorn_prop_1": {
+      "file": "images/stranglethorn_prop_1.png",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "stranglethorn_prop_2": {
+      "file": "images/stranglethorn_prop_2.png",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "stranglethorn_prop_3": {
+      "file": "images/stranglethorn_prop_3.png",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "stranglethorn_ground": {
+      "file": "images/stranglethorn_ground.png",
+      "size": [
+        64,
+        64
+      ]
+    },
+    "stranglethorn_road": {
+      "file": "images/stranglethorn_road.png",
+      "size": [
+        64,
+        64
+      ]
+    },
+    "plaguelands_prop_0": {
+      "file": "images/plaguelands_prop_0.png",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "plaguelands_prop_1": {
+      "file": "images/plaguelands_prop_1.png",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "plaguelands_prop_2": {
+      "file": "images/plaguelands_prop_2.png",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "plaguelands_prop_3": {
+      "file": "images/plaguelands_prop_3.png",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "plaguelands_ground": {
+      "file": "images/plaguelands_ground.png",
+      "size": [
+        64,
+        64
+      ]
+    },
+    "plaguelands_road": {
+      "file": "images/plaguelands_road.png",
+      "size": [
+        64,
+        64
+      ]
+    },
+    "icecrown_prop_0": {
+      "file": "images/icecrown_prop_0.png",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "icecrown_prop_1": {
+      "file": "images/icecrown_prop_1.png",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "icecrown_prop_2": {
+      "file": "images/icecrown_prop_2.png",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "icecrown_prop_3": {
+      "file": "images/icecrown_prop_3.png",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "icecrown_ground": {
+      "file": "images/icecrown_ground.png",
+      "size": [
+        64,
+        64
+      ]
+    },
+    "icecrown_road": {
+      "file": "images/icecrown_road.png",
+      "size": [
+        64,
+        64
+      ]
+    },
+    "elwynn_inn": {
+      "file": "images/elwynn_inn.png",
+      "size": [
+        224,
+        224
+      ]
+    },
+    "elwynn_mill": {
+      "file": "images/elwynn_mill.png",
+      "size": [
+        224,
+        224
+      ]
+    },
+    "elwynn_bridge": {
+      "file": "images/elwynn_bridge.png",
+      "size": [
+        224,
+        224
+      ]
+    }
+  },
+  "effects": {
+    "holy_hammer": {
+      "file": "effects/holy_hammer.png",
+      "size": [
+        48,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        24,
+        24
+      ]
+    },
+    "holy_shield": {
+      "file": "effects/holy_shield.png",
+      "size": [
+        48,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        24,
+        24
+      ]
+    },
+    "consecration": {
+      "file": "effects/consecration.png",
+      "size": [
+        256,
+        256
+      ],
+      "frames": 4,
+      "anchor": [
+        128,
+        128
+      ]
+    },
+    "frostbolt": {
+      "file": "effects/frostbolt.png",
+      "size": [
+        48,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        24,
+        24
+      ]
+    },
+    "shadow_bolt": {
+      "file": "effects/shadow_bolt.png",
+      "size": [
+        48,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        24,
+        24
+      ]
+    },
+    "blizzard": {
+      "file": "effects/blizzard.png",
+      "size": [
+        256,
+        256
+      ],
+      "frames": 4,
+      "anchor": [
+        128,
+        128
+      ]
+    },
+    "holy_impact": {
+      "file": "effects/holy_impact.png",
+      "size": [
+        72,
+        72
+      ],
+      "frames": 6,
+      "anchor": [
+        36,
+        36
+      ]
+    },
+    "frost_impact": {
+      "file": "effects/frost_impact.png",
+      "size": [
+        72,
+        72
+      ],
+      "frames": 6,
+      "anchor": [
+        36,
+        36
+      ]
+    },
+    "shadow_impact": {
+      "file": "effects/shadow_impact.png",
+      "size": [
+        72,
+        72
+      ],
+      "frames": 6,
+      "anchor": [
+        36,
+        36
+      ]
+    },
+    "summon": {
+      "file": "effects/summon.png",
+      "size": [
+        72,
+        72
+      ],
+      "frames": 6,
+      "anchor": [
+        36,
+        36
+      ]
+    },
+    "divine_storm": {
+      "file": "effects/divine_storm.png",
+      "size": [
+        192,
+        192
+      ],
+      "frames": 6,
+      "anchor": [
+        96,
+        96
+      ]
+    },
+    "corruption": {
+      "file": "effects/corruption.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "rend": {
+      "file": "effects/rend.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "poison": {
+      "file": "effects/poison.png",
+      "size": [
+        24,
+        24
+      ],
+      "frames": 4,
+      "anchor": [
+        12,
+        12
+      ]
+    },
+    "burn": {
+      "file": "effects/burn.png",
+      "size": [
+        24,
+        24
+      ],
+      "frames": 4,
+      "anchor": [
+        12,
+        12
+      ]
+    },
+    "xp": {
+      "file": "effects/xp.png",
+      "size": [
+        20,
+        20
+      ],
+      "frames": 4,
+      "anchor": [
+        10,
+        10
+      ]
+    },
+    "gold": {
+      "file": "effects/gold.png",
+      "size": [
+        20,
+        20
+      ],
+      "frames": 4,
+      "anchor": [
+        10,
+        10
+      ]
+    },
+    "judgment": {
+      "file": "effects/holy_hammer.png",
+      "size": [
+        48,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        24,
+        24
+      ]
+    },
+    "judgment_evolved": {
+      "file": "effects/judgment_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "divine_storm_evolved": {
+      "file": "effects/divine_storm_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "consecration_evolved": {
+      "file": "effects/consecration_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "avenger_s_shield": {
+      "file": "effects/holy_shield.png",
+      "size": [
+        48,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        24,
+        24
+      ]
+    },
+    "avenger_s_shield_evolved": {
+      "file": "effects/avenger_s_shield_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "hammer_of_wrath": {
+      "file": "effects/hammer_of_wrath.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "hammer_of_wrath_evolved": {
+      "file": "effects/hammer_of_wrath_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "blade_of_justice": {
+      "file": "effects/blade_of_justice.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "blade_of_justice_evolved": {
+      "file": "effects/blade_of_justice_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "holy_shock": {
+      "file": "effects/holy_shock.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "holy_shock_evolved": {
+      "file": "effects/holy_shock_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "wake_of_ashes": {
+      "file": "effects/wake_of_ashes.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "wake_of_ashes_evolved": {
+      "file": "effects/wake_of_ashes_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "blessed_hammer": {
+      "file": "effects/holy_hammer.png",
+      "size": [
+        48,
+        48
+      ],
+      "frames": 4,
+      "anchor": [
+        24,
+        24
+      ]
+    },
+    "blessed_hammer_evolved": {
+      "file": "effects/blessed_hammer_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "eye_of_tyr": {
+      "file": "effects/eye_of_tyr.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "eye_of_tyr_evolved": {
+      "file": "effects/eye_of_tyr_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "mortal_strike": {
+      "file": "effects/mortal_strike.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "mortal_strike_evolved": {
+      "file": "effects/mortal_strike_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "whirlwind": {
+      "file": "effects/whirlwind.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "whirlwind_evolved": {
+      "file": "effects/whirlwind_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "thunder_clap": {
+      "file": "effects/thunder_clap.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "thunder_clap_evolved": {
+      "file": "effects/thunder_clap_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "execute": {
+      "file": "effects/execute.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "execute_evolved": {
+      "file": "effects/execute_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "bladestorm": {
+      "file": "effects/bladestorm.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "bladestorm_evolved": {
+      "file": "effects/bladestorm_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "heroic_throw": {
+      "file": "effects/heroic_throw.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "heroic_throw_evolved": {
+      "file": "effects/heroic_throw_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "rend_evolved": {
+      "file": "effects/rend_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "cleave": {
+      "file": "effects/cleave.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "cleave_evolved": {
+      "file": "effects/cleave_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "ravager": {
+      "file": "effects/ravager.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "ravager_evolved": {
+      "file": "effects/ravager_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "shockwave": {
+      "file": "effects/shockwave.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "shockwave_evolved": {
+      "file": "effects/shockwave_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "frostbolt_evolved": {
+      "file": "effects/frostbolt_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "fireball": {
+      "file": "effects/fireball.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "fireball_evolved": {
+      "file": "effects/fireball_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "arcane_missiles": {
+      "file": "effects/arcane_missiles.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "arcane_missiles_evolved": {
+      "file": "effects/arcane_missiles_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "blizzard_evolved": {
+      "file": "effects/blizzard_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "frozen_orb": {
+      "file": "effects/frozen_orb.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "frozen_orb_evolved": {
+      "file": "effects/frozen_orb_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "flamestrike": {
+      "file": "effects/flamestrike.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "flamestrike_evolved": {
+      "file": "effects/flamestrike_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "arcane_explosion": {
+      "file": "effects/arcane_explosion.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "arcane_explosion_evolved": {
+      "file": "effects/arcane_explosion_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "pyroblast": {
+      "file": "effects/pyroblast.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "pyroblast_evolved": {
+      "file": "effects/pyroblast_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "ice_lance": {
+      "file": "effects/ice_lance.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "ice_lance_evolved": {
+      "file": "effects/ice_lance_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "meteor": {
+      "file": "effects/meteor.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "meteor_evolved": {
+      "file": "effects/meteor_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "arcane_shot": {
+      "file": "effects/arcane_shot.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "arcane_shot_evolved": {
+      "file": "effects/arcane_shot_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "multi_shot": {
+      "file": "effects/multi_shot.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "multi_shot_evolved": {
+      "file": "effects/multi_shot_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "aimed_shot": {
+      "file": "effects/aimed_shot.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "aimed_shot_evolved": {
+      "file": "effects/aimed_shot_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "rapid_fire": {
+      "file": "effects/rapid_fire.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "rapid_fire_evolved": {
+      "file": "effects/rapid_fire_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "barrage": {
+      "file": "effects/barrage.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "barrage_evolved": {
+      "file": "effects/barrage_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "explosive_shot": {
+      "file": "effects/explosive_shot.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "explosive_shot_evolved": {
+      "file": "effects/explosive_shot_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "kill_shot": {
+      "file": "effects/kill_shot.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "kill_shot_evolved": {
+      "file": "effects/kill_shot_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "serpent_sting": {
+      "file": "effects/serpent_sting.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "serpent_sting_evolved": {
+      "file": "effects/serpent_sting_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "beast_companion": {
+      "file": "effects/beast_companion.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "beast_companion_evolved": {
+      "file": "effects/beast_companion_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "stampede": {
+      "file": "effects/stampede.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "stampede_evolved": {
+      "file": "effects/stampede_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "shadow_bolt_evolved": {
+      "file": "effects/shadow_bolt_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "corruption_evolved": {
+      "file": "effects/corruption_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "immolate": {
+      "file": "effects/immolate.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "immolate_evolved": {
+      "file": "effects/immolate_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "rain_of_fire": {
+      "file": "effects/rain_of_fire.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "rain_of_fire_evolved": {
+      "file": "effects/rain_of_fire_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "chaos_bolt": {
+      "file": "effects/chaos_bolt.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "chaos_bolt_evolved": {
+      "file": "effects/chaos_bolt_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "seed_of_corruption": {
+      "file": "effects/seed_of_corruption.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "seed_of_corruption_evolved": {
+      "file": "effects/seed_of_corruption_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "hand_of_gul_dan": {
+      "file": "effects/hand_of_gul_dan.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "hand_of_gul_dan_evolved": {
+      "file": "effects/hand_of_gul_dan_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "summon_felguard": {
+      "file": "effects/summon_felguard.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "summon_felguard_evolved": {
+      "file": "effects/summon_felguard_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "shadowburn": {
+      "file": "effects/shadowburn.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "shadowburn_evolved": {
+      "file": "effects/shadowburn_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "cataclysm": {
+      "file": "effects/cataclysm.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "cataclysm_evolved": {
+      "file": "effects/cataclysm_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "smite": {
+      "file": "effects/smite.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "smite_evolved": {
+      "file": "effects/smite_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "holy_fire": {
+      "file": "effects/holy_fire.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "holy_fire_evolved": {
+      "file": "effects/holy_fire_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "shadow_word_pain": {
+      "file": "effects/shadow_word_pain.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "shadow_word_pain_evolved": {
+      "file": "effects/shadow_word_pain_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "mind_blast": {
+      "file": "effects/mind_blast.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "mind_blast_evolved": {
+      "file": "effects/mind_blast_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "mind_sear": {
+      "file": "effects/mind_sear.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "mind_sear_evolved": {
+      "file": "effects/mind_sear_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "penance": {
+      "file": "effects/penance.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "penance_evolved": {
+      "file": "effects/penance_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "shadow_crash": {
+      "file": "effects/shadow_crash.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "shadow_crash_evolved": {
+      "file": "effects/shadow_crash_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "holy_nova": {
+      "file": "effects/holy_nova.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "holy_nova_evolved": {
+      "file": "effects/holy_nova_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "void_torrent": {
+      "file": "effects/void_torrent.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "void_torrent_evolved": {
+      "file": "effects/void_torrent_evolved.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "divine_star": {
+      "file": "effects/divine_star.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "divine_star_evolved": {
+      "file": "effects/divine_star_evolved.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        24,
+        24
+      ],
+      "frames": 4
+    },
+    "divine_shield": {
+      "file": "effects/divine_shield.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "lay_on_hands": {
+      "file": "effects/lay_on_hands.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "avenging_wrath": {
+      "file": "effects/avenging_wrath.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "heroic_leap": {
+      "file": "effects/heroic_leap.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "shield_wall": {
+      "file": "effects/shield_wall.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "rallying_cry": {
+      "file": "effects/rallying_cry.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "blink": {
+      "file": "effects/blink.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "ice_block": {
+      "file": "effects/ice_block.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "combustion": {
+      "file": "effects/combustion.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "disengage": {
+      "file": "effects/disengage.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "aspect_of_the_turtle": {
+      "file": "effects/aspect_of_the_turtle.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "bestial_wrath": {
+      "file": "effects/bestial_wrath.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "demonic_circle": {
+      "file": "effects/demonic_circle.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "unending_resolve": {
+      "file": "effects/unending_resolve.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "dark_soul": {
+      "file": "effects/dark_soul.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "power_word_shield": {
+      "file": "effects/power_word_shield.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "desperate_prayer": {
+      "file": "effects/desperate_prayer.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "psychic_scream": {
+      "file": "effects/psychic_scream.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "hostile_arrow": {
+      "file": "effects/hostile_arrow.png",
+      "size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        16
+      ],
+      "frames": 4
+    },
+    "hostile_stone": {
+      "file": "effects/hostile_stone.png",
+      "size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        16
+      ],
+      "frames": 4
+    },
+    "hostile_poison": {
+      "file": "effects/hostile_poison.png",
+      "size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        16
+      ],
+      "frames": 4
+    },
+    "hostile_lightning": {
+      "file": "effects/hostile_lightning.png",
+      "size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        16
+      ],
+      "frames": 4
+    },
+    "hostile_frost": {
+      "file": "effects/hostile_frost.png",
+      "size": [
+        40,
+        40
+      ],
+      "anchor": [
+        20,
+        20
+      ],
+      "frames": 4
+    },
+    "hostile_shadow": {
+      "file": "effects/hostile_shadow.png",
+      "size": [
+        40,
+        40
+      ],
+      "anchor": [
+        20,
+        20
+      ],
+      "frames": 4
+    },
+    "hostile_hook": {
+      "file": "effects/hostile_hook.png",
+      "size": [
+        40,
+        40
+      ],
+      "anchor": [
+        20,
+        20
+      ],
+      "frames": 4
+    },
+    "hostile_poison_field": {
+      "file": "effects/hostile_poison_field.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "hostile_frost_field": {
+      "file": "effects/hostile_frost_field.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    },
+    "hostile_shadow_field": {
+      "file": "effects/hostile_shadow_field.png",
+      "size": [
+        160,
+        160
+      ],
+      "anchor": [
+        80,
+        80
+      ],
+      "frames": 4
+    }
+  },
+  "projectiles": {
+    "judgment": {
+      "effect": "holy_hammer",
+      "art_size": 38,
+      "rank_scale": 0.025,
+      "spin_degrees": 90,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "blessed_hammer": {
+      "effect": "blessed_hammer",
+      "art_size": 38,
+      "rank_scale": 0,
+      "spin_degrees": 90,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "avengers_shield": {
+      "effect": "holy_shield",
+      "art_size": 40,
+      "rank_scale": 0.02
+    },
+    "judgment_evolved": {
+      "effect": "judgment_evolved",
+      "art_size": 38,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "avenger_s_shield": {
+      "effect": "avenger_s_shield",
+      "art_size": 38,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "avenger_s_shield_evolved": {
+      "effect": "avenger_s_shield_evolved",
+      "art_size": 38,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "hammer_of_wrath": {
+      "effect": "hammer_of_wrath",
+      "art_size": 38,
+      "rank_scale": 0,
+      "spin_degrees": 90,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "hammer_of_wrath_evolved": {
+      "effect": "hammer_of_wrath_evolved",
+      "art_size": 38,
+      "rank_scale": 0,
+      "spin_degrees": 90,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "wake_of_ashes": {
+      "effect": "wake_of_ashes",
+      "art_size": 38,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "wake_of_ashes_evolved": {
+      "effect": "wake_of_ashes_evolved",
+      "art_size": 38,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "blessed_hammer_evolved": {
+      "effect": "blessed_hammer_evolved",
+      "art_size": 38,
+      "rank_scale": 0,
+      "spin_degrees": 90,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "heroic_throw": {
+      "effect": "heroic_throw",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 90,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "heroic_throw_evolved": {
+      "effect": "heroic_throw_evolved",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 90,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "frostbolt": {
+      "effect": "frostbolt",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_frost",
+      "active": true
+    },
+    "frostbolt_evolved": {
+      "effect": "frostbolt_evolved",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_frost",
+      "active": true
+    },
+    "fireball": {
+      "effect": "fireball",
+      "art_size": 38,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "fireball_evolved": {
+      "effect": "fireball_evolved",
+      "art_size": 38,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "arcane_missiles": {
+      "effect": "arcane_missiles",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_shadow",
+      "active": true
+    },
+    "arcane_missiles_evolved": {
+      "effect": "arcane_missiles_evolved",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_shadow",
+      "active": true
+    },
+    "pyroblast": {
+      "effect": "pyroblast",
+      "art_size": 38,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "pyroblast_evolved": {
+      "effect": "pyroblast_evolved",
+      "art_size": 38,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "ice_lance": {
+      "effect": "ice_lance",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_frost",
+      "active": true
+    },
+    "ice_lance_evolved": {
+      "effect": "ice_lance_evolved",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_frost",
+      "active": true
+    },
+    "arcane_shot": {
+      "effect": "arcane_shot",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_shadow",
+      "active": true
+    },
+    "arcane_shot_evolved": {
+      "effect": "arcane_shot_evolved",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_shadow",
+      "active": true
+    },
+    "multi_shot": {
+      "effect": "multi_shot",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "multi_shot_evolved": {
+      "effect": "multi_shot_evolved",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "aimed_shot": {
+      "effect": "aimed_shot",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "aimed_shot_evolved": {
+      "effect": "aimed_shot_evolved",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "rapid_fire": {
+      "effect": "rapid_fire",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "rapid_fire_evolved": {
+      "effect": "rapid_fire_evolved",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "barrage": {
+      "effect": "barrage",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "barrage_evolved": {
+      "effect": "barrage_evolved",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "explosive_shot": {
+      "effect": "explosive_shot",
+      "art_size": 38,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "explosive_shot_evolved": {
+      "effect": "explosive_shot_evolved",
+      "art_size": 38,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "kill_shot": {
+      "effect": "kill_shot",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "kill_shot_evolved": {
+      "effect": "kill_shot_evolved",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "shadow_bolt": {
+      "effect": "shadow_bolt",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_shadow",
+      "active": true
+    },
+    "shadow_bolt_evolved": {
+      "effect": "shadow_bolt_evolved",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_shadow",
+      "active": true
+    },
+    "chaos_bolt": {
+      "effect": "chaos_bolt",
+      "art_size": 38,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "chaos_bolt_evolved": {
+      "effect": "chaos_bolt_evolved",
+      "art_size": 38,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "smite": {
+      "effect": "smite",
+      "art_size": 38,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "smite_evolved": {
+      "effect": "smite_evolved",
+      "art_size": 38,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "penance": {
+      "effect": "penance",
+      "art_size": 38,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "penance_evolved": {
+      "effect": "penance_evolved",
+      "art_size": 38,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "shadow_crash": {
+      "effect": "shadow_crash",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_shadow",
+      "active": true
+    },
+    "shadow_crash_evolved": {
+      "effect": "shadow_crash_evolved",
+      "art_size": 32,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_shadow",
+      "active": true
+    },
+    "divine_star": {
+      "effect": "divine_star",
+      "art_size": 38,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "divine_star_evolved": {
+      "effect": "divine_star_evolved",
+      "art_size": 38,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "hostile_arrow": {
+      "effect": "hostile_arrow",
+      "art_size": 26,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "active": true
+    },
+    "hostile_stone": {
+      "effect": "hostile_stone",
+      "art_size": 26,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "active": true
+    },
+    "hostile_poison": {
+      "effect": "hostile_poison",
+      "art_size": 26,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "active": true
+    },
+    "hostile_lightning": {
+      "effect": "hostile_lightning",
+      "art_size": 26,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "active": true
+    },
+    "hostile_frost": {
+      "effect": "hostile_frost",
+      "art_size": 30,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "active": true
+    },
+    "hostile_shadow": {
+      "effect": "hostile_shadow",
+      "art_size": 30,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "active": true
+    },
+    "hostile_hook": {
+      "effect": "hostile_hook",
+      "art_size": 30,
+      "rank_scale": 0,
+      "spin_degrees": 0,
+      "active": true
+    }
+  },
+  "directional_effects": [
+    "divine_storm",
+    "blade_of_justice",
+    "mortal_strike",
+    "execute",
+    "cleave",
+    "shockwave",
+    "divine_storm_evolved",
+    "blade_of_justice_evolved",
+    "mortal_strike_evolved",
+    "execute_evolved",
+    "cleave_evolved",
+    "shockwave_evolved"
+  ]
+}

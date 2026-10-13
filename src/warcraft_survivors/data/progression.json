@@ -1,0 +1,2382 @@
+{
+  "trees": {
+    "paladin": [
+      {
+        "id": "might",
+        "name": "Crusader Training",
+        "description": "Automatic damage +2.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 0,
+        "column": 0,
+        "min_level": 1,
+        "spent_required": 0,
+        "requires": {},
+        "effects": {
+          "damage": 0.02
+        },
+        "starting_options": []
+      },
+      {
+        "id": "health",
+        "name": "Blessed Constitution",
+        "description": "Base maximum health +3.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 0,
+        "column": 1,
+        "min_level": 1,
+        "spent_required": 0,
+        "requires": {},
+        "effects": {
+          "health": 0.03
+        },
+        "starting_options": []
+      },
+      {
+        "id": "haste",
+        "name": "Swift Justice",
+        "description": "All cooldowns -1.5%. Per rank.",
+        "max_rank": 3,
+        "tier": 0,
+        "column": 2,
+        "min_level": 1,
+        "spent_required": 0,
+        "requires": {},
+        "effects": {
+          "haste": 0.015
+        },
+        "starting_options": []
+      },
+      {
+        "id": "armor",
+        "name": "Sanctified Plate",
+        "description": "Armor +1.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 1,
+        "column": 0,
+        "min_level": 3,
+        "spent_required": 3,
+        "requires": {
+          "might": 1
+        },
+        "effects": {
+          "armor": 0.01
+        },
+        "starting_options": []
+      },
+      {
+        "id": "school",
+        "name": "Holy Conviction",
+        "description": "Holy automatic damage +3.5%. Per rank.",
+        "max_rank": 3,
+        "tier": 1,
+        "column": 1,
+        "min_level": 3,
+        "spent_required": 3,
+        "requires": {
+          "health": 1
+        },
+        "effects": {
+          "school:holy": 0.035
+        },
+        "starting_options": []
+      },
+      {
+        "id": "area",
+        "name": "Hallowed Ground",
+        "description": "Attack area +2.5%. Per rank.",
+        "max_rank": 3,
+        "tier": 1,
+        "column": 2,
+        "min_level": 3,
+        "spent_required": 3,
+        "requires": {
+          "haste": 1
+        },
+        "effects": {
+          "area": 0.025
+        },
+        "starting_options": []
+      },
+      {
+        "id": "duration",
+        "name": "Lasting Blessings",
+        "description": "Attack duration +4.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 2,
+        "column": 0,
+        "min_level": 6,
+        "spent_required": 6,
+        "requires": {
+          "armor": 1
+        },
+        "effects": {
+          "duration": 0.04
+        },
+        "starting_options": []
+      },
+      {
+        "id": "signature",
+        "name": "Twin Judgment",
+        "description": "Judgment additional effects +1. Per rank.",
+        "max_rank": 1,
+        "tier": 2,
+        "column": 1,
+        "min_level": 6,
+        "spent_required": 6,
+        "requires": {
+          "school": 1
+        },
+        "effects": {
+          "spell:judgment:count": 1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "recovery",
+        "name": "Light of Recovery",
+        "description": "Recover 0.08 health/second. Per rank.",
+        "max_rank": 3,
+        "tier": 2,
+        "column": 2,
+        "min_level": 6,
+        "spent_required": 6,
+        "requires": {
+          "area": 1
+        },
+        "effects": {
+          "regen": 0.08
+        },
+        "starting_options": []
+      },
+      {
+        "id": "specialist",
+        "name": "Zealous Storm",
+        "description": "Area damage +4%. Per rank.",
+        "max_rank": 3,
+        "tier": 3,
+        "column": 0,
+        "min_level": 10,
+        "spent_required": 10,
+        "requires": {
+          "duration": 1
+        },
+        "effects": {
+          "kind:area": 0.04
+        },
+        "starting_options": []
+      },
+      {
+        "id": "slayer",
+        "name": "Champion of Elwynn",
+        "description": "Damage to bosses +3.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 3,
+        "column": 1,
+        "min_level": 10,
+        "spent_required": 10,
+        "requires": {
+          "signature": 1
+        },
+        "effects": {
+          "boss_damage": 0.03
+        },
+        "starting_options": []
+      },
+      {
+        "id": "technique",
+        "name": "Radiant Hammer",
+        "description": "Blessed Hammer additional effects +1. Per rank.",
+        "max_rank": 1,
+        "tier": 3,
+        "column": 2,
+        "min_level": 10,
+        "spent_required": 10,
+        "requires": {
+          "recovery": 1
+        },
+        "effects": {
+          "spell:blessed_hammer:count": 1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "preparation",
+        "name": "Chosen Blessing",
+        "description": "Unlock one optional extra Rank 1 starting ability. Choose it here between runs; no selection means no extra ability.",
+        "max_rank": 1,
+        "tier": 4,
+        "column": 0,
+        "min_level": 15,
+        "spent_required": 15,
+        "requires": {
+          "specialist": 1
+        },
+        "effects": {},
+        "starting_options": [
+          "consecration",
+          "blessed_hammer"
+        ]
+      },
+      {
+        "id": "manual",
+        "name": "Devout Focus",
+        "description": "Manual cooldowns -4.0%. Per rank.",
+        "max_rank": 2,
+        "tier": 4,
+        "column": 1,
+        "min_level": 15,
+        "spent_required": 15,
+        "requires": {
+          "slayer": 1
+        },
+        "effects": {
+          "manual_haste": 0.04
+        },
+        "starting_options": []
+      },
+      {
+        "id": "mastery",
+        "name": "Sacred Reach",
+        "description": "Consecration attack area +15%. Per rank.",
+        "max_rank": 2,
+        "tier": 4,
+        "column": 2,
+        "min_level": 15,
+        "spent_required": 15,
+        "requires": {
+          "technique": 1
+        },
+        "effects": {
+          "spell:consecration:radius": 0.15
+        },
+        "starting_options": []
+      },
+      {
+        "id": "capstone",
+        "name": "Avenging Light",
+        "description": "Holy automatic damage +12.0%; Damage to bosses +20.0%; Restore 0.25 health per kill. Per rank.",
+        "max_rank": 1,
+        "tier": 5,
+        "column": 0,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "preparation": 1
+        },
+        "effects": {
+          "school:holy": 0.12,
+          "boss_damage": 0.2,
+          "kill_heal": 0.25
+        },
+        "starting_options": []
+      },
+      {
+        "id": "survival",
+        "name": "Bastion of Hope",
+        "description": "Gain 0.4 shield per kill, capped at 25% health. Per rank.",
+        "max_rank": 1,
+        "tier": 5,
+        "column": 1,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "manual": 1
+        },
+        "effects": {
+          "kill_shield": 0.4
+        },
+        "starting_options": []
+      },
+      {
+        "id": "offense",
+        "name": "Heavenly Judgment",
+        "description": "Judgment additional effects +1; Judgment damage +10%. Per rank.",
+        "max_rank": 1,
+        "tier": 5,
+        "column": 2,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "mastery": 1
+        },
+        "effects": {
+          "spell:judgment:count": 1,
+          "spell:judgment:damage": 0.1
+        },
+        "starting_options": []
+      }
+    ],
+    "warrior": [
+      {
+        "id": "might",
+        "name": "Weapon Discipline",
+        "description": "Automatic damage +2.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 0,
+        "column": 0,
+        "min_level": 1,
+        "spent_required": 0,
+        "requires": {},
+        "effects": {
+          "damage": 0.02
+        },
+        "starting_options": []
+      },
+      {
+        "id": "health",
+        "name": "Iron Constitution",
+        "description": "Base maximum health +3.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 0,
+        "column": 1,
+        "min_level": 1,
+        "spent_required": 0,
+        "requires": {},
+        "effects": {
+          "health": 0.03
+        },
+        "starting_options": []
+      },
+      {
+        "id": "haste",
+        "name": "Combat Rhythm",
+        "description": "All cooldowns -1.5%. Per rank.",
+        "max_rank": 3,
+        "tier": 0,
+        "column": 2,
+        "min_level": 1,
+        "spent_required": 0,
+        "requires": {},
+        "effects": {
+          "haste": 0.015
+        },
+        "starting_options": []
+      },
+      {
+        "id": "armor",
+        "name": "Forged Armor",
+        "description": "Armor +1.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 1,
+        "column": 0,
+        "min_level": 3,
+        "spent_required": 3,
+        "requires": {
+          "might": 1
+        },
+        "effects": {
+          "armor": 0.01
+        },
+        "starting_options": []
+      },
+      {
+        "id": "school",
+        "name": "Arms Mastery",
+        "description": "Physical automatic damage +3.5%. Per rank.",
+        "max_rank": 3,
+        "tier": 1,
+        "column": 1,
+        "min_level": 3,
+        "spent_required": 3,
+        "requires": {
+          "health": 1
+        },
+        "effects": {
+          "school:physical": 0.035
+        },
+        "starting_options": []
+      },
+      {
+        "id": "area",
+        "name": "Sweeping Blades",
+        "description": "Attack area +2.5%. Per rank.",
+        "max_rank": 3,
+        "tier": 1,
+        "column": 2,
+        "min_level": 3,
+        "spent_required": 3,
+        "requires": {
+          "haste": 1
+        },
+        "effects": {
+          "area": 0.025
+        },
+        "starting_options": []
+      },
+      {
+        "id": "duration",
+        "name": "Enduring Fury",
+        "description": "Attack duration +4.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 2,
+        "column": 0,
+        "min_level": 6,
+        "spent_required": 6,
+        "requires": {
+          "armor": 1
+        },
+        "effects": {
+          "duration": 0.04
+        },
+        "starting_options": []
+      },
+      {
+        "id": "signature",
+        "name": "Broad Mortal Strike",
+        "description": "Mortal Strike attack area +12%. Per rank.",
+        "max_rank": 1,
+        "tier": 2,
+        "column": 1,
+        "min_level": 6,
+        "spent_required": 6,
+        "requires": {
+          "school": 1
+        },
+        "effects": {
+          "spell:mortal_strike:radius": 0.12
+        },
+        "starting_options": []
+      },
+      {
+        "id": "recovery",
+        "name": "Second Breath",
+        "description": "Recover 0.08 health/second. Per rank.",
+        "max_rank": 3,
+        "tier": 2,
+        "column": 2,
+        "min_level": 6,
+        "spent_required": 6,
+        "requires": {
+          "area": 1
+        },
+        "effects": {
+          "regen": 0.08
+        },
+        "starting_options": []
+      },
+      {
+        "id": "specialist",
+        "name": "War Machine",
+        "description": "Cleave damage +4%. Per rank.",
+        "max_rank": 3,
+        "tier": 3,
+        "column": 0,
+        "min_level": 10,
+        "spent_required": 10,
+        "requires": {
+          "duration": 1
+        },
+        "effects": {
+          "kind:arc": 0.04
+        },
+        "starting_options": []
+      },
+      {
+        "id": "slayer",
+        "name": "Monster Slayer",
+        "description": "Damage to bosses +3.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 3,
+        "column": 1,
+        "min_level": 10,
+        "spent_required": 10,
+        "requires": {
+          "signature": 1
+        },
+        "effects": {
+          "boss_damage": 0.03
+        },
+        "starting_options": []
+      },
+      {
+        "id": "technique",
+        "name": "Heavy Throw",
+        "description": "Heroic Throw additional effects +1. Per rank.",
+        "max_rank": 1,
+        "tier": 3,
+        "column": 2,
+        "min_level": 10,
+        "spent_required": 10,
+        "requires": {
+          "recovery": 1
+        },
+        "effects": {
+          "spell:heroic_throw:count": 1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "preparation",
+        "name": "Battle Preparation",
+        "description": "Unlock one optional extra Rank 1 starting ability. Choose it here between runs; no selection means no extra ability.",
+        "max_rank": 1,
+        "tier": 4,
+        "column": 0,
+        "min_level": 15,
+        "spent_required": 15,
+        "requires": {
+          "specialist": 1
+        },
+        "effects": {},
+        "starting_options": [
+          "thunder_clap",
+          "rend"
+        ]
+      },
+      {
+        "id": "manual",
+        "name": "Veteran Reflexes",
+        "description": "Manual cooldowns -4.0%. Per rank.",
+        "max_rank": 2,
+        "tier": 4,
+        "column": 1,
+        "min_level": 15,
+        "spent_required": 15,
+        "requires": {
+          "slayer": 1
+        },
+        "effects": {
+          "manual_haste": 0.04
+        },
+        "starting_options": []
+      },
+      {
+        "id": "mastery",
+        "name": "Deep Wounds",
+        "description": "Rend duration +15%. Per rank.",
+        "max_rank": 2,
+        "tier": 4,
+        "column": 2,
+        "min_level": 15,
+        "spent_required": 15,
+        "requires": {
+          "technique": 1
+        },
+        "effects": {
+          "spell:rend:duration": 0.15
+        },
+        "starting_options": []
+      },
+      {
+        "id": "capstone",
+        "name": "Titan Strength",
+        "description": "Physical automatic damage +12.0%; Damage while below 35% health +20.0%; Armor +3.0%. Per rank.",
+        "max_rank": 1,
+        "tier": 5,
+        "column": 0,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "preparation": 1
+        },
+        "effects": {
+          "school:physical": 0.12,
+          "low_health_damage": 0.2,
+          "armor": 0.03
+        },
+        "starting_options": []
+      },
+      {
+        "id": "survival",
+        "name": "Unbreakable",
+        "description": "Base maximum health +8.0%; Armor +2.0%. Per rank.",
+        "max_rank": 1,
+        "tier": 5,
+        "column": 1,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "manual": 1
+        },
+        "effects": {
+          "health": 0.08,
+          "armor": 0.02
+        },
+        "starting_options": []
+      },
+      {
+        "id": "offense",
+        "name": "Executioner",
+        "description": "Damage against foes below 35% health +20.0%; Execute attack area +15%. Per rank.",
+        "max_rank": 1,
+        "tier": 5,
+        "column": 2,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "mastery": 1
+        },
+        "effects": {
+          "execute": 0.2,
+          "spell:execute:radius": 0.15
+        },
+        "starting_options": []
+      }
+    ],
+    "mage": [
+      {
+        "id": "might",
+        "name": "Arcane Study",
+        "description": "Automatic damage +2.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 0,
+        "column": 0,
+        "min_level": 1,
+        "spent_required": 0,
+        "requires": {},
+        "effects": {
+          "damage": 0.02
+        },
+        "starting_options": []
+      },
+      {
+        "id": "health",
+        "name": "Mystic Vigor",
+        "description": "Base maximum health +3.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 0,
+        "column": 1,
+        "min_level": 1,
+        "spent_required": 0,
+        "requires": {},
+        "effects": {
+          "health": 0.03
+        },
+        "starting_options": []
+      },
+      {
+        "id": "haste",
+        "name": "Quick Casting",
+        "description": "All cooldowns -1.5%. Per rank.",
+        "max_rank": 3,
+        "tier": 0,
+        "column": 2,
+        "min_level": 1,
+        "spent_required": 0,
+        "requires": {},
+        "effects": {
+          "haste": 0.015
+        },
+        "starting_options": []
+      },
+      {
+        "id": "armor",
+        "name": "Ice Armor",
+        "description": "Armor +1.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 1,
+        "column": 0,
+        "min_level": 3,
+        "spent_required": 3,
+        "requires": {
+          "might": 1
+        },
+        "effects": {
+          "armor": 0.01
+        },
+        "starting_options": []
+      },
+      {
+        "id": "school",
+        "name": "Frost Attunement",
+        "description": "Frost automatic damage +3.5%. Per rank.",
+        "max_rank": 3,
+        "tier": 1,
+        "column": 1,
+        "min_level": 3,
+        "spent_required": 3,
+        "requires": {
+          "health": 1
+        },
+        "effects": {
+          "school:frost": 0.035
+        },
+        "starting_options": []
+      },
+      {
+        "id": "area",
+        "name": "Expansive Magic",
+        "description": "Attack area +2.5%. Per rank.",
+        "max_rank": 3,
+        "tier": 1,
+        "column": 2,
+        "min_level": 3,
+        "spent_required": 3,
+        "requires": {
+          "haste": 1
+        },
+        "effects": {
+          "area": 0.025
+        },
+        "starting_options": []
+      },
+      {
+        "id": "duration",
+        "name": "Lingering Sorcery",
+        "description": "Attack duration +4.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 2,
+        "column": 0,
+        "min_level": 6,
+        "spent_required": 6,
+        "requires": {
+          "armor": 1
+        },
+        "effects": {
+          "duration": 0.04
+        },
+        "starting_options": []
+      },
+      {
+        "id": "signature",
+        "name": "Piercing Frostbolt",
+        "description": "Frostbolt additional pierces +1. Per rank.",
+        "max_rank": 1,
+        "tier": 2,
+        "column": 1,
+        "min_level": 6,
+        "spent_required": 6,
+        "requires": {
+          "school": 1
+        },
+        "effects": {
+          "spell:frostbolt:pierce": 1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "recovery",
+        "name": "Meditation",
+        "description": "Recover 0.08 health/second. Per rank.",
+        "max_rank": 3,
+        "tier": 2,
+        "column": 2,
+        "min_level": 6,
+        "spent_required": 6,
+        "requires": {
+          "area": 1
+        },
+        "effects": {
+          "regen": 0.08
+        },
+        "starting_options": []
+      },
+      {
+        "id": "specialist",
+        "name": "Burning Fields",
+        "description": "Ground attack damage +4%. Per rank.",
+        "max_rank": 3,
+        "tier": 3,
+        "column": 0,
+        "min_level": 10,
+        "spent_required": 10,
+        "requires": {
+          "duration": 1
+        },
+        "effects": {
+          "kind:field": 0.04
+        },
+        "starting_options": []
+      },
+      {
+        "id": "slayer",
+        "name": "Giant Killer",
+        "description": "Damage to bosses +3.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 3,
+        "column": 1,
+        "min_level": 10,
+        "spent_required": 10,
+        "requires": {
+          "signature": 1
+        },
+        "effects": {
+          "boss_damage": 0.03
+        },
+        "starting_options": []
+      },
+      {
+        "id": "technique",
+        "name": "Accelerated Missiles",
+        "description": "Arcane Missiles travel speed +20%. Per rank.",
+        "max_rank": 1,
+        "tier": 3,
+        "column": 2,
+        "min_level": 10,
+        "spent_required": 10,
+        "requires": {
+          "recovery": 1
+        },
+        "effects": {
+          "spell:arcane_missiles:speed": 0.2
+        },
+        "starting_options": []
+      },
+      {
+        "id": "preparation",
+        "name": "Prepared Grimoire",
+        "description": "Unlock one optional extra Rank 1 starting ability. Choose it here between runs; no selection means no extra ability.",
+        "max_rank": 1,
+        "tier": 4,
+        "column": 0,
+        "min_level": 15,
+        "spent_required": 15,
+        "requires": {
+          "specialist": 1
+        },
+        "effects": {},
+        "starting_options": [
+          "fireball",
+          "arcane_missiles"
+        ]
+      },
+      {
+        "id": "manual",
+        "name": "Spellweaving",
+        "description": "Manual cooldowns -4.0%. Per rank.",
+        "max_rank": 2,
+        "tier": 4,
+        "column": 1,
+        "min_level": 15,
+        "spent_required": 15,
+        "requires": {
+          "slayer": 1
+        },
+        "effects": {
+          "manual_haste": 0.04
+        },
+        "starting_options": []
+      },
+      {
+        "id": "mastery",
+        "name": "Lasting Blizzard",
+        "description": "Blizzard duration +15%. Per rank.",
+        "max_rank": 2,
+        "tier": 4,
+        "column": 2,
+        "min_level": 15,
+        "spent_required": 15,
+        "requires": {
+          "technique": 1
+        },
+        "effects": {
+          "spell:blizzard:duration": 0.15
+        },
+        "starting_options": []
+      },
+      {
+        "id": "capstone",
+        "name": "Archmage Convergence",
+        "description": "Fire automatic damage +12.0%; Frost automatic damage +12.0%; Arcane automatic damage +12.0%; Attack area +15.0%. Per rank.",
+        "max_rank": 1,
+        "tier": 5,
+        "column": 0,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "preparation": 1
+        },
+        "effects": {
+          "school:fire": 0.12,
+          "school:frost": 0.12,
+          "school:arcane": 0.12,
+          "area": 0.15
+        },
+        "starting_options": []
+      },
+      {
+        "id": "survival",
+        "name": "Prismatic Ward",
+        "description": "Start with 25 shield for 20 seconds; Healing received +10.0%. Per rank.",
+        "max_rank": 1,
+        "tier": 5,
+        "column": 1,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "manual": 1
+        },
+        "effects": {
+          "starting_shield": 25,
+          "healing": 0.1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "offense",
+        "name": "Frostfire Mastery",
+        "description": "Fire automatic damage +15.0%; Frost automatic damage +15.0%. Per rank.",
+        "max_rank": 1,
+        "tier": 5,
+        "column": 2,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "mastery": 1
+        },
+        "effects": {
+          "school:fire": 0.15,
+          "school:frost": 0.15
+        },
+        "starting_options": []
+      }
+    ],
+    "hunter": [
+      {
+        "id": "might",
+        "name": "Steady Training",
+        "description": "Automatic damage +2.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 0,
+        "column": 0,
+        "min_level": 1,
+        "spent_required": 0,
+        "requires": {},
+        "effects": {
+          "damage": 0.02
+        },
+        "starting_options": []
+      },
+      {
+        "id": "health",
+        "name": "Survivalist",
+        "description": "Base maximum health +3.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 0,
+        "column": 1,
+        "min_level": 1,
+        "spent_required": 0,
+        "requires": {},
+        "effects": {
+          "health": 0.03
+        },
+        "starting_options": []
+      },
+      {
+        "id": "haste",
+        "name": "Quick Draw",
+        "description": "All cooldowns -1.5%. Per rank.",
+        "max_rank": 3,
+        "tier": 0,
+        "column": 2,
+        "min_level": 1,
+        "spent_required": 0,
+        "requires": {},
+        "effects": {
+          "haste": 0.015
+        },
+        "starting_options": []
+      },
+      {
+        "id": "armor",
+        "name": "Reinforced Leathers",
+        "description": "Armor +1.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 1,
+        "column": 0,
+        "min_level": 3,
+        "spent_required": 3,
+        "requires": {
+          "might": 1
+        },
+        "effects": {
+          "armor": 0.01
+        },
+        "starting_options": []
+      },
+      {
+        "id": "school",
+        "name": "Arcane Marksmanship",
+        "description": "Arcane automatic damage +3.5%. Per rank.",
+        "max_rank": 3,
+        "tier": 1,
+        "column": 1,
+        "min_level": 3,
+        "spent_required": 3,
+        "requires": {
+          "health": 1
+        },
+        "effects": {
+          "school:arcane": 0.035
+        },
+        "starting_options": []
+      },
+      {
+        "id": "area",
+        "name": "Wide Volley",
+        "description": "Attack area +2.5%. Per rank.",
+        "max_rank": 3,
+        "tier": 1,
+        "column": 2,
+        "min_level": 3,
+        "spent_required": 3,
+        "requires": {
+          "haste": 1
+        },
+        "effects": {
+          "area": 0.025
+        },
+        "starting_options": []
+      },
+      {
+        "id": "duration",
+        "name": "Lingering Traps",
+        "description": "Attack duration +4.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 2,
+        "column": 0,
+        "min_level": 6,
+        "spent_required": 6,
+        "requires": {
+          "armor": 1
+        },
+        "effects": {
+          "duration": 0.04
+        },
+        "starting_options": []
+      },
+      {
+        "id": "signature",
+        "name": "Twin Arcane Shot",
+        "description": "Arcane Shot additional effects +1. Per rank.",
+        "max_rank": 1,
+        "tier": 2,
+        "column": 1,
+        "min_level": 6,
+        "spent_required": 6,
+        "requires": {
+          "school": 1
+        },
+        "effects": {
+          "spell:arcane_shot:count": 1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "recovery",
+        "name": "Natural Recovery",
+        "description": "Recover 0.08 health/second. Per rank.",
+        "max_rank": 3,
+        "tier": 2,
+        "column": 2,
+        "min_level": 6,
+        "spent_required": 6,
+        "requires": {
+          "area": 1
+        },
+        "effects": {
+          "regen": 0.08
+        },
+        "starting_options": []
+      },
+      {
+        "id": "specialist",
+        "name": "Beast Training",
+        "description": "Companion damage +4%. Per rank.",
+        "max_rank": 3,
+        "tier": 3,
+        "column": 0,
+        "min_level": 10,
+        "spent_required": 10,
+        "requires": {
+          "duration": 1
+        },
+        "effects": {
+          "kind:companion": 0.04
+        },
+        "starting_options": []
+      },
+      {
+        "id": "slayer",
+        "name": "Hogger Tracker",
+        "description": "Damage to bosses +3.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 3,
+        "column": 1,
+        "min_level": 10,
+        "spent_required": 10,
+        "requires": {
+          "signature": 1
+        },
+        "effects": {
+          "boss_damage": 0.03
+        },
+        "starting_options": []
+      },
+      {
+        "id": "technique",
+        "name": "Piercing Aim",
+        "description": "Aimed Shot additional pierces +1. Per rank.",
+        "max_rank": 1,
+        "tier": 3,
+        "column": 2,
+        "min_level": 10,
+        "spent_required": 10,
+        "requires": {
+          "recovery": 1
+        },
+        "effects": {
+          "spell:aimed_shot:pierce": 1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "preparation",
+        "name": "Chosen Companion",
+        "description": "Unlock one optional extra Rank 1 starting ability. Choose it here between runs; no selection means no extra ability.",
+        "max_rank": 1,
+        "tier": 4,
+        "column": 0,
+        "min_level": 15,
+        "spent_required": 15,
+        "requires": {
+          "specialist": 1
+        },
+        "effects": {},
+        "starting_options": [
+          "beast_companion",
+          "serpent_sting"
+        ]
+      },
+      {
+        "id": "manual",
+        "name": "Instinctive Reflexes",
+        "description": "Manual cooldowns -4.0%. Per rank.",
+        "max_rank": 2,
+        "tier": 4,
+        "column": 1,
+        "min_level": 15,
+        "spent_required": 15,
+        "requires": {
+          "slayer": 1
+        },
+        "effects": {
+          "manual_haste": 0.04
+        },
+        "starting_options": []
+      },
+      {
+        "id": "mastery",
+        "name": "Long Hunt",
+        "description": "Serpent Sting duration +15%. Per rank.",
+        "max_rank": 2,
+        "tier": 4,
+        "column": 2,
+        "min_level": 15,
+        "spent_required": 15,
+        "requires": {
+          "technique": 1
+        },
+        "effects": {
+          "spell:serpent_sting:duration": 0.15
+        },
+        "starting_options": []
+      },
+      {
+        "id": "capstone",
+        "name": "Master of the Wild",
+        "description": "Companion damage +30%; +1 effects for volleys, companions, chains and curses; Damage to bosses +15.0%. Per rank.",
+        "max_rank": 1,
+        "tier": 5,
+        "column": 0,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "preparation": 1
+        },
+        "effects": {
+          "kind:companion": 0.3,
+          "count": 1,
+          "boss_damage": 0.15
+        },
+        "starting_options": []
+      },
+      {
+        "id": "survival",
+        "name": "Predator Focus",
+        "description": "Movement speed +5.0%; Damage to bosses +10.0%. Per rank.",
+        "max_rank": 1,
+        "tier": 5,
+        "column": 1,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "manual": 1
+        },
+        "effects": {
+          "speed": 0.05,
+          "boss_damage": 0.1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "offense",
+        "name": "Explosive Arsenal",
+        "description": "Explosive Shot attack area +20%; Charging summon damage +20%. Per rank.",
+        "max_rank": 1,
+        "tier": 5,
+        "column": 2,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "mastery": 1
+        },
+        "effects": {
+          "spell:explosive_shot:radius": 0.2,
+          "kind:charge": 0.2
+        },
+        "starting_options": []
+      }
+    ],
+    "warlock": [
+      {
+        "id": "might",
+        "name": "Forbidden Study",
+        "description": "Automatic damage +2.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 0,
+        "column": 0,
+        "min_level": 1,
+        "spent_required": 0,
+        "requires": {},
+        "effects": {
+          "damage": 0.02
+        },
+        "starting_options": []
+      },
+      {
+        "id": "health",
+        "name": "Dark Vitality",
+        "description": "Base maximum health +3.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 0,
+        "column": 1,
+        "min_level": 1,
+        "spent_required": 0,
+        "requires": {},
+        "effects": {
+          "health": 0.03
+        },
+        "starting_options": []
+      },
+      {
+        "id": "haste",
+        "name": "Rapid Rituals",
+        "description": "All cooldowns -1.5%. Per rank.",
+        "max_rank": 3,
+        "tier": 0,
+        "column": 2,
+        "min_level": 1,
+        "spent_required": 0,
+        "requires": {},
+        "effects": {
+          "haste": 0.015
+        },
+        "starting_options": []
+      },
+      {
+        "id": "armor",
+        "name": "Demon Skin",
+        "description": "Armor +1.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 1,
+        "column": 0,
+        "min_level": 3,
+        "spent_required": 3,
+        "requires": {
+          "might": 1
+        },
+        "effects": {
+          "armor": 0.01
+        },
+        "starting_options": []
+      },
+      {
+        "id": "school",
+        "name": "Shadow Affinity",
+        "description": "Shadow automatic damage +3.5%. Per rank.",
+        "max_rank": 3,
+        "tier": 1,
+        "column": 1,
+        "min_level": 3,
+        "spent_required": 3,
+        "requires": {
+          "health": 1
+        },
+        "effects": {
+          "school:shadow": 0.035
+        },
+        "starting_options": []
+      },
+      {
+        "id": "area",
+        "name": "Spreading Shadows",
+        "description": "Attack area +2.5%. Per rank.",
+        "max_rank": 3,
+        "tier": 1,
+        "column": 2,
+        "min_level": 3,
+        "spent_required": 3,
+        "requires": {
+          "haste": 1
+        },
+        "effects": {
+          "area": 0.025
+        },
+        "starting_options": []
+      },
+      {
+        "id": "duration",
+        "name": "Lingering Curses",
+        "description": "Attack duration +4.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 2,
+        "column": 0,
+        "min_level": 6,
+        "spent_required": 6,
+        "requires": {
+          "armor": 1
+        },
+        "effects": {
+          "duration": 0.04
+        },
+        "starting_options": []
+      },
+      {
+        "id": "signature",
+        "name": "Piercing Shadow Bolt",
+        "description": "Shadow Bolt additional pierces +1. Per rank.",
+        "max_rank": 1,
+        "tier": 2,
+        "column": 1,
+        "min_level": 6,
+        "spent_required": 6,
+        "requires": {
+          "school": 1
+        },
+        "effects": {
+          "spell:shadow_bolt:pierce": 1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "recovery",
+        "name": "Siphoned Recovery",
+        "description": "Recover 0.08 health/second. Per rank.",
+        "max_rank": 3,
+        "tier": 2,
+        "column": 2,
+        "min_level": 6,
+        "spent_required": 6,
+        "requires": {
+          "area": 1
+        },
+        "effects": {
+          "regen": 0.08
+        },
+        "starting_options": []
+      },
+      {
+        "id": "specialist",
+        "name": "Demonic Command",
+        "description": "Companion damage +4%. Per rank.",
+        "max_rank": 3,
+        "tier": 3,
+        "column": 0,
+        "min_level": 10,
+        "spent_required": 10,
+        "requires": {
+          "duration": 1
+        },
+        "effects": {
+          "kind:companion": 0.04
+        },
+        "starting_options": []
+      },
+      {
+        "id": "slayer",
+        "name": "Boss Hex",
+        "description": "Damage to bosses +3.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 3,
+        "column": 1,
+        "min_level": 10,
+        "spent_required": 10,
+        "requires": {
+          "signature": 1
+        },
+        "effects": {
+          "boss_damage": 0.03
+        },
+        "starting_options": []
+      },
+      {
+        "id": "technique",
+        "name": "Intense Corruption",
+        "description": "Corruption damage +12%. Per rank.",
+        "max_rank": 1,
+        "tier": 3,
+        "column": 2,
+        "min_level": 10,
+        "spent_required": 10,
+        "requires": {
+          "recovery": 1
+        },
+        "effects": {
+          "spell:corruption:damage": 0.12
+        },
+        "starting_options": []
+      },
+      {
+        "id": "preparation",
+        "name": "Pact Preparation",
+        "description": "Unlock one optional extra Rank 1 starting ability. Choose it here between runs; no selection means no extra ability.",
+        "max_rank": 1,
+        "tier": 4,
+        "column": 0,
+        "min_level": 15,
+        "spent_required": 15,
+        "requires": {
+          "specialist": 1
+        },
+        "effects": {},
+        "starting_options": [
+          "summon_felguard",
+          "corruption"
+        ]
+      },
+      {
+        "id": "manual",
+        "name": "Dark Focus",
+        "description": "Manual cooldowns -4.0%. Per rank.",
+        "max_rank": 2,
+        "tier": 4,
+        "column": 1,
+        "min_level": 15,
+        "spent_required": 15,
+        "requires": {
+          "slayer": 1
+        },
+        "effects": {
+          "manual_haste": 0.04
+        },
+        "starting_options": []
+      },
+      {
+        "id": "mastery",
+        "name": "Lasting Fire",
+        "description": "Immolate duration +15%. Per rank.",
+        "max_rank": 2,
+        "tier": 4,
+        "column": 2,
+        "min_level": 15,
+        "spent_required": 15,
+        "requires": {
+          "technique": 1
+        },
+        "effects": {
+          "spell:immolate:duration": 0.15
+        },
+        "starting_options": []
+      },
+      {
+        "id": "capstone",
+        "name": "Lord of Dread",
+        "description": "Damage over time damage +25%; Companion damage +20%; Attack duration +10.0%. Per rank.",
+        "max_rank": 1,
+        "tier": 5,
+        "column": 0,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "preparation": 1
+        },
+        "effects": {
+          "kind:dot": 0.25,
+          "kind:companion": 0.2,
+          "duration": 0.1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "survival",
+        "name": "Soul Harvest",
+        "description": "Restore 0.4 health per kill. Per rank.",
+        "max_rank": 1,
+        "tier": 5,
+        "column": 1,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "manual": 1
+        },
+        "effects": {
+          "kill_heal": 0.4
+        },
+        "starting_options": []
+      },
+      {
+        "id": "offense",
+        "name": "Chaotic Dominion",
+        "description": "Chaos Bolt damage +20%; Chaos Bolt additional pierces +1. Per rank.",
+        "max_rank": 1,
+        "tier": 5,
+        "column": 2,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "mastery": 1
+        },
+        "effects": {
+          "spell:chaos_bolt:damage": 0.2,
+          "spell:chaos_bolt:pierce": 1
+        },
+        "starting_options": []
+      }
+    ],
+    "priest": [
+      {
+        "id": "might",
+        "name": "Devout Study",
+        "description": "Automatic damage +2.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 0,
+        "column": 0,
+        "min_level": 1,
+        "spent_required": 0,
+        "requires": {},
+        "effects": {
+          "damage": 0.02
+        },
+        "starting_options": []
+      },
+      {
+        "id": "health",
+        "name": "Inner Vitality",
+        "description": "Base maximum health +3.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 0,
+        "column": 1,
+        "min_level": 1,
+        "spent_required": 0,
+        "requires": {},
+        "effects": {
+          "health": 0.03
+        },
+        "starting_options": []
+      },
+      {
+        "id": "haste",
+        "name": "Swift Prayers",
+        "description": "All cooldowns -1.5%. Per rank.",
+        "max_rank": 3,
+        "tier": 0,
+        "column": 2,
+        "min_level": 1,
+        "spent_required": 0,
+        "requires": {},
+        "effects": {
+          "haste": 0.015
+        },
+        "starting_options": []
+      },
+      {
+        "id": "armor",
+        "name": "Inner Armor",
+        "description": "Armor +1.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 1,
+        "column": 0,
+        "min_level": 3,
+        "spent_required": 3,
+        "requires": {
+          "might": 1
+        },
+        "effects": {
+          "armor": 0.01
+        },
+        "starting_options": []
+      },
+      {
+        "id": "school",
+        "name": "Holy Affinity",
+        "description": "Holy automatic damage +3.5%. Per rank.",
+        "max_rank": 3,
+        "tier": 1,
+        "column": 1,
+        "min_level": 3,
+        "spent_required": 3,
+        "requires": {
+          "health": 1
+        },
+        "effects": {
+          "school:holy": 0.035
+        },
+        "starting_options": []
+      },
+      {
+        "id": "area",
+        "name": "Radiant Reach",
+        "description": "Attack area +2.5%. Per rank.",
+        "max_rank": 3,
+        "tier": 1,
+        "column": 2,
+        "min_level": 3,
+        "spent_required": 3,
+        "requires": {
+          "haste": 1
+        },
+        "effects": {
+          "area": 0.025
+        },
+        "starting_options": []
+      },
+      {
+        "id": "duration",
+        "name": "Lasting Words",
+        "description": "Attack duration +4.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 2,
+        "column": 0,
+        "min_level": 6,
+        "spent_required": 6,
+        "requires": {
+          "armor": 1
+        },
+        "effects": {
+          "duration": 0.04
+        },
+        "starting_options": []
+      },
+      {
+        "id": "signature",
+        "name": "Piercing Smite",
+        "description": "Smite additional pierces +1. Per rank.",
+        "max_rank": 1,
+        "tier": 2,
+        "column": 1,
+        "min_level": 6,
+        "spent_required": 6,
+        "requires": {
+          "school": 1
+        },
+        "effects": {
+          "spell:smite:pierce": 1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "recovery",
+        "name": "Quiet Recovery",
+        "description": "Recover 0.08 health/second. Per rank.",
+        "max_rank": 3,
+        "tier": 2,
+        "column": 2,
+        "min_level": 6,
+        "spent_required": 6,
+        "requires": {
+          "area": 1
+        },
+        "effects": {
+          "regen": 0.08
+        },
+        "starting_options": []
+      },
+      {
+        "id": "specialist",
+        "name": "Persistent Agony",
+        "description": "Damage over time damage +4%. Per rank.",
+        "max_rank": 3,
+        "tier": 3,
+        "column": 0,
+        "min_level": 10,
+        "spent_required": 10,
+        "requires": {
+          "duration": 1
+        },
+        "effects": {
+          "kind:dot": 0.04
+        },
+        "starting_options": []
+      },
+      {
+        "id": "slayer",
+        "name": "Exorcist",
+        "description": "Damage to bosses +3.0%. Per rank.",
+        "max_rank": 3,
+        "tier": 3,
+        "column": 1,
+        "min_level": 10,
+        "spent_required": 10,
+        "requires": {
+          "signature": 1
+        },
+        "effects": {
+          "boss_damage": 0.03
+        },
+        "starting_options": []
+      },
+      {
+        "id": "technique",
+        "name": "Empowered Penance",
+        "description": "Penance additional effects +1. Per rank.",
+        "max_rank": 1,
+        "tier": 3,
+        "column": 2,
+        "min_level": 10,
+        "spent_required": 10,
+        "requires": {
+          "recovery": 1
+        },
+        "effects": {
+          "spell:penance:count": 1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "preparation",
+        "name": "Prepared Liturgy",
+        "description": "Unlock one optional extra Rank 1 starting ability. Choose it here between runs; no selection means no extra ability.",
+        "max_rank": 1,
+        "tier": 4,
+        "column": 0,
+        "min_level": 15,
+        "spent_required": 15,
+        "requires": {
+          "specialist": 1
+        },
+        "effects": {},
+        "starting_options": [
+          "holy_fire",
+          "shadow_word_pain"
+        ]
+      },
+      {
+        "id": "manual",
+        "name": "Prayer Discipline",
+        "description": "Manual cooldowns -4.0%. Per rank.",
+        "max_rank": 2,
+        "tier": 4,
+        "column": 1,
+        "min_level": 15,
+        "spent_required": 15,
+        "requires": {
+          "slayer": 1
+        },
+        "effects": {
+          "manual_haste": 0.04
+        },
+        "starting_options": []
+      },
+      {
+        "id": "mastery",
+        "name": "Wide Holy Nova",
+        "description": "Holy Nova attack area +15%. Per rank.",
+        "max_rank": 2,
+        "tier": 4,
+        "column": 2,
+        "min_level": 15,
+        "spent_required": 15,
+        "requires": {
+          "technique": 1
+        },
+        "effects": {
+          "spell:holy_nova:radius": 0.15
+        },
+        "starting_options": []
+      },
+      {
+        "id": "capstone",
+        "name": "Divine Ascendance",
+        "description": "Holy automatic damage +15.0%; Gain 0.5 shield per kill, capped at 25% health; Healing received +20.0%. Per rank.",
+        "max_rank": 1,
+        "tier": 5,
+        "column": 0,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "preparation": 1
+        },
+        "effects": {
+          "school:holy": 0.15,
+          "kill_shield": 0.5,
+          "healing": 0.2
+        },
+        "starting_options": []
+      },
+      {
+        "id": "survival",
+        "name": "Aegis of Light",
+        "description": "Start with 30 shield for 20 seconds; Armor +2.0%. Per rank.",
+        "max_rank": 1,
+        "tier": 5,
+        "column": 1,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "manual": 1
+        },
+        "effects": {
+          "starting_shield": 30,
+          "armor": 0.02
+        },
+        "starting_options": []
+      },
+      {
+        "id": "offense",
+        "name": "Shadow Revelation",
+        "description": "Shadow automatic damage +20.0%; Mind Sear attack area +20%. Per rank.",
+        "max_rank": 1,
+        "tier": 5,
+        "column": 2,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "mastery": 1
+        },
+        "effects": {
+          "school:shadow": 0.2,
+          "spell:mind_sear:radius": 0.2
+        },
+        "starting_options": []
+      }
+    ]
+  },
+  "shared": [
+    {
+      "id": "health",
+      "name": "Endurance",
+      "description": "Maximum health +3% per rank",
+      "max_rank": 5,
+      "costs": [
+        65,
+        130,
+        195,
+        260,
+        325
+      ],
+      "requires_ranks": 0,
+      "effects": {
+        "health": 0.03
+      }
+    },
+    {
+      "id": "might",
+      "name": "Training",
+      "description": "All automatic damage +2% per rank",
+      "max_rank": 5,
+      "costs": [
+        80,
+        160,
+        240,
+        320,
+        400
+      ],
+      "requires_ranks": 0,
+      "effects": {
+        "damage": 0.02
+      }
+    },
+    {
+      "id": "armor",
+      "name": "Reinforcement",
+      "description": "Armor +1 percentage point per rank",
+      "max_rank": 5,
+      "costs": [
+        90,
+        180,
+        270,
+        360,
+        450
+      ],
+      "requires_ranks": 0,
+      "effects": {
+        "armor": 0.01
+      }
+    },
+    {
+      "id": "movement",
+      "name": "Trailcraft",
+      "description": "Movement speed +2% per rank",
+      "max_rank": 5,
+      "costs": [
+        75,
+        150,
+        225,
+        300,
+        375
+      ],
+      "requires_ranks": 0,
+      "effects": {
+        "speed": 0.02
+      }
+    },
+    {
+      "id": "magnet",
+      "name": "Gathering",
+      "description": "Pickup range +12 units per rank",
+      "max_rank": 5,
+      "costs": [
+        55,
+        110,
+        165,
+        220,
+        275
+      ],
+      "requires_ranks": 0,
+      "effects": {
+        "pickup": 12
+      }
+    },
+    {
+      "id": "xp",
+      "name": "Insight",
+      "description": "Run gem XP +4% per rank",
+      "max_rank": 5,
+      "costs": [
+        100,
+        200,
+        300,
+        400,
+        500
+      ],
+      "requires_ranks": 0,
+      "effects": {
+        "xp": 0.04
+      }
+    },
+    {
+      "id": "greed",
+      "name": "Prosperity",
+      "description": "Run gold rewards +4% per rank; achievement gold unchanged",
+      "max_rank": 5,
+      "costs": [
+        110,
+        220,
+        330,
+        440,
+        550
+      ],
+      "requires_ranks": 0,
+      "effects": {
+        "gold": 0.04
+      }
+    },
+    {
+      "id": "regen",
+      "name": "Recovery",
+      "description": "Regenerate 0.1 health/sec per rank",
+      "max_rank": 5,
+      "costs": [
+        90,
+        180,
+        270,
+        360,
+        450
+      ],
+      "requires_ranks": 0,
+      "effects": {
+        "regen": 0.1
+      }
+    },
+    {
+      "id": "rerolls",
+      "name": "Second Thoughts",
+      "description": "One additional card reroll each run per rank (R / X)",
+      "max_rank": 3,
+      "costs": [
+        180,
+        360,
+        540
+      ],
+      "requires_ranks": 0,
+      "effects": {
+        "rerolls": 1
+      }
+    },
+    {
+      "id": "choices",
+      "name": "Wisdom",
+      "description": "Permanent fourth level-up card; requires eight shared ranks",
+      "max_rank": 1,
+      "costs": [
+        450
+      ],
+      "requires_ranks": 8,
+      "effects": {
+        "choices": 1
+      }
+    }
+  ],
+  "achievements": [
+    {
+      "id": "first_blood",
+      "name": "First Blood",
+      "metric": "kills",
+      "target": 1,
+      "gold": 20,
+      "description": "Kills: 1",
+      "class_id": ""
+    },
+    {
+      "id": "centurion",
+      "name": "Centurion",
+      "metric": "run_kills",
+      "target": 100,
+      "gold": 50,
+      "description": "Run Kills: 100",
+      "class_id": ""
+    },
+    {
+      "id": "survivor",
+      "name": "Survivor",
+      "metric": "best_time",
+      "target": 300,
+      "gold": 75,
+      "description": "Best Time: 300",
+      "class_id": ""
+    },
+    {
+      "id": "elite",
+      "name": "Elite Hunter",
+      "metric": "elites",
+      "target": 1,
+      "gold": 80,
+      "description": "Elites: 1",
+      "class_id": ""
+    },
+    {
+      "id": "evolution",
+      "name": "Ascension",
+      "metric": "evolved",
+      "target": 1,
+      "gold": 100,
+      "description": "Evolved: 1",
+      "class_id": ""
+    },
+    {
+      "id": "victory",
+      "name": "Defender of Elwynn",
+      "metric": "hogger",
+      "target": 1,
+      "gold": 300,
+      "description": "Hogger: 1",
+      "class_id": ""
+    },
+    {
+      "id": "kills_500",
+      "name": "Forest Defender",
+      "metric": "kills",
+      "target": 500,
+      "gold": 100,
+      "description": "Kills: 500",
+      "class_id": ""
+    },
+    {
+      "id": "kills_5000",
+      "name": "Horde Breaker",
+      "metric": "kills",
+      "target": 5000,
+      "gold": 300,
+      "description": "Kills: 5000",
+      "class_id": ""
+    },
+    {
+      "id": "kills_25000",
+      "name": "Legend of Elwynn",
+      "metric": "kills",
+      "target": 25000,
+      "gold": 700,
+      "description": "Kills: 25000",
+      "class_id": ""
+    },
+    {
+      "id": "elites_10",
+      "name": "Champion Hunter",
+      "metric": "elites",
+      "target": 10,
+      "gold": 200,
+      "description": "Elites: 10",
+      "class_id": ""
+    },
+    {
+      "id": "elites_25",
+      "name": "Elite Vanguard",
+      "metric": "elites",
+      "target": 25,
+      "gold": 400,
+      "description": "Elites: 25",
+      "class_id": ""
+    },
+    {
+      "id": "survive_10",
+      "name": "Tenacious",
+      "metric": "best_time",
+      "target": 600,
+      "gold": 60,
+      "description": "Best Time: 600",
+      "class_id": ""
+    },
+    {
+      "id": "survive_20",
+      "name": "Unyielding",
+      "metric": "best_time",
+      "target": 1200,
+      "gold": 100,
+      "description": "Best Time: 1200",
+      "class_id": ""
+    },
+    {
+      "id": "survive_30",
+      "name": "Last Stand",
+      "metric": "best_time",
+      "target": 1800,
+      "gold": 150,
+      "description": "Best Time: 1800",
+      "class_id": ""
+    },
+    {
+      "id": "hogger_5",
+      "name": "Gnoll Nemesis",
+      "metric": "hogger",
+      "target": 5,
+      "gold": 600,
+      "description": "Hogger: 5",
+      "class_id": ""
+    },
+    {
+      "id": "evolve_10",
+      "name": "Master of Evolution",
+      "metric": "evolved",
+      "target": 10,
+      "gold": 300,
+      "description": "Evolved: 10",
+      "class_id": ""
+    },
+    {
+      "id": "level_5",
+      "name": "Apprentice Champion",
+      "metric": "class_level",
+      "target": 5,
+      "gold": 150,
+      "description": "Class Level: 5",
+      "class_id": ""
+    },
+    {
+      "id": "level_15",
+      "name": "Seasoned Champion",
+      "metric": "class_level",
+      "target": 15,
+      "gold": 300,
+      "description": "Class Level: 15",
+      "class_id": ""
+    },
+    {
+      "id": "level_30",
+      "name": "Veteran Champion",
+      "metric": "class_level",
+      "target": 30,
+      "gold": 600,
+      "description": "Class Level: 30",
+      "class_id": ""
+    },
+    {
+      "id": "wins_2",
+      "name": "Versatile Champion",
+      "metric": "winning_classes",
+      "target": 2,
+      "gold": 300,
+      "description": "Winning Classes: 2",
+      "class_id": ""
+    },
+    {
+      "id": "unlock_rogue",
+      "name": "Three Roads to Victory",
+      "metric": "winning_classes",
+      "target": 3,
+      "gold": 400,
+      "description": "Winning Classes: 3",
+      "class_id": ""
+    },
+    {
+      "id": "unlock_druid",
+      "name": "Keeper of Elwynn",
+      "metric": "evolved",
+      "target": 25,
+      "gold": 500,
+      "description": "Evolved: 25",
+      "class_id": ""
+    },
+    {
+      "id": "unlock_shaman",
+      "name": "Voice of the Forest",
+      "metric": "elites",
+      "target": 50,
+      "gold": 500,
+      "description": "Elites: 50",
+      "class_id": ""
+    },
+    {
+      "id": "level_paladin",
+      "name": "Paladin Adept",
+      "metric": "class_level",
+      "target": 10,
+      "gold": 200,
+      "description": "Class Level: 10",
+      "class_id": "paladin"
+    },
+    {
+      "id": "level_warrior",
+      "name": "Warrior Adept",
+      "metric": "class_level",
+      "target": 10,
+      "gold": 200,
+      "description": "Class Level: 10",
+      "class_id": "warrior"
+    },
+    {
+      "id": "level_mage",
+      "name": "Mage Adept",
+      "metric": "class_level",
+      "target": 10,
+      "gold": 200,
+      "description": "Class Level: 10",
+      "class_id": "mage"
+    },
+    {
+      "id": "level_hunter",
+      "name": "Hunter Adept",
+      "metric": "class_level",
+      "target": 10,
+      "gold": 200,
+      "description": "Class Level: 10",
+      "class_id": "hunter"
+    },
+    {
+      "id": "level_warlock",
+      "name": "Warlock Adept",
+      "metric": "class_level",
+      "target": 10,
+      "gold": 200,
+      "description": "Class Level: 10",
+      "class_id": "warlock"
+    },
+    {
+      "id": "level_priest",
+      "name": "Priest Adept",
+      "metric": "class_level",
+      "target": 10,
+      "gold": 200,
+      "description": "Class Level: 10",
+      "class_id": "priest"
+    },
+    {
+      "id": "boss_stitches",
+      "name": "Terror of Darkshire",
+      "metric": "boss:stitches",
+      "target": 1,
+      "gold": 250,
+      "description": "Defeat Stitches in a complete run",
+      "class_id": ""
+    },
+    {
+      "id": "boss_bangalash",
+      "name": "King of the Jungle",
+      "metric": "boss:bangalash",
+      "target": 1,
+      "gold": 250,
+      "description": "Defeat Bangalash in a complete run",
+      "class_id": ""
+    },
+    {
+      "id": "boss_rivendare",
+      "name": "Scourgebreaker",
+      "metric": "boss:rivendare",
+      "target": 1,
+      "gold": 250,
+      "description": "Defeat Rivendare in a complete run",
+      "class_id": ""
+    },
+    {
+      "id": "boss_lich_king",
+      "name": "Frozen Throne",
+      "metric": "boss:lich_king",
+      "target": 1,
+      "gold": 250,
+      "description": "Defeat Lich King in a complete run",
+      "class_id": ""
+    }
+  ],
+  "classes": [
+    {
+      "id": "paladin",
+      "name": "Paladin",
+      "playable": true,
+      "achievement": "",
+      "description": "Initially unlocked"
+    },
+    {
+      "id": "warrior",
+      "name": "Warrior",
+      "playable": true,
+      "achievement": "",
+      "description": "Initially unlocked"
+    },
+    {
+      "id": "mage",
+      "name": "Mage",
+      "playable": true,
+      "achievement": "",
+      "description": "Initially unlocked"
+    },
+    {
+      "id": "hunter",
+      "name": "Hunter",
+      "playable": true,
+      "achievement": "",
+      "description": "Initially unlocked"
+    },
+    {
+      "id": "warlock",
+      "name": "Warlock",
+      "playable": true,
+      "achievement": "",
+      "description": "Initially unlocked"
+    },
+    {
+      "id": "priest",
+      "name": "Priest",
+      "playable": true,
+      "achievement": "",
+      "description": "Initially unlocked"
+    },
+    {
+      "id": "rogue",
+      "name": "Rogue",
+      "playable": false,
+      "achievement": "unlock_rogue",
+      "description": "Win with three different classes"
+    },
+    {
+      "id": "druid",
+      "name": "Druid",
+      "playable": false,
+      "achievement": "unlock_druid",
+      "description": "Evolve 25 spells across runs"
+    },
+    {
+      "id": "shaman",
+      "name": "Shaman",
+      "playable": false,
+      "achievement": "unlock_shaman",
+      "description": "Defeat 50 elites across runs"
+    }
+  ],
+  "zones": [
+    "elwynn",
+    "duskwood",
+    "stranglethorn",
+    "plaguelands",
+    "icecrown"
+  ]
+}

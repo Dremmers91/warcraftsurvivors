@@ -1,0 +1,59 @@
+# Milestone-five architecture
+
+Content contracts and explicit JSON definitions are separate from mutable run state. The frontend sends input to simulation; rendering observes it without consuming the gameplay RNG or modifying damage/collision state.
+
+| Module | Responsibility |
+|---|---|
+| `content.py`, `data/content.json` | Typed and validated six-class / 60-spell / 18-manual / 12-passive catalog; eight explicit ranks; evolved definitions |
+| `entities.py` | Run-only spell/manual state, shields/buffs, enemy statuses, projectiles, fields and owner-bound companions |
+| `combat.py` | Eleven shared strategies: projectile, disk, arc, field, wave, chain, DoT, orbit, permanent companion, temporary charger and beam; damage/targeting/collision |
+| `manuals.py` | Input-independent manual activation, destination resolution, circle sequence and timed player effects |
+| `upgrades.py` | Slot/rank/manual/branch eligibility, weighted sampling without replacement, stale-card revalidation and chest evolution requirements |
+| `simulation.py` | Fixed-step orchestration, pickups, queued levels/chests, campaign outcome, reward counters and evolution cleanup |
+| `movement.py`, `world.py`, `camera.py` | Normalized input math, finite world, spatial hash, swept body collision, steering/separation and smooth camera |
+| `waves.py`, `spawning.py`, `data/encounters.json` | Validated 30-minute schedule, weighted catalog/restrictions, scaling, staggered reinforcements, idempotent elite/boss triggers and 6,000 regular-enemy ceiling |
+| `enemy_combat.py` | Chase/flank/ranged/charge steering, movement distance LOD, bounded local separation, telegraphed arc/circle/charge/leap/ring/missile attacks |
+| `rewards.py` | Pure class XP/gold/achievement calculation independent of run XP; success validation and failure retention |
+| `app.py` | Six-class selection, device events, manual input, frame accumulator, paused choices, menus and death/victory/abandon results and idempotent selected-class saving |
+| `asset_manager.py` | Preloaded atlases, cached projectile/directional rotations, shared equal-size rank frames, bounded 64 MiB effect scaling cache, fallbacks |
+| `presentation.py`, `rendering.py` | Read-only animation/feedback, quality-bounded cosmetic particles, field/status/summon visuals, hero readability and HUD |
+| `meta.py`, `data/progression.json` | Typed talent/shared/achievement/unlock catalog, eligibility and detached per-run bonus snapshots |
+| `progression_ui.py` | Between-run class trees, shop, achievement progress, unlocks, selected starters and confirmation dialogs |
+| `persistence.py` | Version 2 schema, derived levels/points, migration/recovery, transactional purchases, counters and one-time rewards |
+| `debug.py` | Source opt-in and two release/frozen gates |
+
+The simulation advances at 1/60 second. Debug acceleration adds fixed steps. Pause and cards freeze player movement, enemies, DoTs, fields, summons, manual cooldowns, temporary buffs and the timer. The camera remains bounded and mouse world coordinates use its actual smoothed position and window letterboxing.
+
+Enemy queries use spatial cells. Swept projectiles and chargers query the segment's enclosing region, then test exact distance to the segment. Piercing/bouncing/returning projectiles track hit IDs. Orbiters reset hits on their pulse interval. Disk/arc/field/wave/chain/pet queries only visit nearby enemies. Homing projectiles retain a live target and refresh spatial acquisition every 150 ms; the retained target's moving position is followed every tick. Per-active-spell stats are cached only during one combat update, so changed equipment takes effect on the next tick.
+
+Status snapshots retain their ability school and owner credit. DoTs tick every second and refresh without stacking duplicate copies of the same spell. Fresh/expiring targets receive priority. Rank 5 and designated evolutions spread on death/expiry; secondary copies deal 75% damage for three seconds without recursively spreading. A death-seed burst uses the same spatial damage dispatcher. Slow/fear modify chase behavior.
+
+Permanent pets do not inherit Enemy, have no health, and never enter the enemy grid. They share the player's upgrades, target nearby enemies, move inside a 320-unit leash, attack autonomously and return to their owner. Temporary summons use the same owner contract but have a duration and swept charging motion, with a 900-unit leash. Upgrades can add companions without creating another equipment slot.
+
+Evolution eligibility is a pure rank/passive calculation. It enters the choice pool only with chest context. Selection replaces the original key with the evolved definition, preserves the slot/rank/branch, resets the cooldown and clears original projectiles, fields and companions. Existing DoT snapshots can finish. Chest decisions and excess-XP decisions queue separately. The original ability cannot reappear in regular rewards.
+
+All normal damage uses the named school with flat damage; enemy school resistances are not implemented. Armor and timed guard combine subject to 75% mitigation. Shields absorb post-mitigation damage. Immunity is separate from the preserved 0.65-second hit window. Regeneration and temporary-health expiry are handled in live simulation time.
+
+Artwork is bundled, original and loaded once. No runtime image downloads, generation or atlas decoding occur. Friendly and hostile projectile rotations are cached during asset loading. Large field surfaces are scaled lazily and cached within a byte budget. Field opacity and the hero's final draw layer preserve readability without changing damage. The gallery supports paginated actors and all ability/evolution/manual effects. See `ASSET_PIPELINE.md` and the milestone report for limitations.
+
+The campaign timer caps at 1,800 seconds; `boss_time` tracks live encounter time, and `elapsed` drives animation, damage effects and results. Victory requires a dead final boss, a living player and reaching 30 minutes. Death is checked before regeneration and immediately after hostile damage, so automatic healing cannot reverse lethal damage. Finishing freezes simulation and queued choices. Existing elites/hordes are retained during the encounter; only a modest weak-enemy reinforcement rate continues. Boss selection comes from a data pool; initial content selects Hogger.
+
+Each hostile attack owns a locked direction/position, warning countdown, duration and one-hit marker. The owner roots during a tell; contact damage is suppressed while busy. Charge and missiles use swept segment collision, and shockwaves expand over time. Dead/fearful owners cancel pending warnings. Bosses resist slow/knockback and ignore fear; elites partly resist control. Near bodies update at 60 Hz, medium distance at 30 Hz and distant bodies at 10 Hz, always moving through finite-world collision. Grid insertion keeps newly spawned actors targetable immediately; rendering queries visible cells.
+
+Kills bank per-catalog class XP independently of XP gems. Gems store live birth time, merge in spatial buckets and drift after 45 seconds. Elite chest choices guarantee at least one evolution when eligible, without bypassing rank/passive requirements. Reward calculations receive actual kill metadata, avoiding duplicate elite gold. `App.end_run` writes once; debug-modified runs are excluded. Existing V1 saves migrate to V2 without losing earned XP/gold. Bounded headless `--encounter-smoke` requires `--smoke-test`, uses a private profile and marks its run modified. It cannot enable developer controls.
+
+Permanent content is independent of UI and filesystem code. `SaveStore.loadout` validates the profile and sums purchased effects into a new `RunLoadout`/`MetaBonuses`; `Simulation` snapshots it at start. Health, armor, speed, starter eligibility and reroll charges initialize once. Shared/spell/school/behavior modifiers enter `spell_stats`, including evolved base IDs. Boss/execute multipliers enter actual hit and DoT paths. Recovery runs on live fixed steps; kill-heal/shield rewards cannot revive a dead player or reduce an existing larger shield. Gem XP/pickup bonuses affect actual collection; permanent class XP stays independent. Gold bonuses apply once in settlement, excluding achievement rewards.
+
+Normal card count is 3 or 4 from the run snapshot. Chests always retain three cards and guaranteed eligible evolution logic. Rerolls preserve pause, consume one charge only when a changed set is produced, and cannot operate on chest choices. Fourth-card selection and controller X use the same simulation APIs as keyboard/mouse actions.
+
+Purchase eligibility checks IDs, caps, prerequisites, point budget and gold at both review and commit. The UI prohibits live-run progression edits; cancel is focused initially. Atomic write failure restores the pre-purchase snapshot. XP-derived levels/point budgets and registry-derived unlocks are rebuilt during validation. Achievement counters and per-class/per-boss wins are stored separately from completed IDs so future conditions can be added. Hogger-specific achievements do not trigger on a future different final boss. Results remain idempotent, and corrupt/newer profile handling never overwrites a known-good backup with invalid data. `SAVE_FORMAT.md` specifies recovery ordering and limitations.
+
+## Milestone 5 extension
+
+`ZoneDef`/`LandmarkDef` and `data/zones.json` define five independent themed maps, normal/elite pools, 30-minute schedules, final-boss pools, original art and music. `Content.waves`/`boss_pool` retain Elwynn-compatible defaults; additional directors select zone schedules. The simulation owns its immutable zone definition. Every spawn and post-boss reinforcement respects that zone; changing zones never deletes surviving enemies mid-run. Map chunk cache keys include zone and seed. Decorative bridge landmarks are traversable; building landmarks have explicit larger collision radii used by swept resolution.
+
+Hostile attack data now supports pulsing/growing ground hazards, hook pulls, frost slows, armor penetration and health-scaled damage. Controls apply only when a hit passes normal damage immunity. Warnings stay locked and visible at every effect quality. Automatic healing uses actual dealt damage, rather than overkill, and shares a replenishing 4%-max-health/second budget (healing talents modify it). Boss wounds temporarily reduce life steal; manual healing/defenses remain separate.
+
+Profile-led improvements: numeric spatial bounds avoid temporary vectors; static obstacle resolution exits early when no overlap is found. Cached/staggered local steering refreshes about every 75–123 ms while pursuit direction, body collision, contact damage and attack timers retain their fixed-step paths. Ordinary movement uses 60 Hz within 220 units, 30 Hz within 650 and 10 Hz farther away; elites/bosses retain 60 Hz. Movement accumulates elapsed fixed time and uses swept substeps. Every damage, projectile, DoT and area query retains its normal exact collision checks; the 6,000 regular-enemy ceiling is preserved. Actor-view objects are reused. Particle pooling, batch blits, bounded caches and chunk reuse remain in place. Cosmetic density changes only optional sparks, damage text and death frames.
+
+`audio.py` preloads 21 original cues and streams one of five original WAV loop tracks. Separate gains and bounded sound scheduling avoid cast spam; mixer/file failures leave a silent functional game. `launch.py` logs to external user data, rotates logs and reports fatal release errors with an actionable path. Source/private QA isolates saves and logs. PyInstaller onedir/optional onefile resource paths use module `__file__`; no cwd assumptions or runtime generation are required.

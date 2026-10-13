@@ -1,0 +1,34 @@
+{
+  "method": "Original offline synthesis; authored melodies, chords and instruments",
+  "sample_rate": 22050,
+  "tracks": [
+    "music_elwynn.wav",
+    "music_duskwood.wav",
+    "music_stranglethorn.wav",
+    "music_plaguelands.wav",
+    "music_icecrown.wav"
+  ],
+  "cues": [
+    "cast_holy.wav",
+    "cast_frost.wav",
+    "cast_arcane.wav",
+    "cast_fire.wav",
+    "cast_shadow.wav",
+    "cast_physical.wav",
+    "cast_nature.wav",
+    "cast.wav",
+    "hit.wav",
+    "hurt.wav",
+    "death.wav",
+    "elite.wav",
+    "boss.wav",
+    "level.wav",
+    "evolution.wav",
+    "upgrade.wav",
+    "pickup.wav",
+    "menu.wav",
+    "victory.wav",
+    "chest.wav",
+    "enemy_death.wav"
+  ]
+}
