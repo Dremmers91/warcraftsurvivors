@@ -65,6 +65,18 @@ class Mechanics:
     death_burst: bool = False
     stationary: bool = False
     shield: float = 0
+    leash: float = 320
+    ranged: bool = False
+    attack_range: float = 240
+    range_per_rank: float = 10
+    movement_speed: float = 270
+    extra_pets: int = 0
+    volley_rank: int = 99
+    volley_count: int = 1
+    splash_rank: int = 1
+    dot_rank: int = 1
+    leap_rank: int = 99
+    leap_distance: float = 100
 
 
 @dataclass(frozen=True)
@@ -319,6 +331,24 @@ def load_content() -> Content:
             for r in ability.ranks
         ):
             raise ValueError(f"Invalid spell ranks: {ability.id}")
+        for mechanics in (ability.mechanics, evo.mechanics if evo else ability.mechanics):
+            if (
+                mechanics.leash <= 0
+                or mechanics.movement_speed <= 0
+                or mechanics.attack_range <= 0
+                or mechanics.range_per_rank < 0
+                or mechanics.extra_pets < 0
+                or mechanics.volley_count < 1
+                or min(
+                    mechanics.volley_rank,
+                    mechanics.splash_rank,
+                    mechanics.dot_rank,
+                    mechanics.leap_rank,
+                )
+                < 1
+                or mechanics.leap_distance < 0
+            ):
+                raise ValueError(f"Invalid companion mechanics: {ability.id}")
         abilities[ability.id] = ability
         if evo:
             if evo.kind not in KINDS or evo.id in evolutions or evo.id in abilities:

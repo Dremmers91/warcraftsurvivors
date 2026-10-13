@@ -2436,26 +2436,26 @@
       "frames": 4
     },
     "summon_felguard": {
-      "file": "effects/summon_felguard.png",
+      "file": "effects/fireball.png",
       "size": [
-        160,
-        160
+        48,
+        48
       ],
       "anchor": [
-        80,
-        80
+        24,
+        24
       ],
       "frames": 4
     },
     "summon_felguard_evolved": {
-      "file": "effects/summon_felguard_evolved.png",
+      "file": "effects/fireball_evolved.png",
       "size": [
-        160,
-        160
+        48,
+        48
       ],
       "anchor": [
-        80,
-        80
+        24,
+        24
       ],
       "frames": 4
     },
@@ -3521,6 +3521,22 @@
       "art_size": 30,
       "rank_scale": 0,
       "spin_degrees": 0,
+      "active": true
+    },
+    "summon_felguard": {
+      "effect": "summon_felguard",
+      "art_size": 26,
+      "rank_scale": 0.02,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
+      "active": true
+    },
+    "summon_felguard_evolved": {
+      "effect": "summon_felguard_evolved",
+      "art_size": 34,
+      "rank_scale": 0.02,
+      "spin_degrees": 0,
+      "trail": "spark_gold",
       "active": true
     }
   },

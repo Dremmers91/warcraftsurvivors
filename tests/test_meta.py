@@ -208,6 +208,9 @@ def test_companions_require_advanced_talent_and_explicit_starting_selection(
     assert companion in sim.player.spells and len(sim.player.spells) == 2
     sim.step(FIXED_DT)
     assert sim.combat.companions
+    if cid == "warlock":
+        assert content.abilities[companion].name == "Summon Imp"
+        assert all(p.sprite == "imp" for p in sim.combat.companions)
     assert not save.select_starting(cid, "judgment")
     save.data["gold"] = save.respec_cost(cid)
     assert save.respec(cid)

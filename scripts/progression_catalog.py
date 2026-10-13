@@ -54,7 +54,7 @@ rows += [
     "",
     "Reset cost is **50 + 5 × allocated points** gold. It refunds every allocated point, preserves class XP/level and clears the chosen extra starting ability. The UI displays the exact cost and refund before confirmation. Insufficient funds or save failure leave the profile intact.",
     "",
-    "New characters have exactly one Rank 1 signature ability. Earning class XP alone grants no equipment. The preparation talent requires class level 15, at least 15 points already allocated and its previous-branch prerequisite. Buying it grants a choice screen; it equips nothing automatically. Select one of two optional extra Rank 1 abilities or select none. Hunter/Warlock companions require this advanced talent plus explicitly selecting Beast Companion/Summon Felguard. The extra ability occupies a regular one-of-eight slot. Respec removes eligibility and selection. Spell-specific talent modifiers continue on evolved versions through their base ability IDs.",
+    "New characters have exactly one Rank 1 signature ability. Earning class XP alone grants no equipment. The preparation talent requires class level 15, at least 15 points already allocated and its previous-branch prerequisite. Buying it grants a choice screen; it equips nothing automatically. Select one of two optional extra Rank 1 abilities or select none. Hunter/Warlock companions require this advanced talent plus explicitly selecting Beast Companion/Summon Imp. The extra ability occupies a regular one-of-eight slot. Respec removes eligibility and selection. Spell-specific talent modifiers continue on evolved versions through their base ability IDs.",
     "",
     "## Achievements",
     "",

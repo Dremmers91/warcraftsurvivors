@@ -197,6 +197,11 @@ class Companion:
     velocity: Vector2 = field(default_factory=Vector2)
     hit: set[int] = field(default_factory=set)
     leash: float = 320
+    target: Enemy | None = None
+    target_timer: float = 0
+    leap_timer: float = 0
+    moving: bool = False
+    formation: int = 0
 
 
 @dataclass

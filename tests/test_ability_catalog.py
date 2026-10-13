@@ -253,6 +253,7 @@ def test_companion_ownership_kills_scaling_and_no_targetable_health(content, aid
     enemy.health = 1
     for _ in range(120):
         sim.combat.update_companions(FIXED_DT)
+        sim.combat.update_projectiles(FIXED_DT)
     assert enemy.health == 0 and enemy.owner == "player"
     sim.collect_dead()
     assert sim.kills >= 1 and any(p.kind == "xp" for p in sim.pickups.values())

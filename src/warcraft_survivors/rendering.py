@@ -350,22 +350,30 @@ class Renderer:
         for pet in sim.combat.companions:
             pos = pet.pos - camera
             if visible.collidepoint(pos):
-                state = "cast" if pet.attack_time > 0 else "walk"
+                state = (
+                    "cast"
+                    if pet.attack_time > 0
+                    else "walk"
+                    if pet.moving or pet.life >= 0
+                    else "idle"
+                )
                 frame = self.assets.actor(
                     pet.sprite,
                     state,
                     facing(pet.facing),
                     0.3 - pet.attack_time if pet.attack_time > 0 else sim.elapsed,
+                    allied=True,
                 )
                 actors.append((pos.y, frame, pos))
                 shadows.append((shadow, (round(pos.x - 21), round(pos.y - 8))))
-                self.text(
-                    "ALLY" if pet.life < 0 else "SUMMON",
-                    pos + Vector2(0, 10),
-                    15,
-                    (127, 213, 218),
-                    True,
+                pygame.draw.ellipse(
+                    self.canvas,
+                    (110, 164, 171),
+                    Rect(round(pos.x - 13), round(pos.y - 3), 26, 9),
+                    1,
                 )
+                if pet.life >= 0:
+                    self.text("SUMMON", pos + Vector2(0, 10), 15, (127, 213, 218), True)
         center = p.pos - camera
         shadows.append((shadow, (round(center.x - 21), round(center.y - 8))))
         self.canvas.blits(shadows)
