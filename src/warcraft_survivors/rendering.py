@@ -12,6 +12,7 @@ from pygame import Rect, Surface, Vector2
 
 from .asset_manager import AssetManager, Frame, facing
 from .content import Content
+from .manuals import manual_cooldown
 from .presentation import Presentation
 from .simulation import Simulation
 from .world import CHUNK_SIZE, VIEW_SIZE, World
@@ -27,6 +28,7 @@ class Renderer:
         self.assets = AssetManager(asset_root)
         self.presentation = Presentation(self.assets.manifest.get("projectiles", {}))
         self.quality = "medium"
+        self.activation_label = "Space / ability button"
         self.camera_shake = False
         self.panel_cache: dict[tuple[int, int, bool], Surface] = {}
         self.trees = [Frame(self.assets.image(f"tree_{i}"), (80, 180)) for i in range(3)]
@@ -573,7 +575,7 @@ class Renderer:
         self.panel(Rect(930, 618, 332, 84))
         if p.manual:
             manual = self.content.manuals[p.manual.id]
-            self.text(f"SPACE / A  ·  R{p.manual.rank}", (947, 629), 18, GOLD)
+            self.text(f"{self.activation_label} · R{p.manual.rank}", (947, 629), 18, GOLD)
             self.text(manual.name, (947, 650), 23, CREAM)
             status = (
                 f"{p.manual.timer:.1f}s"
@@ -583,15 +585,11 @@ class Renderer:
                 else "READY"
             )
             self.text(status, (1210, 633), 20, GOLD, True)
-            cooldown = (
-                manual.ranks[p.manual.rank - 1].cooldown
-                * max(0.4, 1 - 0.07 * p.passive("haste"))
-                * max(0.65, 1 - p.meta.get("haste") - p.meta.get("manual_haste"))
-            )
+            cooldown = manual_cooldown(manual, p.manual.rank, p)
             self.bar(Rect(947, 683, 294, 6), 1 - p.manual.timer / cooldown, (128, 193, 217))
         else:
             self.text("Manual slot empty", (947, 637), 24, MUTED)
-            self.text("Discover a Space / A ability", (947, 670), 20, MUTED)
+            self.text("Discover a manual ability", (947, 670), 20, MUTED)
         if p.passives:
             self.text(
                 "  /  ".join(f"{self.content.passives[k].name} {v}" for k, v in p.passives.items()),

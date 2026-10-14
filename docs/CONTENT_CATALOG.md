@@ -409,7 +409,7 @@ Behavior: `field`. School: `physical`. Speed: 100. Raster: `ravager`.
 
 ### Shockwave
 
-A long forward ground rupture stuns through a narrow cone.
+A narrow ground rupture slows enemies and pushes them away.
 
 Behavior: `arc`. School: `physical`. Speed: 0. Raster: `shockwave`.
 
@@ -436,7 +436,7 @@ Behavior: `arc`. School: `physical`. Speed: 0. Raster: `shockwave`.
 | 2 | 13.6 | 1.35 | 52 | 276 |
 | 3 | 11.2 | 1.7 | 64 | 322 |
 
-**Shield Wall** (`guard`): Gain 50 percentage points of armor, subject to the damage cap.
+**Shield Wall** (`guard`): Gain temporary armor, subject to the 75% total damage-reduction cap.
 
 | Rank | Cooldown (s) | Duration (s) | Power | Distance |
 |---|---:|---:|---:|---:|
@@ -1218,7 +1218,7 @@ Behavior: `chain`. School: `shadow`. Speed: 0. Raster: `mind_blast`.
 
 ### Mind Sear
 
-Persistent psychic pulses sear a targeted ground cluster.
+Repeated psychic pulses sear a targeted ground cluster.
 
 Behavior: `field`. School: `shadow`. Speed: 0. Raster: `mind_sear`.
 
@@ -1362,11 +1362,11 @@ All twelve have five ranks. Only eight can be equipped. Health and movement rema
 
 ### Multicast (`projectiles`)
 
-+1 effect per rank. Projectile volleys, chains, DoT targets, orbiters and summons; no extra disks/arcs/fields/beams.
+Add 1 shot, target, orbiter or summon to eligible spells per rank. Projectile volleys, chains, DoT targets, orbiters and summons; no extra disks/arcs/fields/beams.
 
 ### Reach (`area`)
 
-+20% attack area per rank. Projectile collision, melee reach, field/wave size, chain range and companion cleave. DoTs: spread/death explosion area only; no tick damage bonus.
++20% attack radius per rank. Projectile collision, melee reach, field/wave size, chain range and companion cleave. DoTs: spread/death explosion area only; no tick damage bonus.
 
 ### Might (`might`)
 
@@ -1378,7 +1378,7 @@ All twelve have five ranks. Only eight can be equipped. Health and movement rema
 
 ### Endurance (`duration`)
 
-+20% duration per rank. Fields, channels, DoTs, orbiters, temporary summons and manual timed effects; permanent pets never expire.
++20% duration per rank. Shot lifetimes, fields, channels, DoTs, orbiters, temporary summons and manual timed effects; permanent pets never expire.
 
 ### Velocity (`velocity`)
 

@@ -12,6 +12,7 @@ from pygame import Rect, Vector2
 
 from .achievement_ui import AchievementView
 from .meta import class_level, class_xp_progress, load_progression
+from .meta_descriptions import bonus_summary
 from .rendering import CREAM, GOLD, MUTED
 from .talent_ui import TalentTreeView, effect_summary, node_rect
 
@@ -114,7 +115,20 @@ class ProgressionUI:
         self.request(
             app,
             upgrade.name,
-            f"{upgrade.description}. Cost: {cost} gold. Current gold: {app.save.data['gold']}. Applies to future runs.",
+            "Current: "
+            + bonus_summary(
+                {k: v * app.save.data["shared"].get(sid, 0) for k, v in upgrade.effects.items()},
+                app.content,
+            )
+            + " Next: "
+            + bonus_summary(
+                {
+                    k: v * (app.save.data["shared"].get(sid, 0) + 1)
+                    for k, v in upgrade.effects.items()
+                },
+                app.content,
+            )
+            + f" Cost: {cost} gold. Applies to future runs.",
             partial(app.save.buy_shared, sid),
         )
 
@@ -276,11 +290,30 @@ class ProgressionUI:
                     21,
                     CREAM,
                 )
-                r.wrapped(u.description, Rect(rect.x + 16, rect.y + 48, 530, 36), 21, CREAM)
+                current_bonus = bonus_summary(
+                    {k: v * rank for k, v in u.effects.items()}, app.content
+                )
+                next_bonus = bonus_summary(
+                    {k: v * min(u.max_rank, rank + 1) for k, v in u.effects.items()}, app.content
+                )
                 r.wrapped(
-                    app.save.shared_reason(u.id) or "Select to review purchase.",
-                    Rect(rect.x + 16, rect.y + 92, 530, 24),
-                    19,
+                    "Current: " + current_bonus, Rect(rect.x + 16, rect.y + 43, 530, 25), 20, CREAM
+                )
+                r.wrapped(
+                    "Next: " + next_bonus if cost is not None else "Maximum rank reached.",
+                    Rect(rect.x + 16, rect.y + 70, 530, 25),
+                    20,
+                    GOLD,
+                )
+                gate = (
+                    "Requires " + meta.achievements[u.achievement].name + ". "
+                    if u.achievement
+                    else ""
+                )
+                r.wrapped(
+                    app.save.shared_reason(u.id) or gate + "Select to review purchase.",
+                    Rect(rect.x + 16, rect.y + 98, 530, 21),
+                    18,
                     MUTED,
                 )
             start = len(shared_entries)

@@ -482,7 +482,7 @@ add(
     3.2,
     250,
     0,
-    "A long forward ground rupture stuns through a narrow cone.",
+    "A narrow ground rupture slows enemies and pushes them away.",
     "Worldbreaker",
     "area",
     {"angle": 180, "slow": 0.85},
@@ -1045,7 +1045,7 @@ add(
     3.4,
     95,
     0,
-    "Persistent psychic pulses sear a targeted ground cluster.",
+    "Repeated psychic pulses sear a targeted ground cluster.",
     "Mind Inferno",
     "area",
     {"follow": True, "persistent": True},
@@ -1132,13 +1132,13 @@ passive_rows = [
     (
         "projectiles",
         "Multicast",
-        "+1 effect per rank.",
+        "Add 1 shot, target, orbiter or summon to eligible spells per rank.",
         "Projectile volleys, chains, DoT targets, orbiters and summons; no extra disks/arcs/fields/beams.",
     ),
     (
         "area",
         "Reach",
-        "+20% attack area per rank.",
+        "+20% attack radius per rank.",
         "Projectile collision, melee reach, field/wave size, chain range and companion cleave. DoTs: spread/death explosion area only; no tick damage bonus.",
     ),
     (
@@ -1157,7 +1157,7 @@ passive_rows = [
         "duration",
         "Endurance",
         "+20% duration per rank.",
-        "Fields, channels, DoTs, orbiters, temporary summons and manual timed effects; permanent pets never expire.",
+        "Shot lifetimes, fields, channels, DoTs, orbiters, temporary summons and manual timed effects; permanent pets never expire.",
     ),
     (
         "velocity",
@@ -1254,7 +1254,7 @@ manual(
     5,
     1,
     0,
-    "Gain 50 percentage points of armor, subject to the damage cap.",
+    "Gain temporary armor, subject to the 75% total damage-reduction cap.",
 )
 manual(
     "Rallying Cry",

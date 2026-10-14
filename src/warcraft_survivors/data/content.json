@@ -2095,7 +2095,7 @@
           "description": "132.7 physical damage; 2.192s cooldown; 372.5 reach; 1 effect(s); 0 pierce; 4.05s duration."
         }
       ],
-      "description": "A long forward ground rupture stuns through a narrow cone.",
+      "description": "A narrow ground rupture slows enemies and pushes them away.",
       "mechanics": {
         "angle": 45,
         "slow": 0.65,
@@ -5570,7 +5570,7 @@
           "description": "41.9 shadow damage; 2.329s cooldown; 141.55 reach; 1 effect(s); 0 pierce; 3.75s duration."
         }
       ],
-      "description": "Persistent psychic pulses sear a targeted ground cluster.",
+      "description": "Repeated psychic pulses sear a targeted ground cluster.",
       "mechanics": {
         "pulse": 0.35
       },
@@ -6221,24 +6221,24 @@
           "duration": 5.0,
           "power": 1.0,
           "distance": 0.0,
-          "description": "Gain 50 percentage points of armor, subject to the damage cap. Rank 1: 24s cooldown, 5s duration, power 1, distance 0."
+          "description": "Gain temporary armor, subject to the 75% total damage-reduction cap. Rank 1: 24s cooldown, 5s duration, power 1, distance 0."
         },
         {
           "cooldown": 20.4,
           "duration": 6.75,
           "power": 1.3,
           "distance": 0.0,
-          "description": "Gain 50 percentage points of armor, subject to the damage cap. Rank 2: 20.4s cooldown, 6.75s duration, power 1.3, distance 0."
+          "description": "Gain temporary armor, subject to the 75% total damage-reduction cap. Rank 2: 20.4s cooldown, 6.75s duration, power 1.3, distance 0."
         },
         {
           "cooldown": 16.8,
           "duration": 8.5,
           "power": 1.6,
           "distance": 0.0,
-          "description": "Gain 50 percentage points of armor, subject to the damage cap. Rank 3: 16.8s cooldown, 8.5s duration, power 1.6, distance 0."
+          "description": "Gain temporary armor, subject to the 75% total damage-reduction cap. Rank 3: 16.8s cooldown, 8.5s duration, power 1.6, distance 0."
         }
       ],
-      "description": "Gain 50 percentage points of armor, subject to the damage cap.",
+      "description": "Gain temporary armor, subject to the 75% total damage-reduction cap.",
       "direction": 1
     },
     {
@@ -6655,14 +6655,14 @@
     {
       "id": "projectiles",
       "name": "Multicast",
-      "description": "+1 effect per rank.",
+      "description": "Add 1 shot, target, orbiter or summon to eligible spells per rank.",
       "max_rank": 5,
       "applicability": "Projectile volleys, chains, DoT targets, orbiters and summons; no extra disks/arcs/fields/beams."
     },
     {
       "id": "area",
       "name": "Reach",
-      "description": "+20% attack area per rank.",
+      "description": "+20% attack radius per rank.",
       "max_rank": 5,
       "applicability": "Projectile collision, melee reach, field/wave size, chain range and companion cleave. DoTs: spread/death explosion area only; no tick damage bonus."
     },
@@ -6685,7 +6685,7 @@
       "name": "Endurance",
       "description": "+20% duration per rank.",
       "max_rank": 5,
-      "applicability": "Fields, channels, DoTs, orbiters, temporary summons and manual timed effects; permanent pets never expire."
+      "applicability": "Shot lifetimes, fields, channels, DoTs, orbiters, temporary summons and manual timed effects; permanent pets never expire."
     },
     {
       "id": "velocity",

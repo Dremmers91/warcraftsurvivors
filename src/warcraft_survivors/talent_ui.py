@@ -8,6 +8,7 @@ import pygame
 from pygame import Rect, Surface, Vector2
 
 from .meta import Talent, class_level, load_progression
+from .meta_descriptions import bonus_summary
 from .rendering import CREAM, GOLD, MUTED
 
 if TYPE_CHECKING:
@@ -35,73 +36,7 @@ def effect_summary(talent: Talent, rank: int, app: App) -> str:
         )
     if not effects:
         return "No bonus allocated yet."
-    labels = {
-        "damage": "Damage",
-        "health": "Base health",
-        "armor": "Armor",
-        "haste": "Cooldown",
-        "manual_haste": "Manual cooldown",
-        "speed": "Movement",
-        "area": "Area",
-        "duration": "Duration",
-        "boss_damage": "Boss damage",
-        "low_health_damage": "Damage below 35% health",
-        "execute": "Execute damage",
-        "healing": "Healing",
-        "count": "Volley / pet count",
-        "regen": "Recovery",
-        "kill_heal": "Health per kill",
-        "kill_shield": "Shield per kill",
-        "starting_shield": "Starting shield",
-    }
-    parts = []
-    for key, value in effects.items():
-        fields = key.split(":")
-        label = labels.get(key, key)
-        suffix = f"+{value * 100:g}%"
-        if fields[0] == "spell":
-            label = (
-                app.content.abilities[fields[1]].name
-                + ": "
-                + {
-                    "count": "projectiles/effects",
-                    "pierce": "pierce",
-                    "radius": "radius",
-                    "duration": "duration",
-                    "speed": "travel speed",
-                    "damage": "damage",
-                    "spread": "spread",
-                    "waves": "extra waves",
-                    "splash": "splash radius",
-                    "splash_flat": "splash radius",
-                    "opening": "opening damage",
-                }[fields[2]]
-            )
-            if fields[2] in {"count", "pierce", "waves", "splash_flat"}:
-                suffix = f"+{value:g}" + (
-                    " units, from Rank 1" if fields[2] == "splash_flat" else ""
-                )
-            if fields[2] == "spread" and app.content.abilities[fields[1]].kind == "dot":
-                suffix += "; spread from Rank 1"
-        elif fields[0] == "school":
-            label = fields[1].title() + " damage"
-        elif fields[0] == "kind":
-            label = {
-                "dot": "DoT",
-                "companion": "Companion",
-                "area": "Area",
-                "arc": "Cleave",
-                "field": "Ground attack",
-                "charge": "Charging summon",
-            }.get(fields[1], fields[1]) + " damage"
-        elif key == "armor":
-            suffix = f"+{value * 100:g} percentage points"
-        elif key in {"haste", "manual_haste"}:
-            suffix = f"-{value * 100:g}%"
-        elif key in {"count", "regen", "kill_heal", "kill_shield", "starting_shield"}:
-            suffix = f"+{value:g}" + (" / second" if key == "regen" else "")
-        parts.append(label + " " + suffix)
-    return "; ".join(parts) + "."
+    return bonus_summary(effects, app.content)
 
 
 class TalentTreeView:
@@ -257,7 +192,12 @@ class TalentTreeView:
         )
         r.text("CURRENT TALENT BONUS", (914, 313), 18, MUTED)
         r.wrapped(effect_summary(t, rank, app), Rect(914, 338, 284, 76), 20, CREAM)
-        r.text("NEXT RANK" if rank < t.max_rank else "FULLY LEARNED", (914, 416), 18, MUTED)
+        r.text(
+            f"RANK {rank} to {rank + 1} · NEXT TOTAL" if rank < t.max_rank else "FULLY LEARNED",
+            (914, 416),
+            18,
+            MUTED,
+        )
         r.wrapped(
             effect_summary(t, rank + 1, app)
             if rank < t.max_rank
@@ -275,7 +215,7 @@ class TalentTreeView:
         r.wrapped(" ".join(requirements), Rect(914, 530, 284, 85), 18, MUTED)
         r.text(meta.tree_styles[cid]["title"] + " · 1 point per rank", (64, 166), 19, accent)
         r.text(
-            "Hover for details · Arrows / D-pad: move · Enter / A: review · Esc / B: back",
+            f"Hover for details · Arrows / D-pad: move · Enter / {app.pad_labels().accept}: review · Esc / {app.pad_labels().back}: back",
             (64, 700),
             18,
             MUTED,

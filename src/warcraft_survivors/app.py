@@ -18,6 +18,7 @@ from .achievement_ui import future_card
 from .audio import Audio
 from .content import load_content
 from .debug import DebugTools, debug_allowed
+from .input_labels import ControllerLabels, controller_labels
 from .meta import class_level, load_progression
 from .movement import analog_direction, cursor_direction, keyboard_direction
 from .persistence import SaveStore
@@ -25,6 +26,7 @@ from .progression_ui import SCREENS, ProgressionUI
 from .rendering import CREAM, GOLD, MUTED, Renderer
 from .rewards import ACHIEVEMENTS
 from .simulation import FIXED_DT, Simulation
+from .upgrade_ui import UpgradeView
 from .world import VIEW_SIZE
 
 
@@ -47,6 +49,8 @@ class App:
         self.selected_class = "paladin"
         self.class_page = 0
         self.selected_choice = 0
+        self.upgrade_ui = UpgradeView()
+        self.input_device = "keyboard"
         self.selected_zone = "elwynn"
         self.progression_ui = ProgressionUI()
         self.notifications: list[tuple[str, float]] = []
@@ -240,6 +244,23 @@ class App:
             else:
                 self.toast("No banish available for this choice.")
 
+    def pad_labels(self) -> ControllerLabels:
+        for stick in self.joysticks.values():
+            return controller_labels(stick.get_name())
+        return ControllerLabels()
+
+    def activation_label(self) -> str:
+        return (
+            self.pad_labels().accept
+            if self.input_device == "controller"
+            else "Space / " + self.pad_labels().accept
+        )
+
+    def power_details(self) -> None:
+        if self.screen == "level" and self.sim and self.sim.choices:
+            index = self.focus if self.focus < len(self.sim.choices) else self.selected_choice
+            self.upgrade_ui.open(self, self.sim.choices[index])
+
     def build_buttons(self) -> None:
         self.buttons = []
 
@@ -282,14 +303,28 @@ class App:
             add(Rect(460, 275, 360, 64), "Resume", lambda: self.goto("game"))
             add(Rect(460, 359, 360, 64), "Finish this run", self.end_run)
             add(Rect(460, 443, 360, 64), "Exit game", self.quit)
+            add(Rect(460, 527, 360, 64), "Spellbook", partial(self.goto, "spellbook"))
+        elif self.screen == "spellbook" and self.sim:
+            for index, choice in enumerate(self.upgrade_ui.equipped(self)):
+                add(
+                    Rect(64 + index % 2 * 584, 190 + index // 2 * 102, 566, 90),
+                    choice.name,
+                    partial(self.upgrade_ui.open, self, choice, "spellbook"),
+                )
+            add(Rect(64, 650, 230, 48), "Back", partial(self.goto, "pause"))
+        elif self.screen == "upgrade_details" and self.sim:
+            add(Rect(64, 650, 230, 48), "Back", partial(self.upgrade_ui.close, self))
+            add(Rect(740, 650, 230, 48), "Previous", partial(self.upgrade_ui.turn_page, self, -1))
+            add(Rect(984, 650, 230, 48), "Next", partial(self.upgrade_ui.turn_page, self, 1))
         elif self.screen == "level" and self.sim:
             for index, choice in enumerate(self.sim.choices):
                 rect = (
                     Rect(64 + index * 292, 220, 278, 370)
                     if len(self.sim.choices) == 4
-                    else Rect(97 + index * 368, 234, 350, 330)
+                    else Rect(97 + index * 368, 220, 350, 370)
                 )
                 add(rect, choice.name, partial(self.choose, index))
+            add(Rect(64, 648, 176, 48), "Q · Details", self.power_details)
             if self.sim.player.meta.get("rerolls") and not self.sim.chest_choice:
                 add(Rect(260, 648, 350, 48), f"R / X · Reroll ({self.sim.rerolls})", self.reroll)
             if self.sim.player.meta.get("banishes") and not self.sim.chest_choice:
@@ -338,6 +373,15 @@ class App:
         )
 
     def menu_key(self, key: int) -> None:
+        if self.screen == "upgrade_details" and key in {pygame.K_ESCAPE, pygame.K_q}:
+            self.upgrade_ui.close(self)
+            return
+        if self.screen == "spellbook" and key == pygame.K_ESCAPE:
+            self.goto("pause")
+            return
+        if self.screen == "level" and key == pygame.K_q:
+            self.power_details()
+            return
         if self.screen == "talents":
             self.progression_ui.tree.hovered = None
         if self.screen == "game" and self.sim and self.debug.input_time(key, self.sim):
@@ -379,7 +423,10 @@ class App:
             pygame.K_RIGHT: Vector2(1, 0),
             pygame.K_d: Vector2(1, 0),
         }
-        if self.screen in SCREENS | {"classes", "zones"} and key in directions:
+        if (
+            self.screen in SCREENS | {"classes", "zones", "spellbook", "upgrade_details"}
+            and key in directions
+        ):
             direction = directions[key]
             origin = Vector2(self.buttons[self.focus].rect.center)
             candidates = [
@@ -417,10 +464,12 @@ class App:
         if event.type == pygame.QUIT:
             self.quit()
         elif event.type == pygame.KEYDOWN:
+            self.input_device = "keyboard"
             self.menu_key(event.key)
         elif event.type == pygame.WINDOWFOCUSLOST and self.screen == "game":
             self.goto("pause")
         elif event.type == pygame.MOUSEMOTION and self.screen != "game":
+            self.input_device = "mouse"
             pos = self.mouse_position(event.pos)
             if self.screen == "talents":
                 self.progression_ui.tree.hover(self, pos)
@@ -431,17 +480,32 @@ class App:
                         self.selected_choice = index
                     break
         elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and self.screen != "game":
+            self.input_device = "mouse"
             pos = self.mouse_position(event.pos)
             for index, button in enumerate(self.buttons):
                 if button.rect.collidepoint(pos):
                     self.focus = index
                     button.action()
                     break
+        elif (
+            event.type == pygame.MOUSEBUTTONDOWN
+            and event.button == 3
+            and self.screen == "level"
+            and self.sim
+        ):
+            self.input_device = "mouse"
+            pos = self.mouse_position(event.pos)
+            for index, button in enumerate(self.buttons[: len(self.sim.choices)]):
+                if button.rect.collidepoint(pos):
+                    self.focus = self.selected_choice = index
+                    self.power_details()
+                    break
         elif event.type == pygame.JOYDEVICEADDED:
             self.add_joystick(event.device_index)
         elif event.type == pygame.JOYDEVICEREMOVED:
             self.joysticks.pop(event.instance_id, None)
         elif event.type == pygame.JOYBUTTONDOWN:
+            self.input_device = "controller"
             if event.button == 0:
                 self.menu_key(pygame.K_SPACE if self.screen == "game" else pygame.K_RETURN)
             elif event.button in (1, 7):
@@ -450,7 +514,10 @@ class App:
                 self.reroll()
             elif event.button == 3 and self.screen == "level":
                 self.banish()
+            elif event.button == 4 and self.screen == "level":
+                self.power_details()
         elif event.type == pygame.JOYHATMOTION and self.screen != "game":
+            self.input_device = "controller"
             x, y = event.value
             if x or y:
                 self.menu_key(
@@ -533,6 +600,7 @@ class App:
 
     def draw(self) -> None:
         r = self.renderer
+        r.activation_label = self.activation_label()
         r.quality = self.save.data["settings"].get("effects_quality", "medium")
         r.camera_shake = self.save.data["settings"].get("screen_shake", False)
         r.presentation.density = self.save.data["settings"]["effects_density"]
@@ -582,6 +650,10 @@ class App:
                         GOLD,
                         True,
                     )
+        elif self.screen == "upgrade_details":
+            self.upgrade_ui.draw_details(self)
+        elif self.screen == "spellbook":
+            self.upgrade_ui.draw_spellbook(self)
         elif self.screen in SCREENS:
             self.progression_ui.draw(self)
         elif self.screen == "main":
@@ -671,7 +743,7 @@ class App:
             r.backdrop("Make yourself at home", "Movement devices work without changing settings.")
             r.panel(Rect(800, 194, 416, 352))
             r.wrapped(
-                "Move: WASD, arrows, held left mouse, or left stick. Manual: Space / A. Pause: Escape / Start. Menus: arrows, Enter, mouse, or controller. Level cards: 1–4. Reroll: R / X. Banish focused card: B / Y.",
+                f"Move: WASD, arrows, held left mouse, or left stick. Manual: {self.activation_label()}. Pause: Escape / Start. Menus: arrows, Enter, mouse, or controller. Level cards: 1–4. Reroll: R / {self.pad_labels().reroll}. Banish focused card: B / {self.pad_labels().banish}. Details: Q / {self.pad_labels().details} / right-click.",
                 Rect(820, 224, 372, 240),
                 28,
                 MUTED,
@@ -732,74 +804,11 @@ class App:
                 MUTED,
             )
         if self.screen == "level" and self.sim:
-            for index, (button, choice) in enumerate(
-                zip(self.buttons[: len(self.sim.choices)], self.sim.choices, strict=True)
-            ):
-                r.panel(
-                    button.rect,
-                    self.focus == index
-                    or (self.focus >= len(self.sim.choices) and self.selected_choice == index),
-                )
-                r.text(
-                    f"{index + 1}  /  {choice.kind.upper()}",
-                    (button.rect.x + 22, button.rect.y + 28),
-                    22,
-                    GOLD,
-                )
-                r.wrapped(
-                    choice.name,
-                    Rect(button.rect.x + 22, button.rect.y + 68, button.rect.width - 44, 62),
-                    30,
-                    CREAM,
-                )
-                icon = (
-                    r.assets.scaled_effect(choice.id.split(":")[0], 0, 40).image
-                    if choice.kind in {"spell", "manual", "modifier", "evolution"}
-                    else r.assets.image(
-                        "icon_armor" if choice.id == "ward" else "icon_" + choice.id
-                    )
-                )
-                r.canvas.blit(icon, (button.rect.right - 64, button.rect.y + 110))
-                r.text(
-                    "EVOLUTION"
-                    if choice.kind == "evolution"
-                    else f"RANK {choice.rank}"
-                    if choice.rank
-                    else "BRANCH"
-                    if choice.kind == "modifier"
-                    else "REPEATABLE",
-                    (button.rect.x + 22, button.rect.y + 144),
-                    24,
-                    GOLD,
-                )
-                r.wrapped(
-                    choice.description,
-                    Rect(
-                        button.rect.x + 22,
-                        button.rect.y + 182,
-                        button.rect.width - 44,
-                        button.rect.height - 190,
-                    ),
-                    20,
-                    MUTED,
-                )
-            r.text(
-                f"Select one: 1–{len(self.sim.choices)} / Enter / A / click  ·  The world stays paused",
-                (640, 622),
-                22,
-                MUTED,
-                True,
-            )
-            for index, button in enumerate(
-                self.buttons[len(self.sim.choices) :], start=len(self.sim.choices)
-            ):
-                label = (
-                    f"B / Y · Banish card {self.selected_choice + 1} ({self.sim.banishes})"
-                    if button.action == self.banish
-                    else button.label
-                )
-                r.button(button.rect, label, selected=self.focus == index)
-        elif self.screen not in {"classes", "zones"} and self.screen not in SCREENS:
+            self.upgrade_ui.draw_cards(self)
+        elif (
+            self.screen not in {"classes", "zones", "spellbook", "upgrade_details"}
+            and self.screen not in SCREENS
+        ):
             for index, button in enumerate(self.buttons):
                 r.button(button.rect, button.label, selected=self.focus == index)
         if self.save.notice:
