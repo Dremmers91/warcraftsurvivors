@@ -239,8 +239,17 @@ def describe(key, value):
             "radius": "attack area",
             "damage": "damage",
             "duration": "duration",
+            "spread": "spread/volley width",
+            "waves": "additional waves",
+            "splash": "splash radius",
+            "splash_flat": "base splash radius (unlocks at Rank 1)",
+            "opening": "first companion attack damage",
         }[stat]
-        amount = f"+{value:g}" if stat in {"count", "pierce"} else f"+{value:.0%}"
+        amount = (
+            f"+{value:g}"
+            if stat in {"count", "pierce", "waves", "splash_flat"}
+            else f"+{value:.0%}"
+        )
         return f"{ability_names[aid]} {label} {amount}"
     labels = {
         "damage": "Automatic damage",
@@ -258,6 +267,8 @@ def describe(key, value):
     }
     if key in {"haste", "manual_haste"}:
         return f"{labels[key]} -{value:.1%}"
+    if key == "armor":
+        return f"Armor +{value * 100:g} percentage points"
     if key in labels:
         return f"{labels[key]} +{value:.1%}"
     if key == "regen":
@@ -303,11 +314,62 @@ for cls in classes:
         survival[cid],
         offense[cid],
     ]
+    # Supplement functioning effects; stable IDs/rank caps and existing bonuses survive.
+    effects[8]["speed"] = 0.015
+    if cid in {"mage", "warlock", "priest"}:
+        effects[7][f"spell:{starter}:count"] = 1
+        names[cid][7] = {
+            "mage": "Twin Frostbolt",
+            "warlock": "Twin Shadow Bolt",
+            "priest": "Twin Smite",
+        }[cid]
+    additions = {
+        "paladin": (11, {"spell:divine_storm:waves": 1}),
+        "warrior": (14, {"spell:rend:spread": 0.2}),
+        "mage": (11, {"spell:fireball:splash": 0.25}),
+        "hunter": (9, {"spell:beast_companion:opening": 0.15}),
+        "warlock": (11, {"spell:corruption:spread": 0.2, "spell:summon_felguard:splash_flat": 12}),
+        "priest": (17, {"spell:shadow_word_pain:spread": 0.25}),
+    }
+    node, bonuses = additions[cid]
+    effects[node].update(bonuses)
+    if cid == "warrior":
+        effects[11]["spell:whirlwind:radius"] = 0.15
+    if cid == "hunter":
+        effects[11]["spell:multi_shot:spread"] = 0.25
+    tiers = [0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 2, 2]
+    columns = [4, 2, 6, 0, 3, 6, 4, 2, 8, 0, 1, 6, 4, 2, 8, 4, 3, 7]
+    icon_abilities = [
+        starter,
+        cls["manuals"][0],
+        cls["manuals"][2],
+        cls["manuals"][1],
+        cls["abilities"][1],
+        cls["abilities"][2],
+        cls["abilities"][3],
+        starter,
+        cls["manuals"][0],
+        cls["abilities"][4],
+        cls["abilities"][5],
+        ta,
+        selected[cid][0],
+        cls["manuals"][2],
+        ma,
+        cls["abilities"][-1],
+        cls["manuals"][1],
+        cls["abilities"][-2],
+    ]
     ranks = [3, 3, 3, 3, 3, 3, 3, 1, 3, 3, 3, 1, 1, 2, 2, 1, 1, 1]
     rows = []
     for i, tid in enumerate(ids):
-        tier = i // 3
-        requirements = {} if tier == 0 else {ids[i - 3]: 1}
+        old_tier = i // 3
+        tier = tiers[i]
+        # An earlier ancestor is a weaker prerequisite than the existing chain;
+        # every previously valid allocation remains valid under the four-tier layout.
+        parent = i - 3
+        while parent >= 0 and tiers[parent] >= tier:
+            parent -= 3
+        requirements = {ids[parent]: 1} if parent >= 0 else {}
         description = "; ".join(describe(k, v) for k, v in effects[i].items()) + ". Per rank."
         if tid == "preparation":
             description = "Unlock one optional extra Rank 1 starting ability. Choose it here between runs; no selection means no extra ability."
@@ -318,15 +380,24 @@ for cls in classes:
                 description=description,
                 max_rank=ranks[i],
                 tier=tier,
-                column=i % 3,
-                min_level=[1, 3, 6, 10, 15, 22][tier],
-                spent_required=[0, 3, 6, 10, 15, 22][tier],
+                column=columns[i],
+                min_level=[1, 3, 6, 10, 15, 22][old_tier],
+                spent_required=[0, 3, 6, 10, 15, 22][old_tier],
                 requires=requirements,
                 effects=effects[i],
+                class_id=cid,
+                icon="actor:" + cid if tid == "capstone" else "effect:" + icon_abilities[i],
+                position=[(columns[i] + 0.5) / 9, [0.10, 0.37, 0.64, 0.90][tier]],
+                rank_effects=[
+                    {key: round(value * rank, 6) for key, value in effects[i].items()}
+                    for rank in range(1, ranks[i] + 1)
+                ],
+                capstone=tid == "capstone",
+                legacy_requires={} if old_tier == 0 else {ids[i - 3]: 1},
                 starting_options=selected[cid] if tid == "preparation" else [],
             )
         )
-    trees[cid] = rows
+    trees[cid] = sorted(rows, key=lambda row: row["tier"])
 shared = []
 for sid, name, desc, capn, base, key, value in [
     ("health", "Endurance", "Maximum health +3% per rank", 5, 65, "health", 0.03),
@@ -456,6 +527,22 @@ registry += [
             achievements=ach,
             classes=registry,
             zones=["elwynn", "duskwood", "stranglethorn", "plaguelands", "icecrown"],
+            tree_styles={
+                cid: dict(accent=accent, background=background, title=title)
+                for cid, accent, background, title in (
+                    ("paladin", [226, 193, 108], "elwynn_inn", "The path of the Light"),
+                    ("warrior", [203, 110, 91], "icecrown_prop_0", "Steel and resolve"),
+                    ("mage", [111, 180, 234], "icecrown_prop_2", "The arcane disciplines"),
+                    ("hunter", [143, 195, 115], "stranglethorn_prop_0", "The wilds answer"),
+                    (
+                        "warlock",
+                        [174, 124, 210],
+                        "plaguelands_prop_2",
+                        "Power through forbidden pacts",
+                    ),
+                    ("priest", [215, 218, 200], "elwynn_mill", "Faith and shadow"),
+                )
+            },
         ),
         indent=2,
     )

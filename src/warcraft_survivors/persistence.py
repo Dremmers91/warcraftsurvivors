@@ -111,6 +111,11 @@ class SaveStore:
             # or obsolete ranks are refunded, never destroying earned class XP.
             for tid, talent in tree.items():
                 for _ in range(nonnegative(wanted.get(tid), talent.max_rank)):
+                    if version == 1 and any(
+                        clean.get(parent, 0) < rank
+                        for parent, rank in talent.legacy_requires.items()
+                    ):
+                        break
                     if talent_reason(tree, xp, clean, tid):
                         break
                     clean[tid] = clean.get(tid, 0) + 1

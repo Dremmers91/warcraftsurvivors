@@ -19,6 +19,8 @@ The pets/summons overhaul retains V2 and the internal ability IDs `beast_compani
 
 Levels/points are recomputed from XP, not trusted from editable cached fields. A class level requires 120 × current level XP to advance; available points = class level − 1 − allocated ranks, never negative. Every tree currently supports 40 allocated ranks; class level is capped at 100 for compatibility. Unknown/over-budget/prerequisite-invalid talent allocations refund their points without reducing earned XP. Unsupported ranks/IDs and invalid nested field types are conservatively sanitized.
 
+The talent-tree overhaul retains V2, all 18 talent IDs per initial class, all rank caps, earned XP/gold and selected starting abilities. Presentation fields and cumulative rank-effect tables live in content JSON, not profiles. The new four-tier prerequisite paths are no stricter than their former ancestors, so valid V2 allocations remain intact; 180 legacy allocation fixtures across all six classes verify this. V1 migration still checks the recorded original prerequisite paths, preserving conservative refunds of historically invalid signature allocations. New purchases use the current paths. Gold respec still costs `50 + 5 × spent`, returns allocated points and preserves XP/level.
+
 The profile includes nine registry classes, while only the initial six have playable content. Six initial unlocks are always retained. Future class unlocks derive only from completed registry achievements; an arbitrary `unlocked_classes` entry cannot bypass a gate. All five shipped zones are granted to new and existing profiles without spending currency. New classes can later become playable without removing earned unlocks.
 
 ## Commit and recovery

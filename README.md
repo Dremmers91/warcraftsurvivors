@@ -4,6 +4,8 @@ A native Windows/Pygame survival game with six classes, 60 automatic spells, 18 
 
 The current source branch adds the [pets and summons overhaul](docs/PETS_SUMMONS_REPORT.md): allied wolves with rank-gated leaps, ranged Summon Imp with eight ranks and Imp Legion, retained detailed artwork and compatible profiles. Existing v0.5.0 release executables remain the previous build; use the source command below to play these changes.
 
+The [class talent-tree overhaul](docs/TALENT_TREE_REPORT.md) adds connected square-icon trees, four tiers, class backdrops, numerical hover/focus details and additional gameplay modifiers while retaining talent IDs, progression and respec compatibility.
+
 ## Play the Windows release
 
 Extract **all** of `dist/WarcraftSurvivors-0.5.0-Windows.zip`, then double-click `WarcraftSurvivors/WarcraftSurvivors.exe`. Keep `_internal` beside the executable. No Python installation, network access or asset downloads are needed.

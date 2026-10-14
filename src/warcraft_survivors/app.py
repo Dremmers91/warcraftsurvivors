@@ -312,6 +312,8 @@ class App:
         )
 
     def menu_key(self, key: int) -> None:
+        if self.screen == "talents":
+            self.progression_ui.tree.hovered = None
         if self.screen == "game" and self.sim and self.debug.input_time(key, self.sim):
             return
         if self.screen in SCREENS and key == pygame.K_ESCAPE:
@@ -389,14 +391,17 @@ class App:
             self.goto("pause")
         elif event.type == pygame.MOUSEMOTION and self.screen != "game":
             pos = self.mouse_position(event.pos)
+            if self.screen == "talents":
+                self.progression_ui.tree.hover(self, pos)
             for index, button in enumerate(self.buttons):
                 if button.rect.collidepoint(pos):
                     self.focus = index
                     break
         elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and self.screen != "game":
             pos = self.mouse_position(event.pos)
-            for button in self.buttons:
+            for index, button in enumerate(self.buttons):
                 if button.rect.collidepoint(pos):
+                    self.focus = index
                     button.action()
                     break
         elif event.type == pygame.JOYDEVICEADDED:

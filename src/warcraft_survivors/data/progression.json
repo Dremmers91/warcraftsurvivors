@@ -7,13 +7,32 @@
         "description": "Automatic damage +2.0%. Per rank.",
         "max_rank": 3,
         "tier": 0,
-        "column": 0,
+        "column": 4,
         "min_level": 1,
         "spent_required": 0,
         "requires": {},
         "effects": {
           "damage": 0.02
         },
+        "class_id": "paladin",
+        "icon": "effect:judgment",
+        "position": [
+          0.5,
+          0.1
+        ],
+        "rank_effects": [
+          {
+            "damage": 0.02
+          },
+          {
+            "damage": 0.04
+          },
+          {
+            "damage": 0.06
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {},
         "starting_options": []
       },
       {
@@ -22,13 +41,32 @@
         "description": "Base maximum health +3.0%. Per rank.",
         "max_rank": 3,
         "tier": 0,
-        "column": 1,
+        "column": 2,
         "min_level": 1,
         "spent_required": 0,
         "requires": {},
         "effects": {
           "health": 0.03
         },
+        "class_id": "paladin",
+        "icon": "effect:divine_shield",
+        "position": [
+          0.2777777777777778,
+          0.1
+        ],
+        "rank_effects": [
+          {
+            "health": 0.03
+          },
+          {
+            "health": 0.06
+          },
+          {
+            "health": 0.09
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {},
         "starting_options": []
       },
       {
@@ -37,19 +75,38 @@
         "description": "All cooldowns -1.5%. Per rank.",
         "max_rank": 3,
         "tier": 0,
-        "column": 2,
+        "column": 6,
         "min_level": 1,
         "spent_required": 0,
         "requires": {},
         "effects": {
           "haste": 0.015
         },
+        "class_id": "paladin",
+        "icon": "effect:avenging_wrath",
+        "position": [
+          0.7222222222222222,
+          0.1
+        ],
+        "rank_effects": [
+          {
+            "haste": 0.015
+          },
+          {
+            "haste": 0.03
+          },
+          {
+            "haste": 0.045
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {},
         "starting_options": []
       },
       {
         "id": "armor",
         "name": "Sanctified Plate",
-        "description": "Armor +1.0%. Per rank.",
+        "description": "Armor +1 percentage points. Per rank.",
         "max_rank": 3,
         "tier": 1,
         "column": 0,
@@ -61,6 +118,27 @@
         "effects": {
           "armor": 0.01
         },
+        "class_id": "paladin",
+        "icon": "effect:lay_on_hands",
+        "position": [
+          0.05555555555555555,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "armor": 0.01
+          },
+          {
+            "armor": 0.02
+          },
+          {
+            "armor": 0.03
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "might": 1
+        },
         "starting_options": []
       },
       {
@@ -69,7 +147,7 @@
         "description": "Holy automatic damage +3.5%. Per rank.",
         "max_rank": 3,
         "tier": 1,
-        "column": 1,
+        "column": 3,
         "min_level": 3,
         "spent_required": 3,
         "requires": {
@@ -77,6 +155,27 @@
         },
         "effects": {
           "school:holy": 0.035
+        },
+        "class_id": "paladin",
+        "icon": "effect:divine_storm",
+        "position": [
+          0.3888888888888889,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "school:holy": 0.035
+          },
+          {
+            "school:holy": 0.07
+          },
+          {
+            "school:holy": 0.105
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "health": 1
         },
         "starting_options": []
       },
@@ -86,7 +185,7 @@
         "description": "Attack area +2.5%. Per rank.",
         "max_rank": 3,
         "tier": 1,
-        "column": 2,
+        "column": 6,
         "min_level": 3,
         "spent_required": 3,
         "requires": {
@@ -95,6 +194,27 @@
         "effects": {
           "area": 0.025
         },
+        "class_id": "paladin",
+        "icon": "effect:consecration",
+        "position": [
+          0.7222222222222222,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "area": 0.025
+          },
+          {
+            "area": 0.05
+          },
+          {
+            "area": 0.075
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "haste": 1
+        },
         "starting_options": []
       },
       {
@@ -102,15 +222,36 @@
         "name": "Lasting Blessings",
         "description": "Attack duration +4.0%. Per rank.",
         "max_rank": 3,
-        "tier": 2,
-        "column": 0,
+        "tier": 1,
+        "column": 4,
         "min_level": 6,
         "spent_required": 6,
         "requires": {
-          "armor": 1
+          "might": 1
         },
         "effects": {
           "duration": 0.04
+        },
+        "class_id": "paladin",
+        "icon": "effect:avenger_s_shield",
+        "position": [
+          0.5,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "duration": 0.04
+          },
+          {
+            "duration": 0.08
+          },
+          {
+            "duration": 0.12
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "armor": 1
         },
         "starting_options": []
       },
@@ -119,32 +260,72 @@
         "name": "Twin Judgment",
         "description": "Judgment additional effects +1. Per rank.",
         "max_rank": 1,
-        "tier": 2,
-        "column": 1,
+        "tier": 1,
+        "column": 2,
         "min_level": 6,
         "spent_required": 6,
         "requires": {
-          "school": 1
+          "health": 1
         },
         "effects": {
           "spell:judgment:count": 1
+        },
+        "class_id": "paladin",
+        "icon": "effect:judgment",
+        "position": [
+          0.2777777777777778,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "spell:judgment:count": 1
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "school": 1
         },
         "starting_options": []
       },
       {
         "id": "recovery",
         "name": "Light of Recovery",
-        "description": "Recover 0.08 health/second. Per rank.",
+        "description": "Recover 0.08 health/second; Movement speed +1.5%. Per rank.",
         "max_rank": 3,
-        "tier": 2,
-        "column": 2,
+        "tier": 1,
+        "column": 8,
         "min_level": 6,
         "spent_required": 6,
         "requires": {
-          "area": 1
+          "haste": 1
         },
         "effects": {
-          "regen": 0.08
+          "regen": 0.08,
+          "speed": 0.015
+        },
+        "class_id": "paladin",
+        "icon": "effect:divine_shield",
+        "position": [
+          0.9444444444444444,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "regen": 0.08,
+            "speed": 0.015
+          },
+          {
+            "regen": 0.16,
+            "speed": 0.03
+          },
+          {
+            "regen": 0.24,
+            "speed": 0.045
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "area": 1
         },
         "starting_options": []
       },
@@ -153,7 +334,7 @@
         "name": "Zealous Storm",
         "description": "Area damage +4%. Per rank.",
         "max_rank": 3,
-        "tier": 3,
+        "tier": 2,
         "column": 0,
         "min_level": 10,
         "spent_required": 10,
@@ -163,6 +344,27 @@
         "effects": {
           "kind:area": 0.04
         },
+        "class_id": "paladin",
+        "icon": "effect:hammer_of_wrath",
+        "position": [
+          0.05555555555555555,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "kind:area": 0.04
+          },
+          {
+            "kind:area": 0.08
+          },
+          {
+            "kind:area": 0.12
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "duration": 1
+        },
         "starting_options": []
       },
       {
@@ -170,7 +372,7 @@
         "name": "Champion of Elwynn",
         "description": "Damage to bosses +3.0%. Per rank.",
         "max_rank": 3,
-        "tier": 3,
+        "tier": 2,
         "column": 1,
         "min_level": 10,
         "spent_required": 10,
@@ -180,22 +382,60 @@
         "effects": {
           "boss_damage": 0.03
         },
+        "class_id": "paladin",
+        "icon": "effect:blade_of_justice",
+        "position": [
+          0.16666666666666666,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "boss_damage": 0.03
+          },
+          {
+            "boss_damage": 0.06
+          },
+          {
+            "boss_damage": 0.09
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "signature": 1
+        },
         "starting_options": []
       },
       {
         "id": "technique",
         "name": "Radiant Hammer",
-        "description": "Blessed Hammer additional effects +1. Per rank.",
+        "description": "Blessed Hammer additional effects +1; Divine Storm additional waves +1. Per rank.",
         "max_rank": 1,
-        "tier": 3,
-        "column": 2,
+        "tier": 2,
+        "column": 6,
         "min_level": 10,
         "spent_required": 10,
         "requires": {
           "recovery": 1
         },
         "effects": {
-          "spell:blessed_hammer:count": 1
+          "spell:blessed_hammer:count": 1,
+          "spell:divine_storm:waves": 1
+        },
+        "class_id": "paladin",
+        "icon": "effect:blessed_hammer",
+        "position": [
+          0.7222222222222222,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "spell:blessed_hammer:count": 1,
+            "spell:divine_storm:waves": 1
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "recovery": 1
         },
         "starting_options": []
       },
@@ -204,14 +444,27 @@
         "name": "Chosen Blessing",
         "description": "Unlock one optional extra Rank 1 starting ability. Choose it here between runs; no selection means no extra ability.",
         "max_rank": 1,
-        "tier": 4,
-        "column": 0,
+        "tier": 2,
+        "column": 4,
         "min_level": 15,
         "spent_required": 15,
         "requires": {
-          "specialist": 1
+          "duration": 1
         },
         "effects": {},
+        "class_id": "paladin",
+        "icon": "effect:consecration",
+        "position": [
+          0.5,
+          0.64
+        ],
+        "rank_effects": [
+          {}
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "specialist": 1
+        },
         "starting_options": [
           "consecration",
           "blessed_hammer"
@@ -222,15 +475,33 @@
         "name": "Devout Focus",
         "description": "Manual cooldowns -4.0%. Per rank.",
         "max_rank": 2,
-        "tier": 4,
-        "column": 1,
+        "tier": 2,
+        "column": 2,
         "min_level": 15,
         "spent_required": 15,
         "requires": {
-          "slayer": 1
+          "signature": 1
         },
         "effects": {
           "manual_haste": 0.04
+        },
+        "class_id": "paladin",
+        "icon": "effect:avenging_wrath",
+        "position": [
+          0.2777777777777778,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "manual_haste": 0.04
+          },
+          {
+            "manual_haste": 0.08
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "slayer": 1
         },
         "starting_options": []
       },
@@ -239,15 +510,99 @@
         "name": "Sacred Reach",
         "description": "Consecration attack area +15%. Per rank.",
         "max_rank": 2,
-        "tier": 4,
-        "column": 2,
+        "tier": 2,
+        "column": 8,
         "min_level": 15,
         "spent_required": 15,
         "requires": {
-          "technique": 1
+          "recovery": 1
         },
         "effects": {
           "spell:consecration:radius": 0.15
+        },
+        "class_id": "paladin",
+        "icon": "effect:consecration",
+        "position": [
+          0.9444444444444444,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "spell:consecration:radius": 0.15
+          },
+          {
+            "spell:consecration:radius": 0.3
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "technique": 1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "survival",
+        "name": "Bastion of Hope",
+        "description": "Gain 0.4 shield per kill, capped at 25% health. Per rank.",
+        "max_rank": 1,
+        "tier": 2,
+        "column": 3,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "signature": 1
+        },
+        "effects": {
+          "kill_shield": 0.4
+        },
+        "class_id": "paladin",
+        "icon": "effect:lay_on_hands",
+        "position": [
+          0.3888888888888889,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "kill_shield": 0.4
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "manual": 1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "offense",
+        "name": "Heavenly Judgment",
+        "description": "Judgment additional effects +1; Judgment damage +10%. Per rank.",
+        "max_rank": 1,
+        "tier": 2,
+        "column": 7,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "recovery": 1
+        },
+        "effects": {
+          "spell:judgment:count": 1,
+          "spell:judgment:damage": 0.1
+        },
+        "class_id": "paladin",
+        "icon": "effect:blessed_hammer",
+        "position": [
+          0.8333333333333334,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "spell:judgment:count": 1,
+            "spell:judgment:damage": 0.1
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "mastery": 1
         },
         "starting_options": []
       },
@@ -256,8 +611,8 @@
         "name": "Avenging Light",
         "description": "Holy automatic damage +12.0%; Damage to bosses +20.0%; Restore 0.25 health per kill. Per rank.",
         "max_rank": 1,
-        "tier": 5,
-        "column": 0,
+        "tier": 3,
+        "column": 4,
         "min_level": 22,
         "spent_required": 22,
         "requires": {
@@ -268,40 +623,22 @@
           "boss_damage": 0.2,
           "kill_heal": 0.25
         },
-        "starting_options": []
-      },
-      {
-        "id": "survival",
-        "name": "Bastion of Hope",
-        "description": "Gain 0.4 shield per kill, capped at 25% health. Per rank.",
-        "max_rank": 1,
-        "tier": 5,
-        "column": 1,
-        "min_level": 22,
-        "spent_required": 22,
-        "requires": {
-          "manual": 1
-        },
-        "effects": {
-          "kill_shield": 0.4
-        },
-        "starting_options": []
-      },
-      {
-        "id": "offense",
-        "name": "Heavenly Judgment",
-        "description": "Judgment additional effects +1; Judgment damage +10%. Per rank.",
-        "max_rank": 1,
-        "tier": 5,
-        "column": 2,
-        "min_level": 22,
-        "spent_required": 22,
-        "requires": {
-          "mastery": 1
-        },
-        "effects": {
-          "spell:judgment:count": 1,
-          "spell:judgment:damage": 0.1
+        "class_id": "paladin",
+        "icon": "actor:paladin",
+        "position": [
+          0.5,
+          0.9
+        ],
+        "rank_effects": [
+          {
+            "school:holy": 0.12,
+            "boss_damage": 0.2,
+            "kill_heal": 0.25
+          }
+        ],
+        "capstone": true,
+        "legacy_requires": {
+          "preparation": 1
         },
         "starting_options": []
       }
@@ -313,13 +650,32 @@
         "description": "Automatic damage +2.0%. Per rank.",
         "max_rank": 3,
         "tier": 0,
-        "column": 0,
+        "column": 4,
         "min_level": 1,
         "spent_required": 0,
         "requires": {},
         "effects": {
           "damage": 0.02
         },
+        "class_id": "warrior",
+        "icon": "effect:mortal_strike",
+        "position": [
+          0.5,
+          0.1
+        ],
+        "rank_effects": [
+          {
+            "damage": 0.02
+          },
+          {
+            "damage": 0.04
+          },
+          {
+            "damage": 0.06
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {},
         "starting_options": []
       },
       {
@@ -328,13 +684,32 @@
         "description": "Base maximum health +3.0%. Per rank.",
         "max_rank": 3,
         "tier": 0,
-        "column": 1,
+        "column": 2,
         "min_level": 1,
         "spent_required": 0,
         "requires": {},
         "effects": {
           "health": 0.03
         },
+        "class_id": "warrior",
+        "icon": "effect:heroic_leap",
+        "position": [
+          0.2777777777777778,
+          0.1
+        ],
+        "rank_effects": [
+          {
+            "health": 0.03
+          },
+          {
+            "health": 0.06
+          },
+          {
+            "health": 0.09
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {},
         "starting_options": []
       },
       {
@@ -343,19 +718,38 @@
         "description": "All cooldowns -1.5%. Per rank.",
         "max_rank": 3,
         "tier": 0,
-        "column": 2,
+        "column": 6,
         "min_level": 1,
         "spent_required": 0,
         "requires": {},
         "effects": {
           "haste": 0.015
         },
+        "class_id": "warrior",
+        "icon": "effect:rallying_cry",
+        "position": [
+          0.7222222222222222,
+          0.1
+        ],
+        "rank_effects": [
+          {
+            "haste": 0.015
+          },
+          {
+            "haste": 0.03
+          },
+          {
+            "haste": 0.045
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {},
         "starting_options": []
       },
       {
         "id": "armor",
         "name": "Forged Armor",
-        "description": "Armor +1.0%. Per rank.",
+        "description": "Armor +1 percentage points. Per rank.",
         "max_rank": 3,
         "tier": 1,
         "column": 0,
@@ -367,6 +761,27 @@
         "effects": {
           "armor": 0.01
         },
+        "class_id": "warrior",
+        "icon": "effect:shield_wall",
+        "position": [
+          0.05555555555555555,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "armor": 0.01
+          },
+          {
+            "armor": 0.02
+          },
+          {
+            "armor": 0.03
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "might": 1
+        },
         "starting_options": []
       },
       {
@@ -375,7 +790,7 @@
         "description": "Physical automatic damage +3.5%. Per rank.",
         "max_rank": 3,
         "tier": 1,
-        "column": 1,
+        "column": 3,
         "min_level": 3,
         "spent_required": 3,
         "requires": {
@@ -383,6 +798,27 @@
         },
         "effects": {
           "school:physical": 0.035
+        },
+        "class_id": "warrior",
+        "icon": "effect:whirlwind",
+        "position": [
+          0.3888888888888889,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "school:physical": 0.035
+          },
+          {
+            "school:physical": 0.07
+          },
+          {
+            "school:physical": 0.105
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "health": 1
         },
         "starting_options": []
       },
@@ -392,7 +828,7 @@
         "description": "Attack area +2.5%. Per rank.",
         "max_rank": 3,
         "tier": 1,
-        "column": 2,
+        "column": 6,
         "min_level": 3,
         "spent_required": 3,
         "requires": {
@@ -401,6 +837,27 @@
         "effects": {
           "area": 0.025
         },
+        "class_id": "warrior",
+        "icon": "effect:thunder_clap",
+        "position": [
+          0.7222222222222222,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "area": 0.025
+          },
+          {
+            "area": 0.05
+          },
+          {
+            "area": 0.075
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "haste": 1
+        },
         "starting_options": []
       },
       {
@@ -408,15 +865,36 @@
         "name": "Enduring Fury",
         "description": "Attack duration +4.0%. Per rank.",
         "max_rank": 3,
-        "tier": 2,
-        "column": 0,
+        "tier": 1,
+        "column": 4,
         "min_level": 6,
         "spent_required": 6,
         "requires": {
-          "armor": 1
+          "might": 1
         },
         "effects": {
           "duration": 0.04
+        },
+        "class_id": "warrior",
+        "icon": "effect:execute",
+        "position": [
+          0.5,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "duration": 0.04
+          },
+          {
+            "duration": 0.08
+          },
+          {
+            "duration": 0.12
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "armor": 1
         },
         "starting_options": []
       },
@@ -425,32 +903,72 @@
         "name": "Broad Mortal Strike",
         "description": "Mortal Strike attack area +12%. Per rank.",
         "max_rank": 1,
-        "tier": 2,
-        "column": 1,
+        "tier": 1,
+        "column": 2,
         "min_level": 6,
         "spent_required": 6,
         "requires": {
-          "school": 1
+          "health": 1
         },
         "effects": {
           "spell:mortal_strike:radius": 0.12
+        },
+        "class_id": "warrior",
+        "icon": "effect:mortal_strike",
+        "position": [
+          0.2777777777777778,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "spell:mortal_strike:radius": 0.12
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "school": 1
         },
         "starting_options": []
       },
       {
         "id": "recovery",
         "name": "Second Breath",
-        "description": "Recover 0.08 health/second. Per rank.",
+        "description": "Recover 0.08 health/second; Movement speed +1.5%. Per rank.",
         "max_rank": 3,
-        "tier": 2,
-        "column": 2,
+        "tier": 1,
+        "column": 8,
         "min_level": 6,
         "spent_required": 6,
         "requires": {
-          "area": 1
+          "haste": 1
         },
         "effects": {
-          "regen": 0.08
+          "regen": 0.08,
+          "speed": 0.015
+        },
+        "class_id": "warrior",
+        "icon": "effect:heroic_leap",
+        "position": [
+          0.9444444444444444,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "regen": 0.08,
+            "speed": 0.015
+          },
+          {
+            "regen": 0.16,
+            "speed": 0.03
+          },
+          {
+            "regen": 0.24,
+            "speed": 0.045
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "area": 1
         },
         "starting_options": []
       },
@@ -459,7 +977,7 @@
         "name": "War Machine",
         "description": "Cleave damage +4%. Per rank.",
         "max_rank": 3,
-        "tier": 3,
+        "tier": 2,
         "column": 0,
         "min_level": 10,
         "spent_required": 10,
@@ -469,6 +987,27 @@
         "effects": {
           "kind:arc": 0.04
         },
+        "class_id": "warrior",
+        "icon": "effect:bladestorm",
+        "position": [
+          0.05555555555555555,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "kind:arc": 0.04
+          },
+          {
+            "kind:arc": 0.08
+          },
+          {
+            "kind:arc": 0.12
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "duration": 1
+        },
         "starting_options": []
       },
       {
@@ -476,7 +1015,7 @@
         "name": "Monster Slayer",
         "description": "Damage to bosses +3.0%. Per rank.",
         "max_rank": 3,
-        "tier": 3,
+        "tier": 2,
         "column": 1,
         "min_level": 10,
         "spent_required": 10,
@@ -486,22 +1025,60 @@
         "effects": {
           "boss_damage": 0.03
         },
+        "class_id": "warrior",
+        "icon": "effect:heroic_throw",
+        "position": [
+          0.16666666666666666,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "boss_damage": 0.03
+          },
+          {
+            "boss_damage": 0.06
+          },
+          {
+            "boss_damage": 0.09
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "signature": 1
+        },
         "starting_options": []
       },
       {
         "id": "technique",
         "name": "Heavy Throw",
-        "description": "Heroic Throw additional effects +1. Per rank.",
+        "description": "Heroic Throw additional effects +1; Whirlwind attack area +15%. Per rank.",
         "max_rank": 1,
-        "tier": 3,
-        "column": 2,
+        "tier": 2,
+        "column": 6,
         "min_level": 10,
         "spent_required": 10,
         "requires": {
           "recovery": 1
         },
         "effects": {
-          "spell:heroic_throw:count": 1
+          "spell:heroic_throw:count": 1,
+          "spell:whirlwind:radius": 0.15
+        },
+        "class_id": "warrior",
+        "icon": "effect:heroic_throw",
+        "position": [
+          0.7222222222222222,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "spell:heroic_throw:count": 1,
+            "spell:whirlwind:radius": 0.15
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "recovery": 1
         },
         "starting_options": []
       },
@@ -510,14 +1087,27 @@
         "name": "Battle Preparation",
         "description": "Unlock one optional extra Rank 1 starting ability. Choose it here between runs; no selection means no extra ability.",
         "max_rank": 1,
-        "tier": 4,
-        "column": 0,
+        "tier": 2,
+        "column": 4,
         "min_level": 15,
         "spent_required": 15,
         "requires": {
-          "specialist": 1
+          "duration": 1
         },
         "effects": {},
+        "class_id": "warrior",
+        "icon": "effect:thunder_clap",
+        "position": [
+          0.5,
+          0.64
+        ],
+        "rank_effects": [
+          {}
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "specialist": 1
+        },
         "starting_options": [
           "thunder_clap",
           "rend"
@@ -528,42 +1118,149 @@
         "name": "Veteran Reflexes",
         "description": "Manual cooldowns -4.0%. Per rank.",
         "max_rank": 2,
-        "tier": 4,
-        "column": 1,
+        "tier": 2,
+        "column": 2,
         "min_level": 15,
         "spent_required": 15,
         "requires": {
-          "slayer": 1
+          "signature": 1
         },
         "effects": {
           "manual_haste": 0.04
+        },
+        "class_id": "warrior",
+        "icon": "effect:rallying_cry",
+        "position": [
+          0.2777777777777778,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "manual_haste": 0.04
+          },
+          {
+            "manual_haste": 0.08
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "slayer": 1
         },
         "starting_options": []
       },
       {
         "id": "mastery",
         "name": "Deep Wounds",
-        "description": "Rend duration +15%. Per rank.",
+        "description": "Rend duration +15%; Rend spread/volley width +20%. Per rank.",
         "max_rank": 2,
-        "tier": 4,
-        "column": 2,
+        "tier": 2,
+        "column": 8,
         "min_level": 15,
         "spent_required": 15,
         "requires": {
-          "technique": 1
+          "recovery": 1
         },
         "effects": {
-          "spell:rend:duration": 0.15
+          "spell:rend:duration": 0.15,
+          "spell:rend:spread": 0.2
+        },
+        "class_id": "warrior",
+        "icon": "effect:rend",
+        "position": [
+          0.9444444444444444,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "spell:rend:duration": 0.15,
+            "spell:rend:spread": 0.2
+          },
+          {
+            "spell:rend:duration": 0.3,
+            "spell:rend:spread": 0.4
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "technique": 1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "survival",
+        "name": "Unbreakable",
+        "description": "Base maximum health +8.0%; Armor +2 percentage points. Per rank.",
+        "max_rank": 1,
+        "tier": 2,
+        "column": 3,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "signature": 1
+        },
+        "effects": {
+          "health": 0.08,
+          "armor": 0.02
+        },
+        "class_id": "warrior",
+        "icon": "effect:shield_wall",
+        "position": [
+          0.3888888888888889,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "health": 0.08,
+            "armor": 0.02
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "manual": 1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "offense",
+        "name": "Executioner",
+        "description": "Damage against foes below 35% health +20.0%; Execute attack area +15%. Per rank.",
+        "max_rank": 1,
+        "tier": 2,
+        "column": 7,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "recovery": 1
+        },
+        "effects": {
+          "execute": 0.2,
+          "spell:execute:radius": 0.15
+        },
+        "class_id": "warrior",
+        "icon": "effect:ravager",
+        "position": [
+          0.8333333333333334,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "execute": 0.2,
+            "spell:execute:radius": 0.15
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "mastery": 1
         },
         "starting_options": []
       },
       {
         "id": "capstone",
         "name": "Titan Strength",
-        "description": "Physical automatic damage +12.0%; Damage while below 35% health +20.0%; Armor +3.0%. Per rank.",
+        "description": "Physical automatic damage +12.0%; Damage while below 35% health +20.0%; Armor +3 percentage points. Per rank.",
         "max_rank": 1,
-        "tier": 5,
-        "column": 0,
+        "tier": 3,
+        "column": 4,
         "min_level": 22,
         "spent_required": 22,
         "requires": {
@@ -574,41 +1271,22 @@
           "low_health_damage": 0.2,
           "armor": 0.03
         },
-        "starting_options": []
-      },
-      {
-        "id": "survival",
-        "name": "Unbreakable",
-        "description": "Base maximum health +8.0%; Armor +2.0%. Per rank.",
-        "max_rank": 1,
-        "tier": 5,
-        "column": 1,
-        "min_level": 22,
-        "spent_required": 22,
-        "requires": {
-          "manual": 1
-        },
-        "effects": {
-          "health": 0.08,
-          "armor": 0.02
-        },
-        "starting_options": []
-      },
-      {
-        "id": "offense",
-        "name": "Executioner",
-        "description": "Damage against foes below 35% health +20.0%; Execute attack area +15%. Per rank.",
-        "max_rank": 1,
-        "tier": 5,
-        "column": 2,
-        "min_level": 22,
-        "spent_required": 22,
-        "requires": {
-          "mastery": 1
-        },
-        "effects": {
-          "execute": 0.2,
-          "spell:execute:radius": 0.15
+        "class_id": "warrior",
+        "icon": "actor:warrior",
+        "position": [
+          0.5,
+          0.9
+        ],
+        "rank_effects": [
+          {
+            "school:physical": 0.12,
+            "low_health_damage": 0.2,
+            "armor": 0.03
+          }
+        ],
+        "capstone": true,
+        "legacy_requires": {
+          "preparation": 1
         },
         "starting_options": []
       }
@@ -620,13 +1298,32 @@
         "description": "Automatic damage +2.0%. Per rank.",
         "max_rank": 3,
         "tier": 0,
-        "column": 0,
+        "column": 4,
         "min_level": 1,
         "spent_required": 0,
         "requires": {},
         "effects": {
           "damage": 0.02
         },
+        "class_id": "mage",
+        "icon": "effect:frostbolt",
+        "position": [
+          0.5,
+          0.1
+        ],
+        "rank_effects": [
+          {
+            "damage": 0.02
+          },
+          {
+            "damage": 0.04
+          },
+          {
+            "damage": 0.06
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {},
         "starting_options": []
       },
       {
@@ -635,13 +1332,32 @@
         "description": "Base maximum health +3.0%. Per rank.",
         "max_rank": 3,
         "tier": 0,
-        "column": 1,
+        "column": 2,
         "min_level": 1,
         "spent_required": 0,
         "requires": {},
         "effects": {
           "health": 0.03
         },
+        "class_id": "mage",
+        "icon": "effect:blink",
+        "position": [
+          0.2777777777777778,
+          0.1
+        ],
+        "rank_effects": [
+          {
+            "health": 0.03
+          },
+          {
+            "health": 0.06
+          },
+          {
+            "health": 0.09
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {},
         "starting_options": []
       },
       {
@@ -650,19 +1366,38 @@
         "description": "All cooldowns -1.5%. Per rank.",
         "max_rank": 3,
         "tier": 0,
-        "column": 2,
+        "column": 6,
         "min_level": 1,
         "spent_required": 0,
         "requires": {},
         "effects": {
           "haste": 0.015
         },
+        "class_id": "mage",
+        "icon": "effect:combustion",
+        "position": [
+          0.7222222222222222,
+          0.1
+        ],
+        "rank_effects": [
+          {
+            "haste": 0.015
+          },
+          {
+            "haste": 0.03
+          },
+          {
+            "haste": 0.045
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {},
         "starting_options": []
       },
       {
         "id": "armor",
         "name": "Ice Armor",
-        "description": "Armor +1.0%. Per rank.",
+        "description": "Armor +1 percentage points. Per rank.",
         "max_rank": 3,
         "tier": 1,
         "column": 0,
@@ -674,6 +1409,27 @@
         "effects": {
           "armor": 0.01
         },
+        "class_id": "mage",
+        "icon": "effect:ice_block",
+        "position": [
+          0.05555555555555555,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "armor": 0.01
+          },
+          {
+            "armor": 0.02
+          },
+          {
+            "armor": 0.03
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "might": 1
+        },
         "starting_options": []
       },
       {
@@ -682,7 +1438,7 @@
         "description": "Frost automatic damage +3.5%. Per rank.",
         "max_rank": 3,
         "tier": 1,
-        "column": 1,
+        "column": 3,
         "min_level": 3,
         "spent_required": 3,
         "requires": {
@@ -690,6 +1446,27 @@
         },
         "effects": {
           "school:frost": 0.035
+        },
+        "class_id": "mage",
+        "icon": "effect:fireball",
+        "position": [
+          0.3888888888888889,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "school:frost": 0.035
+          },
+          {
+            "school:frost": 0.07
+          },
+          {
+            "school:frost": 0.105
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "health": 1
         },
         "starting_options": []
       },
@@ -699,7 +1476,7 @@
         "description": "Attack area +2.5%. Per rank.",
         "max_rank": 3,
         "tier": 1,
-        "column": 2,
+        "column": 6,
         "min_level": 3,
         "spent_required": 3,
         "requires": {
@@ -708,6 +1485,27 @@
         "effects": {
           "area": 0.025
         },
+        "class_id": "mage",
+        "icon": "effect:arcane_missiles",
+        "position": [
+          0.7222222222222222,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "area": 0.025
+          },
+          {
+            "area": 0.05
+          },
+          {
+            "area": 0.075
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "haste": 1
+        },
         "starting_options": []
       },
       {
@@ -715,49 +1513,112 @@
         "name": "Lingering Sorcery",
         "description": "Attack duration +4.0%. Per rank.",
         "max_rank": 3,
-        "tier": 2,
-        "column": 0,
+        "tier": 1,
+        "column": 4,
         "min_level": 6,
         "spent_required": 6,
         "requires": {
-          "armor": 1
+          "might": 1
         },
         "effects": {
           "duration": 0.04
+        },
+        "class_id": "mage",
+        "icon": "effect:blizzard",
+        "position": [
+          0.5,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "duration": 0.04
+          },
+          {
+            "duration": 0.08
+          },
+          {
+            "duration": 0.12
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "armor": 1
         },
         "starting_options": []
       },
       {
         "id": "signature",
-        "name": "Piercing Frostbolt",
-        "description": "Frostbolt additional pierces +1. Per rank.",
+        "name": "Twin Frostbolt",
+        "description": "Frostbolt additional pierces +1; Frostbolt additional effects +1. Per rank.",
         "max_rank": 1,
-        "tier": 2,
-        "column": 1,
+        "tier": 1,
+        "column": 2,
         "min_level": 6,
         "spent_required": 6,
         "requires": {
-          "school": 1
+          "health": 1
         },
         "effects": {
-          "spell:frostbolt:pierce": 1
+          "spell:frostbolt:pierce": 1,
+          "spell:frostbolt:count": 1
+        },
+        "class_id": "mage",
+        "icon": "effect:frostbolt",
+        "position": [
+          0.2777777777777778,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "spell:frostbolt:pierce": 1,
+            "spell:frostbolt:count": 1
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "school": 1
         },
         "starting_options": []
       },
       {
         "id": "recovery",
         "name": "Meditation",
-        "description": "Recover 0.08 health/second. Per rank.",
+        "description": "Recover 0.08 health/second; Movement speed +1.5%. Per rank.",
         "max_rank": 3,
-        "tier": 2,
-        "column": 2,
+        "tier": 1,
+        "column": 8,
         "min_level": 6,
         "spent_required": 6,
         "requires": {
-          "area": 1
+          "haste": 1
         },
         "effects": {
-          "regen": 0.08
+          "regen": 0.08,
+          "speed": 0.015
+        },
+        "class_id": "mage",
+        "icon": "effect:blink",
+        "position": [
+          0.9444444444444444,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "regen": 0.08,
+            "speed": 0.015
+          },
+          {
+            "regen": 0.16,
+            "speed": 0.03
+          },
+          {
+            "regen": 0.24,
+            "speed": 0.045
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "area": 1
         },
         "starting_options": []
       },
@@ -766,7 +1627,7 @@
         "name": "Burning Fields",
         "description": "Ground attack damage +4%. Per rank.",
         "max_rank": 3,
-        "tier": 3,
+        "tier": 2,
         "column": 0,
         "min_level": 10,
         "spent_required": 10,
@@ -776,6 +1637,27 @@
         "effects": {
           "kind:field": 0.04
         },
+        "class_id": "mage",
+        "icon": "effect:frozen_orb",
+        "position": [
+          0.05555555555555555,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "kind:field": 0.04
+          },
+          {
+            "kind:field": 0.08
+          },
+          {
+            "kind:field": 0.12
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "duration": 1
+        },
         "starting_options": []
       },
       {
@@ -783,7 +1665,7 @@
         "name": "Giant Killer",
         "description": "Damage to bosses +3.0%. Per rank.",
         "max_rank": 3,
-        "tier": 3,
+        "tier": 2,
         "column": 1,
         "min_level": 10,
         "spent_required": 10,
@@ -793,22 +1675,60 @@
         "effects": {
           "boss_damage": 0.03
         },
+        "class_id": "mage",
+        "icon": "effect:flamestrike",
+        "position": [
+          0.16666666666666666,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "boss_damage": 0.03
+          },
+          {
+            "boss_damage": 0.06
+          },
+          {
+            "boss_damage": 0.09
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "signature": 1
+        },
         "starting_options": []
       },
       {
         "id": "technique",
         "name": "Accelerated Missiles",
-        "description": "Arcane Missiles travel speed +20%. Per rank.",
+        "description": "Arcane Missiles travel speed +20%; Fireball splash radius +25%. Per rank.",
         "max_rank": 1,
-        "tier": 3,
-        "column": 2,
+        "tier": 2,
+        "column": 6,
         "min_level": 10,
         "spent_required": 10,
         "requires": {
           "recovery": 1
         },
         "effects": {
-          "spell:arcane_missiles:speed": 0.2
+          "spell:arcane_missiles:speed": 0.2,
+          "spell:fireball:splash": 0.25
+        },
+        "class_id": "mage",
+        "icon": "effect:arcane_missiles",
+        "position": [
+          0.7222222222222222,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "spell:arcane_missiles:speed": 0.2,
+            "spell:fireball:splash": 0.25
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "recovery": 1
         },
         "starting_options": []
       },
@@ -817,14 +1737,27 @@
         "name": "Prepared Grimoire",
         "description": "Unlock one optional extra Rank 1 starting ability. Choose it here between runs; no selection means no extra ability.",
         "max_rank": 1,
-        "tier": 4,
-        "column": 0,
+        "tier": 2,
+        "column": 4,
         "min_level": 15,
         "spent_required": 15,
         "requires": {
-          "specialist": 1
+          "duration": 1
         },
         "effects": {},
+        "class_id": "mage",
+        "icon": "effect:fireball",
+        "position": [
+          0.5,
+          0.64
+        ],
+        "rank_effects": [
+          {}
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "specialist": 1
+        },
         "starting_options": [
           "fireball",
           "arcane_missiles"
@@ -835,15 +1768,33 @@
         "name": "Spellweaving",
         "description": "Manual cooldowns -4.0%. Per rank.",
         "max_rank": 2,
-        "tier": 4,
-        "column": 1,
+        "tier": 2,
+        "column": 2,
         "min_level": 15,
         "spent_required": 15,
         "requires": {
-          "slayer": 1
+          "signature": 1
         },
         "effects": {
           "manual_haste": 0.04
+        },
+        "class_id": "mage",
+        "icon": "effect:combustion",
+        "position": [
+          0.2777777777777778,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "manual_haste": 0.04
+          },
+          {
+            "manual_haste": 0.08
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "slayer": 1
         },
         "starting_options": []
       },
@@ -852,15 +1803,101 @@
         "name": "Lasting Blizzard",
         "description": "Blizzard duration +15%. Per rank.",
         "max_rank": 2,
-        "tier": 4,
-        "column": 2,
+        "tier": 2,
+        "column": 8,
         "min_level": 15,
         "spent_required": 15,
         "requires": {
-          "technique": 1
+          "recovery": 1
         },
         "effects": {
           "spell:blizzard:duration": 0.15
+        },
+        "class_id": "mage",
+        "icon": "effect:blizzard",
+        "position": [
+          0.9444444444444444,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "spell:blizzard:duration": 0.15
+          },
+          {
+            "spell:blizzard:duration": 0.3
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "technique": 1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "survival",
+        "name": "Prismatic Ward",
+        "description": "Start with 25 shield for 20 seconds; Healing received +10.0%. Per rank.",
+        "max_rank": 1,
+        "tier": 2,
+        "column": 3,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "signature": 1
+        },
+        "effects": {
+          "starting_shield": 25,
+          "healing": 0.1
+        },
+        "class_id": "mage",
+        "icon": "effect:ice_block",
+        "position": [
+          0.3888888888888889,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "starting_shield": 25,
+            "healing": 0.1
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "manual": 1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "offense",
+        "name": "Frostfire Mastery",
+        "description": "Fire automatic damage +15.0%; Frost automatic damage +15.0%. Per rank.",
+        "max_rank": 1,
+        "tier": 2,
+        "column": 7,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "recovery": 1
+        },
+        "effects": {
+          "school:fire": 0.15,
+          "school:frost": 0.15
+        },
+        "class_id": "mage",
+        "icon": "effect:ice_lance",
+        "position": [
+          0.8333333333333334,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "school:fire": 0.15,
+            "school:frost": 0.15
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "mastery": 1
         },
         "starting_options": []
       },
@@ -869,8 +1906,8 @@
         "name": "Archmage Convergence",
         "description": "Fire automatic damage +12.0%; Frost automatic damage +12.0%; Arcane automatic damage +12.0%; Attack area +15.0%. Per rank.",
         "max_rank": 1,
-        "tier": 5,
-        "column": 0,
+        "tier": 3,
+        "column": 4,
         "min_level": 22,
         "spent_required": 22,
         "requires": {
@@ -882,41 +1919,23 @@
           "school:arcane": 0.12,
           "area": 0.15
         },
-        "starting_options": []
-      },
-      {
-        "id": "survival",
-        "name": "Prismatic Ward",
-        "description": "Start with 25 shield for 20 seconds; Healing received +10.0%. Per rank.",
-        "max_rank": 1,
-        "tier": 5,
-        "column": 1,
-        "min_level": 22,
-        "spent_required": 22,
-        "requires": {
-          "manual": 1
-        },
-        "effects": {
-          "starting_shield": 25,
-          "healing": 0.1
-        },
-        "starting_options": []
-      },
-      {
-        "id": "offense",
-        "name": "Frostfire Mastery",
-        "description": "Fire automatic damage +15.0%; Frost automatic damage +15.0%. Per rank.",
-        "max_rank": 1,
-        "tier": 5,
-        "column": 2,
-        "min_level": 22,
-        "spent_required": 22,
-        "requires": {
-          "mastery": 1
-        },
-        "effects": {
-          "school:fire": 0.15,
-          "school:frost": 0.15
+        "class_id": "mage",
+        "icon": "actor:mage",
+        "position": [
+          0.5,
+          0.9
+        ],
+        "rank_effects": [
+          {
+            "school:fire": 0.12,
+            "school:frost": 0.12,
+            "school:arcane": 0.12,
+            "area": 0.15
+          }
+        ],
+        "capstone": true,
+        "legacy_requires": {
+          "preparation": 1
         },
         "starting_options": []
       }
@@ -928,13 +1947,32 @@
         "description": "Automatic damage +2.0%. Per rank.",
         "max_rank": 3,
         "tier": 0,
-        "column": 0,
+        "column": 4,
         "min_level": 1,
         "spent_required": 0,
         "requires": {},
         "effects": {
           "damage": 0.02
         },
+        "class_id": "hunter",
+        "icon": "effect:arcane_shot",
+        "position": [
+          0.5,
+          0.1
+        ],
+        "rank_effects": [
+          {
+            "damage": 0.02
+          },
+          {
+            "damage": 0.04
+          },
+          {
+            "damage": 0.06
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {},
         "starting_options": []
       },
       {
@@ -943,13 +1981,32 @@
         "description": "Base maximum health +3.0%. Per rank.",
         "max_rank": 3,
         "tier": 0,
-        "column": 1,
+        "column": 2,
         "min_level": 1,
         "spent_required": 0,
         "requires": {},
         "effects": {
           "health": 0.03
         },
+        "class_id": "hunter",
+        "icon": "effect:disengage",
+        "position": [
+          0.2777777777777778,
+          0.1
+        ],
+        "rank_effects": [
+          {
+            "health": 0.03
+          },
+          {
+            "health": 0.06
+          },
+          {
+            "health": 0.09
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {},
         "starting_options": []
       },
       {
@@ -958,19 +2015,38 @@
         "description": "All cooldowns -1.5%. Per rank.",
         "max_rank": 3,
         "tier": 0,
-        "column": 2,
+        "column": 6,
         "min_level": 1,
         "spent_required": 0,
         "requires": {},
         "effects": {
           "haste": 0.015
         },
+        "class_id": "hunter",
+        "icon": "effect:bestial_wrath",
+        "position": [
+          0.7222222222222222,
+          0.1
+        ],
+        "rank_effects": [
+          {
+            "haste": 0.015
+          },
+          {
+            "haste": 0.03
+          },
+          {
+            "haste": 0.045
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {},
         "starting_options": []
       },
       {
         "id": "armor",
         "name": "Reinforced Leathers",
-        "description": "Armor +1.0%. Per rank.",
+        "description": "Armor +1 percentage points. Per rank.",
         "max_rank": 3,
         "tier": 1,
         "column": 0,
@@ -982,6 +2058,27 @@
         "effects": {
           "armor": 0.01
         },
+        "class_id": "hunter",
+        "icon": "effect:aspect_of_the_turtle",
+        "position": [
+          0.05555555555555555,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "armor": 0.01
+          },
+          {
+            "armor": 0.02
+          },
+          {
+            "armor": 0.03
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "might": 1
+        },
         "starting_options": []
       },
       {
@@ -990,7 +2087,7 @@
         "description": "Arcane automatic damage +3.5%. Per rank.",
         "max_rank": 3,
         "tier": 1,
-        "column": 1,
+        "column": 3,
         "min_level": 3,
         "spent_required": 3,
         "requires": {
@@ -998,6 +2095,27 @@
         },
         "effects": {
           "school:arcane": 0.035
+        },
+        "class_id": "hunter",
+        "icon": "effect:multi_shot",
+        "position": [
+          0.3888888888888889,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "school:arcane": 0.035
+          },
+          {
+            "school:arcane": 0.07
+          },
+          {
+            "school:arcane": 0.105
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "health": 1
         },
         "starting_options": []
       },
@@ -1007,7 +2125,7 @@
         "description": "Attack area +2.5%. Per rank.",
         "max_rank": 3,
         "tier": 1,
-        "column": 2,
+        "column": 6,
         "min_level": 3,
         "spent_required": 3,
         "requires": {
@@ -1016,6 +2134,27 @@
         "effects": {
           "area": 0.025
         },
+        "class_id": "hunter",
+        "icon": "effect:aimed_shot",
+        "position": [
+          0.7222222222222222,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "area": 0.025
+          },
+          {
+            "area": 0.05
+          },
+          {
+            "area": 0.075
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "haste": 1
+        },
         "starting_options": []
       },
       {
@@ -1023,15 +2162,36 @@
         "name": "Lingering Traps",
         "description": "Attack duration +4.0%. Per rank.",
         "max_rank": 3,
-        "tier": 2,
-        "column": 0,
+        "tier": 1,
+        "column": 4,
         "min_level": 6,
         "spent_required": 6,
         "requires": {
-          "armor": 1
+          "might": 1
         },
         "effects": {
           "duration": 0.04
+        },
+        "class_id": "hunter",
+        "icon": "effect:rapid_fire",
+        "position": [
+          0.5,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "duration": 0.04
+          },
+          {
+            "duration": 0.08
+          },
+          {
+            "duration": 0.12
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "armor": 1
         },
         "starting_options": []
       },
@@ -1040,41 +2200,81 @@
         "name": "Twin Arcane Shot",
         "description": "Arcane Shot additional effects +1. Per rank.",
         "max_rank": 1,
-        "tier": 2,
-        "column": 1,
+        "tier": 1,
+        "column": 2,
         "min_level": 6,
         "spent_required": 6,
         "requires": {
-          "school": 1
+          "health": 1
         },
         "effects": {
           "spell:arcane_shot:count": 1
+        },
+        "class_id": "hunter",
+        "icon": "effect:arcane_shot",
+        "position": [
+          0.2777777777777778,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "spell:arcane_shot:count": 1
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "school": 1
         },
         "starting_options": []
       },
       {
         "id": "recovery",
         "name": "Natural Recovery",
-        "description": "Recover 0.08 health/second. Per rank.",
+        "description": "Recover 0.08 health/second; Movement speed +1.5%. Per rank.",
         "max_rank": 3,
-        "tier": 2,
-        "column": 2,
+        "tier": 1,
+        "column": 8,
         "min_level": 6,
         "spent_required": 6,
         "requires": {
-          "area": 1
+          "haste": 1
         },
         "effects": {
-          "regen": 0.08
+          "regen": 0.08,
+          "speed": 0.015
+        },
+        "class_id": "hunter",
+        "icon": "effect:disengage",
+        "position": [
+          0.9444444444444444,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "regen": 0.08,
+            "speed": 0.015
+          },
+          {
+            "regen": 0.16,
+            "speed": 0.03
+          },
+          {
+            "regen": 0.24,
+            "speed": 0.045
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "area": 1
         },
         "starting_options": []
       },
       {
         "id": "specialist",
         "name": "Beast Training",
-        "description": "Companion damage +4%. Per rank.",
+        "description": "Companion damage +4%; Beast Companion first companion attack damage +15%. Per rank.",
         "max_rank": 3,
-        "tier": 3,
+        "tier": 2,
         "column": 0,
         "min_level": 10,
         "spent_required": 10,
@@ -1082,7 +2282,32 @@
           "duration": 1
         },
         "effects": {
-          "kind:companion": 0.04
+          "kind:companion": 0.04,
+          "spell:beast_companion:opening": 0.15
+        },
+        "class_id": "hunter",
+        "icon": "effect:barrage",
+        "position": [
+          0.05555555555555555,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "kind:companion": 0.04,
+            "spell:beast_companion:opening": 0.15
+          },
+          {
+            "kind:companion": 0.08,
+            "spell:beast_companion:opening": 0.3
+          },
+          {
+            "kind:companion": 0.12,
+            "spell:beast_companion:opening": 0.45
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "duration": 1
         },
         "starting_options": []
       },
@@ -1091,7 +2316,7 @@
         "name": "Hogger Tracker",
         "description": "Damage to bosses +3.0%. Per rank.",
         "max_rank": 3,
-        "tier": 3,
+        "tier": 2,
         "column": 1,
         "min_level": 10,
         "spent_required": 10,
@@ -1101,22 +2326,60 @@
         "effects": {
           "boss_damage": 0.03
         },
+        "class_id": "hunter",
+        "icon": "effect:explosive_shot",
+        "position": [
+          0.16666666666666666,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "boss_damage": 0.03
+          },
+          {
+            "boss_damage": 0.06
+          },
+          {
+            "boss_damage": 0.09
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "signature": 1
+        },
         "starting_options": []
       },
       {
         "id": "technique",
         "name": "Piercing Aim",
-        "description": "Aimed Shot additional pierces +1. Per rank.",
+        "description": "Aimed Shot additional pierces +1; Multi-Shot spread/volley width +25%. Per rank.",
         "max_rank": 1,
-        "tier": 3,
-        "column": 2,
+        "tier": 2,
+        "column": 6,
         "min_level": 10,
         "spent_required": 10,
         "requires": {
           "recovery": 1
         },
         "effects": {
-          "spell:aimed_shot:pierce": 1
+          "spell:aimed_shot:pierce": 1,
+          "spell:multi_shot:spread": 0.25
+        },
+        "class_id": "hunter",
+        "icon": "effect:aimed_shot",
+        "position": [
+          0.7222222222222222,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "spell:aimed_shot:pierce": 1,
+            "spell:multi_shot:spread": 0.25
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "recovery": 1
         },
         "starting_options": []
       },
@@ -1125,14 +2388,27 @@
         "name": "Chosen Companion",
         "description": "Unlock one optional extra Rank 1 starting ability. Choose it here between runs; no selection means no extra ability.",
         "max_rank": 1,
-        "tier": 4,
-        "column": 0,
+        "tier": 2,
+        "column": 4,
         "min_level": 15,
         "spent_required": 15,
         "requires": {
-          "specialist": 1
+          "duration": 1
         },
         "effects": {},
+        "class_id": "hunter",
+        "icon": "effect:beast_companion",
+        "position": [
+          0.5,
+          0.64
+        ],
+        "rank_effects": [
+          {}
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "specialist": 1
+        },
         "starting_options": [
           "beast_companion",
           "serpent_sting"
@@ -1143,15 +2419,33 @@
         "name": "Instinctive Reflexes",
         "description": "Manual cooldowns -4.0%. Per rank.",
         "max_rank": 2,
-        "tier": 4,
-        "column": 1,
+        "tier": 2,
+        "column": 2,
         "min_level": 15,
         "spent_required": 15,
         "requires": {
-          "slayer": 1
+          "signature": 1
         },
         "effects": {
           "manual_haste": 0.04
+        },
+        "class_id": "hunter",
+        "icon": "effect:bestial_wrath",
+        "position": [
+          0.2777777777777778,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "manual_haste": 0.04
+          },
+          {
+            "manual_haste": 0.08
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "slayer": 1
         },
         "starting_options": []
       },
@@ -1160,15 +2454,101 @@
         "name": "Long Hunt",
         "description": "Serpent Sting duration +15%. Per rank.",
         "max_rank": 2,
-        "tier": 4,
-        "column": 2,
+        "tier": 2,
+        "column": 8,
         "min_level": 15,
         "spent_required": 15,
         "requires": {
-          "technique": 1
+          "recovery": 1
         },
         "effects": {
           "spell:serpent_sting:duration": 0.15
+        },
+        "class_id": "hunter",
+        "icon": "effect:serpent_sting",
+        "position": [
+          0.9444444444444444,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "spell:serpent_sting:duration": 0.15
+          },
+          {
+            "spell:serpent_sting:duration": 0.3
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "technique": 1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "survival",
+        "name": "Predator Focus",
+        "description": "Movement speed +5.0%; Damage to bosses +10.0%. Per rank.",
+        "max_rank": 1,
+        "tier": 2,
+        "column": 3,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "signature": 1
+        },
+        "effects": {
+          "speed": 0.05,
+          "boss_damage": 0.1
+        },
+        "class_id": "hunter",
+        "icon": "effect:aspect_of_the_turtle",
+        "position": [
+          0.3888888888888889,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "speed": 0.05,
+            "boss_damage": 0.1
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "manual": 1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "offense",
+        "name": "Explosive Arsenal",
+        "description": "Explosive Shot attack area +20%; Charging summon damage +20%. Per rank.",
+        "max_rank": 1,
+        "tier": 2,
+        "column": 7,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "recovery": 1
+        },
+        "effects": {
+          "spell:explosive_shot:radius": 0.2,
+          "kind:charge": 0.2
+        },
+        "class_id": "hunter",
+        "icon": "effect:beast_companion",
+        "position": [
+          0.8333333333333334,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "spell:explosive_shot:radius": 0.2,
+            "kind:charge": 0.2
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "mastery": 1
         },
         "starting_options": []
       },
@@ -1177,8 +2557,8 @@
         "name": "Master of the Wild",
         "description": "Companion damage +30%; +1 effects for volleys, companions, chains and curses; Damage to bosses +15.0%. Per rank.",
         "max_rank": 1,
-        "tier": 5,
-        "column": 0,
+        "tier": 3,
+        "column": 4,
         "min_level": 22,
         "spent_required": 22,
         "requires": {
@@ -1189,41 +2569,22 @@
           "count": 1,
           "boss_damage": 0.15
         },
-        "starting_options": []
-      },
-      {
-        "id": "survival",
-        "name": "Predator Focus",
-        "description": "Movement speed +5.0%; Damage to bosses +10.0%. Per rank.",
-        "max_rank": 1,
-        "tier": 5,
-        "column": 1,
-        "min_level": 22,
-        "spent_required": 22,
-        "requires": {
-          "manual": 1
-        },
-        "effects": {
-          "speed": 0.05,
-          "boss_damage": 0.1
-        },
-        "starting_options": []
-      },
-      {
-        "id": "offense",
-        "name": "Explosive Arsenal",
-        "description": "Explosive Shot attack area +20%; Charging summon damage +20%. Per rank.",
-        "max_rank": 1,
-        "tier": 5,
-        "column": 2,
-        "min_level": 22,
-        "spent_required": 22,
-        "requires": {
-          "mastery": 1
-        },
-        "effects": {
-          "spell:explosive_shot:radius": 0.2,
-          "kind:charge": 0.2
+        "class_id": "hunter",
+        "icon": "actor:hunter",
+        "position": [
+          0.5,
+          0.9
+        ],
+        "rank_effects": [
+          {
+            "kind:companion": 0.3,
+            "count": 1,
+            "boss_damage": 0.15
+          }
+        ],
+        "capstone": true,
+        "legacy_requires": {
+          "preparation": 1
         },
         "starting_options": []
       }
@@ -1235,13 +2596,32 @@
         "description": "Automatic damage +2.0%. Per rank.",
         "max_rank": 3,
         "tier": 0,
-        "column": 0,
+        "column": 4,
         "min_level": 1,
         "spent_required": 0,
         "requires": {},
         "effects": {
           "damage": 0.02
         },
+        "class_id": "warlock",
+        "icon": "effect:shadow_bolt",
+        "position": [
+          0.5,
+          0.1
+        ],
+        "rank_effects": [
+          {
+            "damage": 0.02
+          },
+          {
+            "damage": 0.04
+          },
+          {
+            "damage": 0.06
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {},
         "starting_options": []
       },
       {
@@ -1250,13 +2630,32 @@
         "description": "Base maximum health +3.0%. Per rank.",
         "max_rank": 3,
         "tier": 0,
-        "column": 1,
+        "column": 2,
         "min_level": 1,
         "spent_required": 0,
         "requires": {},
         "effects": {
           "health": 0.03
         },
+        "class_id": "warlock",
+        "icon": "effect:demonic_circle",
+        "position": [
+          0.2777777777777778,
+          0.1
+        ],
+        "rank_effects": [
+          {
+            "health": 0.03
+          },
+          {
+            "health": 0.06
+          },
+          {
+            "health": 0.09
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {},
         "starting_options": []
       },
       {
@@ -1265,19 +2664,38 @@
         "description": "All cooldowns -1.5%. Per rank.",
         "max_rank": 3,
         "tier": 0,
-        "column": 2,
+        "column": 6,
         "min_level": 1,
         "spent_required": 0,
         "requires": {},
         "effects": {
           "haste": 0.015
         },
+        "class_id": "warlock",
+        "icon": "effect:dark_soul",
+        "position": [
+          0.7222222222222222,
+          0.1
+        ],
+        "rank_effects": [
+          {
+            "haste": 0.015
+          },
+          {
+            "haste": 0.03
+          },
+          {
+            "haste": 0.045
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {},
         "starting_options": []
       },
       {
         "id": "armor",
         "name": "Demon Skin",
-        "description": "Armor +1.0%. Per rank.",
+        "description": "Armor +1 percentage points. Per rank.",
         "max_rank": 3,
         "tier": 1,
         "column": 0,
@@ -1289,6 +2707,27 @@
         "effects": {
           "armor": 0.01
         },
+        "class_id": "warlock",
+        "icon": "effect:unending_resolve",
+        "position": [
+          0.05555555555555555,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "armor": 0.01
+          },
+          {
+            "armor": 0.02
+          },
+          {
+            "armor": 0.03
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "might": 1
+        },
         "starting_options": []
       },
       {
@@ -1297,7 +2736,7 @@
         "description": "Shadow automatic damage +3.5%. Per rank.",
         "max_rank": 3,
         "tier": 1,
-        "column": 1,
+        "column": 3,
         "min_level": 3,
         "spent_required": 3,
         "requires": {
@@ -1305,6 +2744,27 @@
         },
         "effects": {
           "school:shadow": 0.035
+        },
+        "class_id": "warlock",
+        "icon": "effect:corruption",
+        "position": [
+          0.3888888888888889,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "school:shadow": 0.035
+          },
+          {
+            "school:shadow": 0.07
+          },
+          {
+            "school:shadow": 0.105
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "health": 1
         },
         "starting_options": []
       },
@@ -1314,7 +2774,7 @@
         "description": "Attack area +2.5%. Per rank.",
         "max_rank": 3,
         "tier": 1,
-        "column": 2,
+        "column": 6,
         "min_level": 3,
         "spent_required": 3,
         "requires": {
@@ -1323,6 +2783,27 @@
         "effects": {
           "area": 0.025
         },
+        "class_id": "warlock",
+        "icon": "effect:immolate",
+        "position": [
+          0.7222222222222222,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "area": 0.025
+          },
+          {
+            "area": 0.05
+          },
+          {
+            "area": 0.075
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "haste": 1
+        },
         "starting_options": []
       },
       {
@@ -1330,49 +2811,112 @@
         "name": "Lingering Curses",
         "description": "Attack duration +4.0%. Per rank.",
         "max_rank": 3,
-        "tier": 2,
-        "column": 0,
+        "tier": 1,
+        "column": 4,
         "min_level": 6,
         "spent_required": 6,
         "requires": {
-          "armor": 1
+          "might": 1
         },
         "effects": {
           "duration": 0.04
+        },
+        "class_id": "warlock",
+        "icon": "effect:rain_of_fire",
+        "position": [
+          0.5,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "duration": 0.04
+          },
+          {
+            "duration": 0.08
+          },
+          {
+            "duration": 0.12
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "armor": 1
         },
         "starting_options": []
       },
       {
         "id": "signature",
-        "name": "Piercing Shadow Bolt",
-        "description": "Shadow Bolt additional pierces +1. Per rank.",
+        "name": "Twin Shadow Bolt",
+        "description": "Shadow Bolt additional pierces +1; Shadow Bolt additional effects +1. Per rank.",
         "max_rank": 1,
-        "tier": 2,
-        "column": 1,
+        "tier": 1,
+        "column": 2,
         "min_level": 6,
         "spent_required": 6,
         "requires": {
-          "school": 1
+          "health": 1
         },
         "effects": {
-          "spell:shadow_bolt:pierce": 1
+          "spell:shadow_bolt:pierce": 1,
+          "spell:shadow_bolt:count": 1
+        },
+        "class_id": "warlock",
+        "icon": "effect:shadow_bolt",
+        "position": [
+          0.2777777777777778,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "spell:shadow_bolt:pierce": 1,
+            "spell:shadow_bolt:count": 1
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "school": 1
         },
         "starting_options": []
       },
       {
         "id": "recovery",
         "name": "Siphoned Recovery",
-        "description": "Recover 0.08 health/second. Per rank.",
+        "description": "Recover 0.08 health/second; Movement speed +1.5%. Per rank.",
         "max_rank": 3,
-        "tier": 2,
-        "column": 2,
+        "tier": 1,
+        "column": 8,
         "min_level": 6,
         "spent_required": 6,
         "requires": {
-          "area": 1
+          "haste": 1
         },
         "effects": {
-          "regen": 0.08
+          "regen": 0.08,
+          "speed": 0.015
+        },
+        "class_id": "warlock",
+        "icon": "effect:demonic_circle",
+        "position": [
+          0.9444444444444444,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "regen": 0.08,
+            "speed": 0.015
+          },
+          {
+            "regen": 0.16,
+            "speed": 0.03
+          },
+          {
+            "regen": 0.24,
+            "speed": 0.045
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "area": 1
         },
         "starting_options": []
       },
@@ -1381,7 +2925,7 @@
         "name": "Demonic Command",
         "description": "Companion damage +4%. Per rank.",
         "max_rank": 3,
-        "tier": 3,
+        "tier": 2,
         "column": 0,
         "min_level": 10,
         "spent_required": 10,
@@ -1391,6 +2935,27 @@
         "effects": {
           "kind:companion": 0.04
         },
+        "class_id": "warlock",
+        "icon": "effect:chaos_bolt",
+        "position": [
+          0.05555555555555555,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "kind:companion": 0.04
+          },
+          {
+            "kind:companion": 0.08
+          },
+          {
+            "kind:companion": 0.12
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "duration": 1
+        },
         "starting_options": []
       },
       {
@@ -1398,7 +2963,7 @@
         "name": "Boss Hex",
         "description": "Damage to bosses +3.0%. Per rank.",
         "max_rank": 3,
-        "tier": 3,
+        "tier": 2,
         "column": 1,
         "min_level": 10,
         "spent_required": 10,
@@ -1408,22 +2973,62 @@
         "effects": {
           "boss_damage": 0.03
         },
+        "class_id": "warlock",
+        "icon": "effect:seed_of_corruption",
+        "position": [
+          0.16666666666666666,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "boss_damage": 0.03
+          },
+          {
+            "boss_damage": 0.06
+          },
+          {
+            "boss_damage": 0.09
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "signature": 1
+        },
         "starting_options": []
       },
       {
         "id": "technique",
         "name": "Intense Corruption",
-        "description": "Corruption damage +12%. Per rank.",
+        "description": "Corruption damage +12%; Corruption spread/volley width +20%; Summon Imp base splash radius (unlocks at Rank 1) +12. Per rank.",
         "max_rank": 1,
-        "tier": 3,
-        "column": 2,
+        "tier": 2,
+        "column": 6,
         "min_level": 10,
         "spent_required": 10,
         "requires": {
           "recovery": 1
         },
         "effects": {
-          "spell:corruption:damage": 0.12
+          "spell:corruption:damage": 0.12,
+          "spell:corruption:spread": 0.2,
+          "spell:summon_felguard:splash_flat": 12
+        },
+        "class_id": "warlock",
+        "icon": "effect:corruption",
+        "position": [
+          0.7222222222222222,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "spell:corruption:damage": 0.12,
+            "spell:corruption:spread": 0.2,
+            "spell:summon_felguard:splash_flat": 12
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "recovery": 1
         },
         "starting_options": []
       },
@@ -1432,14 +3037,27 @@
         "name": "Pact Preparation",
         "description": "Unlock one optional extra Rank 1 starting ability. Choose it here between runs; no selection means no extra ability.",
         "max_rank": 1,
-        "tier": 4,
-        "column": 0,
+        "tier": 2,
+        "column": 4,
         "min_level": 15,
         "spent_required": 15,
         "requires": {
-          "specialist": 1
+          "duration": 1
         },
         "effects": {},
+        "class_id": "warlock",
+        "icon": "effect:summon_felguard",
+        "position": [
+          0.5,
+          0.64
+        ],
+        "rank_effects": [
+          {}
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "specialist": 1
+        },
         "starting_options": [
           "summon_felguard",
           "corruption"
@@ -1450,15 +3068,33 @@
         "name": "Dark Focus",
         "description": "Manual cooldowns -4.0%. Per rank.",
         "max_rank": 2,
-        "tier": 4,
-        "column": 1,
+        "tier": 2,
+        "column": 2,
         "min_level": 15,
         "spent_required": 15,
         "requires": {
-          "slayer": 1
+          "signature": 1
         },
         "effects": {
           "manual_haste": 0.04
+        },
+        "class_id": "warlock",
+        "icon": "effect:dark_soul",
+        "position": [
+          0.2777777777777778,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "manual_haste": 0.04
+          },
+          {
+            "manual_haste": 0.08
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "slayer": 1
         },
         "starting_options": []
       },
@@ -1467,15 +3103,99 @@
         "name": "Lasting Fire",
         "description": "Immolate duration +15%. Per rank.",
         "max_rank": 2,
-        "tier": 4,
-        "column": 2,
+        "tier": 2,
+        "column": 8,
         "min_level": 15,
         "spent_required": 15,
         "requires": {
-          "technique": 1
+          "recovery": 1
         },
         "effects": {
           "spell:immolate:duration": 0.15
+        },
+        "class_id": "warlock",
+        "icon": "effect:immolate",
+        "position": [
+          0.9444444444444444,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "spell:immolate:duration": 0.15
+          },
+          {
+            "spell:immolate:duration": 0.3
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "technique": 1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "survival",
+        "name": "Soul Harvest",
+        "description": "Restore 0.4 health per kill. Per rank.",
+        "max_rank": 1,
+        "tier": 2,
+        "column": 3,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "signature": 1
+        },
+        "effects": {
+          "kill_heal": 0.4
+        },
+        "class_id": "warlock",
+        "icon": "effect:unending_resolve",
+        "position": [
+          0.3888888888888889,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "kill_heal": 0.4
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "manual": 1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "offense",
+        "name": "Chaotic Dominion",
+        "description": "Chaos Bolt damage +20%; Chaos Bolt additional pierces +1. Per rank.",
+        "max_rank": 1,
+        "tier": 2,
+        "column": 7,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "recovery": 1
+        },
+        "effects": {
+          "spell:chaos_bolt:damage": 0.2,
+          "spell:chaos_bolt:pierce": 1
+        },
+        "class_id": "warlock",
+        "icon": "effect:shadowburn",
+        "position": [
+          0.8333333333333334,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "spell:chaos_bolt:damage": 0.2,
+            "spell:chaos_bolt:pierce": 1
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "mastery": 1
         },
         "starting_options": []
       },
@@ -1484,8 +3204,8 @@
         "name": "Lord of Dread",
         "description": "Damage over time damage +25%; Companion damage +20%; Attack duration +10.0%. Per rank.",
         "max_rank": 1,
-        "tier": 5,
-        "column": 0,
+        "tier": 3,
+        "column": 4,
         "min_level": 22,
         "spent_required": 22,
         "requires": {
@@ -1496,40 +3216,22 @@
           "kind:companion": 0.2,
           "duration": 0.1
         },
-        "starting_options": []
-      },
-      {
-        "id": "survival",
-        "name": "Soul Harvest",
-        "description": "Restore 0.4 health per kill. Per rank.",
-        "max_rank": 1,
-        "tier": 5,
-        "column": 1,
-        "min_level": 22,
-        "spent_required": 22,
-        "requires": {
-          "manual": 1
-        },
-        "effects": {
-          "kill_heal": 0.4
-        },
-        "starting_options": []
-      },
-      {
-        "id": "offense",
-        "name": "Chaotic Dominion",
-        "description": "Chaos Bolt damage +20%; Chaos Bolt additional pierces +1. Per rank.",
-        "max_rank": 1,
-        "tier": 5,
-        "column": 2,
-        "min_level": 22,
-        "spent_required": 22,
-        "requires": {
-          "mastery": 1
-        },
-        "effects": {
-          "spell:chaos_bolt:damage": 0.2,
-          "spell:chaos_bolt:pierce": 1
+        "class_id": "warlock",
+        "icon": "actor:warlock",
+        "position": [
+          0.5,
+          0.9
+        ],
+        "rank_effects": [
+          {
+            "kind:dot": 0.25,
+            "kind:companion": 0.2,
+            "duration": 0.1
+          }
+        ],
+        "capstone": true,
+        "legacy_requires": {
+          "preparation": 1
         },
         "starting_options": []
       }
@@ -1541,13 +3243,32 @@
         "description": "Automatic damage +2.0%. Per rank.",
         "max_rank": 3,
         "tier": 0,
-        "column": 0,
+        "column": 4,
         "min_level": 1,
         "spent_required": 0,
         "requires": {},
         "effects": {
           "damage": 0.02
         },
+        "class_id": "priest",
+        "icon": "effect:smite",
+        "position": [
+          0.5,
+          0.1
+        ],
+        "rank_effects": [
+          {
+            "damage": 0.02
+          },
+          {
+            "damage": 0.04
+          },
+          {
+            "damage": 0.06
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {},
         "starting_options": []
       },
       {
@@ -1556,13 +3277,32 @@
         "description": "Base maximum health +3.0%. Per rank.",
         "max_rank": 3,
         "tier": 0,
-        "column": 1,
+        "column": 2,
         "min_level": 1,
         "spent_required": 0,
         "requires": {},
         "effects": {
           "health": 0.03
         },
+        "class_id": "priest",
+        "icon": "effect:power_word_shield",
+        "position": [
+          0.2777777777777778,
+          0.1
+        ],
+        "rank_effects": [
+          {
+            "health": 0.03
+          },
+          {
+            "health": 0.06
+          },
+          {
+            "health": 0.09
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {},
         "starting_options": []
       },
       {
@@ -1571,19 +3311,38 @@
         "description": "All cooldowns -1.5%. Per rank.",
         "max_rank": 3,
         "tier": 0,
-        "column": 2,
+        "column": 6,
         "min_level": 1,
         "spent_required": 0,
         "requires": {},
         "effects": {
           "haste": 0.015
         },
+        "class_id": "priest",
+        "icon": "effect:psychic_scream",
+        "position": [
+          0.7222222222222222,
+          0.1
+        ],
+        "rank_effects": [
+          {
+            "haste": 0.015
+          },
+          {
+            "haste": 0.03
+          },
+          {
+            "haste": 0.045
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {},
         "starting_options": []
       },
       {
         "id": "armor",
         "name": "Inner Armor",
-        "description": "Armor +1.0%. Per rank.",
+        "description": "Armor +1 percentage points. Per rank.",
         "max_rank": 3,
         "tier": 1,
         "column": 0,
@@ -1595,6 +3354,27 @@
         "effects": {
           "armor": 0.01
         },
+        "class_id": "priest",
+        "icon": "effect:desperate_prayer",
+        "position": [
+          0.05555555555555555,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "armor": 0.01
+          },
+          {
+            "armor": 0.02
+          },
+          {
+            "armor": 0.03
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "might": 1
+        },
         "starting_options": []
       },
       {
@@ -1603,7 +3383,7 @@
         "description": "Holy automatic damage +3.5%. Per rank.",
         "max_rank": 3,
         "tier": 1,
-        "column": 1,
+        "column": 3,
         "min_level": 3,
         "spent_required": 3,
         "requires": {
@@ -1611,6 +3391,27 @@
         },
         "effects": {
           "school:holy": 0.035
+        },
+        "class_id": "priest",
+        "icon": "effect:holy_fire",
+        "position": [
+          0.3888888888888889,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "school:holy": 0.035
+          },
+          {
+            "school:holy": 0.07
+          },
+          {
+            "school:holy": 0.105
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "health": 1
         },
         "starting_options": []
       },
@@ -1620,7 +3421,7 @@
         "description": "Attack area +2.5%. Per rank.",
         "max_rank": 3,
         "tier": 1,
-        "column": 2,
+        "column": 6,
         "min_level": 3,
         "spent_required": 3,
         "requires": {
@@ -1629,6 +3430,27 @@
         "effects": {
           "area": 0.025
         },
+        "class_id": "priest",
+        "icon": "effect:shadow_word_pain",
+        "position": [
+          0.7222222222222222,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "area": 0.025
+          },
+          {
+            "area": 0.05
+          },
+          {
+            "area": 0.075
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "haste": 1
+        },
         "starting_options": []
       },
       {
@@ -1636,49 +3458,112 @@
         "name": "Lasting Words",
         "description": "Attack duration +4.0%. Per rank.",
         "max_rank": 3,
-        "tier": 2,
-        "column": 0,
+        "tier": 1,
+        "column": 4,
         "min_level": 6,
         "spent_required": 6,
         "requires": {
-          "armor": 1
+          "might": 1
         },
         "effects": {
           "duration": 0.04
+        },
+        "class_id": "priest",
+        "icon": "effect:mind_blast",
+        "position": [
+          0.5,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "duration": 0.04
+          },
+          {
+            "duration": 0.08
+          },
+          {
+            "duration": 0.12
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "armor": 1
         },
         "starting_options": []
       },
       {
         "id": "signature",
-        "name": "Piercing Smite",
-        "description": "Smite additional pierces +1. Per rank.",
+        "name": "Twin Smite",
+        "description": "Smite additional pierces +1; Smite additional effects +1. Per rank.",
         "max_rank": 1,
-        "tier": 2,
-        "column": 1,
+        "tier": 1,
+        "column": 2,
         "min_level": 6,
         "spent_required": 6,
         "requires": {
-          "school": 1
+          "health": 1
         },
         "effects": {
-          "spell:smite:pierce": 1
+          "spell:smite:pierce": 1,
+          "spell:smite:count": 1
+        },
+        "class_id": "priest",
+        "icon": "effect:smite",
+        "position": [
+          0.2777777777777778,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "spell:smite:pierce": 1,
+            "spell:smite:count": 1
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "school": 1
         },
         "starting_options": []
       },
       {
         "id": "recovery",
         "name": "Quiet Recovery",
-        "description": "Recover 0.08 health/second. Per rank.",
+        "description": "Recover 0.08 health/second; Movement speed +1.5%. Per rank.",
         "max_rank": 3,
-        "tier": 2,
-        "column": 2,
+        "tier": 1,
+        "column": 8,
         "min_level": 6,
         "spent_required": 6,
         "requires": {
-          "area": 1
+          "haste": 1
         },
         "effects": {
-          "regen": 0.08
+          "regen": 0.08,
+          "speed": 0.015
+        },
+        "class_id": "priest",
+        "icon": "effect:power_word_shield",
+        "position": [
+          0.9444444444444444,
+          0.37
+        ],
+        "rank_effects": [
+          {
+            "regen": 0.08,
+            "speed": 0.015
+          },
+          {
+            "regen": 0.16,
+            "speed": 0.03
+          },
+          {
+            "regen": 0.24,
+            "speed": 0.045
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "area": 1
         },
         "starting_options": []
       },
@@ -1687,7 +3572,7 @@
         "name": "Persistent Agony",
         "description": "Damage over time damage +4%. Per rank.",
         "max_rank": 3,
-        "tier": 3,
+        "tier": 2,
         "column": 0,
         "min_level": 10,
         "spent_required": 10,
@@ -1697,6 +3582,27 @@
         "effects": {
           "kind:dot": 0.04
         },
+        "class_id": "priest",
+        "icon": "effect:mind_sear",
+        "position": [
+          0.05555555555555555,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "kind:dot": 0.04
+          },
+          {
+            "kind:dot": 0.08
+          },
+          {
+            "kind:dot": 0.12
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "duration": 1
+        },
         "starting_options": []
       },
       {
@@ -1704,7 +3610,7 @@
         "name": "Exorcist",
         "description": "Damage to bosses +3.0%. Per rank.",
         "max_rank": 3,
-        "tier": 3,
+        "tier": 2,
         "column": 1,
         "min_level": 10,
         "spent_required": 10,
@@ -1714,6 +3620,27 @@
         "effects": {
           "boss_damage": 0.03
         },
+        "class_id": "priest",
+        "icon": "effect:penance",
+        "position": [
+          0.16666666666666666,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "boss_damage": 0.03
+          },
+          {
+            "boss_damage": 0.06
+          },
+          {
+            "boss_damage": 0.09
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "signature": 1
+        },
         "starting_options": []
       },
       {
@@ -1721,8 +3648,8 @@
         "name": "Empowered Penance",
         "description": "Penance additional effects +1. Per rank.",
         "max_rank": 1,
-        "tier": 3,
-        "column": 2,
+        "tier": 2,
+        "column": 6,
         "min_level": 10,
         "spent_required": 10,
         "requires": {
@@ -1731,6 +3658,21 @@
         "effects": {
           "spell:penance:count": 1
         },
+        "class_id": "priest",
+        "icon": "effect:penance",
+        "position": [
+          0.7222222222222222,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "spell:penance:count": 1
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "recovery": 1
+        },
         "starting_options": []
       },
       {
@@ -1738,14 +3680,27 @@
         "name": "Prepared Liturgy",
         "description": "Unlock one optional extra Rank 1 starting ability. Choose it here between runs; no selection means no extra ability.",
         "max_rank": 1,
-        "tier": 4,
-        "column": 0,
+        "tier": 2,
+        "column": 4,
         "min_level": 15,
         "spent_required": 15,
         "requires": {
-          "specialist": 1
+          "duration": 1
         },
         "effects": {},
+        "class_id": "priest",
+        "icon": "effect:holy_fire",
+        "position": [
+          0.5,
+          0.64
+        ],
+        "rank_effects": [
+          {}
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "specialist": 1
+        },
         "starting_options": [
           "holy_fire",
           "shadow_word_pain"
@@ -1756,15 +3711,33 @@
         "name": "Prayer Discipline",
         "description": "Manual cooldowns -4.0%. Per rank.",
         "max_rank": 2,
-        "tier": 4,
-        "column": 1,
+        "tier": 2,
+        "column": 2,
         "min_level": 15,
         "spent_required": 15,
         "requires": {
-          "slayer": 1
+          "signature": 1
         },
         "effects": {
           "manual_haste": 0.04
+        },
+        "class_id": "priest",
+        "icon": "effect:psychic_scream",
+        "position": [
+          0.2777777777777778,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "manual_haste": 0.04
+          },
+          {
+            "manual_haste": 0.08
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "slayer": 1
         },
         "starting_options": []
       },
@@ -1773,15 +3746,103 @@
         "name": "Wide Holy Nova",
         "description": "Holy Nova attack area +15%. Per rank.",
         "max_rank": 2,
-        "tier": 4,
-        "column": 2,
+        "tier": 2,
+        "column": 8,
         "min_level": 15,
         "spent_required": 15,
         "requires": {
-          "technique": 1
+          "recovery": 1
         },
         "effects": {
           "spell:holy_nova:radius": 0.15
+        },
+        "class_id": "priest",
+        "icon": "effect:holy_nova",
+        "position": [
+          0.9444444444444444,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "spell:holy_nova:radius": 0.15
+          },
+          {
+            "spell:holy_nova:radius": 0.3
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "technique": 1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "survival",
+        "name": "Aegis of Light",
+        "description": "Start with 30 shield for 20 seconds; Armor +2 percentage points. Per rank.",
+        "max_rank": 1,
+        "tier": 2,
+        "column": 3,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "signature": 1
+        },
+        "effects": {
+          "starting_shield": 30,
+          "armor": 0.02
+        },
+        "class_id": "priest",
+        "icon": "effect:desperate_prayer",
+        "position": [
+          0.3888888888888889,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "starting_shield": 30,
+            "armor": 0.02
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "manual": 1
+        },
+        "starting_options": []
+      },
+      {
+        "id": "offense",
+        "name": "Shadow Revelation",
+        "description": "Shadow automatic damage +20.0%; Mind Sear attack area +20%; Shadow Word: Pain spread/volley width +25%. Per rank.",
+        "max_rank": 1,
+        "tier": 2,
+        "column": 7,
+        "min_level": 22,
+        "spent_required": 22,
+        "requires": {
+          "recovery": 1
+        },
+        "effects": {
+          "school:shadow": 0.2,
+          "spell:mind_sear:radius": 0.2,
+          "spell:shadow_word_pain:spread": 0.25
+        },
+        "class_id": "priest",
+        "icon": "effect:void_torrent",
+        "position": [
+          0.8333333333333334,
+          0.64
+        ],
+        "rank_effects": [
+          {
+            "school:shadow": 0.2,
+            "spell:mind_sear:radius": 0.2,
+            "spell:shadow_word_pain:spread": 0.25
+          }
+        ],
+        "capstone": false,
+        "legacy_requires": {
+          "mastery": 1
         },
         "starting_options": []
       },
@@ -1790,8 +3851,8 @@
         "name": "Divine Ascendance",
         "description": "Holy automatic damage +15.0%; Gain 0.5 shield per kill, capped at 25% health; Healing received +20.0%. Per rank.",
         "max_rank": 1,
-        "tier": 5,
-        "column": 0,
+        "tier": 3,
+        "column": 4,
         "min_level": 22,
         "spent_required": 22,
         "requires": {
@@ -1802,41 +3863,22 @@
           "kill_shield": 0.5,
           "healing": 0.2
         },
-        "starting_options": []
-      },
-      {
-        "id": "survival",
-        "name": "Aegis of Light",
-        "description": "Start with 30 shield for 20 seconds; Armor +2.0%. Per rank.",
-        "max_rank": 1,
-        "tier": 5,
-        "column": 1,
-        "min_level": 22,
-        "spent_required": 22,
-        "requires": {
-          "manual": 1
-        },
-        "effects": {
-          "starting_shield": 30,
-          "armor": 0.02
-        },
-        "starting_options": []
-      },
-      {
-        "id": "offense",
-        "name": "Shadow Revelation",
-        "description": "Shadow automatic damage +20.0%; Mind Sear attack area +20%. Per rank.",
-        "max_rank": 1,
-        "tier": 5,
-        "column": 2,
-        "min_level": 22,
-        "spent_required": 22,
-        "requires": {
-          "mastery": 1
-        },
-        "effects": {
-          "school:shadow": 0.2,
-          "spell:mind_sear:radius": 0.2
+        "class_id": "priest",
+        "icon": "actor:priest",
+        "position": [
+          0.5,
+          0.9
+        ],
+        "rank_effects": [
+          {
+            "school:holy": 0.15,
+            "kill_shield": 0.5,
+            "healing": 0.2
+          }
+        ],
+        "capstone": true,
+        "legacy_requires": {
+          "preparation": 1
         },
         "starting_options": []
       }
@@ -2378,5 +4420,61 @@
     "stranglethorn",
     "plaguelands",
     "icecrown"
-  ]
+  ],
+  "tree_styles": {
+    "paladin": {
+      "accent": [
+        226,
+        193,
+        108
+      ],
+      "background": "elwynn_inn",
+      "title": "The path of the Light"
+    },
+    "warrior": {
+      "accent": [
+        203,
+        110,
+        91
+      ],
+      "background": "icecrown_prop_0",
+      "title": "Steel and resolve"
+    },
+    "mage": {
+      "accent": [
+        111,
+        180,
+        234
+      ],
+      "background": "icecrown_prop_2",
+      "title": "The arcane disciplines"
+    },
+    "hunter": {
+      "accent": [
+        143,
+        195,
+        115
+      ],
+      "background": "stranglethorn_prop_0",
+      "title": "The wilds answer"
+    },
+    "warlock": {
+      "accent": [
+        174,
+        124,
+        210
+      ],
+      "background": "plaguelands_prop_2",
+      "title": "Power through forbidden pacts"
+    },
+    "priest": {
+      "accent": [
+        215,
+        218,
+        200
+      ],
+      "background": "elwynn_mill",
+      "title": "Faith and shadow"
+    }
+  }
 }
