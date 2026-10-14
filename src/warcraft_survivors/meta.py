@@ -43,6 +43,20 @@ class SharedUpgrade:
     costs: tuple[int, ...]
     requires_ranks: int
     effects: dict[str, float]
+    achievement: str = ""
+
+
+@dataclass(frozen=True)
+class AchievementCondition:
+    metric: str
+    target: int
+
+
+@dataclass(frozen=True)
+class AchievementReward:
+    kind: str
+    value: int = 0
+    target: str = ""
 
 
 @dataclass(frozen=True)
@@ -54,6 +68,13 @@ class Achievement:
     gold: int
     description: str
     class_id: str = ""
+    category: str = "combat"
+    icon: str = "effect:judgment"
+    conditions: tuple[AchievementCondition, ...] = ()
+    rewards: tuple[AchievementReward, ...] = ()
+    prerequisites: tuple[str, ...] = ()
+    available: bool = True
+    availability_reason: str = ""
 
 
 @dataclass(frozen=True)
@@ -63,6 +84,7 @@ class ClassUnlock:
     playable: bool
     achievement: str
     description: str
+    icon: str = "effect:judgment"
 
 
 @dataclass(frozen=True)
@@ -104,7 +126,15 @@ def load_progression() -> ProgressionContent:
         )
         for r in raw["shared"]
     }
-    achievements = {r["id"]: Achievement(**r) for r in raw["achievements"]}
+    achievements = {
+        r["id"]: Achievement(
+            **{k: v for k, v in r.items() if k not in {"conditions", "rewards", "prerequisites"}},
+            conditions=tuple(AchievementCondition(**c) for c in r.get("conditions", [])),
+            rewards=tuple(AchievementReward(**reward) for reward in r.get("rewards", [])),
+            prerequisites=tuple(r.get("prerequisites", [])),
+        )
+        for r in raw["achievements"]
+    }
     classes = {r["id"]: ClassUnlock(**r) for r in raw["classes"]}
 
     def validate_effects(effects: dict[str, float]) -> None:
@@ -131,6 +161,8 @@ def load_progression() -> ProgressionContent:
             "healing",
             "starting_shield",
             "manual_haste",
+            "chest_gold",
+            "banishes",
         }
         for key, value in effects.items():
             if (
@@ -230,8 +262,59 @@ def load_progression() -> ProgressionContent:
         validate_effects(upgrade.effects)
     if any(a.target <= 0 or a.gold < 0 for a in achievements.values()):
         raise ValueError("Invalid achievement")
+    if len(achievements) != len(raw["achievements"]):
+        raise ValueError("Duplicate achievement ID")
+    for a in achievements.values():
+        kind, _, icon = a.icon.partition(":")
+        if a.category not in {
+            "combat",
+            "exploration",
+            "builds",
+            "mastery",
+            "survival",
+        } or icon not in art.get({"effect": "effects", "actor": "actors"}.get(kind, ""), {}):
+            raise ValueError("Invalid achievement category/icon")
+        if not a.conditions or any(c.target <= 0 for c in a.conditions):
+            raise ValueError("Invalid achievement conditions")
+        if any(p not in achievements or p == a.id for p in a.prerequisites):
+            raise ValueError("Invalid achievement prerequisites")
+        if sum(r.value for r in a.rewards if r.kind == "gold") != a.gold:
+            raise ValueError("Achievement gold rewards disagree")
+        for reward in a.rewards:
+            if (
+                reward.kind not in {"gold", "class", "shop"}
+                or reward.value < 0
+                or (reward.kind == "class" and reward.target not in classes)
+                or (reward.kind == "shop" and reward.target not in shared)
+            ):
+                raise ValueError("Invalid achievement reward")
+    visited: set[str] = set()
+
+    def visit(aid: str, path: set[str]) -> None:
+        if aid in path:
+            raise ValueError("Cyclic achievement prerequisites")
+        if aid not in visited:
+            for parent in achievements[aid].prerequisites:
+                visit(parent, path | {aid})
+            visited.add(aid)
+
+    for aid in achievements:
+        visit(aid, set())
+    if any(u.achievement and u.achievement not in achievements for u in shared.values()):
+        raise ValueError("Unknown shop achievement gate")
     if any(c.achievement and c.achievement not in achievements for c in classes.values()):
         raise ValueError("Unknown class unlock achievement")
+    if any(
+        c.playable
+        and (
+            cid not in gameplay.classes
+            or cid not in trees
+            or cid not in art["actors"]
+            or not gameplay.classes[cid].manuals
+        )
+        for cid, c in classes.items()
+    ):
+        raise ValueError("Playable class is missing required content")
     if set(raw["tree_styles"]) != set(trees):
         raise ValueError("Missing class tree styles")
     for cid, style in raw["tree_styles"].items():

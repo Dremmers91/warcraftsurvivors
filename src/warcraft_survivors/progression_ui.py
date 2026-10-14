@@ -10,6 +10,7 @@ from typing import TYPE_CHECKING
 import pygame
 from pygame import Rect, Vector2
 
+from .achievement_ui import AchievementView
 from .meta import class_level, class_xp_progress, load_progression
 from .rendering import CREAM, GOLD, MUTED
 from .talent_ui import TalentTreeView, effect_summary, node_rect
@@ -17,7 +18,16 @@ from .talent_ui import TalentTreeView, effect_summary, node_rect
 if TYPE_CHECKING:
     from .app import App
 
-SCREENS = {"progression", "talents", "shop", "achievements", "unlocks", "starting", "confirm"}
+SCREENS = {
+    "progression",
+    "talents",
+    "shop",
+    "achievements",
+    "unlocks",
+    "starting",
+    "confirm",
+    "achievement_detail",
+}
 GREEN = (114, 192, 143)
 
 
@@ -32,7 +42,7 @@ class Confirmation:
 class ProgressionUI:
     def __init__(self) -> None:
         self.shop_page = 0
-        self.achievement_page = 0
+        self.achievements = AchievementView()
         self.confirmation: Confirmation | None = None
         self.tree = TalentTreeView()
 
@@ -42,9 +52,9 @@ class ProgressionUI:
 
     def page(self, app: App, screen: str, amount: int) -> None:
         if screen == "shop":
-            self.shop_page = (self.shop_page + amount) % 2
+            self.shop_page = (self.shop_page + amount) % ((len(load_progression().shared) + 5) // 6)
         else:
-            self.achievement_page = (self.achievement_page + amount) % 4
+            self.achievements.turn_page(app, amount)
         app.goto(screen)
 
     def cycle_class(self, app: App, amount: int) -> None:
@@ -183,30 +193,8 @@ class ProgressionUI:
             add(Rect(64, 640, 230, 48), "Back", partial(app.goto, "main"))
             add(Rect(740, 640, 230, 48), "Previous", partial(self.page, app, "shop", -1))
             add(Rect(984, 640, 230, 48), "Next", partial(self.page, app, "shop", 1))
-        elif screen == "achievements":
-            achievement_entries = list(meta.achievements.values())[
-                self.achievement_page * 9 : self.achievement_page * 9 + 9
-            ]
-            for i, a in enumerate(achievement_entries):
-                add(
-                    Rect(64 + i % 3 * 384, 195 + i // 3 * 138, 366, 124),
-                    a.name,
-                    partial(app.toast, a.description + f" · Reward: {a.gold} gold"),
-                )
-            add(Rect(64, 640, 230, 48), "Back", partial(app.goto, "main"))
-            add(Rect(740, 640, 230, 48), "Previous", partial(self.page, app, "achievements", -1))
-            add(Rect(984, 640, 230, 48), "Next", partial(self.page, app, "achievements", 1))
-        elif screen == "unlocks":
-            for i, c in enumerate(c for c in meta.classes.values() if not c.playable):
-                add(
-                    Rect(64 + i * 384, 210, 366, 345),
-                    c.name,
-                    partial(
-                        app.toast,
-                        c.description + " · Planned class; no playable abilities shipped yet.",
-                    ),
-                )
-            add(Rect(64, 640, 230, 48), "Back", partial(app.goto, "classes"))
+        elif screen in {"achievements", "achievement_detail", "unlocks"}:
+            self.achievements.build(app, add)
         elif screen == "starting":
             options = ("",) + meta.trees[cid]["preparation"].starting_options
             for i, aid in enumerate(options):
@@ -225,7 +213,9 @@ class ProgressionUI:
             self.cancel(app)
         else:
             app.goto(
-                "progression"
+                "achievements"
+                if app.screen == "achievement_detail"
+                else "progression"
                 if app.screen == "talents"
                 else "talents"
                 if app.screen == "starting"
@@ -271,7 +261,7 @@ class ProgressionUI:
         elif screen == "shop":
             r.backdrop(
                 "Shared training",
-                f"Gold {app.save.data['gold']:,} · Page {self.shop_page + 1}/2 · Bonuses apply to every class in future runs.",
+                f"Gold {app.save.data['gold']:,} · Page {self.shop_page + 1}/{(len(meta.shared) + 5) // 6} · Bonuses apply to every class in future runs.",
             )
             shared_entries = list(meta.shared.values())[self.shop_page * 6 : self.shop_page * 6 + 6]
             for i, u in enumerate(shared_entries):
@@ -294,61 +284,9 @@ class ProgressionUI:
                     MUTED,
                 )
             start = len(shared_entries)
-        elif screen == "achievements":
-            r.backdrop(
-                "Chronicle of Elwynn",
-                f"{len(app.save.data['achievements'])}/{len(meta.achievements)} completed · Page {self.achievement_page + 1}/4 · One-time rewards",
-            )
-            achievement_entries = list(meta.achievements.values())[
-                self.achievement_page * 9 : self.achievement_page * 9 + 9
-            ]
-            for i, a in enumerate(achievement_entries):
-                rect = app.buttons[i].rect
-                done = a.id in app.save.data["achievements"]
-                value = app.save.achievement_value(app.save.data, a.id)
-                r.panel(rect, app.focus == i)
-                r.wrapped(
-                    a.name, Rect(rect.x + 14, rect.y + 12, 338, 30), 26, GREEN if done else GOLD
-                )
-                r.wrapped(a.description, Rect(rect.x + 14, rect.y + 47, 338, 28), 19, CREAM)
-                r.bar(Rect(rect.x + 14, rect.y + 84, 338, 5), min(1, value / a.target), GREEN)
-                r.text(
-                    ("COMPLETE" if done else f"{min(value, a.target):,} / {a.target:,}")
-                    + f" · {a.gold} gold",
-                    (rect.x + 14, rect.y + 98),
-                    18,
-                    MUTED,
-                )
-            start = len(achievement_entries)
-        elif screen == "unlocks":
-            r.backdrop(
-                "Future champions",
-                "Additional classes unlock through achievements. Gold never buys a class.",
-            )
-            unlock_entries = [c for c in meta.classes.values() if not c.playable]
-            for i, entry in enumerate(unlock_entries):
-                rect = app.buttons[i].rect
-                unlocked = entry.id in app.save.data["unlocked_classes"]
-                a = meta.achievements[entry.achievement]
-                value = app.save.achievement_value(app.save.data, a.id)
-                r.panel(rect, app.focus == i)
-                r.text(entry.name, (rect.x + 24, rect.y + 25), 38, GOLD)
-                r.text(
-                    "UNLOCK EARNED" if unlocked else "LOCKED",
-                    (rect.x + 24, rect.y + 95),
-                    26,
-                    GREEN if unlocked else MUTED,
-                )
-                r.wrapped(entry.description, Rect(rect.x + 24, rect.y + 145, 318, 70), 25, CREAM)
-                r.bar(Rect(rect.x + 24, rect.y + 238, 318, 8), min(1, value / a.target), GREEN)
-                r.text(
-                    f"{min(value, a.target):,} / {a.target:,}",
-                    (rect.x + 24, rect.y + 264),
-                    22,
-                    MUTED,
-                )
-                r.text("Playable in a future release.", (rect.x + 24, rect.y + 300), 21, MUTED)
-            start = len(unlock_entries)
+        elif screen in {"achievements", "achievement_detail", "unlocks"}:
+            self.achievements.draw(app)
+            return
         elif screen == "starting":
             r.backdrop(
                 "Prepare your next run",

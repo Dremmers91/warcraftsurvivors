@@ -145,6 +145,8 @@ def test_shared_costs_caps_and_insufficient_gold_are_transactional(tmp_path, sid
     save = SaveStore(tmp_path / "save.json")
     save.data["shared"] = {"health": 5, "might": 3} if sid == "choices" else {}
     upgrade = META.shared[sid]
+    if upgrade.achievement:
+        save.data["achievements"].append(upgrade.achievement)
     for cost in upgrade.costs:
         save.data["gold"] = cost - 1
         before = copy.deepcopy(save.data)
@@ -166,6 +168,8 @@ def test_fourth_card_and_rerolls_are_permanent_and_never_unlock_extra_chest_choi
         assert save.buy_shared("health")
     for _ in range(3):
         assert save.buy_shared("might")
+    assert not save.buy_shared("choices")
+    save.data["achievements"].append("more_choices")
     assert save.buy_shared("choices") and save.buy_shared("rerolls")
     sim = Simulation(content, permanent=SaveStore(save.path).loadout("paladin"))
     sim.player.xp = sim.player.xp_required
@@ -374,9 +378,8 @@ def test_achievement_counters_unlocks_and_once_only_rewards_persist(tmp_path):
     save = SaveStore(tmp_path / "save.json")
     for cid in ("paladin", "mage", "hunter"):
         result = save.reward_run(cid, 100, 20, 1800, True, 0, 10, 1000)
-    assert "unlock_rogue" in result["achievements"] and {"rogue", "druid", "shaman"} <= set(
-        save.data["unlocked_classes"]
-    )
+    assert "unlock_rogue" not in result["achievements"]
+    assert not {"rogue", "druid", "shaman"} & set(save.data["unlocked_classes"])
     assert (
         save.data["stats"]["kills"] == 300
         and save.data["stats"]["elites"] == 60
@@ -384,7 +387,7 @@ def test_achievement_counters_unlocks_and_once_only_rewards_persist(tmp_path):
     )
     assert save.data["stats"]["bosses"] == 3
     loaded = SaveStore(save.path)
-    assert loaded.data["achievement_progress"]["unlock_rogue"] == 3 and not loaded.class_available(
+    assert loaded.data["achievement_progress"]["unlock_rogue"] == 0 and not loaded.class_available(
         "rogue"
     )
     for cid in ("rogue", "druid", "shaman"):

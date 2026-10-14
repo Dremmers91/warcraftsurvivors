@@ -4047,7 +4047,52 @@
       "requires_ranks": 8,
       "effects": {
         "choices": 1
-      }
+      },
+      "achievement": "more_choices"
+    },
+    {
+      "id": "treasure",
+      "name": "Treasure Training",
+      "description": "Each opened elite chest awards +5 run gold per rank",
+      "max_rank": 3,
+      "costs": [
+        300,
+        600,
+        900
+      ],
+      "requires_ranks": 0,
+      "effects": {
+        "chest_gold": 5
+      },
+      "achievement": "treasure_hunter"
+    },
+    {
+      "id": "reroll_mastery",
+      "name": "Spellmaster's Insight",
+      "description": "One additional reroll per run",
+      "max_rank": 1,
+      "costs": [
+        600
+      ],
+      "requires_ranks": 0,
+      "effects": {
+        "rerolls": 1
+      },
+      "achievement": "evolve_10"
+    },
+    {
+      "id": "banish",
+      "name": "Banish Training",
+      "description": "Banish one selected normal upgrade from a run (B / Y)",
+      "max_rank": 1,
+      "costs": [
+        800
+      ],
+      "requires_ranks": 0,
+      "effects": {
+        "banishes": 1
+      },
+      "achievement": "master_of_arms"
     }
   ],
   "achievements": [
@@ -4058,7 +4103,25 @@
       "target": 1,
       "gold": 20,
       "description": "Kills: 1",
-      "class_id": ""
+      "class_id": "",
+      "category": "combat",
+      "conditions": [
+        {
+          "metric": "kills",
+          "target": 1
+        }
+      ],
+      "icon": "effect:cleave",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 20,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "centurion",
@@ -4067,7 +4130,25 @@
       "target": 100,
       "gold": 50,
       "description": "Run Kills: 100",
-      "class_id": ""
+      "class_id": "",
+      "category": "combat",
+      "conditions": [
+        {
+          "metric": "run_kills",
+          "target": 100
+        }
+      ],
+      "icon": "effect:cleave",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 50,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "survivor",
@@ -4076,7 +4157,25 @@
       "target": 300,
       "gold": 75,
       "description": "Best Time: 300",
-      "class_id": ""
+      "class_id": "",
+      "category": "survival",
+      "conditions": [
+        {
+          "metric": "best_time",
+          "target": 300
+        }
+      ],
+      "icon": "effect:power_word_shield",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 75,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "elite",
@@ -4085,7 +4184,25 @@
       "target": 1,
       "gold": 80,
       "description": "Elites: 1",
-      "class_id": ""
+      "class_id": "",
+      "category": "combat",
+      "conditions": [
+        {
+          "metric": "elites",
+          "target": 1
+        }
+      ],
+      "icon": "effect:cleave",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 80,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "evolution",
@@ -4094,7 +4211,25 @@
       "target": 1,
       "gold": 100,
       "description": "Evolved: 1",
-      "class_id": ""
+      "class_id": "",
+      "category": "builds",
+      "conditions": [
+        {
+          "metric": "evolved",
+          "target": 1
+        }
+      ],
+      "icon": "effect:arcane_missiles",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 100,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "victory",
@@ -4103,7 +4238,25 @@
       "target": 1,
       "gold": 300,
       "description": "Hogger: 1",
-      "class_id": ""
+      "class_id": "",
+      "category": "exploration",
+      "conditions": [
+        {
+          "metric": "hogger",
+          "target": 1
+        }
+      ],
+      "icon": "effect:eye_of_tyr",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 300,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "kills_500",
@@ -4112,7 +4265,25 @@
       "target": 500,
       "gold": 100,
       "description": "Kills: 500",
-      "class_id": ""
+      "class_id": "",
+      "category": "combat",
+      "conditions": [
+        {
+          "metric": "kills",
+          "target": 500
+        }
+      ],
+      "icon": "effect:cleave",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 100,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "kills_5000",
@@ -4121,7 +4292,25 @@
       "target": 5000,
       "gold": 300,
       "description": "Kills: 5000",
-      "class_id": ""
+      "class_id": "",
+      "category": "combat",
+      "conditions": [
+        {
+          "metric": "kills",
+          "target": 5000
+        }
+      ],
+      "icon": "effect:cleave",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 300,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "kills_25000",
@@ -4130,7 +4319,25 @@
       "target": 25000,
       "gold": 700,
       "description": "Kills: 25000",
-      "class_id": ""
+      "class_id": "",
+      "category": "combat",
+      "conditions": [
+        {
+          "metric": "kills",
+          "target": 25000
+        }
+      ],
+      "icon": "effect:cleave",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 700,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "elites_10",
@@ -4139,7 +4346,25 @@
       "target": 10,
       "gold": 200,
       "description": "Elites: 10",
-      "class_id": ""
+      "class_id": "",
+      "category": "combat",
+      "conditions": [
+        {
+          "metric": "elites",
+          "target": 10
+        }
+      ],
+      "icon": "effect:cleave",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 200,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "elites_25",
@@ -4148,7 +4373,25 @@
       "target": 25,
       "gold": 400,
       "description": "Elites: 25",
-      "class_id": ""
+      "class_id": "",
+      "category": "combat",
+      "conditions": [
+        {
+          "metric": "elites",
+          "target": 25
+        }
+      ],
+      "icon": "effect:cleave",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 400,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "survive_10",
@@ -4157,7 +4400,25 @@
       "target": 600,
       "gold": 60,
       "description": "Best Time: 600",
-      "class_id": ""
+      "class_id": "",
+      "category": "survival",
+      "conditions": [
+        {
+          "metric": "best_time",
+          "target": 600
+        }
+      ],
+      "icon": "effect:power_word_shield",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 60,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "survive_20",
@@ -4166,7 +4427,25 @@
       "target": 1200,
       "gold": 100,
       "description": "Best Time: 1200",
-      "class_id": ""
+      "class_id": "",
+      "category": "survival",
+      "conditions": [
+        {
+          "metric": "best_time",
+          "target": 1200
+        }
+      ],
+      "icon": "effect:power_word_shield",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 100,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "survive_30",
@@ -4175,7 +4454,25 @@
       "target": 1800,
       "gold": 150,
       "description": "Best Time: 1800",
-      "class_id": ""
+      "class_id": "",
+      "category": "survival",
+      "conditions": [
+        {
+          "metric": "best_time",
+          "target": 1800
+        }
+      ],
+      "icon": "effect:power_word_shield",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 150,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "hogger_5",
@@ -4184,16 +4481,57 @@
       "target": 5,
       "gold": 600,
       "description": "Hogger: 5",
-      "class_id": ""
+      "class_id": "",
+      "category": "exploration",
+      "conditions": [
+        {
+          "metric": "hogger",
+          "target": 5
+        }
+      ],
+      "icon": "effect:eye_of_tyr",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 600,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "evolve_10",
-      "name": "Master of Evolution",
+      "name": "Spell Master",
       "metric": "evolved",
       "target": 10,
       "gold": 300,
       "description": "Evolved: 10",
-      "class_id": ""
+      "class_id": "",
+      "category": "builds",
+      "conditions": [
+        {
+          "metric": "evolved",
+          "target": 10
+        }
+      ],
+      "icon": "effect:arcane_missiles",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 300,
+          "target": ""
+        },
+        {
+          "kind": "shop",
+          "target": "reroll_mastery",
+          "value": 1
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "level_5",
@@ -4202,7 +4540,25 @@
       "target": 5,
       "gold": 150,
       "description": "Class Level: 5",
-      "class_id": ""
+      "class_id": "",
+      "category": "mastery",
+      "conditions": [
+        {
+          "metric": "class_level",
+          "target": 5
+        }
+      ],
+      "icon": "effect:judgment",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 150,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "level_15",
@@ -4211,7 +4567,25 @@
       "target": 15,
       "gold": 300,
       "description": "Class Level: 15",
-      "class_id": ""
+      "class_id": "",
+      "category": "mastery",
+      "conditions": [
+        {
+          "metric": "class_level",
+          "target": 15
+        }
+      ],
+      "icon": "effect:judgment",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 300,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "level_30",
@@ -4220,7 +4594,25 @@
       "target": 30,
       "gold": 600,
       "description": "Class Level: 30",
-      "class_id": ""
+      "class_id": "",
+      "category": "mastery",
+      "conditions": [
+        {
+          "metric": "class_level",
+          "target": 30
+        }
+      ],
+      "icon": "effect:judgment",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 600,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "wins_2",
@@ -4229,34 +4621,121 @@
       "target": 2,
       "gold": 300,
       "description": "Winning Classes: 2",
-      "class_id": ""
+      "class_id": "",
+      "category": "mastery",
+      "conditions": [
+        {
+          "metric": "winning_classes",
+          "target": 2
+        }
+      ],
+      "icon": "effect:judgment",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 300,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "unlock_rogue",
-      "name": "Three Roads to Victory",
-      "metric": "winning_classes",
-      "target": 3,
+      "name": "Defias Infiltrator",
+      "metric": "faction:defias",
+      "target": 2500,
       "gold": 400,
-      "description": "Winning Classes: 3",
-      "class_id": ""
+      "description": "Defeat 2,500 Defias bandits across runs.",
+      "class_id": "",
+      "category": "combat",
+      "conditions": [
+        {
+          "metric": "faction:defias",
+          "target": 2500
+        }
+      ],
+      "icon": "effect:cleave",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 400,
+          "target": ""
+        },
+        {
+          "kind": "class",
+          "target": "rogue",
+          "value": 1
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "unlock_druid",
-      "name": "Keeper of Elwynn",
-      "metric": "evolved",
-      "target": 25,
+      "name": "Keeper of the Wild",
+      "metric": "family:beast",
+      "target": 5000,
       "gold": 500,
-      "description": "Evolved: 25",
-      "class_id": ""
+      "description": "Defeat 5,000 beast enemies across runs.",
+      "class_id": "",
+      "category": "combat",
+      "conditions": [
+        {
+          "metric": "family:beast",
+          "target": 5000
+        }
+      ],
+      "icon": "effect:cleave",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 500,
+          "target": ""
+        },
+        {
+          "kind": "class",
+          "target": "druid",
+          "value": 1
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "unlock_shaman",
-      "name": "Voice of the Forest",
-      "metric": "elites",
-      "target": 50,
+      "name": "Elemental Calling",
+      "metric": "elemental_kills",
+      "target": 2000,
       "gold": 500,
-      "description": "Elites: 50",
-      "class_id": ""
+      "description": "Defeat 2,000 enemies with Fire, Frost or Nature damage.",
+      "class_id": "",
+      "category": "combat",
+      "conditions": [
+        {
+          "metric": "elemental_kills",
+          "target": 2000
+        }
+      ],
+      "icon": "effect:cleave",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 500,
+          "target": ""
+        },
+        {
+          "kind": "class",
+          "target": "shaman",
+          "value": 1
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "level_paladin",
@@ -4265,7 +4744,25 @@
       "target": 10,
       "gold": 200,
       "description": "Class Level: 10",
-      "class_id": "paladin"
+      "class_id": "paladin",
+      "category": "mastery",
+      "conditions": [
+        {
+          "metric": "class_level",
+          "target": 10
+        }
+      ],
+      "icon": "actor:paladin",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 200,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "level_warrior",
@@ -4274,7 +4771,25 @@
       "target": 10,
       "gold": 200,
       "description": "Class Level: 10",
-      "class_id": "warrior"
+      "class_id": "warrior",
+      "category": "mastery",
+      "conditions": [
+        {
+          "metric": "class_level",
+          "target": 10
+        }
+      ],
+      "icon": "actor:warrior",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 200,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "level_mage",
@@ -4283,7 +4798,25 @@
       "target": 10,
       "gold": 200,
       "description": "Class Level: 10",
-      "class_id": "mage"
+      "class_id": "mage",
+      "category": "mastery",
+      "conditions": [
+        {
+          "metric": "class_level",
+          "target": 10
+        }
+      ],
+      "icon": "actor:mage",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 200,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "level_hunter",
@@ -4292,7 +4825,25 @@
       "target": 10,
       "gold": 200,
       "description": "Class Level: 10",
-      "class_id": "hunter"
+      "class_id": "hunter",
+      "category": "mastery",
+      "conditions": [
+        {
+          "metric": "class_level",
+          "target": 10
+        }
+      ],
+      "icon": "actor:hunter",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 200,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "level_warlock",
@@ -4301,7 +4852,25 @@
       "target": 10,
       "gold": 200,
       "description": "Class Level: 10",
-      "class_id": "warlock"
+      "class_id": "warlock",
+      "category": "mastery",
+      "conditions": [
+        {
+          "metric": "class_level",
+          "target": 10
+        }
+      ],
+      "icon": "actor:warlock",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 200,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "level_priest",
@@ -4310,7 +4879,25 @@
       "target": 10,
       "gold": 200,
       "description": "Class Level: 10",
-      "class_id": "priest"
+      "class_id": "priest",
+      "category": "mastery",
+      "conditions": [
+        {
+          "metric": "class_level",
+          "target": 10
+        }
+      ],
+      "icon": "actor:priest",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 200,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "boss_stitches",
@@ -4319,7 +4906,25 @@
       "target": 1,
       "gold": 250,
       "description": "Defeat Stitches in a complete run",
-      "class_id": ""
+      "class_id": "",
+      "category": "exploration",
+      "conditions": [
+        {
+          "metric": "boss:stitches",
+          "target": 1
+        }
+      ],
+      "icon": "effect:eye_of_tyr",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 250,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "boss_bangalash",
@@ -4328,7 +4933,25 @@
       "target": 1,
       "gold": 250,
       "description": "Defeat Bangalash in a complete run",
-      "class_id": ""
+      "class_id": "",
+      "category": "exploration",
+      "conditions": [
+        {
+          "metric": "boss:bangalash",
+          "target": 1
+        }
+      ],
+      "icon": "effect:eye_of_tyr",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 250,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "boss_rivendare",
@@ -4337,16 +4960,817 @@
       "target": 1,
       "gold": 250,
       "description": "Defeat Rivendare in a complete run",
-      "class_id": ""
+      "class_id": "",
+      "category": "exploration",
+      "conditions": [
+        {
+          "metric": "boss:rivendare",
+          "target": 1
+        }
+      ],
+      "icon": "effect:eye_of_tyr",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 250,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     },
     {
       "id": "boss_lich_king",
       "name": "Frozen Throne",
-      "metric": "boss:lich_king",
+      "metric": "boss_zone:icecrown:lich_king",
       "target": 1,
       "gold": 250,
-      "description": "Defeat Lich King in a complete run",
-      "class_id": ""
+      "description": "Defeat the Lich King in Icecrown.",
+      "class_id": "",
+      "category": "exploration",
+      "conditions": [
+        {
+          "metric": "boss_zone:icecrown:lich_king",
+          "target": 1
+        }
+      ],
+      "icon": "effect:eye_of_tyr",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 250,
+          "target": ""
+        },
+        {
+          "kind": "class",
+          "target": "death_knight",
+          "value": 1
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "kills_1000",
+      "name": "Skirmish Veteran",
+      "metric": "kills",
+      "target": 1000,
+      "gold": 120,
+      "category": "combat",
+      "description": "Defeat 1,000 enemies across runs.",
+      "class_id": "",
+      "conditions": [
+        {
+          "metric": "kills",
+          "target": 1000
+        }
+      ],
+      "icon": "effect:cleave",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 120,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "kills_10000",
+      "name": "Horde Vanquisher",
+      "metric": "kills",
+      "target": 10000,
+      "gold": 350,
+      "category": "combat",
+      "description": "Defeat 10,000 enemies across runs.",
+      "class_id": "",
+      "conditions": [
+        {
+          "metric": "kills",
+          "target": 10000
+        }
+      ],
+      "icon": "effect:cleave",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 350,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "kills_50000",
+      "name": "Endless Onslaught",
+      "metric": "kills",
+      "target": 50000,
+      "gold": 750,
+      "category": "combat",
+      "description": "Defeat 50,000 enemies across runs.",
+      "class_id": "",
+      "conditions": [
+        {
+          "metric": "kills",
+          "target": 50000
+        }
+      ],
+      "icon": "effect:cleave",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 750,
+          "target": ""
+        }
+      ],
+      "prerequisites": [
+        "kills_10000"
+      ],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "elites_100",
+      "name": "Elite Nemesis",
+      "metric": "elites",
+      "target": 100,
+      "gold": 600,
+      "category": "combat",
+      "description": "Defeat 100 elites across runs.",
+      "class_id": "",
+      "conditions": [
+        {
+          "metric": "elites",
+          "target": 100
+        }
+      ],
+      "icon": "effect:cleave",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 600,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "undead_2000",
+      "name": "Scourge Hunter",
+      "metric": "family:undead",
+      "target": 2000,
+      "gold": 250,
+      "category": "combat",
+      "description": "Defeat 2,000 undead enemies across runs.",
+      "class_id": "",
+      "conditions": [
+        {
+          "metric": "family:undead",
+          "target": 2000
+        }
+      ],
+      "icon": "effect:cleave",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 250,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "battle_proven",
+      "name": "Battle Proven",
+      "metric": "multiple",
+      "target": 100,
+      "gold": 300,
+      "category": "combat",
+      "description": "Defeat 10,000 enemies and 25 elites across runs.",
+      "class_id": "",
+      "conditions": [
+        {
+          "metric": "kills",
+          "target": 10000
+        },
+        {
+          "metric": "elites",
+          "target": 25
+        }
+      ],
+      "icon": "effect:cleave",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 300,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "icecrown_survivor",
+      "name": "Frozen Wanderer",
+      "metric": "zone_survival:icecrown",
+      "target": 600,
+      "gold": 150,
+      "category": "exploration",
+      "description": "Survive ten minutes during an Icecrown run.",
+      "class_id": "",
+      "conditions": [
+        {
+          "metric": "zone_survival:icecrown",
+          "target": 600
+        }
+      ],
+      "icon": "effect:eye_of_tyr",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 150,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "all_zones",
+      "name": "World Defender",
+      "metric": "winning_zones",
+      "target": 5,
+      "gold": 600,
+      "category": "exploration",
+      "description": "Win in all five implemented zones.",
+      "class_id": "",
+      "conditions": [
+        {
+          "metric": "winning_zones",
+          "target": 5
+        }
+      ],
+      "icon": "effect:eye_of_tyr",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 600,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "evolve_judgment",
+      "name": "Judgment Ascendant",
+      "metric": "evolved:judgment",
+      "target": 1,
+      "gold": 100,
+      "category": "builds",
+      "description": "Evolve Judgment in a run.",
+      "class_id": "",
+      "conditions": [
+        {
+          "metric": "evolved:judgment",
+          "target": 1
+        }
+      ],
+      "icon": "effect:arcane_missiles",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 100,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "distinct_evolutions",
+      "name": "Versatile Spellcraft",
+      "metric": "distinct_evolutions",
+      "target": 10,
+      "gold": 350,
+      "category": "builds",
+      "description": "Evolve ten different automatic spells across runs.",
+      "class_id": "",
+      "conditions": [
+        {
+          "metric": "distinct_evolutions",
+          "target": 10
+        }
+      ],
+      "icon": "effect:arcane_missiles",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 350,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "full_arsenal",
+      "name": "Full Arsenal",
+      "metric": "max_automatic_slots",
+      "target": 8,
+      "gold": 150,
+      "category": "builds",
+      "description": "Equip eight automatic spells in one run.",
+      "class_id": "",
+      "conditions": [
+        {
+          "metric": "max_automatic_slots",
+          "target": 8
+        }
+      ],
+      "icon": "effect:arcane_missiles",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 150,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "max_spell",
+      "name": "Perfected Spell",
+      "metric": "max_spell_rank",
+      "target": 8,
+      "gold": 100,
+      "category": "builds",
+      "description": "Raise an automatic spell to Rank 8.",
+      "class_id": "",
+      "conditions": [
+        {
+          "metric": "max_spell_rank",
+          "target": 8
+        }
+      ],
+      "icon": "effect:arcane_missiles",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 100,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "treasure_hunter",
+      "name": "Treasure Hunter",
+      "metric": "chests_opened",
+      "target": 25,
+      "gold": 200,
+      "category": "builds",
+      "description": "Open 25 elite treasure chests across runs.",
+      "class_id": "",
+      "conditions": [
+        {
+          "metric": "chests_opened",
+          "target": 25
+        }
+      ],
+      "icon": "effect:arcane_missiles",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 200,
+          "target": ""
+        },
+        {
+          "kind": "shop",
+          "target": "treasure",
+          "value": 1
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "more_choices",
+      "name": "More Choices",
+      "metric": "best_run_level",
+      "target": 40,
+      "gold": 0,
+      "category": "builds",
+      "description": "Reach level 40 during a run; unlock the Wisdom purchase.",
+      "class_id": "",
+      "conditions": [
+        {
+          "metric": "best_run_level",
+          "target": 40
+        }
+      ],
+      "icon": "effect:arcane_missiles",
+      "rewards": [
+        {
+          "kind": "shop",
+          "target": "choices",
+          "value": 1
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "level_25",
+      "name": "Class Veteran",
+      "metric": "class_level",
+      "target": 25,
+      "gold": 400,
+      "category": "mastery",
+      "description": "Reach permanent level 25 with a class.",
+      "class_id": "",
+      "conditions": [
+        {
+          "metric": "class_level",
+          "target": 25
+        }
+      ],
+      "icon": "effect:judgment",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 400,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "master_of_arms",
+      "name": "Master of Arms",
+      "metric": "winning_classes",
+      "target": 6,
+      "gold": 500,
+      "category": "mastery",
+      "description": "Win with all six starting classes; unlock Banish Training.",
+      "class_id": "",
+      "conditions": [
+        {
+          "metric": "winning_classes",
+          "target": 6
+        }
+      ],
+      "icon": "effect:judgment",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 500,
+          "target": ""
+        },
+        {
+          "kind": "shop",
+          "target": "banish",
+          "value": 1
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "unlock_monk",
+      "name": "Unbroken Journey",
+      "metric": "no_heal_survival",
+      "target": 1200,
+      "gold": 250,
+      "category": "survival",
+      "description": "Survive 20 minutes in one run before collecting any healing pickup.",
+      "class_id": "",
+      "conditions": [
+        {
+          "metric": "no_heal_survival",
+          "target": 1200
+        }
+      ],
+      "icon": "effect:power_word_shield",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 250,
+          "target": ""
+        },
+        {
+          "kind": "class",
+          "target": "monk",
+          "value": 1
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "unlock_demon_hunter",
+      "name": "Demon Slayer",
+      "metric": "family:demon",
+      "target": 1500,
+      "gold": 350,
+      "category": "combat",
+      "description": "Defeat 1,500 demon enemies across runs.",
+      "class_id": "",
+      "conditions": [
+        {
+          "metric": "family:demon",
+          "target": 1500
+        }
+      ],
+      "icon": "effect:cleave",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 350,
+          "target": ""
+        },
+        {
+          "kind": "class",
+          "target": "demon_hunter",
+          "value": 1
+        }
+      ],
+      "prerequisites": [],
+      "available": false,
+      "availability_reason": "No hostile demon enemies are implemented yet."
+    },
+    {
+      "id": "unlock_evoker",
+      "name": "Dragon Victor",
+      "metric": "dragon_bosses",
+      "target": 1,
+      "gold": 350,
+      "category": "exploration",
+      "description": "Defeat a dragon boss.",
+      "class_id": "",
+      "conditions": [
+        {
+          "metric": "dragon_bosses",
+          "target": 1
+        }
+      ],
+      "icon": "effect:eye_of_tyr",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 350,
+          "target": ""
+        },
+        {
+          "kind": "class",
+          "target": "evoker",
+          "value": 1
+        }
+      ],
+      "prerequisites": [],
+      "available": false,
+      "availability_reason": "No dragon boss is implemented yet."
+    },
+    {
+      "id": "untouched_boss",
+      "name": "Untouched Champion",
+      "metric": "untouched_bosses",
+      "target": 1,
+      "gold": 250,
+      "category": "survival",
+      "description": "Defeat a boss without taking damage during its encounter.",
+      "class_id": "",
+      "conditions": [
+        {
+          "metric": "untouched_bosses",
+          "target": 1
+        }
+      ],
+      "icon": "effect:power_word_shield",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 250,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "no_manual_win",
+      "name": "Automatic Victory",
+      "metric": "no_manual_wins",
+      "target": 1,
+      "gold": 250,
+      "category": "survival",
+      "description": "Win without activating a manual ability.",
+      "class_id": "",
+      "conditions": [
+        {
+          "metric": "no_manual_wins",
+          "target": 1
+        }
+      ],
+      "icon": "effect:power_word_shield",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 250,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "win_paladin",
+      "name": "Paladin Champion",
+      "metric": "class_win:paladin",
+      "target": 1,
+      "gold": 150,
+      "category": "mastery",
+      "description": "Win a complete run with Paladin.",
+      "class_id": "paladin",
+      "conditions": [
+        {
+          "metric": "class_win:paladin",
+          "target": 1
+        }
+      ],
+      "icon": "actor:paladin",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 150,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "win_warrior",
+      "name": "Warrior Champion",
+      "metric": "class_win:warrior",
+      "target": 1,
+      "gold": 150,
+      "category": "mastery",
+      "description": "Win a complete run with Warrior.",
+      "class_id": "warrior",
+      "conditions": [
+        {
+          "metric": "class_win:warrior",
+          "target": 1
+        }
+      ],
+      "icon": "actor:warrior",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 150,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "win_mage",
+      "name": "Mage Champion",
+      "metric": "class_win:mage",
+      "target": 1,
+      "gold": 150,
+      "category": "mastery",
+      "description": "Win a complete run with Mage.",
+      "class_id": "mage",
+      "conditions": [
+        {
+          "metric": "class_win:mage",
+          "target": 1
+        }
+      ],
+      "icon": "actor:mage",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 150,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "win_hunter",
+      "name": "Hunter Champion",
+      "metric": "class_win:hunter",
+      "target": 1,
+      "gold": 150,
+      "category": "mastery",
+      "description": "Win a complete run with Hunter.",
+      "class_id": "hunter",
+      "conditions": [
+        {
+          "metric": "class_win:hunter",
+          "target": 1
+        }
+      ],
+      "icon": "actor:hunter",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 150,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "win_warlock",
+      "name": "Warlock Champion",
+      "metric": "class_win:warlock",
+      "target": 1,
+      "gold": 150,
+      "category": "mastery",
+      "description": "Win a complete run with Warlock.",
+      "class_id": "warlock",
+      "conditions": [
+        {
+          "metric": "class_win:warlock",
+          "target": 1
+        }
+      ],
+      "icon": "actor:warlock",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 150,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
+    },
+    {
+      "id": "win_priest",
+      "name": "Priest Champion",
+      "metric": "class_win:priest",
+      "target": 1,
+      "gold": 150,
+      "category": "mastery",
+      "description": "Win a complete run with Priest.",
+      "class_id": "priest",
+      "conditions": [
+        {
+          "metric": "class_win:priest",
+          "target": 1
+        }
+      ],
+      "icon": "actor:priest",
+      "rewards": [
+        {
+          "kind": "gold",
+          "value": 150,
+          "target": ""
+        }
+      ],
+      "prerequisites": [],
+      "available": true,
+      "availability_reason": ""
     }
   ],
   "classes": [
@@ -4397,21 +5821,56 @@
       "name": "Rogue",
       "playable": false,
       "achievement": "unlock_rogue",
-      "description": "Win with three different classes"
+      "description": "Defeat 2,500 Defias bandits",
+      "icon": "effect:shadowburn"
+    },
+    {
+      "id": "death_knight",
+      "name": "Death Knight",
+      "playable": false,
+      "achievement": "boss_lich_king",
+      "description": "Defeat the Lich King in Icecrown",
+      "icon": "effect:ice_lance"
     },
     {
       "id": "druid",
       "name": "Druid",
       "playable": false,
       "achievement": "unlock_druid",
-      "description": "Evolve 25 spells across runs"
+      "description": "Defeat 5,000 beast enemies",
+      "icon": "effect:beast_companion"
     },
     {
       "id": "shaman",
       "name": "Shaman",
       "playable": false,
       "achievement": "unlock_shaman",
-      "description": "Defeat 50 elites across runs"
+      "description": "Defeat 2,000 enemies with Fire, Frost or Nature",
+      "icon": "effect:thunder_clap"
+    },
+    {
+      "id": "monk",
+      "name": "Monk",
+      "playable": false,
+      "achievement": "unlock_monk",
+      "description": "Survive 20 minutes without a healing pickup",
+      "icon": "effect:desperate_prayer"
+    },
+    {
+      "id": "demon_hunter",
+      "name": "Demon Hunter",
+      "playable": false,
+      "achievement": "unlock_demon_hunter",
+      "description": "Defeat 1,500 demon enemies",
+      "icon": "effect:chaos_bolt"
+    },
+    {
+      "id": "evoker",
+      "name": "Evoker",
+      "playable": false,
+      "achievement": "unlock_evoker",
+      "description": "Defeat a dragon boss",
+      "icon": "effect:fireball"
     }
   ],
   "zones": [

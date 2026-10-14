@@ -213,10 +213,15 @@ def test_all_progression_screens_four_cards_and_reroll_draw_without_missing_asse
     app.progression_ui.shop_page = 1
     app.goto("shop")
     app.draw()
-    for page in range(4):
-        app.progression_ui.achievement_page = page
-        app.goto("achievements")
-        app.draw()
+    from warcraft_survivors.achievements import CATEGORIES
+
+    view = app.progression_ui.achievements
+    for category in CATEGORIES:
+        view.category_select(app, category)
+        for page in range((len(view.entries()) + 5) // 6):
+            view.page = page
+            app.goto("achievements")
+            app.draw()
     app.select_class("hunter")
     app.sim.player.xp = app.sim.player.xp_required
     app.update(FIXED_DT, Vector2())
@@ -228,6 +233,79 @@ def test_all_progression_screens_four_cards_and_reroll_draw_without_missing_asse
     app.menu_key(pygame.K_4)
     assert app.screen == "game"
     assert not app.renderer.assets.warnings
+
+
+def test_achievement_categories_detail_and_pagination_support_all_input_devices(app):
+    view = app.progression_ui.achievements
+    app.goto("achievements")
+    app.menu_key(pygame.K_RIGHT)
+    app.handle_event(pygame.event.Event(pygame.JOYBUTTONDOWN, button=0))
+    assert view.category == "exploration"
+    app.draw()
+    button = app.buttons[5]
+    app.handle_event(pygame.event.Event(pygame.MOUSEBUTTONDOWN, button=1, pos=button.rect.center))
+    assert app.screen == "achievement_detail"
+    app.draw()
+    app.handle_event(pygame.event.Event(pygame.JOYBUTTONDOWN, button=1))
+    assert app.screen == "achievements" and view.category == "exploration"
+    view.category_select(app, "combat")
+    last_page = (len(view.entries()) + 5) // 6 - 1
+    app.buttons[-2].action()
+    assert view.page == last_page
+    app.buttons[-1].action()
+    assert view.page == 0
+
+
+def test_character_selection_lists_every_future_class_and_cannot_start_them(app):
+    displayed = set()
+    for page in range(3):
+        app.class_page = page
+        app.goto("classes")
+        app.draw()
+        for entry, button in zip(
+            list(load_progression().classes.values())[page * 6 : page * 6 + 6],
+            app.buttons,
+            strict=False,
+        ):
+            displayed.add(entry.id)
+            if not entry.playable:
+                button.action()
+                assert app.screen == "classes" and app.sim is None
+    assert displayed == set(load_progression().classes)
+    for page in range(3):
+        app.progression_ui.achievements.unlock_page = page
+        app.goto("unlocks")
+        app.draw()
+    app.progression_ui.shop_page = 2
+    app.goto("shop")
+    assert app.buttons[0].label == "Banish Training"
+    app.draw()
+    assert not app.renderer.assets.warnings
+
+
+@pytest.mark.parametrize("device", ["keyboard", "mouse", "controller"])
+def test_banish_targets_selected_card_and_preserves_pause(app, device):
+    app.save.data["shared"]["banish"] = 1
+    app.start_run()
+    app.sim.player.xp = app.sim.player.xp_required
+    app.update(FIXED_DT, Vector2())
+    app.focus = app.selected_choice = 1
+    choice = app.sim.choices[1]
+    old_time = app.sim.time
+    if device == "keyboard":
+        app.menu_key(pygame.K_b)
+    elif device == "controller":
+        app.handle_event(pygame.event.Event(pygame.JOYBUTTONDOWN, button=3))
+    else:
+        button = app.buttons[-1]
+        app.handle_event(
+            pygame.event.Event(pygame.MOUSEBUTTONDOWN, button=1, pos=button.rect.center)
+        )
+    assert (choice.kind, choice.id) in app.sim.player.banished
+    assert choice not in app.sim.choices and app.sim.banishes == 0
+    app.update(1)
+    assert app.screen == "level" and app.sim.time == old_time
+    app.draw()
 
 
 def test_talent_grid_arrows_and_controller_preserve_spatial_navigation(app):

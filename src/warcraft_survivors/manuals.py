@@ -45,7 +45,13 @@ def activate(sim: Simulation, direction: Vector2 | None = None) -> bool:
         p.immune = 0.5 + 0.2 * (state.rank - 1)
         if ability.kind == "leap":
             for enemy in sim.combat.near(p.pos, 100 * (1 + 0.2 * p.passive("area"))):
-                damage_enemy(enemy, rank.power * (1 + 0.15 * p.passive("might")), ability.school)
+                damage_enemy(
+                    enemy,
+                    rank.power * (1 + 0.15 * p.passive("might")),
+                    ability.school,
+                    source=ability.id,
+                    delivery="manual",
+                )
     elif ability.kind == "immune":
         p.immune = duration
         if ability.root:
@@ -82,7 +88,13 @@ def activate(sim: Simulation, direction: Vector2 | None = None) -> bool:
     elif ability.kind == "fear":
         for enemy in sim.combat.near(p.pos, rank.distance * (1 + 0.2 * p.passive("area"))):
             enemy.fear = 0 if enemy.boss_id else min(duration, 1.5) if enemy.elite else duration
-            damage_enemy(enemy, rank.power * (1 + 0.15 * p.passive("might")), ability.school)
+            damage_enemy(
+                enemy,
+                rank.power * (1 + 0.15 * p.passive("might")),
+                ability.school,
+                source=ability.id,
+                delivery="manual",
+            )
     state.timer = (
         rank.cooldown
         * max(0.4, 1 - 0.07 * p.passive("haste"))

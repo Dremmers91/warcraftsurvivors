@@ -21,13 +21,17 @@ rows = [
     "| Upgrade | Ranks | Next-rank costs | Effect | Requirement |",
     "|---|---:|---|---|---|",
 ]
+by_id = {a["id"]: a for a in meta["achievements"]}
 for u in meta["shared"]:
+    requirement = f"{u['requires_ranks']} shared ranks" + (
+        " + " + by_id[u["achievement"]]["name"] if u.get("achievement") else ""
+    )
     rows.append(
-        f"| {u['name']} (`{u['id']}`) | {u['max_rank']} | {', '.join(str(c) for c in u['costs'])} | {u['description']} | {u['requires_ranks']} shared ranks |"
+        f"| {u['name']} (`{u['id']}`) | {u['max_rank']} | {', '.join(str(c) for c in u['costs'])} | {u['description']} | {requirement} |"
     )
 rows += [
     "",
-    "Wisdom permanently unlocks four normal level-up cards after eight shared ranks and its 450-gold purchase. Elite chests retain three choices and guarantee an eligible evolution. Second Thoughts grants 1–3 rerolls per run; use R / controller X or the button. Each successful reroll spends one charge and keeps gameplay paused. Chests cannot be rerolled. Exhausted pools retain repeatable healing, gold, temporary power and (for four cards) a shield reward.",
+    "Wisdom permanently unlocks four normal level-up cards after earning More Choices (run level 40), eight shared ranks and its 450-gold purchase. Previously purchased Wisdom ranks remain usable. Elite chests retain three choices and guarantee an eligible evolution. Second Thoughts grants 1–3 rerolls per run; use R / controller X or the button. Each successful reroll spends one charge and keeps gameplay paused. Spell Master's Insight adds one capped reroll after ten spell evolutions. Treasure Training adds 5 gold per rank to each actual elite-chest opening (three ranks maximum), after Treasure Hunter (25 opened chests). Master of Arms (win with every initial class) opens a single-rank Banish Training purchase: focus a normal card and use B/controller Y or the button to remove it from the run's future normal pool. Banish does not remove equipped spells or invalidate chest evolutions. Chests cannot be rerolled or banished. Exhausted pools retain repeatable healing, gold, temporary power and (for four cards) a shield reward.",
     "",
     "## Six class trees",
     "",
@@ -58,14 +62,22 @@ rows += [
     "",
     "## Achievements",
     "",
-    "Progress comes from persistent counters: cumulative kills/elites/evolutions, best survival time, best run kills, identified Hogger defeats, class levels and the number of classes with recorded victories. Completed rewards pay once. Notifications appear when a run records new achievements/unlocks; the chronicle displays every condition and progress.",
+    "60 stable achievements span five categories. Authoritative owned deaths, opened chests, actual evolution selections, run maxima and successful manual activations feed saved counters when a run ends. UTC timestamps record new completions. Gold pays once, outside the run-gold multiplier. Class/shop rewards open registry gates without granting free purchases. Legacy completion dates remain unknown rather than fabricated.",
     "",
-    "| Achievement | Condition | Target | Reward gold |",
-    "|---|---|---:|---:|",
+    "| Achievement | Category | Requirement | Rewards | Availability / prerequisites |",
+    "|---|---|---|---|---|",
 ]
 for a in meta["achievements"]:
-    metric = a["metric"].replace("_", " ") + (f" ({a['class_id']})" if a["class_id"] else "")
-    rows.append(f"| {a['name']} (`{a['id']}`) | {metric} | {a['target']} | {a['gold']} |")
+    reward = ", ".join(
+        str(r["value"]) + " gold" if r["kind"] == "gold" else r["kind"] + ": " + r["target"]
+        for r in a["rewards"]
+    )
+    availability = "Available" if a["available"] else a["availability_reason"]
+    if a["prerequisites"]:
+        availability += "; requires " + ", ".join(a["prerequisites"])
+    rows.append(
+        f"| {a['name']} (`{a['id']}`) | {a['category']} | {a['description']} | {reward} | {availability} |"
+    )
 rows += [
     "",
     "## Achievement-only future class registry",
@@ -75,13 +87,13 @@ rows += [
 ]
 for c in meta["classes"]:
     rows.append(
-        f"| {c['name']} | {c['description']} | {'Playable' if c['playable'] else 'Registered unlock; playable content deferred'} |"
+        f"| {c['name']} | {c['description']} | {'Playable' if c['playable'] else 'Coming Soon; ' + ('unlock obtainable' if by_id[c['achievement']]['available'] else by_id[c['achievement']]['availability_reason'])} |"
     )
 rows += [
     "",
-    "The six initial classes and all five shipped zones are unlocked. Rogue requires victories with three distinct classes; Druid requires 25 evolved spells; Shaman requires 50 elites. Their unlocks persist now; their playable ability content remains for future milestones. Gold purchases cannot unlock any class. Registry conditions and availability are distinct so content can be added later without losing earned unlocks.",
+    "The six initial classes and all five shipped zones are unlocked. Rogue requires 2,500 Defias defeats; Death Knight the Lich King in Icecrown; Druid 5,000 beasts; Shaman 2,000 Fire/Frost/Nature defeats; Monk twenty minutes before collecting any healing pickup. Demon Hunter and Evoker require missing hostile demons and a dragon boss respectively and are marked Not Yet Available. Earned legacy Rogue/Druid/Shaman completions are preserved; their playable ability content remains for future milestones. Gold purchases cannot unlock any class. Registry conditions and availability are distinct so content can be added later without losing earned unlocks.",
     "",
-    "See `SAVE_FORMAT.md` for schema/recovery and `MILESTONE4_REPORT.md` for tests, actual-process persistence proof and limitations.",
+    "See `SAVE_FORMAT.md` for schema/recovery and `MILESTONE4_REPORT.md` for the historical progression proof. See `ACHIEVEMENTS_REPORT.md` for the current audit, tests and limitations.",
 ]
 (root / "docs/PROGRESSION_CATALOG.md").write_text("\n".join(rows) + "\n", encoding="utf-8")
 print("Wrote permanent progression catalog")

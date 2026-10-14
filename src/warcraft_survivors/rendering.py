@@ -383,6 +383,8 @@ class Renderer:
                 frame = (
                     Frame(self.assets.image("chest"), (20, 18))
                     if pickup.kind == "chest"
+                    else self.assets.scaled_effect("lay_on_hands", sim.elapsed, 32)
+                    if pickup.kind in {"heal", "healing"}
                     else self.assets.effect(
                         "xp" if pickup.kind == "xp" else "gold", sim.elapsed, loop=True
                     )

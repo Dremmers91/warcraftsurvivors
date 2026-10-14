@@ -62,6 +62,8 @@ class Player:
     cast_age: float = 10
     healing_budget: float = 6
     wound_time: float = 0
+    damage_taken: float = 0
+    banished: set[tuple[str, str]] = field(default_factory=set)
 
     @property
     def xp_required(self) -> float:
@@ -100,6 +102,8 @@ class Enemy:
     elite: bool = False
     last_damage_school: str = ""
     owner: str = ""
+    last_damage_source: str = ""
+    last_damage_delivery: str = "spell"
     sprite: str = ""
     elite_id: str = ""
     boss_id: str = ""

@@ -1109,7 +1109,8 @@
       ],
       "enrage": 0.5,
       "enrage_cooldown": 0.72,
-      "enrage_damage": 1.25
+      "enrage_damage": 1.25,
+      "family": "humanoid"
     }
   ],
   "boss_pool": [

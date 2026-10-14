@@ -8,12 +8,15 @@ import math
 import os
 import shutil
 import time
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from .achievements import COUNT_MAPS, NEW_COUNTS, apply_summary, complete, progress
 from .meta import RunLoadout, build_loadout, load_progression, talent_reason
 from .meta import class_level as class_level
 from .rewards import calculate_rewards
+from .run_events import RunSummary
 
 SAVE_VERSION = 2
 CLASS_IDS = tuple(cid for cid, c in load_progression().classes.items() if c.playable)
@@ -62,6 +65,8 @@ class SaveStore:
             shared={},
             achievements=[],
             achievement_progress={},
+            achievement_completed_at={},
+            settled_runs=[],
             settings=dict(
                 fullscreen=False,
                 sound=True,
@@ -85,6 +90,9 @@ class SaveStore:
                 boss_kills={"hogger": 0},
                 class_wins={cid: 0 for cid in CLASS_IDS},
                 class_runs={cid: 0 for cid in CLASS_IDS},
+                **{name: {} for name in COUNT_MAPS},
+                **{name: 0 for name in NEW_COUNTS},
+                evolved_spells=[],
             ),
         )
 
@@ -182,6 +190,44 @@ class SaveStore:
             for key, value in boss_kills.items()
             if isinstance(key, str) and 0 < len(key) <= 64
         }
+        for name in COUNT_MAPS:
+            data["stats"][name] = {
+                key: nonnegative(value)
+                for key, value in mapping(stats.get(name)).items()
+                if isinstance(key, str) and 0 < len(key) <= 96
+            }
+        for name in NEW_COUNTS:
+            data["stats"][name] = nonnegative(stats.get(name))
+        from .content import load_content
+
+        gameplay = load_content()
+        evolved = stats.get("evolved_spells", [])
+        data["stats"]["evolved_spells"] = (
+            sorted(
+                set(aid for aid in evolved if isinstance(aid, str) and aid in gameplay.abilities)
+            )
+            if isinstance(evolved, list)
+            else []
+        )
+        settled = raw.get("settled_runs", [])
+        data["settled_runs"] = (
+            list(
+                dict.fromkeys(rid for rid in settled if isinstance(rid, str) and 0 < len(rid) <= 64)
+            )
+            if isinstance(settled, list)
+            else []
+        )
+        for aid in data["achievements"]:
+            stamp = mapping(raw.get("achievement_completed_at")).get(aid)
+            try:
+                valid = (
+                    isinstance(stamp, str)
+                    and len(stamp) <= 40
+                    and datetime.fromisoformat(stamp).utcoffset() is not None
+                )
+            except ValueError:
+                valid = False
+            data["achievement_completed_at"][aid] = stamp if valid else None
         if version == 1:
             # Only infer facts that existing completion records prove.
             data["stats"]["elites"] = max(
@@ -203,6 +249,14 @@ class SaveStore:
             data["stats"]["boss_kills"]["hogger"] = max(
                 1, data["stats"]["boss_kills"].get("hogger", 0)
             )
+        if "boss_zone_kills" not in stats:
+            # Earlier builds place each shipped boss in exactly one known zone.
+            for zid, zone in gameplay.zones.items():
+                for bid in zone.boss_pool:
+                    if sum(bid in z.boss_pool for z in gameplay.zones.values()) == 1:
+                        data["stats"]["boss_zone_kills"][f"{zid}:{bid}"] = data["stats"][
+                            "boss_kills"
+                        ].get(bid, 0)
         data["achievement_progress"] = {
             aid: cls.achievement_value(data, aid) for aid in meta.achievements
         }
@@ -226,17 +280,7 @@ class SaveStore:
 
     @staticmethod
     def achievement_value(data: dict[str, Any], aid: str) -> int:
-        a = load_progression().achievements[aid]
-        if a.metric == "class_level":
-            ids = [a.class_id] if a.class_id else list(CLASS_IDS)
-            return max(class_level(data["classes"][cid]["xp"]) for cid in ids)
-        if a.metric == "winning_classes":
-            return sum(v > 0 for v in data["stats"]["class_wins"].values())
-        if a.metric == "hogger":
-            return int(data["stats"]["boss_kills"].get("hogger", 0))
-        if a.metric.startswith("boss:"):
-            return int(data["stats"]["boss_kills"].get(a.metric.split(":", 1)[1], 0))
-        return int(data["stats"].get(a.metric, 0))
+        return progress(data, load_progression().achievements[aid])
 
     def preserve_corrupt(self) -> None:
         if self.path.exists() and not self.path.with_suffix(".corrupt").exists():
@@ -338,6 +382,10 @@ class SaveStore:
             return "Unknown upgrade."
         if cost is None:
             return "Fully trained."
+        if u.achievement and u.achievement not in self.data["achievements"]:
+            return (
+                "Requires achievement: " + load_progression().achievements[u.achievement].name + "."
+            )
         if sum(self.data["shared"].values()) < u.requires_ranks:
             return f"Requires {u.requires_ranks} shared upgrade ranks."
         if self.data["gold"] < cost:
@@ -436,27 +484,43 @@ class SaveStore:
         class_xp_kills: int | None = None,
         gold_bonus: float = 0,
         boss_id: str = "hogger",
+        summary: RunSummary | None = None,
     ) -> dict[str, Any]:
         if not self.class_available(cid):
             raise ValueError("Class is not playable and unlocked")
+        if summary is not None:
+            if not isinstance(summary.run_id, str) or not 0 < len(summary.run_id) <= 64:
+                raise ValueError("Invalid run identity")
+            if summary.run_id in self.data["settled_runs"]:
+                return dict(
+                    gold=0,
+                    class_xp=0,
+                    achievements=[],
+                    unlocks=[],
+                    saved=self.write(),
+                    points=0,
+                    duplicate=True,
+                )
+            # Validate the entire summary before changing gold, XP or counters.
+            apply_summary(copy.deepcopy(self.data), summary, seconds, won)
         if not math.isfinite(gold_bonus) or not 0 <= gold_bonus <= 1:
             raise ValueError("Invalid gold bonus")
         if won and (not isinstance(boss_id, str) or not 0 < len(boss_id) <= 64):
             raise ValueError("A victory requires a final boss identity")
         rewards = calculate_rewards(
-            kills, elites, seconds, won, gold, evolved, self.data["achievements"], class_xp_kills
+            kills,
+            elites,
+            seconds,
+            won,
+            gold,
+            evolved,
+            load_progression().achievements,
+            class_xp_kills,
         )
         meta = load_progression()
-        fresh = [aid for aid in rewards.achievements if aid != "victory" or boss_id == "hogger"]
-        achievement_gold = sum(meta.achievements[a].gold for a in fresh)
-        original_achievement_gold = sum(meta.achievements[a].gold for a in rewards.achievements)
-        earned = (
-            math.floor((rewards.gold - original_achievement_gold) * (1 + gold_bonus))
-            + achievement_gold
-        )
+        earned = math.floor(rewards.gold * (1 + gold_bonus))
         old_level = class_level(self.data["classes"][cid]["xp"])
         self.data["classes"][cid]["xp"] += rewards.class_xp
-        self.data["achievements"].extend(fresh)
         stats = self.data["stats"]
         stats["runs"] += 1
         stats["kills"] += kills
@@ -470,13 +534,20 @@ class SaveStore:
             stats["boss_kills"][boss_id] = stats["boss_kills"].get(boss_id, 0) + 1
         stats["class_runs"][cid] += 1
         stats["class_wins"][cid] += int(won)
-        for aid, a in meta.achievements.items():
-            value = self.achievement_value(self.data, aid)
-            self.data["achievement_progress"][aid] = value
-            if value >= a.target and aid not in self.data["achievements"]:
-                self.data["achievements"].append(aid)
-                fresh.append(aid)
-                earned += a.gold
+        if summary is not None:
+            apply_summary(self.data, summary, seconds, won)
+            self.data["settled_runs"].append(summary.run_id)
+        elif won:
+            from .content import load_content
+
+            matching = [
+                zid for zid, zone in load_content().zones.items() if boss_id in zone.boss_pool
+            ]
+            if len(matching) == 1:
+                key = f"{matching[0]}:{boss_id}"
+                stats["boss_zone_kills"][key] = stats["boss_zone_kills"].get(key, 0) + 1
+        fresh, achievement_gold = complete(self.data)
+        earned += achievement_gold
         old_unlocks = set(self.data["unlocked_classes"])
         self.data["unlocked_classes"] = [
             key
