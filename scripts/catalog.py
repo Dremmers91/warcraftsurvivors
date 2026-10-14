@@ -78,9 +78,19 @@ def main():
                 ]
             if a.kind == "companion":
                 lines += [
-                    "Permanent companion: untargetable, invulnerable, no health bar, 320-unit leash, owner damage/XP/kill credit. Multicast increases companions.",
+                    f"Permanent companion: untargetable, invulnerable, no health bar, {a.mechanics.leash:g}-unit configurable leash, owner damage/XP/gold/kill/achievement credit. Multicast increases companions.",
                     "",
                 ]
+                if a.mechanics.ranged:
+                    lines += [
+                        "Ranged Imp: stays in formation near the owner; faster firebolts benefit from Velocity, damage from Might/fire/companion bonuses and interval from Haste. Rank 4 unlocks splash; Rank 5 adds the second Imp; Rank 6 adds twin bolts and burning; Rank 7 improves range/interval; Rank 8 strengthens blasts. Imp Legion adds two empowered Imps with three-bolt multi-target volleys, homing and larger splash. All target centers stay inside the leash. The internal ID remains `summon_felguard` for profile and talent compatibility; retained Felguard art remains available for future content.",
+                        "",
+                    ]
+                else:
+                    lines += [
+                        "Rank 3 unlocks bounded leaps; higher ranks improve movement, reach and cleave. Alpha Pack adds two wolves and extends leaps. Idle, walking, casting and allied outlines use the original detailed wolf artwork, supplemented by existing directional slash art.",
+                        "",
+                    ]
             if a.kind == "charge":
                 lines += [
                     "Temporary summon: charges through targets with swept collision; expires after duration or beyond its 900-unit owner leash.",

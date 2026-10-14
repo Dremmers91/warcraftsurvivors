@@ -225,6 +225,9 @@ def main():
     icon.alpha_composite(obj, ((256 - obj.width) // 2, (256 - obj.height) // 2))
     icon.save(ASSETS / "game_icon.png")
     icon.save(ASSETS / "game_icon.ico", sizes=[(v, v) for v in (16, 24, 32, 48, 64, 128, 256)])
+    from build_companion_assets import register_companion_effects
+
+    register_companion_effects(manifest)
     (ASSETS / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     (SOURCE / "hashes.json").write_text(
         json.dumps(

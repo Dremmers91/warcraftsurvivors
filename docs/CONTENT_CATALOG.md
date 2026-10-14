@@ -847,9 +847,11 @@ Behavior: `companion`. School: `physical`. Speed: 270. Raster: `beast_companion`
 | 7 | 72.67 | 0.876 | 49.7 | 3 | 0 | 3.9 |
 | 8 | 83.81 | 0.822 | 52.15 | 3 | 0 | 4.05 |
 
-**Evolution: Alpha Pack**. Required passive: **Might** (`might`). Specific transformation: `{"execute": 1, "summon": "alpha_wolf"}`.
+**Evolution: Alpha Pack**. Required passive: **Might** (`might`). Specific transformation: `{"execute": 1, "extra_pets": 2, "leap_distance": 160, "summon": "alpha_wolf"}`.
 
-Permanent companion: untargetable, invulnerable, no health bar, 320-unit leash, owner damage/XP/kill credit. Multicast increases companions.
+Permanent companion: untargetable, invulnerable, no health bar, 320-unit configurable leash, owner damage/XP/gold/kill/achievement credit. Multicast increases companions.
+
+Rank 3 unlocks bounded leaps; higher ranks improve movement, reach and cleave. Alpha Pack adds two wolves and extends leaps. Idle, walking, casting and allied outlines use the original detailed wolf artwork, supplemented by existing directional slash art.
 
 ### Stampede
 
@@ -1043,26 +1045,28 @@ Behavior: `charge`. School: `shadow`. Speed: 310. Raster: `hand_of_gul_dan`.
 
 Temporary summon: charges through targets with swept collision; expires after duration or beyond its 900-unit owner leash.
 
-### Summon Felguard
+### Summon Imp
 
-An invulnerable leashed demon autonomously cleaves enemies.
+An invulnerable Imp stays near you and casts fel firebolts. Rank 4 adds splash, Rank 5 a second Imp, Rank 6 twin bolts and burning, Rank 7 better range and haste, Rank 8 empowered blasts.
 
-Behavior: `companion`. School: `shadow`. Speed: 250. Raster: `summon_felguard`.
+Behavior: `companion`. School: `fire`. Speed: 620. Raster: `summon_felguard`.
 
 | Rank | Damage | Cooldown (s) | Reach/radius | Count | Pierce | Duration (s) |
 |---|---:|---:|---:|---:|---:|---:|
-| 1 | 32 | 1.8 | 55 | 1 | 0 | 3 |
-| 2 | 39.94 | 1.719 | 58.85 | 1 | 0 | 3.15 |
-| 3 | 49.02 | 1.638 | 62.7 | 1 | 0 | 3.3 |
-| 4 | 59.26 | 1.557 | 66.55 | 2 | 0 | 3.45 |
-| 5 | 70.66 | 1.476 | 70.4 | 2 | 0 | 3.6 |
-| 6 | 83.2 | 1.395 | 74.25 | 2 | 0 | 3.75 |
-| 7 | 96.9 | 1.314 | 78.1 | 3 | 0 | 3.9 |
-| 8 | 111.74 | 1.233 | 81.95 | 3 | 0 | 4.05 |
+| 1 | 18 | 1.6 | 9 | 1 | 0 | 3 |
+| 2 | 25 | 1.55 | 9.5 | 1 | 0 | 3.15 |
+| 3 | 29 | 1.25 | 10 | 1 | 0 | 3.3 |
+| 4 | 34 | 1.2 | 10.5 | 1 | 0 | 3.45 |
+| 5 | 39 | 1.15 | 11 | 2 | 0 | 3.6 |
+| 6 | 45 | 1.1 | 12 | 2 | 0 | 3.75 |
+| 7 | 52 | 0.85 | 13 | 2 | 0 | 3.9 |
+| 8 | 65 | 0.75 | 15 | 2 | 0 | 4.05 |
 
-**Evolution: Demonic Commander**. Required passive: **Fortitude** (`armor`). Specific transformation: `{"splash": 90, "summon": "dreadguard"}`.
+**Evolution: Imp Legion**. Required passive: **Fortitude** (`armor`). Specific transformation: `{"attack_range": 300, "extra_pets": 2, "homing": true, "splash": 65, "volley_count": 2}`.
 
-Permanent companion: untargetable, invulnerable, no health bar, 320-unit leash, owner damage/XP/kill credit. Multicast increases companions.
+Permanent companion: untargetable, invulnerable, no health bar, 320-unit configurable leash, owner damage/XP/gold/kill/achievement credit. Multicast increases companions.
+
+Ranged Imp: stays in formation near the owner; faster firebolts benefit from Velocity, damage from Might/fire/companion bonuses and interval from Haste. Rank 4 unlocks splash; Rank 5 adds the second Imp; Rank 6 adds twin bolts and burning; Rank 7 improves range/interval; Rank 8 strengthens blasts. Imp Legion adds two empowered Imps with three-bolt multi-target volleys, homing and larger splash. All target centers stay inside the leash. The internal ID remains `summon_felguard` for profile and talent compatibility; retained Felguard art remains available for future content.
 
 ### Shadowburn
 
@@ -1378,7 +1382,7 @@ All twelve have five ranks. Only eight can be equipped. Health and movement rema
 
 ### Velocity (`velocity`)
 
-+15% projectile speed per rank. Moving shots, moving fields and charging summons only; no permanent-pet movement or orbit rotation bonus.
++15% projectile speed per rank. Moving shots (including Imp firebolts), moving fields and charging summons; no permanent-pet movement or orbit rotation bonus.
 
 ### Fleetfoot (`movement`)
 

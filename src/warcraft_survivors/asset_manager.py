@@ -59,6 +59,7 @@ class AssetManager:
         self.images: dict[str, Surface] = {}
         self.actors: dict[str, dict[str, list[list[Frame]]]] = {}
         self.flashes: dict[str, dict[str, list[list[Frame]]]] = {}
+        self.allies: dict[str, dict[str, list[list[Frame]]]] = {}
         self.projectiles: dict[tuple[str, int, int, int], Frame] = {}
         self.effects: dict[str, list[Frame]] = {}
         self.scaled_effects: OrderedDict[tuple[str, int, int, int, int], Frame] = OrderedDict()
@@ -179,11 +180,47 @@ class AssetManager:
                 flash_rows.append(flashes)
             self.flashes[name][state] = flash_rows
         self.actor_fps[name] = float(spec.get("walk_fps", 9))
+        if name in {"wolf", "alpha_wolf", "imp", "felguard", "dreadguard"}:
+            # Subdued one-pixel allied edge, prepared once; preserve original art.
+            self.allies[name] = {}
+            for state, rows in self.actors[name].items():
+                outlined: list[list[Frame]] = []
+                for row in rows:
+                    allied_row: list[Frame] = []
+                    for frame in row:
+                        mask = pygame.mask.from_surface(frame.image)
+                        edge = mask.to_surface(
+                            setcolor=(110, 164, 171, 210), unsetcolor=(0, 0, 0, 0)
+                        )
+                        surface = Surface(
+                            (frame.image.get_width() + 2, frame.image.get_height() + 2),
+                            pygame.SRCALPHA,
+                        )
+                        for offset in ((0, 1), (2, 1), (1, 0), (1, 2)):
+                            surface.blit(edge, offset)
+                        surface.blit(frame.image, (1, 1))
+                        allied_row.append(
+                            Frame(surface, (frame.anchor[0] + 1, frame.anchor[1] + 1))
+                        )
+                    outlined.append(allied_row)
+                self.allies[name][state] = outlined
 
     def actor(
-        self, name: str, state: str, direction: str, seconds: float, flash: bool = False
+        self,
+        name: str,
+        state: str,
+        direction: str,
+        seconds: float,
+        flash: bool = False,
+        allied: bool = False,
     ) -> Frame:
-        bank = self.flashes if flash else self.actors
+        bank = (
+            self.flashes
+            if flash
+            else self.allies
+            if allied and name in self.allies
+            else self.actors
+        )
         if name not in bank:
             if "paladin" in bank:
                 name = "paladin"

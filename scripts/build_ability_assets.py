@@ -430,6 +430,9 @@ def main():
     ]
     for actor in manifest["actors"].values():
         actor["active"] = True
+    from build_companion_assets import register_companion_effects
+
+    register_companion_effects(manifest)
     (ASSETS / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", "utf-8")
     print("Catalog effects, manual icons, chest and original demon atlases built")
 

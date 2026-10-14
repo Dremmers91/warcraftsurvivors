@@ -2,6 +2,8 @@
 
 A native Windows/Pygame survival game with six classes, 60 automatic spells, 18 manual abilities, 12 passives, 60 evolutions and five complete survival zones. Elwynn Forest, Duskwood, Stranglethorn Vale, Eastern Plaguelands and Icecrown each have a finite 8192×8192 scrolling map, original terrain/landmarks, appropriate hordes, elites and a final boss. Persistent class talents, shared upgrades and achievements carry between runs.
 
+The current source branch adds the [pets and summons overhaul](docs/PETS_SUMMONS_REPORT.md): allied wolves with rank-gated leaps, ranged Summon Imp with eight ranks and Imp Legion, retained detailed artwork and compatible profiles. Existing v0.5.0 release executables remain the previous build; use the source command below to play these changes.
+
 ## Play the Windows release
 
 Extract **all** of `dist/WarcraftSurvivors-0.5.0-Windows.zip`, then double-click `WarcraftSurvivors/WarcraftSurvivors.exe`. Keep `_internal` beside the executable. No Python installation, network access or asset downloads are needed.

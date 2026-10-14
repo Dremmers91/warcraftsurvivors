@@ -772,8 +772,11 @@ add(
     "An invulnerable wolf leashes to you and attacks nearby foes.",
     "Alpha Pack",
     "might",
-    {"execute": 1, "summon": "alpha_wolf"},
+    {"execute": 1, "summon": "alpha_wolf", "extra_pets": 2, "leap_distance": 160},
     summon="wolf",
+    leap_rank=3,
+    leap_distance=110,
+    attack_range=300,
 )
 add(
     "Stampede",
@@ -900,18 +903,48 @@ add(
 add(
     "Summon Felguard",
     "companion",
-    "shadow",
-    32,
-    1.8,
-    55,
-    250,
-    "An invulnerable leashed demon autonomously cleaves enemies.",
-    "Demonic Commander",
+    "fire",
+    18,
+    1.6,
+    9,
+    620,
+    "An invulnerable Imp stays near you and casts fel firebolts. Rank 4 adds splash, Rank 5 a second Imp, Rank 6 twin bolts and burning, Rank 7 better range and haste, Rank 8 empowered blasts.",
+    "Imp Legion",
     "armor",
-    {"summon": "dreadguard", "splash": 90},
-    summon="felguard",
-    knockback=12,
+    {"extra_pets": 2, "volley_count": 2, "splash": 65, "attack_range": 300, "homing": True},
+    summon="imp",
+    ranged=True,
+    splash=24,
+    splash_rank=4,
+    dot=0.25,
+    dot_rank=6,
+    volley_rank=6,
+    attack_range=240,
+    range_per_rank=10,
 )
+# Keep IDs for existing saves and base-ID talent bonuses; only the visible identity changes.
+imp = abilities[-1]
+imp["name"] = "Summon Imp"
+imp_progression = (
+    (18, 1.6, 9, 1, "One Imp fires fel firebolts."),
+    (25, 1.55, 9.5, 1, "Stronger firebolts."),
+    (29, 1.25, 10, 1, "Faster casting."),
+    (34, 1.2, 10.5, 1, "Firebolts gain small splash damage."),
+    (39, 1.15, 11, 2, "Summon a second Imp."),
+    (45, 1.1, 12, 2, "Twin firebolts apply burning damage."),
+    (52, 0.85, 13, 2, "Longer range and faster casting."),
+    (65, 0.75, 15, 2, "Empower both Imps with stronger splash blasts."),
+)
+for row, (damage, cooldown, radius, count, description) in zip(
+    imp["ranks"], imp_progression, strict=True
+):
+    row.update(
+        damage=damage,
+        cooldown=cooldown,
+        radius=radius,
+        count=count,
+        description=f"{description} {damage} fire damage; {cooldown}s interval; {count} Imp(s).",
+    )
 add(
     "Shadowburn",
     "chain",
@@ -1130,7 +1163,7 @@ passive_rows = [
         "velocity",
         "Velocity",
         "+15% projectile speed per rank.",
-        "Moving shots, moving fields and charging summons only; no permanent-pet movement or orbit rotation bonus.",
+        "Moving shots (including Imp firebolts), moving fields and charging summons; no permanent-pet movement or orbit rotation bonus.",
     ),
     (
         "movement",

@@ -4,6 +4,8 @@ Normal Windows profiles live at `%LOCALAPPDATA%\WarcraftSurvivors\save.json`, ou
 
 ## Stored state
 
+The pets/summons overhaul retains V2 and the internal ability IDs `beast_companion`, `summon_felguard` and their `_evolved` forms. The latter now displays Summon Imp / Imp Legion and uses the original Imp artwork. Existing Warlock preparation selections and spell-specific talent bonuses continue through the same base ID; no pet objects or active-run state are added to profiles. Regression tests reopen an eligible profile with the retained selection and verify that it summons Imps.
+
 | Field | Purpose |
 |---|---|
 | `version`, `revision` | Version 2 schema and incrementing successful-write revision |

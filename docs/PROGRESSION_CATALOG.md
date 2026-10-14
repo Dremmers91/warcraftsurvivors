@@ -131,7 +131,7 @@ Wisdom permanently unlocks four normal level-up cards after eight shared ranks a
 | Demonic Command (`specialist`) | 4 | 3 | 10 | 10 | Lingering Curses Rank 1 | Companion damage +4%. Per rank. |
 | Boss Hex (`slayer`) | 4 | 3 | 10 | 10 | Piercing Shadow Bolt Rank 1 | Damage to bosses +3.0%. Per rank. |
 | Intense Corruption (`technique`) | 4 | 1 | 10 | 10 | Siphoned Recovery Rank 1 | Corruption damage +12%. Per rank. |
-| Pact Preparation (`preparation`) | 5 | 1 | 15 | 15 | Demonic Command Rank 1 | Unlock one optional extra Rank 1 starting ability. Choose it here between runs; no selection means no extra ability. Options: Summon Felguard, Corruption. |
+| Pact Preparation (`preparation`) | 5 | 1 | 15 | 15 | Demonic Command Rank 1 | Unlock one optional extra Rank 1 starting ability. Choose it here between runs; no selection means no extra ability. Options: Summon Imp, Corruption. |
 | Dark Focus (`manual`) | 5 | 2 | 15 | 15 | Boss Hex Rank 1 | Manual cooldowns -4.0%. Per rank. |
 | Lasting Fire (`mastery`) | 5 | 2 | 15 | 15 | Intense Corruption Rank 1 | Immolate duration +15%. Per rank. |
 | Lord of Dread (`capstone`) | 6 | 1 | 22 | 22 | Pact Preparation Rank 1 | Damage over time damage +25%; Companion damage +20%; Attack duration +10.0%. Per rank. |
@@ -165,7 +165,7 @@ Wisdom permanently unlocks four normal level-up cards after eight shared ranks a
 
 Reset cost is **50 + 5 × allocated points** gold. It refunds every allocated point, preserves class XP/level and clears the chosen extra starting ability. The UI displays the exact cost and refund before confirmation. Insufficient funds or save failure leave the profile intact.
 
-New characters have exactly one Rank 1 signature ability. Earning class XP alone grants no equipment. The preparation talent requires class level 15, at least 15 points already allocated and its previous-branch prerequisite. Buying it grants a choice screen; it equips nothing automatically. Select one of two optional extra Rank 1 abilities or select none. Hunter/Warlock companions require this advanced talent plus explicitly selecting Beast Companion/Summon Felguard. The extra ability occupies a regular one-of-eight slot. Respec removes eligibility and selection. Spell-specific talent modifiers continue on evolved versions through their base ability IDs.
+New characters have exactly one Rank 1 signature ability. Earning class XP alone grants no equipment. The preparation talent requires class level 15, at least 15 points already allocated and its previous-branch prerequisite. Buying it grants a choice screen; it equips nothing automatically. Select one of two optional extra Rank 1 abilities or select none. Hunter/Warlock companions require this advanced talent plus explicitly selecting Beast Companion/Summon Imp. The extra ability occupies a regular one-of-eight slot. Respec removes eligibility and selection. Spell-specific talent modifiers continue on evolved versions through their base ability IDs.
 
 ## Achievements
 

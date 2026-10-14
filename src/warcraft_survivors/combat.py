@@ -68,6 +68,7 @@ def spell_stats(ability: Ability, state: SpellState, player: Player) -> SpellSta
         * (1 + meta.get("area") + meta.spell(base, "radius"))
         * (1.3 if "reach" in state.modifiers else 1),
         rank.count
+        + ability.mechanics.extra_pets
         + (
             player.passive("projectiles") + int(meta.get("count") + meta.spell(base, "count"))
             if ability.kind in COUNT_KINDS
@@ -88,7 +89,7 @@ def spell_stats(ability: Ability, state: SpellState, player: Player) -> SpellSta
             1
             + (
                 0.15 * player.passive("velocity")
-                if ability.kind in {"projectile", "field", "charge"}
+                if ability.kind in {"projectile", "field", "charge"} or ability.mechanics.ranged
                 else 0
             )
         ),
@@ -314,13 +315,23 @@ class CompanionSpell:
         for i in range(len(pets), stats.count):
             combat.companions.append(
                 Companion(
-                    combat.player.pos + Vector2(35, 0).rotate(i * 90),
+                    combat.player.pos
+                    + Vector2(min(45, ability.mechanics.leash), 0).rotate(i * 137.5),
                     ability.id,
                     combat.player,
                     ability.mechanics.summon,
+                    leash=ability.mechanics.leash,
+                    formation=i,
                 )
             )
-            combat.show(combat.player.pos, 45, ability)
+            if combat.visuals is not None and len(combat.visuals) < 180:
+                combat.visuals.append(
+                    Visual(
+                        combat.companions[-1].pos.copy(), 38, ability.color, 0.35, 0.35, "summon"
+                    )
+                )
+            else:
+                combat.show(combat.player.pos, 45, ability)
 
 
 class ChargeSpell:
@@ -475,6 +486,11 @@ class CombatSystem:
         if enemy.health <= 0:
             return
         m = ability.mechanics
+        if (
+            ability.kind == "companion"
+            and enemy.pos.distance_squared_to(self.player.pos) > m.leash**2
+        ):
+            return
         amount = damage * (1 + m.execute if enemy.health <= enemy.max_health * 0.35 else 1)
         amount *= (
             1
@@ -495,15 +511,30 @@ class CombatSystem:
                 )
                 if self.resolve:
                     enemy.pos = self.resolve(enemy.pos, enemy.radius)
-        if not secondary and (m.dot or m.slow):
+        if not secondary and ((m.dot and state.rank >= m.dot_rank) or m.slow):
             stats = self.stats(ability, state)
-            self.mark(enemy, ability, stats.damage * m.dot, stats.duration, m.spread_dot)
-        if not secondary and m.splash:
+            self.mark(
+                enemy,
+                ability,
+                (damage if m.ranged else stats.damage) * m.dot,
+                stats.duration,
+                m.spread_dot,
+            )
+        if not secondary and m.splash and state.rank >= m.splash_rank:
             stats = self.stats(ability, state)
-            for other in self.near(enemy.pos, m.splash * (1 + 0.2 * self.player.passive("area"))):
+            splash = m.splash * (
+                (1 + 0.12 * max(0, state.rank - 4))
+                * stats.radius
+                / ability.ranks[state.rank - 1].radius
+                if m.ranged
+                else 1 + 0.2 * self.player.passive("area")
+            )
+            for other in self.near(enemy.pos, splash):
                 if other is not enemy:
-                    self.hit(other, stats.damage * 0.6, ability, state, True)
-            self.show(enemy.pos, m.splash, ability)
+                    self.hit(
+                        other, (damage if m.ranged else stats.damage) * 0.6, ability, state, True
+                    )
+            self.show(enemy.pos, splash, ability)
 
     def disk(
         self, pos: Vector2, radius: float, damage: float, ability: Ability, state: SpellState
@@ -539,9 +570,9 @@ class CombatSystem:
                 self.cast(ability, state)
                 state.timer += self.stats(ability, state).cooldown
                 casts += 1
+        self.update_companions(dt)
         self.update_projectiles(dt)
         self.update_fields(dt)
-        self.update_companions(dt)
         self.update_statuses(dt)
         self.updating = False
         return casts
@@ -565,7 +596,20 @@ class CombatSystem:
                 if ability.mechanics.homing:
                     shot.target_timer -= dt
                     if shot.target_timer <= 0 or shot.target is None or shot.target.health <= 0:
-                        shot.target = self.target(shot.pos, 400, shot.hit)
+                        if ability.kind == "companion":
+                            shot.target = min(
+                                (
+                                    e
+                                    for e in self.near(shot.pos, 400)
+                                    if e.id not in shot.hit
+                                    and e.pos.distance_squared_to(self.player.pos)
+                                    <= ability.mechanics.leash**2
+                                ),
+                                key=lambda e: e.pos.distance_squared_to(shot.pos),
+                                default=None,
+                            )
+                        else:
+                            shot.target = self.target(shot.pos, 400, shot.hit)
                         shot.target_timer = 0.15
                     target = shot.target
                     if target and target.pos.distance_squared_to(shot.pos) > 1:
@@ -588,6 +632,11 @@ class CombatSystem:
                 key=lambda e: e.pos.distance_squared_to(start),
             ):
                 if enemy.health <= 0 or enemy.id in shot.hit:
+                    continue
+                if (
+                    ability.kind == "companion"
+                    and enemy.pos.distance_squared_to(self.player.pos) > ability.mechanics.leash**2
+                ):
                     continue
                 t = max(0, min(1, (enemy.pos - start).dot(segment) / length2)) if length2 else 0
                 if (
@@ -677,7 +726,7 @@ class CombatSystem:
     def update_companions(self, dt: float) -> None:
         for pet in self.companions:
             ability, state = self.content.ability(pet.ability), self.state(pet.ability)
-            stats = spell_stats(ability, state, pet.owner)
+            stats = self.stats(ability, state)
             pet.attack_time = max(0, pet.attack_time - dt)
             if pet.life >= 0:
                 pet.life = max(0, pet.life - dt)
@@ -710,34 +759,136 @@ class CombatSystem:
                         pet.attack_time = 0.3
                         self.show(enemy.pos, 38, ability)
             else:
-                target = self.target(pet.pos, 220)
-                if target and target.pos.distance_to(pet.owner.pos) > pet.leash:
-                    target = None
-                goal = target.pos if target else pet.owner.pos + Vector2(-45, 30)
-                delta = goal - pet.pos
-                if delta.length_squared() > 1:
-                    pet.facing = delta.normalize()
-                    pet.pos += pet.facing * min(delta.length(), max(230, stats.speed) * dt)
-                offset = pet.pos - pet.owner.pos
-                if offset.length() > pet.leash:
-                    pet.pos = pet.owner.pos + offset.normalize() * pet.leash
-                pet.timer -= dt
-                if (
-                    target
-                    and pet.pos.distance_squared_to(target.pos)
-                    <= (stats.radius + target.radius) ** 2
-                    and pet.timer <= 0
-                ):
-                    buff = (
-                        1 + pet.owner.buff_power
-                        if pet.owner.pet_buff and pet.owner.buff_time > 0
-                        else 1
-                    )
-                    self.disk(target.pos, stats.radius, stats.damage * buff, ability, state)
-                    pet.timer = stats.cooldown
-                    pet.attack_time = 0.3
-                    self.show(target.pos, stats.radius, ability)
+                self.update_permanent_pet(pet, ability, state, stats, dt)
         self.companions[:] = [p for p in self.companions if p.life != 0]
+
+    def pet_candidates(self, pet: Companion, reach: float) -> list[Enemy]:
+        """Use local cells and filter the owner leash before selecting a target."""
+        return [
+            e
+            for e in self.near(pet.pos, reach)
+            if e.pos.distance_squared_to(pet.owner.pos) <= pet.leash**2
+        ]
+
+    def pet_target(self, pet: Companion, candidates: list[Enemy], clusters: bool) -> Enemy | None:
+        # One local pass counts occupied cells; no quadratic cluster search.
+        density: dict[tuple[int, int], int] = {}
+        if clusters:
+            for enemy in candidates:
+                key = self.grid.key(enemy.pos)
+                density[key] = density.get(key, 0) + 1
+        return min(
+            candidates,
+            key=lambda e: (
+                e.pos.distance_squared_to(pet.pos)
+                / (1 + min(6, density.get(self.grid.key(e.pos), 0))),
+                (e.id - pet.formation) % max(1, len(candidates)),
+            ),
+            default=None,
+        )
+
+    def update_permanent_pet(
+        self, pet: Companion, ability: Ability, state: SpellState, stats: SpellStats, dt: float
+    ) -> None:
+        m = ability.mechanics
+        start = pet.pos.copy()
+        offset = pet.pos - pet.owner.pos
+        if offset.length_squared() > pet.leash**2:
+            # Return immediately after teleports; never continue chasing a stale target.
+            pet.pos = pet.owner.pos + Vector2(min(45, pet.leash), 0).rotate(pet.formation * 137.5)
+            pet.target = None
+            pet.target_timer = 0
+        reach = min(pet.leash, m.attack_range + m.range_per_rank * (state.rank - 1))
+        pet.target_timer -= dt
+        pet.leap_timer = max(0, pet.leap_timer - dt)
+        pet.timer = max(0, pet.timer - dt)
+        target = pet.target
+        invalid = target is not None and (
+            target.health <= 0
+            or target.pos.distance_squared_to(pet.owner.pos) > pet.leash**2
+            or target.pos.distance_squared_to(pet.pos) > (reach + target.radius) ** 2
+        )
+        if invalid or pet.target_timer <= 0:
+            candidates = self.pet_candidates(pet, reach)
+            pet.target = self.pet_target(pet, candidates, state.rank >= 4 or ability.evolved)
+            pet.target_timer = 0.12 + (pet.formation % 4) * 0.015
+        target = pet.target
+        home = pet.owner.pos + Vector2(-45, 30).rotate(pet.formation * 137.5)
+        goal = home if m.ranged or target is None else target.pos
+        delta = goal - pet.pos
+        stop = 5 if m.ranged or target is None else max(8, stats.radius * 0.65)
+        if delta.length_squared() > stop**2:
+            direction = delta.normalize()
+            speed = m.movement_speed + (state.rank - 1) * 12
+            step = min(delta.length() - stop, speed * dt)
+            if target and not m.ranged and state.rank >= m.leap_rank and pet.leap_timer <= 0:
+                step = min(delta.length() - stop, max(step, m.leap_distance))
+                pet.leap_timer = max(0.5, stats.cooldown * 1.5)
+            pet.pos += direction * step
+            pet.facing = direction
+        offset = pet.pos - pet.owner.pos
+        if offset.length_squared() > pet.leash**2:
+            pet.pos = pet.owner.pos + offset.normalize() * pet.leash
+        pet.moving = pet.pos.distance_squared_to(start) > 0.01
+        if target is None or target.health <= 0:
+            return
+        delta = target.pos - pet.pos
+        attack_reach = reach if m.ranged else stats.radius + target.radius
+        if delta.length_squared() > attack_reach**2 or pet.timer > 0:
+            return
+        if delta.length_squared() > 1:
+            pet.facing = delta.normalize()
+        buff = 1 + pet.owner.buff_power if pet.owner.pet_buff and pet.owner.buff_time > 0 else 1
+        if m.ranged:
+            candidates = self.pet_candidates(pet, reach)
+            others = sorted(
+                (e for e in candidates if e is not target),
+                key=lambda e: e.pos.distance_squared_to(pet.pos),
+            )
+            targets = [target] + others
+            count = m.volley_count + (1 if state.rank >= m.volley_rank else 0)
+            for i in range(count):
+                victim = (
+                    targets[(i + pet.formation) % len(targets)]
+                    if ability.evolved
+                    else targets[i % len(targets)]
+                )
+                aim = victim.pos - pet.pos
+                direction = aim.normalize() if aim.length_squared() > 1 else pet.facing
+                # Anchor at the casting hand height, just ahead of the Imp body.
+                origin = pet.pos + Vector2(0, -20) + direction * 10
+                aim = victim.pos - origin
+                direction = aim.normalize() if aim.length_squared() > 1 else direction
+                self.projectiles.append(
+                    Projectile(
+                        origin,
+                        direction * stats.speed,
+                        ability.id,
+                        stats.damage * buff,
+                        stats.radius,
+                        0,
+                        reach / max(1, stats.speed) + 0.25,
+                    )
+                )
+            self.show(pet.pos + Vector2(0, -20), 18, ability, pet.facing)
+        else:
+            self.disk(target.pos, stats.radius, stats.damage * buff, ability, state)
+            # Reuse directional slash art while preserving the detailed wolf atlas.
+            if self.visuals is not None and len(self.visuals) < 180:
+                self.visuals.append(
+                    Visual(
+                        target.pos.copy(),
+                        stats.radius,
+                        ability.color,
+                        0.24,
+                        0.24,
+                        "cleave",
+                        pet.facing.copy(),
+                    )
+                )
+            self.show(target.pos, stats.radius, ability)
+        pet.timer = stats.cooldown
+        pet.attack_time = 0.3
 
     def update_statuses(self, dt: float) -> None:
         transfers: list[tuple[Enemy, Ability, Status]] = []
