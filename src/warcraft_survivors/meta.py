@@ -22,7 +22,16 @@ class Talent:
     spent_required: int
     requires: dict[str, int]
     effects: dict[str, float]
+    class_id: str
+    icon: str
+    position: tuple[float, float]
+    rank_effects: tuple[dict[str, float], ...]
+    capstone: bool = False
+    legacy_requires: dict[str, int] = field(default_factory=dict)
     starting_options: tuple[str, ...] = ()
+
+    def at_rank(self, rank: int) -> dict[str, float]:
+        return self.rank_effects[min(rank, self.max_rank) - 1].copy() if rank > 0 else {}
 
 
 @dataclass(frozen=True)
@@ -63,6 +72,7 @@ class ProgressionContent:
     achievements: dict[str, Achievement]
     classes: dict[str, ClassUnlock]
     zones: tuple[str, ...]
+    tree_styles: dict[str, dict[str, Any]]
 
 
 @lru_cache(maxsize=1)
@@ -71,11 +81,18 @@ def load_progression() -> ProgressionContent:
 
     gameplay = load_content()
     raw = json.loads(files(__package__).joinpath("data/progression.json").read_text("utf-8"))
+    art = json.loads(files(__package__).joinpath("assets/manifest.json").read_text("utf-8"))
     trees = {
         cid: {
             r["id"]: Talent(
-                **{k: v for k, v in r.items() if k != "starting_options"},
+                **{
+                    k: v
+                    for k, v in r.items()
+                    if k not in {"starting_options", "position", "rank_effects"}
+                },
                 starting_options=tuple(r["starting_options"]),
+                position=tuple(r["position"]),
+                rank_effects=tuple(r["rank_effects"]),
             )
             for r in rows
         }
@@ -142,28 +159,67 @@ def load_progression() -> ProgressionContent:
                 len(parts) == 3
                 and parts[0] == "spell"
                 and parts[1] in gameplay.abilities
-                and parts[2] in {"damage", "radius", "count", "pierce", "duration", "speed"}
+                and parts[2]
+                in {
+                    "damage",
+                    "radius",
+                    "count",
+                    "pierce",
+                    "duration",
+                    "speed",
+                    "spread",
+                    "waves",
+                    "splash",
+                    "splash_flat",
+                    "opening",
+                }
             ):
                 continue
             raise ValueError("Unknown permanent effect")
 
     for cid, tree in trees.items():
-        if not 15 <= len(tree) <= 20 or cid not in classes:
+        if not 12 <= len(tree) <= 18 or cid not in classes:
             raise ValueError("Invalid class talent tree")
+        if len(tree) != len(raw["trees"][cid]):
+            raise ValueError("Duplicate talent ID")
+        if (
+            len({t.position for t in tree.values()}) != len(tree)
+            or sum(t.capstone for t in tree.values()) != 1
+        ):
+            raise ValueError("Invalid talent layout/capstone")
         for t in tree.values():
             validate_effects(t.effects)
+            if len(t.rank_effects) != t.max_rank:
+                raise ValueError("Invalid talent rank effects")
+            for effects in t.rank_effects:
+                validate_effects(effects)
+            if not t.starting_options and not any(
+                value > 0 for effects in t.rank_effects for value in effects.values()
+            ):
+                raise ValueError("Talent has no implemented benefit")
+            icon_kind, _, icon_name = t.icon.partition(":")
+            if t.class_id != cid or icon_name not in art.get(
+                {"effect": "effects", "actor": "actors"}.get(icon_kind, ""), {}
+            ):
+                raise ValueError("Invalid talent class/icon")
+            if len(t.position) != 2 or any(
+                not math.isfinite(p) or not 0 <= p <= 1 for p in t.position
+            ):
+                raise ValueError("Invalid talent position")
             if any(aid not in gameplay.classes[cid].abilities for aid in t.starting_options):
                 raise ValueError("Invalid starting ability")
             if (
                 t.max_rank < 1
                 or t.min_level < 1
                 or t.spent_required < 0
-                or not (0 <= t.column < 3 and 0 <= t.tier < 6)
+                or not (0 <= t.column < 9 and 0 <= t.tier < 4)
+                or (t.capstone and t.tier != 3)
             ):
                 raise ValueError("Invalid talent requirements")
             if any(
                 parent not in tree
                 or tree[parent].tier >= t.tier
+                or tree[parent].position[1] >= t.position[1]
                 or not 1 <= rank <= tree[parent].max_rank
                 for parent, rank in t.requires.items()
             ):
@@ -176,7 +232,19 @@ def load_progression() -> ProgressionContent:
         raise ValueError("Invalid achievement")
     if any(c.achievement and c.achievement not in achievements for c in classes.values()):
         raise ValueError("Unknown class unlock achievement")
-    return ProgressionContent(trees, shared, achievements, classes, tuple(raw["zones"]))
+    if set(raw["tree_styles"]) != set(trees):
+        raise ValueError("Missing class tree styles")
+    for cid, style in raw["tree_styles"].items():
+        if (
+            cid not in trees
+            or style["background"] not in art["images"]
+            or len(style["accent"]) != 3
+            or any(not 0 <= v <= 255 for v in style["accent"])
+        ):
+            raise ValueError("Invalid class tree style")
+    return ProgressionContent(
+        trees, shared, achievements, classes, tuple(raw["zones"]), raw["tree_styles"]
+    )
 
 
 def class_level(xp: int) -> int:
@@ -242,7 +310,7 @@ def build_loadout(profile: dict[str, Any], cid: str) -> RunLoadout:
     cls = profile["classes"][cid]
     for tid, rank in cls["talents"].items():
         if tid in content.trees[cid]:
-            add(content.trees[cid][tid].effects, rank)
+            add(content.trees[cid][tid].at_rank(rank), 1)
     selected = cls.get("starting_ability", "")
     prep = content.trees[cid]["preparation"]
     if not cls["talents"].get("preparation") or selected not in prep.starting_options:

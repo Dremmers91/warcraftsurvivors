@@ -157,7 +157,9 @@ class ProjectileSpell:
             angle = (
                 i * 360 / stats.count
                 if radial
-                else (i - (stats.count - 1) / 2) * ability.mechanics.spread
+                else (i - (stats.count - 1) / 2)
+                * ability.mechanics.spread
+                * (1 + combat.player.meta.spell(ability.base_id or ability.id, "spread"))
             )
             combat.projectiles.append(
                 Projectile(
@@ -198,6 +200,19 @@ class ArcSpell:
             ):
                 combat.hit(enemy, stats.damage, ability, state)
         combat.show(combat.player.pos, stats.radius, ability, direction)
+        for i in range(int(combat.player.meta.spell(ability.base_id or ability.id, "waves"))):
+            combat.fields.append(
+                Field(
+                    combat.player.pos.copy(),
+                    ability.id,
+                    stats.damage,
+                    stats.radius,
+                    0.01,
+                    direction.copy(),
+                    delay=0.22 * (i + 1),
+                    repeat_arc=True,
+                )
+            )
 
 
 class FieldSpell:
@@ -281,7 +296,9 @@ class DotSpell:
                 ability,
                 stats.damage,
                 stats.duration,
-                spread=ability.mechanics.spread_dot or state.rank >= 5,
+                spread=ability.mechanics.spread_dot
+                or state.rank >= 5
+                or combat.player.meta.spell(ability.base_id or ability.id, "spread") > 0,
             )
             combat.show(combat.player.pos, 25, ability, end=enemy.pos)
 
@@ -472,7 +489,9 @@ class CombatSystem:
             ability.mechanics.slow,
             spread,
             ability.mechanics.death_burst,
-            self.stats(ability, self.state(ability.id)).radius / ability.ranks[0].radius,
+            self.stats(ability, self.state(ability.id)).radius
+            / ability.ranks[0].radius
+            * (1 + self.player.meta.spell(ability.base_id or ability.id, "spread")),
         )
 
     def hit(
@@ -520,15 +539,17 @@ class CombatSystem:
                 stats.duration,
                 m.spread_dot,
             )
-        if not secondary and m.splash and state.rank >= m.splash_rank:
+        splash_bonus = self.player.meta.spell(ability.base_id or ability.id, "splash_flat")
+        if not secondary and (m.splash and state.rank >= m.splash_rank or splash_bonus > 0):
             stats = self.stats(ability, state)
-            splash = m.splash * (
+            splash = ((m.splash if state.rank >= m.splash_rank else 0) + splash_bonus) * (
                 (1 + 0.12 * max(0, state.rank - 4))
                 * stats.radius
                 / ability.ranks[state.rank - 1].radius
                 if m.ranged
                 else 1 + 0.2 * self.player.passive("area")
             )
+            splash *= 1 + self.player.meta.spell(ability.base_id or ability.id, "splash")
             for other in self.near(enemy.pos, splash):
                 if other is not enemy:
                     self.hit(
@@ -674,6 +695,16 @@ class CombatSystem:
             field.age += dt
             if field.delay > 0:
                 field.delay = max(0, field.delay - dt)
+                continue
+            if field.repeat_arc:
+                for enemy in self.near(field.pos, field.radius):
+                    delta = enemy.pos - field.pos
+                    if delta.length_squared() < 1 or field.velocity.dot(
+                        delta.normalize()
+                    ) >= math.cos(math.radians(ability.mechanics.angle / 2)):
+                        self.hit(enemy, field.damage, ability, state)
+                self.show(field.pos, field.radius, ability, field.velocity)
+                field.life = 0
                 continue
             if not field.persistent:
                 field.life -= dt
@@ -839,6 +870,8 @@ class CombatSystem:
         if delta.length_squared() > 1:
             pet.facing = delta.normalize()
         buff = 1 + pet.owner.buff_power if pet.owner.pet_buff and pet.owner.buff_time > 0 else 1
+        if pet.attacks == 0:
+            buff *= 1 + pet.owner.meta.spell(ability.base_id or ability.id, "opening")
         if m.ranged:
             candidates = self.pet_candidates(pet, reach)
             others = sorted(
@@ -888,6 +921,7 @@ class CombatSystem:
                 )
             self.show(target.pos, stats.radius, ability)
         pet.timer = stats.cooldown
+        pet.attacks += 1
         pet.attack_time = 0.3
 
     def update_statuses(self, dt: float) -> None:

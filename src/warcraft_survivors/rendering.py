@@ -229,7 +229,7 @@ class Renderer:
             if not visible.collidepoint(pos):
                 continue
             ability = sim.content.ability(field.ability)
-            if ability.kind == "beam":
+            if ability.kind == "beam" or field.repeat_arc:
                 continue
             radius = field.radius
             if field.wave:

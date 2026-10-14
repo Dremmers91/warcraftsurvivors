@@ -182,6 +182,7 @@ class Field:
     age: float = 0
     wave: bool = False
     hit: set[int] = field(default_factory=set)
+    repeat_arc: bool = False
 
 
 @dataclass
@@ -202,6 +203,7 @@ class Companion:
     leap_timer: float = 0
     moving: bool = False
     formation: int = 0
+    attacks: int = 0
 
 
 @dataclass

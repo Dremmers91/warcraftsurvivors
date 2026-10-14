@@ -42,6 +42,8 @@ Tree artwork retains the existing obstacle trunk position and collision circle. 
 
 ## Quality settings
 
+Class talent trees reuse existing detailed spell/manual effect frames and actor portraits as 64-pixel square nodes with rank badges. `TalentTreeView.prepare` fits artwork once and caches grayscale locked variants; repeated menu frames perform no image decoding, scaling or grayscale conversion. Data-defined class backgrounds combine retained landmark/prop artwork with subdued class colors. No reference-screenshot artwork is copied, no runtime downloads occur, and no existing gameplay PNG is replaced. Run `scripts/verify_talent_trees.py` to capture fresh/partial/maxed builds for all six classes and all supported resolutions. Six representative captures are retained in `docs/screenshots/talent-trees/`; full evidence stays in ignored `artifacts/talent-trees/`.
+
 Settings offer Low, Medium and High, persisted with conservative validation. Low disables optional trail particles and floating damage numbers. Medium/High allow 120/240 pooled sparks and larger cosmetic death/text budgets. Crowds above 500 enemies limit optional sparks to 64. All qualities render every live visible actor, every projectile, readable hit feedback, loot and impacts. Cosmetic budgets never skip damage or collision queries.
 
 ## Commands

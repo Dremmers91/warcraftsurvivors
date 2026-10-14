@@ -6,6 +6,7 @@ import pytest
 from pygame import Vector2
 
 from warcraft_survivors.app import App
+from warcraft_survivors.meta import load_progression
 from warcraft_survivors.persistence import SaveStore
 from warcraft_survivors.simulation import FIXED_DT
 
@@ -230,16 +231,16 @@ def test_all_progression_screens_four_cards_and_reroll_draw_without_missing_asse
 
 
 def test_talent_grid_arrows_and_controller_preserve_spatial_navigation(app):
+    tree = list(load_progression().trees["paladin"])
     app.goto("talents")
     app.menu_key(pygame.K_DOWN)
-    assert app.focus == 3
+    assert tree[app.focus] == "duration"
     app.menu_key(pygame.K_RIGHT)
-    assert app.focus == 4
+    assert tree[app.focus] == "area"
     app.handle_event(pygame.event.Event(pygame.JOYHATMOTION, hat=0, value=(0, 1)))
-    assert app.focus == 1
-    app.menu_key(pygame.K_RIGHT)
-    app.menu_key(pygame.K_RIGHT)
-    assert app.focus == 3
+    assert tree[app.focus] == "haste"
+    app.menu_key(pygame.K_LEFT)
+    assert tree[app.focus] == "might"
 
 
 def test_confirmation_revalidates_available_gold_before_purchasing(app):

@@ -19,6 +19,7 @@ Content contracts and explicit JSON definitions are separate from mutable run st
 | `presentation.py`, `rendering.py` | Read-only animation/feedback, quality-bounded cosmetic particles, field/status/summon visuals, hero readability and HUD |
 | `meta.py`, `data/progression.json` | Typed talent/shared/achievement/unlock catalog, eligibility and detached per-run bonus snapshots |
 | `progression_ui.py` | Between-run class trees, shop, achievement progress, unlocks, selected starters and confirmation dialogs |
+| `talent_ui.py` | Data-driven compact node geometry, original-art/grayscale caches, class backdrops, prerequisite paths and exact current/next bonus details |
 | `persistence.py` | Version 2 schema, derived levels/points, migration/recovery, transactional purchases, counters and one-time rewards |
 | `debug.py` | Source opt-in and two release/frozen gates |
 
@@ -47,6 +48,10 @@ Permanent content is independent of UI and filesystem code. `SaveStore.loadout` 
 Normal card count is 3 or 4 from the run snapshot. Chests always retain three cards and guaranteed eligible evolution logic. Rerolls preserve pause, consume one charge only when a changed set is produced, and cannot operate on chest choices. Fourth-card selection and controller X use the same simulation APIs as keyboard/mouse actions.
 
 Purchase eligibility checks IDs, caps, prerequisites, point budget and gold at both review and commit. The UI prohibits live-run progression edits; cancel is focused initially. Atomic write failure restores the pre-purchase snapshot. XP-derived levels/point budgets and registry-derived unlocks are rebuilt during validation. Achievement counters and per-class/per-boss wins are stored separately from completed IDs so future conditions can be added. Hogger-specific achievements do not trigger on a future different final boss. Results remain idempotent, and corrupt/newer profile handling never overwrites a known-good backup with invalid data. `SAVE_FORMAT.md` specifies recovery ordering and limitations.
+
+Talent definitions now carry class IDs, effect/actor icon references, normalized positions, four-tier metadata, a capstone marker, original migration prerequisites and cumulative effect tables for each rank. Loadout snapshots sum the purchased cumulative rank values. Validation checks icon/class references, duplicate IDs/positions, complete rank tables, upward prerequisites and class styles. The UI places hit regions and renders edges from the same positions, with no talent-specific draw cases. Cached colors/grayscale variants and class background surfaces reuse bundled assets.
+
+New spell modifiers use existing base-ID meta lookup through evolution. Arc spells can schedule snapshot-damage repeat fields with locked origin/direction; these resolve once after their delay and render normal arc feedback. DoT talents unlock early spread and multiply the snapshot spread radius. Projectile spread, splash percentage/flat radius and the first permanent-pet strike enter their actual collision/damage paths. None changes run spell-slot/rank/evolution requirements or introduces independent pet progression.
 
 ## Milestone 5 extension
 

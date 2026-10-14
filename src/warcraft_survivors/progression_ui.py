@@ -12,6 +12,7 @@ from pygame import Rect, Vector2
 
 from .meta import class_level, class_xp_progress, load_progression
 from .rendering import CREAM, GOLD, MUTED
+from .talent_ui import TalentTreeView, effect_summary, node_rect
 
 if TYPE_CHECKING:
     from .app import App
@@ -33,6 +34,7 @@ class ProgressionUI:
         self.shop_page = 0
         self.achievement_page = 0
         self.confirmation: Confirmation | None = None
+        self.tree = TalentTreeView()
 
     def open_tree(self, app: App, cid: str) -> None:
         app.selected_class = cid
@@ -83,10 +85,12 @@ class ProgressionUI:
             return
         t = load_progression().trees[cid][tid]
         rank = app.save.data["classes"][cid]["talents"].get(tid, 0) + 1
+        self.tree.selected[cid] = tid
         self.request(
             app,
             f"Learn {t.name} · Rank {rank}",
-            t.description + " Spend one available talent point. Class XP is retained.",
+            effect_summary(t, rank, app)
+            + " Spend one available talent point. Class XP is retained.",
             partial(app.save.buy_talent, cid, tid),
         )
 
@@ -151,7 +155,7 @@ class ProgressionUI:
         elif screen == "talents":
             for t in meta.trees[cid].values():
                 add(
-                    Rect(64 + t.column * 274, 196 + t.tier * 64, 260, 52),
+                    node_rect(t),
                     t.name,
                     partial(self.talent, app, t.id),
                 )
@@ -164,6 +168,10 @@ class ProgressionUI:
                 partial(self.respec, app),
             )
             add(Rect(904, 640, 310, 48), "Starting ability", partial(self.starting, app))
+            self.tree.hovered = None
+            app.focus = list(meta.trees[cid]).index(
+                self.tree.selected.get(cid, next(iter(meta.trees[cid])))
+            )
         elif screen == "shop":
             shared_entries = list(meta.shared.values())[self.shop_page * 6 : self.shop_page * 6 + 6]
             for i, u in enumerate(shared_entries):
@@ -258,51 +266,8 @@ class ProgressionUI:
                 )
             start = 6
         elif screen == "talents":
-            tree = meta.trees[cid]
-            r.backdrop(
-                app.content.classes[cid].name + " talents",
-                f"Class level {class_level(c['xp'])} · {app.save.talent_points(cid)} available points · Gold {app.save.data['gold']:,}",
-            )
-            for i, t in enumerate(tree.values()):
-                rect = app.buttons[i].rect
-                for parent in t.requires:
-                    p = tree[parent]
-                    edge_start = (64 + p.column * 274 + 130, 196 + p.tier * 64 + 52)
-                    edge_end = (rect.centerx, rect.top)
-                    pygame.draw.line(
-                        r.canvas,
-                        GREEN if c["talents"].get(parent) else MUTED,
-                        edge_start,
-                        edge_end,
-                        2,
-                    )
-                r.panel(rect, app.focus == i)
-                rank = c["talents"].get(t.id, 0)
-                color = GREEN if rank else GOLD if not app.save.talent_reason(cid, t.id) else MUTED
-                r.wrapped(t.name, Rect(rect.x + 12, rect.y + 7, 205, 23), 22, color)
-                r.text(f"{rank}/{t.max_rank}", (rect.right - 40, rect.y + 29), 18, color)
-                r.text(
-                    f"Level {t.min_level} · {t.spent_required} points spent",
-                    (rect.x + 12, rect.y + 30),
-                    17,
-                    MUTED,
-                )
-            r.panel(Rect(906, 196, 308, 410))
-            t = list(tree.values())[min(app.focus, 17)]
-            r.wrapped(t.name, Rect(924, 218, 272, 58), 30, GOLD)
-            r.wrapped(t.description, Rect(924, 284, 272, 136), 22, CREAM)
-            requirements = "Prerequisites: " + (
-                ", ".join(f"{tree[p].name} {rank}" for p, rank in t.requires.items()) or "None"
-            )
-            r.wrapped(requirements, Rect(924, 430, 272, 64), 20, MUTED)
-            r.wrapped(
-                app.save.talent_reason(cid, t.id) or "Available · select to spend one point.",
-                Rect(924, 506, 272, 62),
-                21,
-                GREEN,
-            )
-            r.text("Each rank costs one talent point.", (64, 600), 21, MUTED)
-            start = 18
+            self.tree.draw(app)
+            start = len(meta.trees[cid])
         elif screen == "shop":
             r.backdrop(
                 "Shared training",
