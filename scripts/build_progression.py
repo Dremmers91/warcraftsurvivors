@@ -3,6 +3,8 @@
 import json
 from pathlib import Path
 
+from build_achievement_content import extend
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "src/warcraft_survivors/data"
 content = json.loads((DATA / "content.json").read_text(encoding="utf-8"))
@@ -521,28 +523,30 @@ registry += [
 ]
 (DATA / "progression.json").write_text(
     json.dumps(
-        dict(
-            trees=trees,
-            shared=shared,
-            achievements=ach,
-            classes=registry,
-            zones=["elwynn", "duskwood", "stranglethorn", "plaguelands", "icecrown"],
-            tree_styles={
-                cid: dict(accent=accent, background=background, title=title)
-                for cid, accent, background, title in (
-                    ("paladin", [226, 193, 108], "elwynn_inn", "The path of the Light"),
-                    ("warrior", [203, 110, 91], "icecrown_prop_0", "Steel and resolve"),
-                    ("mage", [111, 180, 234], "icecrown_prop_2", "The arcane disciplines"),
-                    ("hunter", [143, 195, 115], "stranglethorn_prop_0", "The wilds answer"),
-                    (
-                        "warlock",
-                        [174, 124, 210],
-                        "plaguelands_prop_2",
-                        "Power through forbidden pacts",
-                    ),
-                    ("priest", [215, 218, 200], "elwynn_mill", "Faith and shadow"),
-                )
-            },
+        extend(
+            dict(
+                trees=trees,
+                shared=shared,
+                achievements=ach,
+                classes=registry,
+                zones=["elwynn", "duskwood", "stranglethorn", "plaguelands", "icecrown"],
+                tree_styles={
+                    cid: dict(accent=accent, background=background, title=title)
+                    for cid, accent, background, title in (
+                        ("paladin", [226, 193, 108], "elwynn_inn", "The path of the Light"),
+                        ("warrior", [203, 110, 91], "icecrown_prop_0", "Steel and resolve"),
+                        ("mage", [111, 180, 234], "icecrown_prop_2", "The arcane disciplines"),
+                        ("hunter", [143, 195, 115], "stranglethorn_prop_0", "The wilds answer"),
+                        (
+                            "warlock",
+                            [174, 124, 210],
+                            "plaguelands_prop_2",
+                            "Power through forbidden pacts",
+                        ),
+                        ("priest", [215, 218, 200], "elwynn_mill", "Faith and shadow"),
+                    )
+                },
+            )
         ),
         indent=2,
     )
@@ -550,5 +554,5 @@ registry += [
     encoding="utf-8",
 )
 print(
-    f"Authored six 18-node trees, ten shared upgrades, {len(ach)} achievements and achievement-only future unlocks"
+    f"Authored six 18-node trees, 13 shared upgrades, {len(ach)} achievements and achievement-only future unlocks"
 )

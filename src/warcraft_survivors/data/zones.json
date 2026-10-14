@@ -3206,7 +3206,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 2,
-      "gold_chance": 0.12
+      "gold_chance": 0.12,
+      "family": "undead",
+      "faction": ""
     },
     {
       "id": "duskwood_skeleton",
@@ -3234,7 +3236,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 2,
-      "gold_chance": 0.12
+      "gold_chance": 0.12,
+      "family": "undead",
+      "faction": ""
     },
     {
       "id": "duskwood_nightwolf",
@@ -3260,7 +3264,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 3,
-      "gold_chance": 0.12
+      "gold_chance": 0.12,
+      "family": "beast",
+      "faction": ""
     },
     {
       "id": "duskwood_venom_spider",
@@ -3288,7 +3294,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 3,
-      "gold_chance": 0.12
+      "gold_chance": 0.12,
+      "family": "beast",
+      "faction": ""
     },
     {
       "id": "duskwood_grave_caster",
@@ -3316,7 +3324,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 4,
-      "gold_chance": 0.12
+      "gold_chance": 0.12,
+      "family": "humanoid",
+      "faction": ""
     },
     {
       "id": "stranglethorn_raptor",
@@ -3342,7 +3352,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 2,
-      "gold_chance": 0.12
+      "gold_chance": 0.12,
+      "family": "beast",
+      "faction": ""
     },
     {
       "id": "stranglethorn_troll",
@@ -3370,7 +3382,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 2,
-      "gold_chance": 0.12
+      "gold_chance": 0.12,
+      "family": "humanoid",
+      "faction": ""
     },
     {
       "id": "stranglethorn_panther",
@@ -3396,7 +3410,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 3,
-      "gold_chance": 0.12
+      "gold_chance": 0.12,
+      "family": "beast",
+      "faction": ""
     },
     {
       "id": "stranglethorn_jungle_boar",
@@ -3424,7 +3440,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 3,
-      "gold_chance": 0.12
+      "gold_chance": 0.12,
+      "family": "beast",
+      "faction": ""
     },
     {
       "id": "stranglethorn_troll_shaman",
@@ -3452,7 +3470,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 4,
-      "gold_chance": 0.12
+      "gold_chance": 0.12,
+      "family": "humanoid",
+      "faction": ""
     },
     {
       "id": "plaguelands_ghoul",
@@ -3478,7 +3498,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 2,
-      "gold_chance": 0.12
+      "gold_chance": 0.12,
+      "family": "undead",
+      "faction": ""
     },
     {
       "id": "plaguelands_cultist",
@@ -3506,7 +3528,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 2,
-      "gold_chance": 0.12
+      "gold_chance": 0.12,
+      "family": "humanoid",
+      "faction": ""
     },
     {
       "id": "plaguelands_plague_hound",
@@ -3532,7 +3556,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 3,
-      "gold_chance": 0.12
+      "gold_chance": 0.12,
+      "family": "undead",
+      "faction": ""
     },
     {
       "id": "plaguelands_crypt_fiend",
@@ -3560,7 +3586,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 3,
-      "gold_chance": 0.12
+      "gold_chance": 0.12,
+      "family": "undead",
+      "faction": ""
     },
     {
       "id": "plaguelands_bone_knight",
@@ -3588,7 +3616,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 4,
-      "gold_chance": 0.12
+      "gold_chance": 0.12,
+      "family": "undead",
+      "faction": ""
     },
     {
       "id": "icecrown_geist",
@@ -3614,7 +3644,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 2,
-      "gold_chance": 0.12
+      "gold_chance": 0.12,
+      "family": "undead",
+      "faction": ""
     },
     {
       "id": "icecrown_vrykul",
@@ -3642,7 +3674,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 2,
-      "gold_chance": 0.12
+      "gold_chance": 0.12,
+      "family": "humanoid",
+      "faction": ""
     },
     {
       "id": "icecrown_frost_hound",
@@ -3668,7 +3702,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 3,
-      "gold_chance": 0.12
+      "gold_chance": 0.12,
+      "family": "undead",
+      "faction": ""
     },
     {
       "id": "icecrown_frost_cultist",
@@ -3696,7 +3732,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 3,
-      "gold_chance": 0.12
+      "gold_chance": 0.12,
+      "family": "humanoid",
+      "faction": ""
     },
     {
       "id": "icecrown_frost_abomination",
@@ -3724,7 +3762,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 4,
-      "gold_chance": 0.12
+      "gold_chance": 0.12,
+      "family": "undead",
+      "faction": ""
     }
   ],
   "attacks": [
@@ -4243,7 +4283,8 @@
       ],
       "enrage": 0.4,
       "enrage_cooldown": 0.82,
-      "enrage_damage": 1.2
+      "enrage_damage": 1.2,
+      "family": "undead"
     },
     {
       "id": "bangalash",
@@ -4264,7 +4305,8 @@
       ],
       "enrage": 0.6,
       "enrage_cooldown": 0.68,
-      "enrage_damage": 1.15
+      "enrage_damage": 1.15,
+      "family": "beast"
     },
     {
       "id": "rivendare",
@@ -4285,7 +4327,8 @@
       ],
       "enrage": 0.55,
       "enrage_cooldown": 0.75,
-      "enrage_damage": 1.3
+      "enrage_damage": 1.3,
+      "family": "undead"
     },
     {
       "id": "lich_king",
@@ -4306,7 +4349,8 @@
       ],
       "enrage": 0.35,
       "enrage_cooldown": 0.65,
-      "enrage_damage": 1.35
+      "enrage_damage": 1.35,
+      "family": "undead"
     }
   ]
 }

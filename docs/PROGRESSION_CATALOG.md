@@ -17,9 +17,12 @@ Bonuses combine with class talents in a snapshot when a run starts; mid-run purc
 | Prosperity (`greed`) | 5 | 110, 220, 330, 440, 550 | Run gold rewards +4% per rank; achievement gold unchanged | 0 shared ranks |
 | Recovery (`regen`) | 5 | 90, 180, 270, 360, 450 | Regenerate 0.1 health/sec per rank | 0 shared ranks |
 | Second Thoughts (`rerolls`) | 3 | 180, 360, 540 | One additional card reroll each run per rank (R / X) | 0 shared ranks |
-| Wisdom (`choices`) | 1 | 450 | Permanent fourth level-up card; requires eight shared ranks | 8 shared ranks |
+| Wisdom (`choices`) | 1 | 450 | Permanent fourth level-up card; requires eight shared ranks | 8 shared ranks + More Choices |
+| Treasure Training (`treasure`) | 3 | 300, 600, 900 | Each opened elite chest awards +5 run gold per rank | 0 shared ranks + Treasure Hunter |
+| Spellmaster's Insight (`reroll_mastery`) | 1 | 600 | One additional reroll per run | 0 shared ranks + Spell Master |
+| Banish Training (`banish`) | 1 | 800 | Banish one selected normal upgrade from a run (B / Y) | 0 shared ranks + Master of Arms |
 
-Wisdom permanently unlocks four normal level-up cards after eight shared ranks and its 450-gold purchase. Elite chests retain three choices and guarantee an eligible evolution. Second Thoughts grants 1–3 rerolls per run; use R / controller X or the button. Each successful reroll spends one charge and keeps gameplay paused. Chests cannot be rerolled. Exhausted pools retain repeatable healing, gold, temporary power and (for four cards) a shield reward.
+Wisdom permanently unlocks four normal level-up cards after earning More Choices (run level 40), eight shared ranks and its 450-gold purchase. Previously purchased Wisdom ranks remain usable. Elite chests retain three choices and guarantee an eligible evolution. Second Thoughts grants 1–3 rerolls per run; use R / controller X or the button. Each successful reroll spends one charge and keeps gameplay paused. Spell Master's Insight adds one capped reroll after ten spell evolutions. Treasure Training adds 5 gold per rank to each actual elite-chest opening (three ranks maximum), after Treasure Hunter (25 opened chests). Master of Arms (win with every initial class) opens a single-rank Banish Training purchase: focus a normal card and use B/controller Y or the button to remove it from the run's future normal pool. Banish does not remove equipped spells or invalidate chest evolutions. Chests cannot be rerolled or banished. Exhausted pools retain repeatable healing, gold, temporary power and (for four cards) a shield reward.
 
 ## Six class trees
 
@@ -169,43 +172,70 @@ New characters have exactly one Rank 1 signature ability. Earning class XP alone
 
 ## Achievements
 
-Progress comes from persistent counters: cumulative kills/elites/evolutions, best survival time, best run kills, identified Hogger defeats, class levels and the number of classes with recorded victories. Completed rewards pay once. Notifications appear when a run records new achievements/unlocks; the chronicle displays every condition and progress.
+60 stable achievements span five categories. Authoritative owned deaths, opened chests, actual evolution selections, run maxima and successful manual activations feed saved counters when a run ends. UTC timestamps record new completions. Gold pays once, outside the run-gold multiplier. Class/shop rewards open registry gates without granting free purchases. Legacy completion dates remain unknown rather than fabricated.
 
-| Achievement | Condition | Target | Reward gold |
-|---|---|---:|---:|
-| First Blood (`first_blood`) | kills | 1 | 20 |
-| Centurion (`centurion`) | run kills | 100 | 50 |
-| Survivor (`survivor`) | best time | 300 | 75 |
-| Elite Hunter (`elite`) | elites | 1 | 80 |
-| Ascension (`evolution`) | evolved | 1 | 100 |
-| Defender of Elwynn (`victory`) | hogger | 1 | 300 |
-| Forest Defender (`kills_500`) | kills | 500 | 100 |
-| Horde Breaker (`kills_5000`) | kills | 5000 | 300 |
-| Legend of Elwynn (`kills_25000`) | kills | 25000 | 700 |
-| Champion Hunter (`elites_10`) | elites | 10 | 200 |
-| Elite Vanguard (`elites_25`) | elites | 25 | 400 |
-| Tenacious (`survive_10`) | best time | 600 | 60 |
-| Unyielding (`survive_20`) | best time | 1200 | 100 |
-| Last Stand (`survive_30`) | best time | 1800 | 150 |
-| Gnoll Nemesis (`hogger_5`) | hogger | 5 | 600 |
-| Master of Evolution (`evolve_10`) | evolved | 10 | 300 |
-| Apprentice Champion (`level_5`) | class level | 5 | 150 |
-| Seasoned Champion (`level_15`) | class level | 15 | 300 |
-| Veteran Champion (`level_30`) | class level | 30 | 600 |
-| Versatile Champion (`wins_2`) | winning classes | 2 | 300 |
-| Three Roads to Victory (`unlock_rogue`) | winning classes | 3 | 400 |
-| Keeper of Elwynn (`unlock_druid`) | evolved | 25 | 500 |
-| Voice of the Forest (`unlock_shaman`) | elites | 50 | 500 |
-| Paladin Adept (`level_paladin`) | class level (paladin) | 10 | 200 |
-| Warrior Adept (`level_warrior`) | class level (warrior) | 10 | 200 |
-| Mage Adept (`level_mage`) | class level (mage) | 10 | 200 |
-| Hunter Adept (`level_hunter`) | class level (hunter) | 10 | 200 |
-| Warlock Adept (`level_warlock`) | class level (warlock) | 10 | 200 |
-| Priest Adept (`level_priest`) | class level (priest) | 10 | 200 |
-| Terror of Darkshire (`boss_stitches`) | boss:stitches | 1 | 250 |
-| King of the Jungle (`boss_bangalash`) | boss:bangalash | 1 | 250 |
-| Scourgebreaker (`boss_rivendare`) | boss:rivendare | 1 | 250 |
-| Frozen Throne (`boss_lich_king`) | boss:lich king | 1 | 250 |
+| Achievement | Category | Requirement | Rewards | Availability / prerequisites |
+|---|---|---|---|---|
+| First Blood (`first_blood`) | combat | Kills: 1 | 20 gold | Available |
+| Centurion (`centurion`) | combat | Run Kills: 100 | 50 gold | Available |
+| Survivor (`survivor`) | survival | Best Time: 300 | 75 gold | Available |
+| Elite Hunter (`elite`) | combat | Elites: 1 | 80 gold | Available |
+| Ascension (`evolution`) | builds | Evolved: 1 | 100 gold | Available |
+| Defender of Elwynn (`victory`) | exploration | Hogger: 1 | 300 gold | Available |
+| Forest Defender (`kills_500`) | combat | Kills: 500 | 100 gold | Available |
+| Horde Breaker (`kills_5000`) | combat | Kills: 5000 | 300 gold | Available |
+| Legend of Elwynn (`kills_25000`) | combat | Kills: 25000 | 700 gold | Available |
+| Champion Hunter (`elites_10`) | combat | Elites: 10 | 200 gold | Available |
+| Elite Vanguard (`elites_25`) | combat | Elites: 25 | 400 gold | Available |
+| Tenacious (`survive_10`) | survival | Best Time: 600 | 60 gold | Available |
+| Unyielding (`survive_20`) | survival | Best Time: 1200 | 100 gold | Available |
+| Last Stand (`survive_30`) | survival | Best Time: 1800 | 150 gold | Available |
+| Gnoll Nemesis (`hogger_5`) | exploration | Hogger: 5 | 600 gold | Available |
+| Spell Master (`evolve_10`) | builds | Evolved: 10 | 300 gold, shop: reroll_mastery | Available |
+| Apprentice Champion (`level_5`) | mastery | Class Level: 5 | 150 gold | Available |
+| Seasoned Champion (`level_15`) | mastery | Class Level: 15 | 300 gold | Available |
+| Veteran Champion (`level_30`) | mastery | Class Level: 30 | 600 gold | Available |
+| Versatile Champion (`wins_2`) | mastery | Winning Classes: 2 | 300 gold | Available |
+| Defias Infiltrator (`unlock_rogue`) | combat | Defeat 2,500 Defias bandits across runs. | 400 gold, class: rogue | Available |
+| Keeper of the Wild (`unlock_druid`) | combat | Defeat 5,000 beast enemies across runs. | 500 gold, class: druid | Available |
+| Elemental Calling (`unlock_shaman`) | combat | Defeat 2,000 enemies with Fire, Frost or Nature damage. | 500 gold, class: shaman | Available |
+| Paladin Adept (`level_paladin`) | mastery | Class Level: 10 | 200 gold | Available |
+| Warrior Adept (`level_warrior`) | mastery | Class Level: 10 | 200 gold | Available |
+| Mage Adept (`level_mage`) | mastery | Class Level: 10 | 200 gold | Available |
+| Hunter Adept (`level_hunter`) | mastery | Class Level: 10 | 200 gold | Available |
+| Warlock Adept (`level_warlock`) | mastery | Class Level: 10 | 200 gold | Available |
+| Priest Adept (`level_priest`) | mastery | Class Level: 10 | 200 gold | Available |
+| Terror of Darkshire (`boss_stitches`) | exploration | Defeat Stitches in a complete run | 250 gold | Available |
+| King of the Jungle (`boss_bangalash`) | exploration | Defeat Bangalash in a complete run | 250 gold | Available |
+| Scourgebreaker (`boss_rivendare`) | exploration | Defeat Rivendare in a complete run | 250 gold | Available |
+| Frozen Throne (`boss_lich_king`) | exploration | Defeat the Lich King in Icecrown. | 250 gold, class: death_knight | Available |
+| Skirmish Veteran (`kills_1000`) | combat | Defeat 1,000 enemies across runs. | 120 gold | Available |
+| Horde Vanquisher (`kills_10000`) | combat | Defeat 10,000 enemies across runs. | 350 gold | Available |
+| Endless Onslaught (`kills_50000`) | combat | Defeat 50,000 enemies across runs. | 750 gold | Available; requires kills_10000 |
+| Elite Nemesis (`elites_100`) | combat | Defeat 100 elites across runs. | 600 gold | Available |
+| Scourge Hunter (`undead_2000`) | combat | Defeat 2,000 undead enemies across runs. | 250 gold | Available |
+| Battle Proven (`battle_proven`) | combat | Defeat 10,000 enemies and 25 elites across runs. | 300 gold | Available |
+| Frozen Wanderer (`icecrown_survivor`) | exploration | Survive ten minutes during an Icecrown run. | 150 gold | Available |
+| World Defender (`all_zones`) | exploration | Win in all five implemented zones. | 600 gold | Available |
+| Judgment Ascendant (`evolve_judgment`) | builds | Evolve Judgment in a run. | 100 gold | Available |
+| Versatile Spellcraft (`distinct_evolutions`) | builds | Evolve ten different automatic spells across runs. | 350 gold | Available |
+| Full Arsenal (`full_arsenal`) | builds | Equip eight automatic spells in one run. | 150 gold | Available |
+| Perfected Spell (`max_spell`) | builds | Raise an automatic spell to Rank 8. | 100 gold | Available |
+| Treasure Hunter (`treasure_hunter`) | builds | Open 25 elite treasure chests across runs. | 200 gold, shop: treasure | Available |
+| More Choices (`more_choices`) | builds | Reach level 40 during a run; unlock the Wisdom purchase. | shop: choices | Available |
+| Class Veteran (`level_25`) | mastery | Reach permanent level 25 with a class. | 400 gold | Available |
+| Master of Arms (`master_of_arms`) | mastery | Win with all six starting classes; unlock Banish Training. | 500 gold, shop: banish | Available |
+| Unbroken Journey (`unlock_monk`) | survival | Survive 20 minutes in one run before collecting any healing pickup. | 250 gold, class: monk | Available |
+| Demon Slayer (`unlock_demon_hunter`) | combat | Defeat 1,500 demon enemies across runs. | 350 gold, class: demon_hunter | No hostile demon enemies are implemented yet. |
+| Dragon Victor (`unlock_evoker`) | exploration | Defeat a dragon boss. | 350 gold, class: evoker | No dragon boss is implemented yet. |
+| Untouched Champion (`untouched_boss`) | survival | Defeat a boss without taking damage during its encounter. | 250 gold | Available |
+| Automatic Victory (`no_manual_win`) | survival | Win without activating a manual ability. | 250 gold | Available |
+| Paladin Champion (`win_paladin`) | mastery | Win a complete run with Paladin. | 150 gold | Available |
+| Warrior Champion (`win_warrior`) | mastery | Win a complete run with Warrior. | 150 gold | Available |
+| Mage Champion (`win_mage`) | mastery | Win a complete run with Mage. | 150 gold | Available |
+| Hunter Champion (`win_hunter`) | mastery | Win a complete run with Hunter. | 150 gold | Available |
+| Warlock Champion (`win_warlock`) | mastery | Win a complete run with Warlock. | 150 gold | Available |
+| Priest Champion (`win_priest`) | mastery | Win a complete run with Priest. | 150 gold | Available |
 
 ## Achievement-only future class registry
 
@@ -217,10 +247,14 @@ Progress comes from persistent counters: cumulative kills/elites/evolutions, bes
 | Hunter | Initially unlocked | Playable |
 | Warlock | Initially unlocked | Playable |
 | Priest | Initially unlocked | Playable |
-| Rogue | Win with three different classes | Registered unlock; playable content deferred |
-| Druid | Evolve 25 spells across runs | Registered unlock; playable content deferred |
-| Shaman | Defeat 50 elites across runs | Registered unlock; playable content deferred |
+| Rogue | Defeat 2,500 Defias bandits | Coming Soon; unlock obtainable |
+| Death Knight | Defeat the Lich King in Icecrown | Coming Soon; unlock obtainable |
+| Druid | Defeat 5,000 beast enemies | Coming Soon; unlock obtainable |
+| Shaman | Defeat 2,000 enemies with Fire, Frost or Nature | Coming Soon; unlock obtainable |
+| Monk | Survive 20 minutes without a healing pickup | Coming Soon; unlock obtainable |
+| Demon Hunter | Defeat 1,500 demon enemies | Coming Soon; No hostile demon enemies are implemented yet. |
+| Evoker | Defeat a dragon boss | Coming Soon; No dragon boss is implemented yet. |
 
-The six initial classes and all five shipped zones are unlocked. Rogue requires victories with three distinct classes; Druid requires 25 evolved spells; Shaman requires 50 elites. Their unlocks persist now; their playable ability content remains for future milestones. Gold purchases cannot unlock any class. Registry conditions and availability are distinct so content can be added later without losing earned unlocks.
+The six initial classes and all five shipped zones are unlocked. Rogue requires 2,500 Defias defeats; Death Knight the Lich King in Icecrown; Druid 5,000 beasts; Shaman 2,000 Fire/Frost/Nature defeats; Monk twenty minutes before collecting any healing pickup. Demon Hunter and Evoker require missing hostile demons and a dragon boss respectively and are marked Not Yet Available. Earned legacy Rogue/Druid/Shaman completions are preserved; their playable ability content remains for future milestones. Gold purchases cannot unlock any class. Registry conditions and availability are distinct so content can be added later without losing earned unlocks.
 
-See `SAVE_FORMAT.md` for schema/recovery and `MILESTONE4_REPORT.md` for tests, actual-process persistence proof and limitations.
+See `SAVE_FORMAT.md` for schema/recovery and `MILESTONE4_REPORT.md` for the historical progression proof. See `ACHIEVEMENTS_REPORT.md` for the current audit, tests and limitations.

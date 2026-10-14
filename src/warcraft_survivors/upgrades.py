@@ -122,6 +122,7 @@ def eligible(content: Content, class_id: str, player: Player, chest: bool = Fals
                     )
                 )
     count = 3 if chest else 3 + int(player.meta.get("choices") > 0)
+    choices = [c for c in choices if (c.kind, c.id) not in player.banished]
     if len(choices) < count:
         choices.extend(REWARDS[:count])
     return choices

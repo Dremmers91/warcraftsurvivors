@@ -21,7 +21,7 @@ Levels/points are recomputed from XP, not trusted from editable cached fields. A
 
 The talent-tree overhaul retains V2, all 18 talent IDs per initial class, all rank caps, earned XP/gold and selected starting abilities. Presentation fields and cumulative rank-effect tables live in content JSON, not profiles. The new four-tier prerequisite paths are no stricter than their former ancestors, so valid V2 allocations remain intact; 180 legacy allocation fixtures across all six classes verify this. V1 migration still checks the recorded original prerequisite paths, preserving conservative refunds of historically invalid signature allocations. New purchases use the current paths. Gold respec still costs `50 + 5 × spent`, returns allocated points and preserves XP/level.
 
-The profile includes nine registry classes, while only the initial six have playable content. Six initial unlocks are always retained. Future class unlocks derive only from completed registry achievements; an arbitrary `unlocked_classes` entry cannot bypass a gate. All five shipped zones are granted to new and existing profiles without spending currency. New classes can later become playable without removing earned unlocks.
+The profile includes 13 registry classes, while only the initial six have playable content. Six initial unlocks are always retained. Future class unlocks derive only from completed registry achievements; an arbitrary `unlocked_classes` entry cannot bypass a gate. All five shipped zones are granted to new and existing profiles without spending currency. New classes can later become playable without removing earned unlocks.
 
 ## Commit and recovery
 
@@ -37,7 +37,7 @@ This local profile is not encrypted, cloud-synchronized or designed for simultan
 
 ## Version 1 migration
 
-Migration retains gold, per-class XP, settings, supported shared ranks and completed achievements. Legacy might/health/haste ranks are retained up to the new caps and available point budget. Obsolete, excessive or newly ineligible signature ranks are refunded to unspent points. Existing unlocked Wisdom ranks remain usable; future purchases must satisfy the eight-shared-rank requirement. Level and talent-point fields are derived and written in version 2 on the next successful save.
+Migration retains gold, per-class XP, settings, supported shared ranks and completed achievements. Legacy might/health/haste ranks are retained up to the new caps and available point budget. Obsolete, excessive or newly ineligible signature ranks are refunded to unspent points. Existing unlocked Wisdom ranks remain usable; future purchases must satisfy More Choices plus the eight-shared-rank requirement. Level and talent-point fields are derived and written in version 2 on the next successful save.
 
 Old aggregate stats remain. Only proven lower bounds are inferred: a completed elite/evolution record proves at least one; version 1 wins identify the historical Hogger encounter. Per-class wins and exact historical elite/evolution totals were not stored, so migration does not invent them. Existing achievement rewards do not pay again. Newly introduced achievements whose migrated counters already meet their condition complete on the next recorded run. Migration shows a notice; it does not require throwing away an existing profile.
 
@@ -50,3 +50,13 @@ Old aggregate stats remain. Only proven lower bounds are inferred: a completed e
 The schema remains V2: optional validated settings fields default to music volume 0.35, sound volume 0.7, density 1.0 and 1280×720. Gains/density clamp to 0–1; NaN/non-number/bool values use defaults. Resolutions are selected from 1280×720, 1600×900, 1920×1080 and 2560×1440. New boss achievement counters use the existing per-boss dictionary, and the registry adds four boss completion achievements. Older profiles receive all five initial zones while retaining XP, gold and allocations. Unknown future versions remain read-only.
 
 The M5 three-process loop earned 123 gold/250 class XP through genuine failures, confirmed a 65-gold Endurance upgrade, then reopened with 58 gold, unchanged XP and 139.05 starting health. See `artifacts/milestone5/loop.json`; the preceding M4 proof is historical. Logs are independent of saves under the adjacent `logs` directory (or the explicit private QA save directory).
+
+## Compatible achievements extension
+
+V2 adds optional `achievement_completed_at` (ID to timezone-aware ISO UTC timestamp, or null for legacy completions) and `settled_runs` (unique run IDs already rewarded). No existing ID, XP, gold, purchased rank or completion is removed. All 33 prior achievement IDs persist. The changed Rogue/Druid/Shaman requirements apply to unearned unlocks; historical completions still grant their registry entries. The registry includes seven future classes, all unplayable.
+
+Additional `stats` dictionaries store `enemy_kills`, `family_kills`, `faction_kills`, `damage_kills`, `source_kills`, `boss_zone_kills`, `zone_wins`, `zone_survival`. Scalar facts store best run level/spell rank/equipment count/clean survival, opened chests, untouched bosses, no-manual wins and dragon boss defeats; `evolved_spells` stores distinct base IDs. Multiple-condition progress derives from the least-complete requirement. Unknown old family, school, chest, run-level or evolution IDs are never inferred. Only uniquely placed historical bosses map conservatively from old boss counters to a zone.
+
+A run ledger accepts each enemy ID once, then settles an immutable summary at run end. Validation precedes any mutation. Persisted run IDs prevent replaying gold, XP, stats or unlocks after restart. Save failures retain the in-memory settlement ID and rewards for retry. Events are not stored as an ever-growing death log; summaries and run settlement IDs are sufficient. These guarantees do not resume an active run or preserve uncommitted progress after abrupt process loss.
+
+Achievement shop gates reference completed IDs. Rewards enable capped purchases, rather than immediately adding stackable bonuses. Previously purchased Wisdom works without retroactively earning More Choices. Talent respec changes no achievement stats, completions, timestamps, class unlocks or shop ranks.

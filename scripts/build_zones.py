@@ -2,6 +2,8 @@ import copy
 import json
 from pathlib import Path
 
+from enemy_classification import annotate
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "src/warcraft_survivors/data"
 core = json.loads((DATA / "content.json").read_text(encoding="utf-8"))
@@ -490,6 +492,7 @@ zones.insert(
         ],
     ),
 )
+annotate(enemies, bosses)
 (DATA / "zones.json").write_text(
     json.dumps(
         dict(zones=zones, enemies=enemies, attacks=attacks, elites=elites, bosses=bosses), indent=2

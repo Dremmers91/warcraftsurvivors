@@ -120,6 +120,7 @@ def hurt_player(player: Player, amount: float, armor_penetration: float = 0) -> 
     blocked = min(player.shield, damage)
     player.shield -= blocked
     player.health = max(0, player.health - damage + blocked)
+    player.damage_taken += damage
     player.hurt_timer = 0.65
     return True
 
@@ -136,12 +137,18 @@ def automatic_heal(player: Player, amount: float) -> None:
 
 
 def damage_enemy(
-    enemy: Enemy, amount: float, school: str = "physical", owner: str = "player"
+    enemy: Enemy,
+    amount: float,
+    school: str = "physical",
+    owner: str = "player",
+    source: str = "",
+    delivery: str = "spell",
 ) -> None:
     if enemy.health > 0:
         enemy.health = max(0, enemy.health - max(0, amount))
         enemy.flash = 0.12
         enemy.last_damage_school, enemy.owner = school, owner
+        enemy.last_damage_source, enemy.last_damage_delivery = source, delivery
 
 
 class SpellBehavior(Protocol):
@@ -517,7 +524,17 @@ class CombatSystem:
             + (self.player.meta.get("execute") if enemy.health <= enemy.max_health * 0.35 else 0)
         )
         dealt = min(enemy.health, amount)
-        damage_enemy(enemy, amount, ability.school)
+        damage_enemy(
+            enemy,
+            amount,
+            ability.school,
+            source=ability.id,
+            delivery="companion"
+            if ability.kind == "companion"
+            else "temporary_summon"
+            if ability.kind == "charge"
+            else "spell",
+        )
         if m.heal:
             automatic_heal(self.player, dealt * m.heal)
         if m.knockback:
@@ -943,7 +960,9 @@ class CombatSystem:
                             )
                         )
                         dealt = min(enemy.health, amount)
-                        damage_enemy(enemy, amount, ability.school)
+                        damage_enemy(
+                            enemy, amount, ability.school, source=ability.id, delivery="dot"
+                        )
                         if ability.mechanics.heal:
                             automatic_heal(self.player, dealt * ability.mechanics.heal)
                         status.timer += 1

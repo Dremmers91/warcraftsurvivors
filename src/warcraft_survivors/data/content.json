@@ -6762,7 +6762,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 1,
-      "gold_chance": 0.1
+      "gold_chance": 0.1,
+      "family": "humanoid",
+      "faction": ""
     },
     {
       "id": "wolf",
@@ -6788,7 +6790,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 1,
-      "gold_chance": 0.1
+      "gold_chance": 0.1,
+      "family": "beast",
+      "faction": ""
     },
     {
       "id": "bandit",
@@ -6814,7 +6818,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 2,
-      "gold_chance": 0.1
+      "gold_chance": 0.1,
+      "family": "humanoid",
+      "faction": "defias"
     },
     {
       "id": "kobold_geomancer",
@@ -6842,7 +6848,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 2,
-      "gold_chance": 0.1
+      "gold_chance": 0.1,
+      "family": "humanoid",
+      "faction": ""
     },
     {
       "id": "defias_cutpurse",
@@ -6868,7 +6876,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 2,
-      "gold_chance": 0.1
+      "gold_chance": 0.1,
+      "family": "humanoid",
+      "faction": "defias"
     },
     {
       "id": "defias_marksman",
@@ -6896,7 +6906,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 2,
-      "gold_chance": 0.1
+      "gold_chance": 0.1,
+      "family": "humanoid",
+      "faction": "defias"
     },
     {
       "id": "gnoll",
@@ -6924,7 +6936,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 3,
-      "gold_chance": 0.1
+      "gold_chance": 0.1,
+      "family": "humanoid",
+      "faction": ""
     },
     {
       "id": "gnoll_shaman",
@@ -6952,7 +6966,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 3,
-      "gold_chance": 0.1
+      "gold_chance": 0.1,
+      "family": "humanoid",
+      "faction": ""
     },
     {
       "id": "spider",
@@ -6980,7 +6996,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 1,
-      "gold_chance": 0.1
+      "gold_chance": 0.1,
+      "family": "beast",
+      "faction": ""
     },
     {
       "id": "forest_boar",
@@ -7008,7 +7026,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 2,
-      "gold_chance": 0.1
+      "gold_chance": 0.1,
+      "family": "beast",
+      "faction": ""
     },
     {
       "id": "forest_bear",
@@ -7036,7 +7056,9 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 4,
-      "gold_chance": 0.1
+      "gold_chance": 0.1,
+      "family": "beast",
+      "faction": ""
     }
   ]
 }

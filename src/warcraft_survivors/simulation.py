@@ -16,6 +16,7 @@ from .manuals import activate
 from .manuals import update as update_manual
 from .meta import RunLoadout
 from .movement import normalized
+from .run_events import DeathEvent, RunLedger
 from .spawning import Spawner
 from .upgrades import Choice, apply, roll
 from .waves import RUN_SECONDS
@@ -57,6 +58,9 @@ class Simulation:
                 raise ValueError("Invalid extra starting ability")
             self.player.spells[loadout.starting_ability] = SpellState()
         self.rerolls = int(loadout.bonuses.get("rerolls"))
+        self.banishes = int(loadout.bonuses.get("banishes"))
+        self.ledger = RunLedger()
+        self.boss_damage_start = 0.0
         self.camera = Camera(self.player.pos)
         self.enemies: list[Enemy] = []
         self.grid: SpatialHash[Enemy] = SpatialHash()
@@ -183,6 +187,7 @@ class Simulation:
             attack_timer=2,
         )
         self.boss = enemy
+        self.boss_damage_start = self.player.damage_taken
         self.enemies.append(enemy)
         self.grid.insert(enemy)
         self.notify(f"{definition.name} has arrived · defeat the boss to win")
@@ -199,7 +204,9 @@ class Simulation:
             self.spawn_boss()
 
     def activate_manual(self, direction: Vector2 | None = None) -> bool:
-        return activate(self, direction)
+        success = activate(self, direction)
+        self.ledger.manual_uses += int(success)
+        return success
 
     def drop(self, pos: Vector2, kind: str, value: float) -> None:
         key = (kind, math.floor(pos.x / 32), math.floor(pos.y / 32))
@@ -215,6 +222,29 @@ class Simulation:
             if enemy.health > 0:
                 survivors.append(enemy)
             else:
+                definition = (
+                    self.content.bosses[enemy.boss_id]
+                    if enemy.boss_id
+                    else self.content.enemies[enemy.kind]
+                )
+                event = DeathEvent(
+                    self.ledger.run_id,
+                    enemy.id,
+                    enemy.kind,
+                    definition.family,
+                    self.content.enemies[enemy.kind].faction if not enemy.boss_id else "",
+                    self.zone.id,
+                    enemy.elite,
+                    enemy.boss_id,
+                    enemy.last_damage_source,
+                    enemy.last_damage_school,
+                    enemy.owner,
+                    enemy.last_damage_delivery,
+                )
+                if not self.ledger.record(event):
+                    continue
+                if enemy.owner not in {"", "player"}:
+                    continue
                 self.kills += 1
                 self.class_xp_kills += enemy.class_xp
                 if self.player.health > 0:
@@ -234,6 +264,11 @@ class Simulation:
                 self.gold += enemy.gold_reward
                 if enemy.boss_id:
                     self.boss_defeated = True
+                    if (
+                        enemy.owner == "player"
+                        and self.player.damage_taken == self.boss_damage_start
+                    ):
+                        self.ledger.untouched_bosses += 1
                 if enemy.elite:
                     self.elites += 1
                     self.drop(enemy.pos, "chest", 1)
@@ -253,12 +288,15 @@ class Simulation:
         if self.pending_chests and not self.choices and not self.finished:
             self.pending_chests -= 1
             self.chest_choice = True
+            self.ledger.chests_opened += 1
+            self.gold += int(p.meta.get("chest_gold"))
             self.choices = roll(self.content, self.class_id, p, self.rng, chest=True)
             self.sound_events.append("chest")
             return
         if not self.choices and not self.finished and p.xp >= p.xp_required:
             p.xp -= p.xp_required
             p.level += 1
+            self.ledger.observe(self)
             self.choices = roll(self.content, self.class_id, p, self.rng)
             self.sound_events.append("level")
 
@@ -268,6 +306,7 @@ class Simulation:
             self.gold += apply(self.content, self.class_id, self.player, choice, self.chest_choice)
             if choice.kind == "evolution":
                 self.evolved += 1
+                self.ledger.evolved_spells.add(choice.id)
                 # Expire the replaced behavior; the evolved form casts on the next tick.
                 self.projectiles[:] = [s for s in self.projectiles if s.ability != choice.id]
                 self.combat.fields[:] = [f for f in self.combat.fields if f.ability != choice.id]
@@ -280,7 +319,24 @@ class Simulation:
                 self.sound_events.append("upgrade")
             self.chest_choice = False
             self.choices.clear()
+            self.ledger.observe(self)
             self.level_check()
+
+    def banish(self, index: int) -> bool:
+        if (
+            self.finished
+            or self.chest_choice
+            or self.banishes <= 0
+            or not 0 <= index < len(self.choices)
+        ):
+            return False
+        choice = self.choices[index]
+        if choice.kind not in {"spell", "passive", "manual", "modifier"}:
+            return False
+        self.player.banished.add((choice.kind, choice.id))
+        self.choices = roll(self.content, self.class_id, self.player, self.rng)
+        self.banishes -= 1
+        return True
 
     def reroll(self) -> bool:
         if self.finished or self.chest_choice or not self.choices or self.rerolls <= 0:
@@ -317,6 +373,10 @@ class Simulation:
                     p.xp += pickup.value * (1 + p.meta.get("xp"))
                 elif pickup.kind == "chest":
                     self.pending_chests += int(pickup.value)
+                elif pickup.kind in {"heal", "healing"}:
+                    self.ledger.observe(self)
+                    self.ledger.healing_pickups += 1
+                    p.health = min(p.max_health, p.health + pickup.value)
                 else:
                     self.gold += int(pickup.value)
         if collected:
@@ -342,6 +402,7 @@ class Simulation:
         if self.time >= RUN_SECONDS - 1e-8:
             self.time = RUN_SECONDS
         self.boss_time += max(0, dt - (self.time - before))
+        self.ledger.observe(self)
         wave = self.director.wave(self.time)
         index = int(wave.start // 60)
         if index != self.wave_index:

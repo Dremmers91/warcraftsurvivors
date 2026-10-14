@@ -180,6 +180,8 @@ class EnemyDef:
     xp_scaling: float = 1
     class_xp: int = 1
     gold_chance: float = 0.1
+    family: str = "humanoid"
+    faction: str = ""
 
 
 @dataclass(frozen=True)
@@ -253,6 +255,7 @@ class BossDef:
     enrage: float = 0.5
     enrage_cooldown: float = 0.72
     enrage_damage: float = 1.25
+    family: str = "humanoid"
 
 
 @dataclass(frozen=True)
@@ -421,6 +424,10 @@ def load_content() -> Content:
         e.health <= 0 or e.speed <= 0 or e.radius <= 0 or e.weight <= 0 for e in enemies.values()
     ):
         raise ValueError("Invalid enemy definition")
+    if any(
+        e.family not in {"humanoid", "beast", "undead", "demon", "dragon"} for e in enemies.values()
+    ):
+        raise ValueError("Invalid creature family")
     encounters = json.loads(files(__package__).joinpath("data/encounters.json").read_text("utf-8"))
     for kind in ("attacks", "elites", "bosses"):
         encounters[kind].extend(expansion[kind])
@@ -441,6 +448,10 @@ def load_content() -> Content:
         )
         for r in encounters["bosses"]
     }
+    if any(
+        b.family not in {"humanoid", "beast", "undead", "demon", "dragon"} for b in bosses.values()
+    ):
+        raise ValueError("Invalid boss creature family")
     if len(waves) != 30 or tuple(w.start for w in waves) != tuple(i * 60 for i in range(30)):
         raise ValueError("Wave schedule must cover each minute of the 30-minute run")
     if any(

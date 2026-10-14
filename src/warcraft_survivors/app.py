@@ -14,6 +14,7 @@ from typing import Any
 import pygame
 from pygame import Rect, Vector2
 
+from .achievement_ui import future_card
 from .audio import Audio
 from .content import load_content
 from .debug import DebugTools, debug_allowed
@@ -44,6 +45,8 @@ class App:
         self.save, self.seed = save, seed
         self.content = load_content()
         self.selected_class = "paladin"
+        self.class_page = 0
+        self.selected_choice = 0
         self.selected_zone = "elwynn"
         self.progression_ui = ProgressionUI()
         self.notifications: list[tuple[str, float]] = []
@@ -102,6 +105,8 @@ class App:
             self.toast("Finish the current run before changing progression.")
             return
         self.screen, self.focus, self.accumulator = screen, 0, 0.0
+        if screen == "level":
+            self.selected_choice = 0
         self.ui_sound_events.append("menu")
         self.build_buttons()
 
@@ -147,6 +152,7 @@ class App:
                     sim.class_xp_kills,
                     sim.player.meta.get("gold"),
                     sim.boss.boss_id if sim.boss else "",
+                    summary=sim.ledger.summary(sim),
                 )
                 self.result["recorded"] = True
                 for aid in self.result["achievements"]:
@@ -221,6 +227,19 @@ class App:
         self.selected_class = cid
         self.start_run()
 
+    def class_turn_page(self, amount: int) -> None:
+        self.class_page = (self.class_page + amount) % ((len(load_progression().classes) + 5) // 6)
+        self.goto("classes")
+
+    def banish(self) -> None:
+        if self.sim:
+            index = self.focus if self.focus < len(self.sim.choices) else self.selected_choice
+            if self.sim.banish(index):
+                self.focus = self.selected_choice = 0
+                self.build_buttons()
+            else:
+                self.toast("No banish available for this choice.")
+
     def build_buttons(self) -> None:
         self.buttons = []
 
@@ -246,13 +265,18 @@ class App:
         elif self.screen in SCREENS:
             self.progression_ui.build(self, add)
         elif self.screen == "classes":
-            for index, cls in enumerate(self.content.classes.values()):
+            entries = list(load_progression().classes.values())[
+                self.class_page * 6 : self.class_page * 6 + 6
+            ]
+            for index, cls in enumerate(entries):
                 add(
                     Rect(97 + (index % 3) * 368, 184 + (index // 3) * 220, 350, 202),
                     cls.name,
                     partial(self.select_class, cls.id),
                 )
             add(Rect(350, 650, 300, 48), "Future champions", lambda: self.goto("unlocks"))
+            add(Rect(740, 650, 230, 48), "Previous", partial(self.class_turn_page, -1))
+            add(Rect(984, 650, 230, 48), "Next", partial(self.class_turn_page, 1))
             add(Rect(97, 650, 230, 48), "Back", lambda: self.goto("main"))
         elif self.screen == "pause":
             add(Rect(460, 275, 360, 64), "Resume", lambda: self.goto("game"))
@@ -267,7 +291,9 @@ class App:
                 )
                 add(rect, choice.name, partial(self.choose, index))
             if self.sim.player.meta.get("rerolls") and not self.sim.chest_choice:
-                add(Rect(460, 648, 360, 48), f"R / X · Reroll ({self.sim.rerolls})", self.reroll)
+                add(Rect(260, 648, 350, 48), f"R / X · Reroll ({self.sim.rerolls})", self.reroll)
+            if self.sim.player.meta.get("banishes") and not self.sim.chest_choice:
+                add(Rect(650, 648, 350, 48), f"B / Y · Banish ({self.sim.banishes})", self.banish)
         elif self.screen == "settings":
             for index, key in enumerate(("fullscreen", "sound", "screen_shake")):
                 value = "ON" if self.save.data["settings"][key] else "OFF"
@@ -321,6 +347,9 @@ class App:
             return
         if self.screen == "level" and key == pygame.K_r:
             self.reroll()
+            return
+        if self.screen == "level" and key == pygame.K_b:
+            self.banish()
             return
         if key == pygame.K_ESCAPE:
             if self.screen == "game":
@@ -381,6 +410,8 @@ class App:
             self.buttons[self.focus].action()
         elif self.screen == "level" and pygame.K_1 <= key <= pygame.K_4:
             self.choose(key - pygame.K_1)
+        if self.screen == "level" and self.sim and self.focus < len(self.sim.choices):
+            self.selected_choice = self.focus
 
     def handle_event(self, event: pygame.event.Event) -> None:
         if event.type == pygame.QUIT:
@@ -396,6 +427,8 @@ class App:
             for index, button in enumerate(self.buttons):
                 if button.rect.collidepoint(pos):
                     self.focus = index
+                    if self.screen == "level" and self.sim and index < len(self.sim.choices):
+                        self.selected_choice = index
                     break
         elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and self.screen != "game":
             pos = self.mouse_position(event.pos)
@@ -415,6 +448,8 @@ class App:
                 self.menu_key(pygame.K_ESCAPE)
             elif event.button == 2 and self.screen == "level":
                 self.reroll()
+            elif event.button == 3 and self.screen == "level":
+                self.banish()
         elif event.type == pygame.JOYHATMOTION and self.screen != "game":
             x, y = event.value
             if x or y:
@@ -596,10 +631,17 @@ class App:
         elif self.screen == "classes":
             r.backdrop(
                 "Choose your champion",
-                f"{self.content.zones[self.selected_zone].name} · select a champion to begin · one starting spell",
+                f"{self.content.zones[self.selected_zone].name} · Page {self.class_page + 1}/{(len(load_progression().classes) + 5) // 6} · Select an available champion to begin",
             )
-            for index, cls in enumerate(self.content.classes.values()):
+            entries = list(load_progression().classes.values())[
+                self.class_page * 6 : self.class_page * 6 + 6
+            ]
+            for index, entry in enumerate(entries):
                 rect = self.buttons[index].rect
+                if not entry.playable:
+                    future_card(self, entry, rect, self.focus == index)
+                    continue
+                cls = self.content.classes[entry.id]
                 r.panel(rect, self.focus == index)
                 frame = r.assets.actor(cls.id, "idle", "south", pygame.time.get_ticks() / 1000)
                 r.canvas.blit(frame.image, frame.at(Vector2(rect.right - 52, rect.y + 108)))
@@ -622,17 +664,14 @@ class App:
                     22,
                     CREAM,
                 )
-            r.button(self.buttons[-1].rect, "Back", selected=self.focus == len(self.buttons) - 1)
-            r.button(
-                self.buttons[-2].rect,
-                "Future champions",
-                selected=self.focus == len(self.buttons) - 2,
-            )
+            for index in range(len(entries), len(self.buttons)):
+                button = self.buttons[index]
+                r.button(button.rect, button.label, selected=self.focus == index)
         elif self.screen == "settings":
             r.backdrop("Make yourself at home", "Movement devices work without changing settings.")
             r.panel(Rect(800, 194, 416, 352))
             r.wrapped(
-                "Move: WASD, arrows, held left mouse, or left stick. Manual: Space / A. Pause: Escape / Start. Menus: arrows, Enter, mouse, or controller. Level cards: 1–4. Reroll: R / X.",
+                "Move: WASD, arrows, held left mouse, or left stick. Manual: Space / A. Pause: Escape / Start. Menus: arrows, Enter, mouse, or controller. Level cards: 1–4. Reroll: R / X. Banish focused card: B / Y.",
                 Rect(820, 224, 372, 240),
                 28,
                 MUTED,
@@ -696,7 +735,11 @@ class App:
             for index, (button, choice) in enumerate(
                 zip(self.buttons[: len(self.sim.choices)], self.sim.choices, strict=True)
             ):
-                r.panel(button.rect, self.focus == index)
+                r.panel(
+                    button.rect,
+                    self.focus == index
+                    or (self.focus >= len(self.sim.choices) and self.selected_choice == index),
+                )
                 r.text(
                     f"{index + 1}  /  {choice.kind.upper()}",
                     (button.rect.x + 22, button.rect.y + 28),
@@ -750,7 +793,12 @@ class App:
             for index, button in enumerate(
                 self.buttons[len(self.sim.choices) :], start=len(self.sim.choices)
             ):
-                r.button(button.rect, button.label, selected=self.focus == index)
+                label = (
+                    f"B / Y · Banish card {self.selected_choice + 1} ({self.sim.banishes})"
+                    if button.action == self.banish
+                    else button.label
+                )
+                r.button(button.rect, label, selected=self.focus == index)
         elif self.screen not in {"classes", "zones"} and self.screen not in SCREENS:
             for index, button in enumerate(self.buttons):
                 r.button(button.rect, button.label, selected=self.focus == index)

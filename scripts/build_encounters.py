@@ -5,6 +5,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from enemy_classification import annotate
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "src/warcraft_survivors/data"
 content = json.loads((DATA / "content.json").read_text(encoding="utf-8"))
@@ -402,6 +404,7 @@ for minute in range(30):
             else 350 + (minute - 25) * 100,
         )
     )
+annotate(content["enemies"], bosses)
 (DATA / "content.json").write_text(json.dumps(content, indent=2) + "\n", encoding="utf-8")
 (DATA / "encounters.json").write_text(
     json.dumps(
