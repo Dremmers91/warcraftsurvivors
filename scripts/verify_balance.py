@@ -22,6 +22,10 @@ from warcraft_survivors.simulation import FIXED_DT, Simulation  # noqa: E402
 def advanced_profile(path):
     save = SaveStore(path)
     save.data["gold"] = 100000
+    # Isolated QA profile, including only the four real shop gate prerequisites.
+    save.data["achievements"] = sorted(
+        {u.achievement for u in load_progression().shared.values() if u.achievement}
+    )
     for cls in save.data["classes"].values():
         cls["xp"] = 120000
     for cid, tree in load_progression().trees.items():
@@ -74,6 +78,8 @@ def main():
         sim.spawner.wave_start = 1740
         # Staged developed arsenal: legal maximum eight spells and eight passives.
         ids = content.classes[cid].abilities[:8]
+        if cid == "hunter":
+            ids = content.classes[cid].abilities[:6] + content.classes[cid].abilities[8:]
         sim.player.spells = {aid + "_evolved": SpellState(8) for aid in ids}
         sim.player.passives = dict(
             might=5, area=5, projectiles=5, haste=5, armor=5, regen=5, duration=5, piercing=5

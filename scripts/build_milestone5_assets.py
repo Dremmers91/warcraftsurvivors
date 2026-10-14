@@ -58,7 +58,7 @@ def main():
         ],
     }
     for zone in zones["zones"][1:]:
-        for eid, (row, base, color) in zip(zone["enemies"], species[zone["id"]], strict=True):
+        for eid, (row, base, color) in zip(zone["enemies"][:5], species[zone["id"]], strict=True):
             if row is not None:
                 poses = [[tint(creature[row][d], *color) for _ in range(4)] for d in range(4)]
                 derived = True
@@ -74,7 +74,7 @@ def main():
                 40 if any(v in eid for v in ("wolf", "hound", "panther", "spider", "fiend")) else 64
             )
             manifest["actors"][eid] = atlas(eid, poses, height=height, derived=derived)
-        for elite_id in zone["elites"]:
+        for elite_id in zone["elites"][:2]:
             definition = next(e for e in zones["elites"] if e["id"] == elite_id)
             source = Image.open(ASSETS / manifest["actors"][definition["enemy"]]["file"])
             poses = [[tint(p, 1.18, 0.88, 1.12) for p in line] for line in cells(source, 4, 16)[:4]]

@@ -13,6 +13,9 @@ BEASTS = {
     "stranglethorn_raptor",
     "stranglethorn_panther",
     "stranglethorn_jungle_boar",
+    "stranglethorn_gorilla",
+    "stranglethorn_basilisk",
+    "stranglethorn_crocolisk",
 }
 UNDEAD = {
     "duskwood_zombie",
@@ -24,6 +27,14 @@ UNDEAD = {
     "icecrown_geist",
     "icecrown_frost_hound",
     "icecrown_frost_abomination",
+    "duskwood_restless_spirit",
+    "duskwood_skeletal_archer",
+    "plaguelands_banshee",
+    "plaguelands_gargoyle",
+    "plaguelands_abomination",
+    "icecrown_nerubian",
+    "icecrown_frost_revenant",
+    "icecrown_wyrm_hatchling",
 }
 
 

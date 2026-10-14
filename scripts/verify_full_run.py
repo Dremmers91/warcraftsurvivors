@@ -66,7 +66,10 @@ def choose(sim):
             value -= 15
         return value
 
-    sim.choose(max(range(len(sim.choices)), key=lambda i: score(sim.choices[i])))
+    index = max(range(len(sim.choices)), key=lambda i: score(sim.choices[i]))
+    choice = sim.choices[index]
+    sim.choose(index)
+    return choice
 
 
 def movement(sim, tick):
@@ -133,9 +136,15 @@ def main():
     start = time.perf_counter()
     checkpoints = []
     next_report = 60
+    peak_enemies = 0
+    card_counts = {}
+    first_reward = None
     for tick in range(args.seconds * 60 + 1):
         while sim.choices:
-            choose(sim)
+            card = choose(sim)
+            card_counts[card.kind] = card_counts.get(card.kind, 0) + 1
+            if card.kind == "reward" and first_reward is None:
+                first_reward = round(sim.elapsed, 2)
         heading = movement(sim, tick)
         if sim.player.manual:
             if (
@@ -146,6 +155,7 @@ def main():
                 sim.activate_manual(heading)
         sim.step(FIXED_DT, heading)
         sim.sound_events.clear()
+        peak_enemies = max(peak_enemies, len(sim.enemies))
         if sim.elapsed >= next_report:
             entry = dict(
                 time=round(sim.elapsed, 1),
@@ -156,10 +166,14 @@ def main():
                 elites=sim.elites,
                 evolved=sim.evolved,
                 boss=sim.boss_result,
+                peak_enemies=peak_enemies,
+                xp_collected=round(sim.run_xp_collected),
+                gems=sum(p.kind == "xp" for p in sim.pickups.values()),
             )
             checkpoints.append(entry)
             print(json.dumps(entry), flush=True)
             next_report += 60
+            peak_enemies = 0
         if sim.finished:
             break
     output = args.output
@@ -179,6 +193,7 @@ def main():
             sim.class_xp_kills,
             sim.player.meta.get("gold"),
             sim.boss.boss_id if sim.boss else "",
+            summary=sim.ledger.summary(sim),
         )
     )
     result = dict(
@@ -204,6 +219,8 @@ def main():
         manual=sim.player.manual.id if sim.player.manual else None,
         cheats=args.invulnerable,
         wall_seconds=round(time.perf_counter() - start, 2),
+        card_counts=card_counts,
+        first_reward_seconds=first_reward,
         rewards=rewards,
         checkpoints=checkpoints,
     )

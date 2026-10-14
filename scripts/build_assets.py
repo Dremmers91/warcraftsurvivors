@@ -51,7 +51,9 @@ def fit(image: Image.Image, width: int, height: int) -> Image.Image:
     return image
 
 
-def forest_components(source: Image.Image) -> list[tuple[tuple[int, int, int, int], Image.Image]]:
+def forest_components(
+    source: Image.Image, expected: int | None = 6
+) -> list[tuple[tuple[int, int, int, int], Image.Image]]:
     """Separate complete transparent silhouettes instead of clipping guessed cells."""
     source = clear_alpha(source)
     width, height = source.size
@@ -89,8 +91,8 @@ def forest_components(source: Image.Image) -> list[tuple[tuple[int, int, int, in
             alpha[(y - top) * image.width + x - left] = 255
         image.putalpha(Image.frombytes("L", image.size, bytes(alpha)))
         result.append((box, image))
-    if len(result) != 6:
-        raise ValueError(f"Expected six reviewed forest silhouettes, got {len(result)}")
+    if expected is not None and len(result) != expected:
+        raise ValueError(f"Expected {expected} reviewed silhouettes, got {len(result)}")
     return result
 
 
