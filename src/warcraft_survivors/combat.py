@@ -11,10 +11,12 @@ from pygame import Vector2
 
 from .content import Ability, Content
 from .entities import Companion, Enemy, Field, Player, Projectile, SpellState, Status, Visual
+from .passive_effects import BONUS
 from .world import SpatialHash
 
 COUNT_KINDS = {"projectile", "orbit", "companion", "charge", "dot", "chain"}
 PROJECTILE_KINDS = {"projectile"}
+EVOLUTION_DAMAGE_MULTIPLIER = 1.65
 
 
 @dataclass(frozen=True)
@@ -41,7 +43,7 @@ def spell_stats(ability: Ability, state: SpellState, player: Player) -> SpellSta
     )
     damage = (
         rank.damage
-        * (1 + player.passive("might") * 0.15)
+        * (1 + player.passive("might") * BONUS["might"])
         * (2 if player.power > 0 else 1)
         * (1 + buff)
         * (
@@ -54,41 +56,42 @@ def spell_stats(ability: Ability, state: SpellState, player: Player) -> SpellSta
         * (1 + meta.get("low_health_damage") if player.health <= player.max_health * 0.35 else 1)
     )
     if ability.evolved:
-        damage *= 1.65
+        damage *= EVOLUTION_DAMAGE_MULTIPLIER
     if "force" in state.modifiers:
         damage *= 1.3
     return SpellStats(
         damage,
         rank.cooldown
-        * max(0.4, 1 - 0.07 * player.passive("haste"))
+        * max(0.4, 1 - BONUS["haste"] * player.passive("haste"))
         * max(0.65, 1 - meta.get("haste"))
         * (1.15 if "force" in state.modifiers else 1),
         rank.radius
-        * (1 + player.passive("area") * 0.2)
+        * (1 + player.passive("area") * BONUS["area"])
         * (1 + meta.get("area") + meta.spell(base, "radius"))
         * (1.3 if "reach" in state.modifiers else 1),
         rank.count
         + ability.mechanics.extra_pets
         + (
-            player.passive("projectiles") + int(meta.get("count") + meta.spell(base, "count"))
+            player.passive("projectiles") * int(BONUS["projectiles"])
+            + int(meta.get("count") + meta.spell(base, "count"))
             if ability.kind in COUNT_KINDS
             else 0
         ),
         rank.pierce
         + (
-            player.passive("piercing") + int(meta.spell(base, "pierce"))
+            player.passive("piercing") * int(BONUS["piercing"]) + int(meta.spell(base, "pierce"))
             if ability.kind in PROJECTILE_KINDS
             else 0
         ),
         rank.duration
-        * (1 + 0.2 * player.passive("duration"))
+        * (1 + BONUS["duration"] * player.passive("duration"))
         * (1 + meta.get("duration") + meta.spell(base, "duration")),
         ability.speed
         * (1 + meta.spell(base, "speed"))
         * (
             1
             + (
-                0.15 * player.passive("velocity")
+                BONUS["velocity"] * player.passive("velocity")
                 if ability.kind in {"projectile", "field", "charge"} or ability.mechanics.ranged
                 else 0
             )
@@ -111,7 +114,7 @@ def hurt_player(player: Player, amount: float, armor_penetration: float = 0) -> 
                 0.75,
                 player.armor
                 + (player.guard_strength if player.guard > 0 else 0)
-                + player.passive("armor") * 0.08,
+                + player.passive("armor") * BONUS["armor"],
             )
             - armor_penetration,
         ),
@@ -323,7 +326,7 @@ class OrbitSpell:
                     Vector2(),
                     ability.id,
                     stats.damage,
-                    15 * (1 + 0.2 * combat.player.passive("area")),
+                    15 * (1 + BONUS["area"] * combat.player.passive("area")),
                     stats.pierce,
                     stats.duration,
                     orbit_angle=angle,
@@ -564,7 +567,7 @@ class CombatSystem:
                 * stats.radius
                 / ability.ranks[state.rank - 1].radius
                 if m.ranged
-                else 1 + 0.2 * self.player.passive("area")
+                else 1 + BONUS["area"] * self.player.passive("area")
             )
             splash *= 1 + self.player.meta.spell(ability.base_id or ability.id, "splash")
             for other in self.near(enemy.pos, splash):
@@ -741,7 +744,7 @@ class CombatSystem:
                     if ability.kind == "beam":
                         end = field.pos + field.velocity * field.radius
                         segment = end - field.pos
-                        thickness = 18 * (1 + 0.2 * self.player.passive("area"))
+                        thickness = 18 * (1 + BONUS["area"] * self.player.passive("area"))
                         for enemy in self.grid.nearby(
                             (field.pos + end) / 2,
                             field.radius / 2 + thickness + self.max_enemy_radius,
@@ -756,7 +759,10 @@ class CombatSystem:
                             )
                             if (
                                 enemy.pos.distance_squared_to(field.pos + segment * t)
-                                <= (enemy.radius + 18 * (1 + 0.2 * self.player.passive("area")))
+                                <= (
+                                    enemy.radius
+                                    + 18 * (1 + BONUS["area"] * self.player.passive("area"))
+                                )
                                 ** 2
                             ):
                                 self.hit(enemy, field.damage, ability, state)

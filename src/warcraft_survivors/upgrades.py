@@ -3,10 +3,12 @@
 from __future__ import annotations
 
 import random
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 
 from .content import Content
+from .descriptions import describe_choice
 from .entities import ManualState, Player, SpellState
+from .passive_effects import BONUS
 
 SPELL_SLOTS = 8
 PASSIVE_SLOTS = 8
@@ -56,22 +58,11 @@ def eligible(content: Content, class_id: str, player: Player, chest: bool = Fals
             if state is None:
                 if len(player.spells) >= SPELL_SLOTS or aid in equipped_bases:
                     continue
-                evo_hint = (
-                    f" Evolve: Rank 8 + {content.passives[ability.evolution.passive].name} + elite chest."
-                    if ability.evolution
-                    else ""
-                )
-                choices.append(
-                    Choice("spell", aid, ability.name, ability.description + evo_hint, 1, 1.4)
-                )
+                choices.append(Choice("spell", aid, ability.name, ability.description, 1, 1.4))
             elif state.rank < 8:
-                new_rank = ability.ranks[state.rank]
-                description = f"{ability.description} {new_rank.damage:g} damage / {new_rank.cooldown:g}s / {new_rank.radius:g} reach / {new_rank.count} effects / {new_rank.pierce} pierce."
-                if ability.evolution:
-                    description += f" Evolve with {content.passives[ability.evolution.passive].name} at Rank 8."
-                if state.rank + 1 >= ability.mechanics.radial_rank:
-                    description += " Radial volley."
-                choices.append(Choice("spell", aid, ability.name, description, state.rank + 1, 2.3))
+                choices.append(
+                    Choice("spell", aid, ability.name, ability.description, state.rank + 1, 2.3)
+                )
             if state and state.rank >= 4 and not state.modifiers:
                 choices.extend(
                     (
@@ -125,7 +116,15 @@ def eligible(content: Content, class_id: str, player: Player, chest: bool = Fals
     choices = [c for c in choices if (c.kind, c.id) not in player.banished]
     if len(choices) < count:
         choices.extend(REWARDS[:count])
-    return choices
+    return [
+        replace(c, description=card_description(content, player, c)) if c.kind != "reward" else c
+        for c in choices
+    ]
+
+
+def card_description(content: Content, player: Player, choice: Choice) -> str:
+    text = describe_choice(content, player, choice)
+    return " ".join((text.summary, *text.changes[:3], *text.notes[:1]))
 
 
 def roll(
@@ -178,8 +177,8 @@ def apply(
     elif choice.kind == "passive":
         player.passives[choice.id] = choice.rank
         if choice.id == "health":
-            player.max_health += 20
-            player.health = min(player.max_health, player.health + 20)
+            player.max_health += BONUS["health"]
+            player.health = min(player.max_health, player.health + BONUS["health"])
     elif choice.id == "heal":
         player.health = min(player.max_health, player.health + player.max_health * 0.35)
     elif choice.id == "power":

@@ -7,11 +7,28 @@ from typing import TYPE_CHECKING
 from pygame import Vector2
 
 from .combat import damage_enemy
-from .content import SCHOOLS
+from .content import SCHOOLS, Manual
 from .entities import Player, Visual
+from .passive_effects import BONUS
 
 if TYPE_CHECKING:
     from .simulation import Simulation
+
+
+def manual_cooldown(manual: Manual, rank: int, player: Player) -> float:
+    return (
+        manual.ranks[rank - 1].cooldown
+        * max(0.4, 1 - BONUS["haste"] * player.passive("haste"))
+        * max(0.65, 1 - player.meta.get("haste") - player.meta.get("manual_haste"))
+    )
+
+
+def manual_duration(manual: Manual, rank: int, player: Player) -> float:
+    return (
+        manual.ranks[rank - 1].duration
+        * (1 + BONUS["duration"] * player.passive("duration"))
+        * (1 + player.meta.get("duration"))
+    )
 
 
 def activate(sim: Simulation, direction: Vector2 | None = None) -> bool:
@@ -21,7 +38,7 @@ def activate(sim: Simulation, direction: Vector2 | None = None) -> bool:
         return False
     ability = sim.content.manuals[state.id]
     rank = ability.ranks[state.rank - 1]
-    duration = rank.duration * (1 + 0.2 * p.passive("duration")) * (1 + p.meta.get("duration"))
+    duration = manual_duration(ability, state.rank, p)
     heading = (
         direction.normalize()
         if direction is not None and direction.length_squared() > 0.01
@@ -44,10 +61,10 @@ def activate(sim: Simulation, direction: Vector2 | None = None) -> bool:
         p.pos = destination
         p.immune = 0.5 + 0.2 * (state.rank - 1)
         if ability.kind == "leap":
-            for enemy in sim.combat.near(p.pos, 100 * (1 + 0.2 * p.passive("area"))):
+            for enemy in sim.combat.near(p.pos, 100 * (1 + BONUS["area"] * p.passive("area"))):
                 damage_enemy(
                     enemy,
-                    rank.power * (1 + 0.15 * p.passive("might")),
+                    rank.power * (1 + BONUS["might"] * p.passive("might")),
                     ability.school,
                     source=ability.id,
                     delivery="manual",
@@ -86,20 +103,18 @@ def activate(sim: Simulation, direction: Vector2 | None = None) -> bool:
         p.health = min(p.max_health, p.health + p.rally_bonus)
         p.rally_time = duration
     elif ability.kind == "fear":
-        for enemy in sim.combat.near(p.pos, rank.distance * (1 + 0.2 * p.passive("area"))):
+        for enemy in sim.combat.near(
+            p.pos, rank.distance * (1 + BONUS["area"] * p.passive("area"))
+        ):
             enemy.fear = 0 if enemy.boss_id else min(duration, 1.5) if enemy.elite else duration
             damage_enemy(
                 enemy,
-                rank.power * (1 + 0.15 * p.passive("might")),
+                rank.power * (1 + BONUS["might"] * p.passive("might")),
                 ability.school,
                 source=ability.id,
                 delivery="manual",
             )
-    state.timer = (
-        rank.cooldown
-        * max(0.4, 1 - 0.07 * p.passive("haste"))
-        * max(0.65, 1 - p.meta.get("haste") - p.meta.get("manual_haste"))
-    )
+    state.timer = manual_cooldown(ability, state.rank, p)
     sim.visuals.append(Visual(p.pos.copy(), 100, SCHOOLS[ability.school], 0.6, 0.6, state.id))
     p.cast_age = 0
     sim.sound_events.append("cast_" + ability.school)
@@ -119,7 +134,7 @@ def update(player: Player, dt: float) -> None:
         player.health = min(player.health, player.max_health)
         player.rally_bonus = 0
     regen = (
-        0.6 * player.passive("regen")
+        BONUS["regen"] * player.passive("regen")
         + player.meta.get("regen")
         + (player.max_health * player.block_regen if player.rooted > 0 else 0)
     )

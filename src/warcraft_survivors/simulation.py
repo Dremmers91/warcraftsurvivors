@@ -16,6 +16,7 @@ from .manuals import activate
 from .manuals import update as update_manual
 from .meta import RunLoadout
 from .movement import normalized
+from .passive_effects import BASE_PICKUP_RADIUS, BONUS
 from .run_events import DeathEvent, RunLedger
 from .spawning import Spawner
 from .upgrades import Choice, apply, roll
@@ -361,7 +362,7 @@ class Simulation:
         self.pickup_grid.rebuild(self.pickups.values())
         collected: set[int] = set()
         for pickup in self.pickup_grid.nearby(
-            p.pos, 95 + 30 * p.passive("pickup") + p.meta.get("pickup")
+            p.pos, BASE_PICKUP_RADIUS + BONUS["pickup"] * p.passive("pickup") + p.meta.get("pickup")
         ):
             delta = p.pos - pickup.pos
             length = delta.length()
@@ -427,7 +428,7 @@ class Simulation:
                 p.pos,
                 move
                 * p.base_speed
-                * (1 + 0.08 * p.passive("movement"))
+                * (1 + BONUS["movement"] * p.passive("movement"))
                 * (1 - p.slow_strength)
                 * dt,
                 p.radius,

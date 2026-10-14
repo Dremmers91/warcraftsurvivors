@@ -29,7 +29,7 @@ def test_keyboard_menu_pause_level_and_results(app):
     app.menu_key(pygame.K_RETURN)
     app.sim.player.xp = app.sim.player.xp_required
     app.update(FIXED_DT)
-    assert app.screen == "level" and len(app.buttons) == 3
+    assert app.screen == "level" and len(app.sim.choices) == 3 and len(app.buttons) == 4
     app.menu_key(pygame.K_ESCAPE)
     assert app.screen == "level"
     app.menu_key(pygame.K_1)
@@ -37,6 +37,76 @@ def test_keyboard_menu_pause_level_and_results(app):
     app.end_run()
     app.end_run()
     assert app.screen == "results" and app.save.data["stats"]["runs"] == 1
+
+
+@pytest.mark.parametrize("device", ["keyboard", "mouse", "controller"])
+def test_upgrade_details_preserve_card_focus_and_paused_state(app, device):
+    app.start_run()
+    app.sim.player.xp = app.sim.player.xp_required
+    app.update(FIXED_DT, Vector2())
+    app.focus = app.selected_choice = 1
+    original = list(app.sim.choices)
+    time = app.sim.time
+    if device == "keyboard":
+        app.menu_key(pygame.K_q)
+    elif device == "mouse":
+        app.handle_event(
+            pygame.event.Event(pygame.MOUSEBUTTONDOWN, button=3, pos=app.buttons[1].rect.center)
+        )
+    else:
+        app.handle_event(pygame.event.Event(pygame.JOYBUTTONDOWN, button=4))
+    assert app.screen == "upgrade_details"
+    app.draw()
+    app.update(1)
+    app.buttons[-1].action()
+    app.draw()
+    app.menu_key(pygame.K_ESCAPE)
+    assert app.screen == "level" and app.focus == app.selected_choice == 1
+    assert app.sim.time == time and app.sim.choices == original
+    assert app.sim.player.level == 2
+
+
+def test_paused_spellbook_supports_maxed_evolved_spell_readiness(app):
+    from warcraft_survivors.entities import SpellState
+
+    app.start_run()
+    app.sim.player.spells = {"judgment_evolved": SpellState(8), "consecration": SpellState(7)}
+    app.goto("pause")
+    app.buttons[-1].action()
+    assert app.screen == "spellbook"
+    app.draw()
+    app.buttons[0].action()
+    assert app.screen == "upgrade_details"
+    app.draw()
+    assert "already equipped" in app.upgrade_ui.sections(app)[0][1][0]
+    app.menu_key(pygame.K_ESCAPE)
+    assert app.screen == "spellbook" and app.sim.time == 0
+    app.menu_key(pygame.K_ESCAPE)
+    assert app.screen == "pause"
+
+
+@pytest.mark.parametrize("resolution", ["1280x720", "1600x900", "1920x1080", "2560x1440"])
+def test_details_mouse_viewport_and_controller_labels(app, resolution):
+    from types import SimpleNamespace
+
+    app.save.data["settings"]["resolution"] = resolution
+    app.apply_display()
+    app.start_run()
+    app.sim.player.xp = app.sim.player.xp_required
+    app.update(FIXED_DT, Vector2())
+    app.draw()
+    rect = app.buttons[0].rect
+    scale = app.viewport.width / 1280
+    pos = (
+        round(app.viewport.x + rect.centerx * scale),
+        round(app.viewport.y + rect.centery * scale),
+    )
+    app.handle_event(pygame.event.Event(pygame.MOUSEBUTTONDOWN, button=3, pos=pos))
+    assert app.screen == "upgrade_details" and app.upgrade_ui.choice == app.sim.choices[0]
+    app.joysticks[9] = SimpleNamespace(get_name=lambda: "Sony DualSense", get_numaxes=lambda: 0)
+    app.input_device = "controller"
+    assert app.activation_label() == "Cross" and app.pad_labels().details == "L1"
+    app.draw()
 
 
 def test_mouse_and_controller_menu_events(app):
