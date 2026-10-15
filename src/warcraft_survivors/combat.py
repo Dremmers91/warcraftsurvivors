@@ -559,7 +559,11 @@ class CombatSystem:
                 stats.duration,
                 m.spread_dot,
             )
-        splash_bonus = self.player.meta.spell(ability.base_id or ability.id, "splash_flat")
+        # Dense evolved splash can deliver thousands of secondary hits per cast.
+        # Secondary hits never splash again; avoid a redundant talent lookup.
+        splash_bonus = (
+            0 if secondary else self.player.meta.spell(ability.base_id or ability.id, "splash_flat")
+        )
         if not secondary and (m.splash and state.rank >= m.splash_rank or splash_bonus > 0):
             stats = self.stats(ability, state)
             splash = ((m.splash if state.rank >= m.splash_rank else 0) + splash_bonus) * (
@@ -950,6 +954,8 @@ class CombatSystem:
     def update_statuses(self, dt: float) -> None:
         transfers: list[tuple[Enemy, Ability, Status]] = []
         for enemy in self.grid.items():
+            if not enemy.statuses:
+                continue
             for aid, status in list(enemy.statuses.items()):
                 ability = self.content.ability(aid)
                 status.remaining -= dt

@@ -87,6 +87,7 @@ class Simulation:
         self.won = False
         self.outcome = ""
         self.class_xp_kills = 0
+        self.run_xp_collected = 0.0
         self.wave_index = 0
         self.enemy_combat = EnemySystem(
             content, self.world, self.player, self.grid, lambda: self.sound_events.append("hurt")
@@ -371,7 +372,9 @@ class Simulation:
             if pickup.pos.distance_squared_to(p.pos) < 20**2:
                 collected.add(id(pickup))
                 if pickup.kind == "xp":
-                    p.xp += pickup.value * (1 + p.meta.get("xp"))
+                    earned = pickup.value * (1 + p.meta.get("xp"))
+                    p.xp += earned
+                    self.run_xp_collected += earned
                 elif pickup.kind == "chest":
                     self.pending_chests += int(pickup.value)
                 elif pickup.kind in {"heal", "healing"}:
@@ -399,6 +402,8 @@ class Simulation:
             return
         p = self.player
         before = self.time
+        self.grid.reset_metrics()
+        self.world.grid.reset_metrics()
         self.time = min(RUN_SECONDS, self.time + dt)
         if self.time >= RUN_SECONDS - 1e-8:
             self.time = RUN_SECONDS

@@ -376,6 +376,10 @@ for minute in range(30):
         batch = 8
         density = 3200 + (minute - 25) * 350
         label = "Last Stand of Elwynn"
+    # Measurements showed 15-30 living enemies for a fresh developed Hunter
+    # late in the run despite a 4,600 ceiling. Increase arrivals, not the cap.
+    pressure = max(0, minute - 10) / 19
+    rate *= 1 + 0.8 * pressure
     weights = {"kobold": 8 if minute < 5 else 6, "wolf": 2 if minute < 5 else 4}
     for e in content["enemies"]:
         if e["id"] in weights or e["min_time"] > minute * 60:
@@ -390,7 +394,10 @@ for minute in range(30):
             rate=round(rate, 2),
             batch=batch,
             density=density,
-            health=round(1 + minute * 0.12 + (max(0, minute - 10) ** 1.3) * 0.055, 3),
+            health=round(
+                (1 + minute * 0.12 + (max(0, minute - 10) ** 1.3) * 0.055) * (1 + 0.35 * pressure),
+                3,
+            ),
             damage=round(1 + minute * 0.018, 3),
             xp=round(1 + minute * 0.075, 3),
             speed=min(35, minute * 1.1),
@@ -401,7 +408,7 @@ for minute in range(30):
             if minute < 15
             else 100 + (minute - 15) * 18
             if minute < 25
-            else 350 + (minute - 25) * 100,
+            else 600 + (minute - 25) * 175,
         )
     )
 annotate(content["enemies"], bosses)

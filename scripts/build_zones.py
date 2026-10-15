@@ -27,6 +27,9 @@ zone_specs = [
             ("nightwolf", "Nightbane Hound", 39, 139, 14, 8, "flank", []),
             ("venom_spider", "Black Widow", 36, 115, 12, 9, "ranged", ["poison_spit"]),
             ("grave_caster", "Grave Necromancer", 61, 79, 17, 15, "ranged", ["lightning"]),
+            ("restless_spirit", "Restless Spirit", 38, 112, 13, 10, "flank", ["spirit_wail"]),
+            ("worgen", "Nightbane Stalker", 76, 151, 19, 14, "charge", ["worgen_lunge"]),
+            ("skeletal_archer", "Raven Hill Archer", 52, 84, 16, 12, "ranged", ["arrow"]),
         ],
     ),
     (
@@ -42,6 +45,9 @@ zone_specs = [
             ("panther", "Shadow Panther", 45, 150, 17, 10, "flank", []),
             ("jungle_boar", "Jungle Boar", 84, 116, 20, 14, "charge", ["boar_charge"]),
             ("troll_shaman", "Gurubashi Witch Doctor", 85, 80, 20, 18, "ranged", ["poison_spit"]),
+            ("gorilla", "Jungle Gorilla", 118, 78, 24, 20, "bruiser", ["gorilla_slam"]),
+            ("basilisk", "Crystal Basilisk", 74, 108, 18, 15, "ranged", ["basilisk_gaze"]),
+            ("crocolisk", "River Crocolisk", 103, 111, 22, 18, "charge", ["boar_charge"]),
         ],
     ),
     (
@@ -57,6 +63,9 @@ zone_specs = [
             ("plague_hound", "Plague Hound", 52, 146, 18, 12, "flank", []),
             ("crypt_fiend", "Crypt Fiend", 96, 95, 21, 17, "ranged", ["poison_spit"]),
             ("bone_knight", "Skeletal Deathguard", 133, 87, 28, 22, "bruiser", ["bear_swipe"]),
+            ("banshee", "Plague Banshee", 62, 110, 19, 16, "ranged", ["spirit_wail"]),
+            ("gargoyle", "Scourge Gargoyle", 94, 149, 24, 20, "flank", ["gargoyle_dive"]),
+            ("abomination", "Plague Abomination", 184, 68, 30, 30, "bruiser", ["plague_bile"]),
         ],
     ),
     (
@@ -72,6 +81,9 @@ zone_specs = [
             ("frost_hound", "Frost Hound", 63, 156, 22, 15, "flank", []),
             ("frost_cultist", "Frost Acolyte", 101, 83, 24, 22, "ranged", ["lightning"]),
             ("frost_abomination", "Frozen Abomination", 175, 76, 32, 28, "bruiser", ["bear_swipe"]),
+            ("nerubian", "Nerubian Soldier", 138, 105, 29, 26, "charge", ["nerubian_rush"]),
+            ("frost_revenant", "Frost Revenant", 114, 90, 25, 24, "ranged", ["revenant_shards"]),
+            ("wyrm_hatchling", "Frost Wyrm Hatchling", 122, 145, 26, 25, "flank", ["wyrm_breath"]),
         ],
     ),
 ]
@@ -260,6 +272,85 @@ atk(
 # Boss stats/tempo are deliberately distinct instead of copied Hogger entries.
 for attack in attacks:
     attack.update(armor_penetration=0.5, health_damage=0.06)
+# Regular creatures use the existing cheap, locked-warning primitives; boss health
+# damage/armor penetration intentionally do not apply to ordinary attackers.
+atk(
+    "spirit_wail",
+    "Spectral Wail",
+    "ring",
+    13,
+    7.5,
+    1.1,
+    0.8,
+    125,
+    330,
+    effect="hostile_shadow",
+    color=(189, 146, 238),
+)
+atk("worgen_lunge", "Stalker Lunge", "charge", 20, 7, 0.95, 0.45, 19, 270, 330)
+atk("gorilla_slam", "Knuckle Slam", "circle", 24, 8, 1.25, 0.2, 105, 210)
+atk(
+    "basilisk_gaze",
+    "Crystalline Gaze",
+    "missile",
+    16,
+    8,
+    1.2,
+    0.2,
+    9,
+    440,
+    230,
+    effect="hostile_poison",
+    slow=0.2,
+    slow_duration=1.5,
+)
+atk("gargoyle_dive", "Stonewing Dive", "leap", 23, 8, 1.15, 0.25, 65, 440)
+atk(
+    "plague_bile",
+    "Bile Pool",
+    "circle",
+    12,
+    9,
+    1.3,
+    3,
+    85,
+    350,
+    effect="hostile_poison",
+    color=(159, 213, 83),
+    pulse=1,
+)
+atk("nerubian_rush", "Chitin Rush", "charge", 27, 8, 1.1, 0.65, 24, 340, 300)
+atk(
+    "revenant_shards",
+    "Ice Shards",
+    "missile",
+    20,
+    8,
+    1.2,
+    0.2,
+    10,
+    470,
+    260,
+    3,
+    40,
+    effect="hostile_frost",
+    color=(130, 217, 248),
+)
+atk(
+    "wyrm_breath",
+    "Chilling Breath",
+    "arc",
+    24,
+    8,
+    1.2,
+    0.3,
+    120,
+    260,
+    effect="hostile_frost",
+    color=(130, 217, 248),
+    slow=0.15,
+    slow_duration=1.5,
+)
 for bid, name, hp, damage, speed, radius, sequence, enrage, ecd, edamage in [
     (
         "stitches",
@@ -341,13 +432,21 @@ for zi, (zid, name, description, difficulty, seed, boss_id, regulars) in enumera
                 speed=speed,
                 damage=damage,
                 xp=xp,
-                radius=13 if i < 3 else 17,
+                radius=(
+                    [13, 13, 13, 17, 17, 13, 17, 13]
+                    if zi == 0
+                    else [13, 13, 13, 17, 17, 23, 18, 21]
+                    if zi == 1
+                    else [13, 13, 13, 17, 17, 13, 18, 25]
+                    if zi == 2
+                    else [13, 13, 13, 17, 17, 22, 18, 20]
+                )[i],
                 weight=1,
                 color=[140, 180, 160],
                 sprite=eid,
                 behavior=behavior,
                 attacks=attack_ids,
-                min_time=[0, 0, 180, 300, 600][i],
+                min_time=[0, 0, 180, 300, 600, 240, 480, 720][i],
                 max_time=1800,
                 terrain="any",
                 health_scaling=1,
@@ -379,6 +478,12 @@ for zi, (zid, name, description, difficulty, seed, boss_id, regulars) in enumera
                 ][zi],
                 [3, 0, 3, 0][zi],
             ),
+            (
+                ["Nightbane Alpha", "Ancient Silverback", "Furnace Abomination", "Nerubian Lord"][
+                    zi
+                ],
+                [6, 5, 7, 5][zi],
+            ),
         ]
     ):
         eid = zid + "_elite_" + str(j)
@@ -391,7 +496,16 @@ for zi, (zid, name, description, difficulty, seed, boss_id, regulars) in enumera
                 sprite=eid,
                 health=24 + j * 8,
                 damage=1.45,
-                attacks=[seq[j], seq[j + 2]],
+                attacks=(
+                    [seq[j], seq[j + 2]]
+                    if j < 2
+                    else [
+                        ["worgen_lunge", "bangalash_roar"],
+                        ["gorilla_slam", "pack_smash"],
+                        ["plague_bile", "stitches_hook"],
+                        ["nerubian_rush", "lich_volley"],
+                    ][zi]
+                ),
                 class_xp=150 + zi * 50,
                 gold=40 + zi * 15,
                 xp=14,
@@ -402,9 +516,14 @@ for zi, (zid, name, description, difficulty, seed, boss_id, regulars) in enumera
     for minute in range(30):
         source = copy.deepcopy(base["waves"][minute])
         weights = {ids[0]: 12, ids[1]: 7}
-        for i in range(2, 5):
-            if minute * 60 >= [0, 0, 180, 300, 600][i]:
-                weights[ids[i]] = [8, 4, 3][i - 2]
+        for i in range(2, len(ids)):
+            if minute * 60 >= [0, 0, 180, 300, 600, 240, 480, 720][i]:
+                weights[ids[i]] = [5, 3, 3, 6, 5, 4][i - 2]
+        if minute >= 15:
+            # New shapes become a substantial part of the late horde; retained
+            # wolves and humanoids do not dominate all four themed rosters.
+            weights.update({ids[i]: 7 for i in range(5, 8)})
+            weights[ids[0]], weights[ids[1]], weights[ids[2]] = 8, 5, 4
         source.update(
             name=f"{name} {'Incursion' if minute < 10 else 'Siege' if minute < 25 else 'Last Stand'} {minute + 1}",
             weights=weights,
@@ -501,5 +620,5 @@ annotate(enemies, bosses)
     encoding="utf-8",
 )
 print(
-    "Five finite zone definitions, 150 wave rows, 20 new enemies, eight elites and four distinct final bosses"
+    "Five zones, 150 wave rows, 32 expansion enemies, twelve expansion elites and four final bosses"
 )

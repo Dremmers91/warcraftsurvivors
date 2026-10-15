@@ -30,6 +30,12 @@ class SpatialHash(Generic[T]):
     def __init__(self, cell_size: int = 96) -> None:
         self.cell_size = cell_size
         self.cells: dict[tuple[int, int], list[T]] = defaultdict(list)
+        self.track_queries = False
+        self.queries = 0
+        self.candidate_checks = 0
+
+    def reset_metrics(self) -> None:
+        self.queries = self.candidate_checks = 0
 
     def rebuild(self, entities: Iterable[T]) -> None:
         self.cells.clear()
@@ -47,15 +53,25 @@ class SpatialHash(Generic[T]):
             yield from cell
 
     def nearby(self, pos: Vector2, radius: float) -> Iterable[T]:
+        if self.track_queries:
+            self.queries += 1
         size = self.cell_size
         lo = (math.floor((pos.x - radius) / size), math.floor((pos.y - radius) / size))
         hi = (math.floor((pos.x + radius) / size), math.floor((pos.y + radius) / size))
         r2 = radius * radius
         for x in range(lo[0], hi[0] + 1):
             for y in range(lo[1], hi[1] + 1):
-                for entity in self.cells.get((x, y), ()):
-                    if entity.pos.distance_squared_to(pos) <= r2:
-                        yield entity
+                cell = self.cells.get((x, y), ())
+                if self.track_queries:
+                    for entity in cell:
+                        self.candidate_checks += 1
+                        if entity.pos.distance_squared_to(pos) <= r2:
+                            yield entity
+                else:
+                    # Keep instrumentation out of every candidate's hot path.
+                    for entity in cell:
+                        if entity.pos.distance_squared_to(pos) <= r2:
+                            yield entity
 
 
 @dataclass(frozen=True)

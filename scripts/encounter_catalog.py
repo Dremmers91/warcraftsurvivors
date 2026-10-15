@@ -79,7 +79,7 @@ rows += [
     "",
     "## Independent progression",
     "",
-    "- Run requirement: `10 + level × 7 + level^1.45 × 1.6 + max(0, level−40)^1.65 × 2.5`. Only collected gems award run XP; their values scale with wave/variant. Gems merge spatially without losing value and drift toward the player after 45 live seconds.",
+    "- Run requirement: `10 + level × 7 + level^1.45 × 1.6 + max(0, level−40)^1.65 × 3.75`. Only collected gems award run XP; their values scale with wave/variant. Gems merge spatially without losing value and drift toward the player after 45 live seconds.",
     "- Permanent class XP: actual sum of catalog kill rewards (including elite/boss bonuses) + floor(min(1800, elapsed)/6) + 5,000 on victory.",
     "- Gold: collected/banked gold + floor(kills/8) + floor(min(1800, elapsed)/20) + 1,500 on victory + first-time achievement gold. Elite/boss gold already belongs to the bank and is not added twice.",
     "- First Blood: 20 gold; Centurion: 50; Survivor: 75; Elite Hunter: 80; Ascension: 100; Defender of Elwynn: 300. Existing achievements never pay again. Saves credit the selected class once per results screen. Modified developer runs receive no saved rewards.",

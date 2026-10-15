@@ -741,6 +741,214 @@
       ],
       "walk_fps": 9,
       "active": true
+    },
+    "duskwood_restless_spirit": {
+      "file": "actors/duskwood_restless_spirit.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "duskwood_worgen": {
+      "file": "actors/duskwood_worgen.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "duskwood_skeletal_archer": {
+      "file": "actors/duskwood_skeletal_archer.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "duskwood_elite_2": {
+      "file": "actors/duskwood_elite_2.png",
+      "frame_size": [
+        104,
+        104
+      ],
+      "anchor": [
+        52,
+        97
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "stranglethorn_gorilla": {
+      "file": "actors/stranglethorn_gorilla.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "stranglethorn_basilisk": {
+      "file": "actors/stranglethorn_basilisk.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "stranglethorn_crocolisk": {
+      "file": "actors/stranglethorn_crocolisk.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "stranglethorn_elite_2": {
+      "file": "actors/stranglethorn_elite_2.png",
+      "frame_size": [
+        104,
+        104
+      ],
+      "anchor": [
+        52,
+        97
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "plaguelands_banshee": {
+      "file": "actors/plaguelands_banshee.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "plaguelands_gargoyle": {
+      "file": "actors/plaguelands_gargoyle.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "plaguelands_abomination": {
+      "file": "actors/plaguelands_abomination.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "plaguelands_elite_2": {
+      "file": "actors/plaguelands_elite_2.png",
+      "frame_size": [
+        104,
+        104
+      ],
+      "anchor": [
+        52,
+        97
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "icecrown_nerubian": {
+      "file": "actors/icecrown_nerubian.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "icecrown_frost_revenant": {
+      "file": "actors/icecrown_frost_revenant.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "icecrown_wyrm_hatchling": {
+      "file": "actors/icecrown_wyrm_hatchling.png",
+      "frame_size": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        73
+      ],
+      "walk_fps": 9,
+      "active": true
+    },
+    "icecrown_elite_2": {
+      "file": "actors/icecrown_elite_2.png",
+      "frame_size": [
+        104,
+        104
+      ],
+      "anchor": [
+        52,
+        97
+      ],
+      "walk_fps": 9,
+      "active": true
     }
   },
   "images": {

@@ -259,10 +259,10 @@
         {
           "start": 660,
           "name": "Defias Reinforcements 12",
-          "rate": 6.7,
+          "rate": 6.98,
           "batch": 4,
           "density": 750,
-          "health": 2.375,
+          "health": 2.419,
           "damage": 1.198,
           "xp": 1.825,
           "speed": 12.100000000000001,
@@ -282,10 +282,10 @@
         {
           "start": 720,
           "name": "Defias Reinforcements 13",
-          "rate": 7.35,
+          "rate": 7.97,
           "batch": 4,
           "density": 835,
-          "health": 2.575,
+          "health": 2.67,
           "damage": 1.216,
           "xp": 1.9,
           "speed": 13.200000000000001,
@@ -306,10 +306,10 @@
         {
           "start": 780,
           "name": "Defias Reinforcements 14",
-          "rate": 8.0,
+          "rate": 9.01,
           "batch": 5,
           "density": 920,
-          "health": 2.789,
+          "health": 2.944,
           "damage": 1.234,
           "xp": 1.975,
           "speed": 14.3,
@@ -330,10 +330,10 @@
         {
           "start": 840,
           "name": "Defias Reinforcements 15",
-          "rate": 8.65,
+          "rate": 10.11,
           "batch": 5,
           "density": 1005,
-          "health": 3.013,
+          "health": 3.236,
           "damage": 1.252,
           "xp": 2.05,
           "speed": 15.400000000000002,
@@ -354,10 +354,10 @@
         {
           "start": 900,
           "name": "Forest Under Siege 16",
-          "rate": 10.0,
+          "rate": 12.11,
           "batch": 6,
           "density": 1300,
-          "health": 3.246,
+          "health": 3.545,
           "damage": 1.27,
           "xp": 2.125,
           "speed": 16.5,
@@ -379,10 +379,10 @@
         {
           "start": 960,
           "name": "Forest Under Siege 17",
-          "rate": 11.05,
+          "rate": 13.84,
           "batch": 6,
           "density": 1465,
-          "health": 3.485,
+          "health": 3.87,
           "damage": 1.288,
           "xp": 2.2,
           "speed": 17.6,
@@ -404,10 +404,10 @@
         {
           "start": 1020,
           "name": "Forest Under Siege 18",
-          "rate": 12.1,
+          "rate": 15.67,
           "batch": 6,
           "density": 1630,
-          "health": 3.73,
+          "health": 4.211,
           "damage": 1.306,
           "xp": 2.275,
           "speed": 18.700000000000003,
@@ -429,10 +429,10 @@
         {
           "start": 1080,
           "name": "Forest Under Siege 19",
-          "rate": 13.15,
+          "rate": 17.58,
           "batch": 6,
           "density": 1795,
-          "health": 3.981,
+          "health": 4.568,
           "damage": 1.324,
           "xp": 2.35,
           "speed": 19.8,
@@ -454,10 +454,10 @@
         {
           "start": 1140,
           "name": "Forest Under Siege 20",
-          "rate": 14.2,
+          "rate": 19.58,
           "batch": 6,
           "density": 1960,
-          "health": 4.237,
+          "health": 4.939,
           "damage": 1.342,
           "xp": 2.425,
           "speed": 20.900000000000002,
@@ -479,10 +479,10 @@
         {
           "start": 1200,
           "name": "Forest Under Siege 21",
-          "rate": 15.25,
+          "rate": 21.67,
           "batch": 6,
           "density": 2125,
-          "health": 4.497,
+          "health": 5.326,
           "damage": 1.36,
           "xp": 2.5,
           "speed": 22.0,
@@ -504,10 +504,10 @@
         {
           "start": 1260,
           "name": "Forest Under Siege 22",
-          "rate": 16.3,
+          "rate": 23.85,
           "batch": 6,
           "density": 2290,
-          "health": 4.762,
+          "health": 5.727,
           "damage": 1.378,
           "xp": 2.575,
           "speed": 23.1,
@@ -529,10 +529,10 @@
         {
           "start": 1320,
           "name": "Forest Under Siege 23",
-          "rate": 17.35,
+          "rate": 26.12,
           "batch": 6,
           "density": 2455,
-          "health": 5.031,
+          "health": 6.143,
           "damage": 1.396,
           "xp": 2.65,
           "speed": 24.200000000000003,
@@ -554,10 +554,10 @@
         {
           "start": 1380,
           "name": "Forest Under Siege 24",
-          "rate": 18.4,
+          "rate": 28.47,
           "batch": 6,
           "density": 2620,
-          "health": 5.303,
+          "health": 6.573,
           "damage": 1.414,
           "xp": 2.725,
           "speed": 25.3,
@@ -579,10 +579,10 @@
         {
           "start": 1440,
           "name": "Forest Under Siege 25",
-          "rate": 19.45,
+          "rate": 30.92,
           "batch": 6,
           "density": 2785,
-          "health": 5.58,
+          "health": 7.018,
           "damage": 1.432,
           "xp": 2.8,
           "speed": 26.400000000000002,
@@ -604,10 +604,10 @@
         {
           "start": 1500,
           "name": "Last Stand of Elwynn 26",
-          "rate": 21.0,
+          "rate": 34.26,
           "batch": 8,
           "density": 3200,
-          "health": 5.859,
+          "health": 7.478,
           "damage": 1.45,
           "xp": 2.875,
           "speed": 27.500000000000004,
@@ -624,15 +624,15 @@
             "forest_boar": 2,
             "forest_bear": 3
           },
-          "surge": 350
+          "surge": 600
         },
         {
           "start": 1560,
           "name": "Last Stand of Elwynn 27",
-          "rate": 22.6,
+          "rate": 37.83,
           "batch": 8,
           "density": 3550,
-          "health": 6.142,
+          "health": 7.952,
           "damage": 1.468,
           "xp": 2.95,
           "speed": 28.6,
@@ -649,15 +649,15 @@
             "forest_boar": 2,
             "forest_bear": 3
           },
-          "surge": 450
+          "surge": 775
         },
         {
           "start": 1620,
           "name": "Last Stand of Elwynn 28",
-          "rate": 24.2,
+          "rate": 41.52,
           "batch": 8,
           "density": 3900,
-          "health": 6.427,
+          "health": 8.44,
           "damage": 1.486,
           "xp": 3.025,
           "speed": 29.700000000000003,
@@ -674,15 +674,15 @@
             "forest_boar": 2,
             "forest_bear": 3
           },
-          "surge": 550
+          "surge": 950
         },
         {
           "start": 1680,
           "name": "Last Stand of Elwynn 29",
-          "rate": 25.8,
+          "rate": 45.35,
           "batch": 8,
           "density": 4250,
-          "health": 6.716,
+          "health": 8.943,
           "damage": 1.504,
           "xp": 3.1,
           "speed": 30.800000000000004,
@@ -699,15 +699,15 @@
             "forest_boar": 2,
             "forest_bear": 3
           },
-          "surge": 650
+          "surge": 1125
         },
         {
           "start": 1740,
           "name": "Last Stand of Elwynn 30",
-          "rate": 27.4,
+          "rate": 49.32,
           "batch": 8,
           "density": 4600,
-          "health": 7.008,
+          "health": 9.461,
           "damage": 1.522,
           "xp": 3.175,
           "speed": 31.900000000000002,
@@ -724,7 +724,7 @@
             "forest_boar": 2,
             "forest_bear": 3
           },
-          "surge": 750
+          "surge": 1300
         }
       ],
       "music": "elwynn",
@@ -771,11 +771,15 @@
         "duskwood_skeleton",
         "duskwood_nightwolf",
         "duskwood_venom_spider",
-        "duskwood_grave_caster"
+        "duskwood_grave_caster",
+        "duskwood_restless_spirit",
+        "duskwood_worgen",
+        "duskwood_skeletal_archer"
       ],
       "elites": [
         "duskwood_elite_0",
-        "duskwood_elite_1"
+        "duskwood_elite_1",
+        "duskwood_elite_2"
       ],
       "boss_pool": [
         "stitches"
@@ -842,7 +846,7 @@
           "weights": {
             "duskwood_zombie": 12,
             "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8
+            "duskwood_nightwolf": 5
           },
           "surge": 0
         },
@@ -859,7 +863,8 @@
           "weights": {
             "duskwood_zombie": 12,
             "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8
+            "duskwood_nightwolf": 5,
+            "duskwood_restless_spirit": 6
           },
           "surge": 0
         },
@@ -876,8 +881,9 @@
           "weights": {
             "duskwood_zombie": 12,
             "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4
+            "duskwood_nightwolf": 5,
+            "duskwood_venom_spider": 3,
+            "duskwood_restless_spirit": 6
           },
           "surge": 0
         },
@@ -894,8 +900,9 @@
           "weights": {
             "duskwood_zombie": 12,
             "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4
+            "duskwood_nightwolf": 5,
+            "duskwood_venom_spider": 3,
+            "duskwood_restless_spirit": 6
           },
           "surge": 0
         },
@@ -912,8 +919,9 @@
           "weights": {
             "duskwood_zombie": 12,
             "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4
+            "duskwood_nightwolf": 5,
+            "duskwood_venom_spider": 3,
+            "duskwood_restless_spirit": 6
           },
           "surge": 0
         },
@@ -930,8 +938,10 @@
           "weights": {
             "duskwood_zombie": 12,
             "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4
+            "duskwood_nightwolf": 5,
+            "duskwood_venom_spider": 3,
+            "duskwood_restless_spirit": 6,
+            "duskwood_worgen": 5
           },
           "surge": 35
         },
@@ -948,8 +958,10 @@
           "weights": {
             "duskwood_zombie": 12,
             "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4
+            "duskwood_nightwolf": 5,
+            "duskwood_venom_spider": 3,
+            "duskwood_restless_spirit": 6,
+            "duskwood_worgen": 5
           },
           "surge": 44
         },
@@ -966,372 +978,430 @@
           "weights": {
             "duskwood_zombie": 12,
             "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4,
-            "duskwood_grave_caster": 3
+            "duskwood_nightwolf": 5,
+            "duskwood_venom_spider": 3,
+            "duskwood_grave_caster": 3,
+            "duskwood_restless_spirit": 6,
+            "duskwood_worgen": 5
           },
           "surge": 53
         },
         {
           "start": 660,
           "name": "Duskwood Siege 12",
-          "rate": 6.8675,
+          "rate": 7.1545,
           "batch": 4,
           "density": 750,
-          "health": 2.58875,
+          "health": 2.6367100000000003,
           "damage": 1.2579,
           "xp": 1.95275,
           "speed": 12.100000000000001,
           "weights": {
             "duskwood_zombie": 12,
             "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4,
-            "duskwood_grave_caster": 3
+            "duskwood_nightwolf": 5,
+            "duskwood_venom_spider": 3,
+            "duskwood_grave_caster": 3,
+            "duskwood_restless_spirit": 6,
+            "duskwood_worgen": 5
           },
           "surge": 62
         },
         {
           "start": 720,
           "name": "Duskwood Siege 13",
-          "rate": 7.533749999999999,
+          "rate": 8.16925,
           "batch": 4,
           "density": 835,
-          "health": 2.8067500000000005,
+          "health": 2.9103000000000003,
           "damage": 1.2768,
           "xp": 2.033,
           "speed": 13.200000000000001,
           "weights": {
             "duskwood_zombie": 12,
             "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4,
-            "duskwood_grave_caster": 3
+            "duskwood_nightwolf": 5,
+            "duskwood_venom_spider": 3,
+            "duskwood_grave_caster": 3,
+            "duskwood_restless_spirit": 6,
+            "duskwood_worgen": 5,
+            "duskwood_skeletal_archer": 4
           },
           "surge": 71
         },
         {
           "start": 780,
           "name": "Duskwood Siege 14",
-          "rate": 8.2,
+          "rate": 9.235249999999999,
           "batch": 5,
           "density": 920,
-          "health": 3.0400100000000005,
+          "health": 3.2089600000000003,
           "damage": 1.2957,
           "xp": 2.1132500000000003,
           "speed": 14.3,
           "weights": {
             "duskwood_zombie": 12,
             "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4,
-            "duskwood_grave_caster": 3
+            "duskwood_nightwolf": 5,
+            "duskwood_venom_spider": 3,
+            "duskwood_grave_caster": 3,
+            "duskwood_restless_spirit": 6,
+            "duskwood_worgen": 5,
+            "duskwood_skeletal_archer": 4
           },
           "surge": 80
         },
         {
           "start": 840,
           "name": "Duskwood Siege 15",
-          "rate": 8.866249999999999,
+          "rate": 10.362749999999998,
           "batch": 5,
           "density": 1005,
-          "health": 3.28417,
+          "health": 3.5272400000000004,
           "damage": 1.3146,
           "xp": 2.1935,
           "speed": 15.400000000000002,
           "weights": {
             "duskwood_zombie": 12,
             "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4,
-            "duskwood_grave_caster": 3
+            "duskwood_nightwolf": 5,
+            "duskwood_venom_spider": 3,
+            "duskwood_grave_caster": 3,
+            "duskwood_restless_spirit": 6,
+            "duskwood_worgen": 5,
+            "duskwood_skeletal_archer": 4
           },
           "surge": 89
         },
         {
           "start": 900,
           "name": "Duskwood Siege 16",
-          "rate": 10.25,
+          "rate": 12.412749999999999,
           "batch": 6,
           "density": 1300,
-          "health": 3.5381400000000003,
+          "health": 3.86405,
           "damage": 1.3335000000000001,
           "xp": 2.27375,
           "speed": 16.5,
           "weights": {
-            "duskwood_zombie": 12,
-            "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4,
-            "duskwood_grave_caster": 3
+            "duskwood_zombie": 8,
+            "duskwood_skeleton": 5,
+            "duskwood_nightwolf": 4,
+            "duskwood_venom_spider": 3,
+            "duskwood_grave_caster": 3,
+            "duskwood_restless_spirit": 7,
+            "duskwood_worgen": 7,
+            "duskwood_skeletal_archer": 7
           },
           "surge": 100
         },
         {
           "start": 960,
           "name": "Duskwood Siege 17",
-          "rate": 11.32625,
+          "rate": 14.185999999999998,
           "batch": 6,
           "density": 1465,
-          "health": 3.7986500000000003,
+          "health": 4.2183,
           "damage": 1.3524,
           "xp": 2.3540000000000005,
           "speed": 17.6,
           "weights": {
-            "duskwood_zombie": 12,
-            "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4,
-            "duskwood_grave_caster": 3
+            "duskwood_zombie": 8,
+            "duskwood_skeleton": 5,
+            "duskwood_nightwolf": 4,
+            "duskwood_venom_spider": 3,
+            "duskwood_grave_caster": 3,
+            "duskwood_restless_spirit": 7,
+            "duskwood_worgen": 7,
+            "duskwood_skeletal_archer": 7
           },
           "surge": 118
         },
         {
           "start": 1020,
           "name": "Duskwood Siege 18",
-          "rate": 12.402499999999998,
+          "rate": 16.06175,
           "batch": 6,
           "density": 1630,
-          "health": 4.0657000000000005,
+          "health": 4.58999,
           "damage": 1.3713000000000002,
           "xp": 2.43425,
           "speed": 18.700000000000003,
           "weights": {
-            "duskwood_zombie": 12,
-            "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4,
-            "duskwood_grave_caster": 3
+            "duskwood_zombie": 8,
+            "duskwood_skeleton": 5,
+            "duskwood_nightwolf": 4,
+            "duskwood_venom_spider": 3,
+            "duskwood_grave_caster": 3,
+            "duskwood_restless_spirit": 7,
+            "duskwood_worgen": 7,
+            "duskwood_skeletal_archer": 7
           },
           "surge": 136
         },
         {
           "start": 1080,
           "name": "Duskwood Siege 19",
-          "rate": 13.47875,
+          "rate": 18.019499999999997,
           "batch": 6,
           "density": 1795,
-          "health": 4.33929,
+          "health": 4.97912,
           "damage": 1.3902,
           "xp": 2.5145000000000004,
           "speed": 19.8,
           "weights": {
-            "duskwood_zombie": 12,
-            "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4,
-            "duskwood_grave_caster": 3
+            "duskwood_zombie": 8,
+            "duskwood_skeleton": 5,
+            "duskwood_nightwolf": 4,
+            "duskwood_venom_spider": 3,
+            "duskwood_grave_caster": 3,
+            "duskwood_restless_spirit": 7,
+            "duskwood_worgen": 7,
+            "duskwood_skeletal_archer": 7
           },
           "surge": 154
         },
         {
           "start": 1140,
           "name": "Duskwood Siege 20",
-          "rate": 14.554999999999998,
+          "rate": 20.069499999999998,
           "batch": 6,
           "density": 1960,
-          "health": 4.61833,
+          "health": 5.38351,
           "damage": 1.4091000000000002,
           "xp": 2.59475,
           "speed": 20.900000000000002,
           "weights": {
-            "duskwood_zombie": 12,
-            "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4,
-            "duskwood_grave_caster": 3
+            "duskwood_zombie": 8,
+            "duskwood_skeleton": 5,
+            "duskwood_nightwolf": 4,
+            "duskwood_venom_spider": 3,
+            "duskwood_grave_caster": 3,
+            "duskwood_restless_spirit": 7,
+            "duskwood_worgen": 7,
+            "duskwood_skeletal_archer": 7
           },
           "surge": 172
         },
         {
           "start": 1200,
           "name": "Duskwood Siege 21",
-          "rate": 15.631249999999998,
+          "rate": 22.21175,
           "batch": 6,
           "density": 2125,
-          "health": 4.901730000000001,
+          "health": 5.80534,
           "damage": 1.4280000000000002,
           "xp": 2.6750000000000003,
           "speed": 22.0,
           "weights": {
-            "duskwood_zombie": 12,
-            "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4,
-            "duskwood_grave_caster": 3
+            "duskwood_zombie": 8,
+            "duskwood_skeleton": 5,
+            "duskwood_nightwolf": 4,
+            "duskwood_venom_spider": 3,
+            "duskwood_grave_caster": 3,
+            "duskwood_restless_spirit": 7,
+            "duskwood_worgen": 7,
+            "duskwood_skeletal_archer": 7
           },
           "surge": 190
         },
         {
           "start": 1260,
           "name": "Duskwood Siege 22",
-          "rate": 16.7075,
+          "rate": 24.44625,
           "batch": 6,
           "density": 2290,
-          "health": 5.19058,
+          "health": 6.242430000000001,
           "damage": 1.4468999999999999,
           "xp": 2.75525,
           "speed": 23.1,
           "weights": {
-            "duskwood_zombie": 12,
-            "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4,
-            "duskwood_grave_caster": 3
+            "duskwood_zombie": 8,
+            "duskwood_skeleton": 5,
+            "duskwood_nightwolf": 4,
+            "duskwood_venom_spider": 3,
+            "duskwood_grave_caster": 3,
+            "duskwood_restless_spirit": 7,
+            "duskwood_worgen": 7,
+            "duskwood_skeletal_archer": 7
           },
           "surge": 208
         },
         {
           "start": 1320,
           "name": "Duskwood Siege 23",
-          "rate": 17.78375,
+          "rate": 26.773,
           "batch": 6,
           "density": 2455,
-          "health": 5.48379,
+          "health": 6.69587,
           "damage": 1.4658,
           "xp": 2.8355,
           "speed": 24.200000000000003,
           "weights": {
-            "duskwood_zombie": 12,
-            "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4,
-            "duskwood_grave_caster": 3
+            "duskwood_zombie": 8,
+            "duskwood_skeleton": 5,
+            "duskwood_nightwolf": 4,
+            "duskwood_venom_spider": 3,
+            "duskwood_grave_caster": 3,
+            "duskwood_restless_spirit": 7,
+            "duskwood_worgen": 7,
+            "duskwood_skeletal_archer": 7
           },
           "surge": 226
         },
         {
           "start": 1380,
           "name": "Duskwood Siege 24",
-          "rate": 18.859999999999996,
+          "rate": 29.181749999999997,
           "batch": 6,
           "density": 2620,
-          "health": 5.780270000000001,
+          "health": 7.164570000000001,
           "damage": 1.4847,
           "xp": 2.91575,
           "speed": 25.3,
           "weights": {
-            "duskwood_zombie": 12,
-            "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4,
-            "duskwood_grave_caster": 3
+            "duskwood_zombie": 8,
+            "duskwood_skeleton": 5,
+            "duskwood_nightwolf": 4,
+            "duskwood_venom_spider": 3,
+            "duskwood_grave_caster": 3,
+            "duskwood_restless_spirit": 7,
+            "duskwood_worgen": 7,
+            "duskwood_skeletal_archer": 7
           },
           "surge": 244
         },
         {
           "start": 1440,
           "name": "Duskwood Siege 25",
-          "rate": 19.936249999999998,
+          "rate": 31.692999999999998,
           "batch": 6,
           "density": 2785,
-          "health": 6.0822,
+          "health": 7.6496200000000005,
           "damage": 1.5036,
           "xp": 2.996,
           "speed": 26.400000000000002,
           "weights": {
-            "duskwood_zombie": 12,
-            "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4,
-            "duskwood_grave_caster": 3
+            "duskwood_zombie": 8,
+            "duskwood_skeleton": 5,
+            "duskwood_nightwolf": 4,
+            "duskwood_venom_spider": 3,
+            "duskwood_grave_caster": 3,
+            "duskwood_restless_spirit": 7,
+            "duskwood_worgen": 7,
+            "duskwood_skeletal_archer": 7
           },
           "surge": 262
         },
         {
           "start": 1500,
           "name": "Duskwood Last Stand 26",
-          "rate": 21.525,
+          "rate": 35.116499999999995,
           "batch": 8,
           "density": 3200,
-          "health": 6.386310000000001,
+          "health": 8.15102,
           "damage": 1.5225,
           "xp": 3.0762500000000004,
           "speed": 27.500000000000004,
           "weights": {
-            "duskwood_zombie": 12,
-            "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4,
-            "duskwood_grave_caster": 3
+            "duskwood_zombie": 8,
+            "duskwood_skeleton": 5,
+            "duskwood_nightwolf": 4,
+            "duskwood_venom_spider": 3,
+            "duskwood_grave_caster": 3,
+            "duskwood_restless_spirit": 7,
+            "duskwood_worgen": 7,
+            "duskwood_skeletal_archer": 7
           },
-          "surge": 350
+          "surge": 600
         },
         {
           "start": 1560,
           "name": "Duskwood Last Stand 27",
-          "rate": 23.165,
+          "rate": 38.775749999999995,
           "batch": 8,
           "density": 3550,
-          "health": 6.694780000000001,
+          "health": 8.66768,
           "damage": 1.5414,
           "xp": 3.1565000000000003,
           "speed": 28.6,
           "weights": {
-            "duskwood_zombie": 12,
-            "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4,
-            "duskwood_grave_caster": 3
+            "duskwood_zombie": 8,
+            "duskwood_skeleton": 5,
+            "duskwood_nightwolf": 4,
+            "duskwood_venom_spider": 3,
+            "duskwood_grave_caster": 3,
+            "duskwood_restless_spirit": 7,
+            "duskwood_worgen": 7,
+            "duskwood_skeletal_archer": 7
           },
-          "surge": 450
+          "surge": 775
         },
         {
           "start": 1620,
           "name": "Duskwood Last Stand 28",
-          "rate": 24.804999999999996,
+          "rate": 42.558,
           "batch": 8,
           "density": 3900,
-          "health": 7.0054300000000005,
+          "health": 9.1996,
           "damage": 1.5603,
           "xp": 3.2367500000000002,
           "speed": 29.700000000000003,
           "weights": {
-            "duskwood_zombie": 12,
-            "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4,
-            "duskwood_grave_caster": 3
+            "duskwood_zombie": 8,
+            "duskwood_skeleton": 5,
+            "duskwood_nightwolf": 4,
+            "duskwood_venom_spider": 3,
+            "duskwood_grave_caster": 3,
+            "duskwood_restless_spirit": 7,
+            "duskwood_worgen": 7,
+            "duskwood_skeletal_archer": 7
           },
-          "surge": 550
+          "surge": 950
         },
         {
           "start": 1680,
           "name": "Duskwood Last Stand 29",
-          "rate": 26.444999999999997,
+          "rate": 46.48375,
           "batch": 8,
           "density": 4250,
-          "health": 7.3204400000000005,
+          "health": 9.74787,
           "damage": 1.5792000000000002,
           "xp": 3.317,
           "speed": 30.800000000000004,
           "weights": {
-            "duskwood_zombie": 12,
-            "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4,
-            "duskwood_grave_caster": 3
+            "duskwood_zombie": 8,
+            "duskwood_skeleton": 5,
+            "duskwood_nightwolf": 4,
+            "duskwood_venom_spider": 3,
+            "duskwood_grave_caster": 3,
+            "duskwood_restless_spirit": 7,
+            "duskwood_worgen": 7,
+            "duskwood_skeletal_archer": 7
           },
-          "surge": 650
+          "surge": 1125
         },
         {
           "start": 1740,
           "name": "Duskwood Last Stand 30",
-          "rate": 28.084999999999997,
+          "rate": 50.553,
           "batch": 8,
           "density": 4600,
-          "health": 7.63872,
+          "health": 10.31249,
           "damage": 1.5981,
           "xp": 3.39725,
           "speed": 31.900000000000002,
           "weights": {
-            "duskwood_zombie": 12,
-            "duskwood_skeleton": 7,
-            "duskwood_nightwolf": 8,
-            "duskwood_venom_spider": 4,
-            "duskwood_grave_caster": 3
+            "duskwood_zombie": 8,
+            "duskwood_skeleton": 5,
+            "duskwood_nightwolf": 4,
+            "duskwood_venom_spider": 3,
+            "duskwood_grave_caster": 3,
+            "duskwood_restless_spirit": 7,
+            "duskwood_worgen": 7,
+            "duskwood_skeletal_archer": 7
           },
-          "surge": 750
+          "surge": 1300
         }
       ],
       "music": "duskwood",
@@ -1378,11 +1448,15 @@
         "stranglethorn_troll",
         "stranglethorn_panther",
         "stranglethorn_jungle_boar",
-        "stranglethorn_troll_shaman"
+        "stranglethorn_troll_shaman",
+        "stranglethorn_gorilla",
+        "stranglethorn_basilisk",
+        "stranglethorn_crocolisk"
       ],
       "elites": [
         "stranglethorn_elite_0",
-        "stranglethorn_elite_1"
+        "stranglethorn_elite_1",
+        "stranglethorn_elite_2"
       ],
       "boss_pool": [
         "bangalash"
@@ -1449,7 +1523,7 @@
           "weights": {
             "stranglethorn_raptor": 12,
             "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8
+            "stranglethorn_panther": 5
           },
           "surge": 0
         },
@@ -1466,7 +1540,8 @@
           "weights": {
             "stranglethorn_raptor": 12,
             "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8
+            "stranglethorn_panther": 5,
+            "stranglethorn_gorilla": 6
           },
           "surge": 0
         },
@@ -1483,8 +1558,9 @@
           "weights": {
             "stranglethorn_raptor": 12,
             "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4
+            "stranglethorn_panther": 5,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_gorilla": 6
           },
           "surge": 0
         },
@@ -1501,8 +1577,9 @@
           "weights": {
             "stranglethorn_raptor": 12,
             "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4
+            "stranglethorn_panther": 5,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_gorilla": 6
           },
           "surge": 0
         },
@@ -1519,8 +1596,9 @@
           "weights": {
             "stranglethorn_raptor": 12,
             "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4
+            "stranglethorn_panther": 5,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_gorilla": 6
           },
           "surge": 0
         },
@@ -1537,8 +1615,10 @@
           "weights": {
             "stranglethorn_raptor": 12,
             "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4
+            "stranglethorn_panther": 5,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_gorilla": 6,
+            "stranglethorn_basilisk": 5
           },
           "surge": 35
         },
@@ -1555,8 +1635,10 @@
           "weights": {
             "stranglethorn_raptor": 12,
             "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4
+            "stranglethorn_panther": 5,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_gorilla": 6,
+            "stranglethorn_basilisk": 5
           },
           "surge": 44
         },
@@ -1573,372 +1655,430 @@
           "weights": {
             "stranglethorn_raptor": 12,
             "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4,
-            "stranglethorn_troll_shaman": 3
+            "stranglethorn_panther": 5,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_troll_shaman": 3,
+            "stranglethorn_gorilla": 6,
+            "stranglethorn_basilisk": 5
           },
           "surge": 53
         },
         {
           "start": 660,
           "name": "Stranglethorn Vale Siege 12",
-          "rate": 7.035,
+          "rate": 7.329000000000001,
           "batch": 4,
           "density": 750,
-          "health": 2.8024999999999998,
+          "health": 2.8544199999999997,
           "damage": 1.3178,
           "xp": 2.0805000000000002,
           "speed": 12.100000000000001,
           "weights": {
             "stranglethorn_raptor": 12,
             "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4,
-            "stranglethorn_troll_shaman": 3
+            "stranglethorn_panther": 5,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_troll_shaman": 3,
+            "stranglethorn_gorilla": 6,
+            "stranglethorn_basilisk": 5
           },
           "surge": 62
         },
         {
           "start": 720,
           "name": "Stranglethorn Vale Siege 13",
-          "rate": 7.7175,
+          "rate": 8.368500000000001,
           "batch": 4,
           "density": 835,
-          "health": 3.0385,
+          "health": 3.1506,
           "damage": 1.3376000000000001,
           "xp": 2.166,
           "speed": 13.200000000000001,
           "weights": {
             "stranglethorn_raptor": 12,
             "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4,
-            "stranglethorn_troll_shaman": 3
+            "stranglethorn_panther": 5,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_troll_shaman": 3,
+            "stranglethorn_gorilla": 6,
+            "stranglethorn_basilisk": 5,
+            "stranglethorn_crocolisk": 4
           },
           "surge": 71
         },
         {
           "start": 780,
           "name": "Stranglethorn Vale Siege 14",
-          "rate": 8.4,
+          "rate": 9.4605,
           "batch": 5,
           "density": 920,
-          "health": 3.29102,
+          "health": 3.4739199999999997,
           "damage": 1.3574000000000002,
           "xp": 2.2515000000000005,
           "speed": 14.3,
           "weights": {
             "stranglethorn_raptor": 12,
             "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4,
-            "stranglethorn_troll_shaman": 3
+            "stranglethorn_panther": 5,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_troll_shaman": 3,
+            "stranglethorn_gorilla": 6,
+            "stranglethorn_basilisk": 5,
+            "stranglethorn_crocolisk": 4
           },
           "surge": 80
         },
         {
           "start": 840,
           "name": "Stranglethorn Vale Siege 15",
-          "rate": 9.082500000000001,
+          "rate": 10.615499999999999,
           "batch": 5,
           "density": 1005,
-          "health": 3.5553399999999997,
+          "health": 3.81848,
           "damage": 1.3772000000000002,
           "xp": 2.337,
           "speed": 15.400000000000002,
           "weights": {
             "stranglethorn_raptor": 12,
             "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4,
-            "stranglethorn_troll_shaman": 3
+            "stranglethorn_panther": 5,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_troll_shaman": 3,
+            "stranglethorn_gorilla": 6,
+            "stranglethorn_basilisk": 5,
+            "stranglethorn_crocolisk": 4
           },
           "surge": 89
         },
         {
           "start": 900,
           "name": "Stranglethorn Vale Siege 16",
-          "rate": 10.5,
+          "rate": 12.7155,
           "batch": 6,
           "density": 1300,
-          "health": 3.8302799999999997,
+          "health": 4.1831,
           "damage": 1.3970000000000002,
           "xp": 2.4225000000000003,
           "speed": 16.5,
           "weights": {
-            "stranglethorn_raptor": 12,
-            "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4,
-            "stranglethorn_troll_shaman": 3
+            "stranglethorn_raptor": 8,
+            "stranglethorn_troll": 5,
+            "stranglethorn_panther": 4,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_troll_shaman": 3,
+            "stranglethorn_gorilla": 7,
+            "stranglethorn_basilisk": 7,
+            "stranglethorn_crocolisk": 7
           },
           "surge": 100
         },
         {
           "start": 960,
           "name": "Stranglethorn Vale Siege 17",
-          "rate": 11.602500000000001,
+          "rate": 14.532,
           "batch": 6,
           "density": 1465,
-          "health": 4.112299999999999,
+          "health": 4.5666,
           "damage": 1.4168,
           "xp": 2.5080000000000005,
           "speed": 17.6,
           "weights": {
-            "stranglethorn_raptor": 12,
-            "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4,
-            "stranglethorn_troll_shaman": 3
+            "stranglethorn_raptor": 8,
+            "stranglethorn_troll": 5,
+            "stranglethorn_panther": 4,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_troll_shaman": 3,
+            "stranglethorn_gorilla": 7,
+            "stranglethorn_basilisk": 7,
+            "stranglethorn_crocolisk": 7
           },
           "surge": 118
         },
         {
           "start": 1020,
           "name": "Stranglethorn Vale Siege 18",
-          "rate": 12.705,
+          "rate": 16.453500000000002,
           "batch": 6,
           "density": 1630,
-          "health": 4.4014,
+          "health": 4.96898,
           "damage": 1.4366,
           "xp": 2.5935,
           "speed": 18.700000000000003,
           "weights": {
-            "stranglethorn_raptor": 12,
-            "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4,
-            "stranglethorn_troll_shaman": 3
+            "stranglethorn_raptor": 8,
+            "stranglethorn_troll": 5,
+            "stranglethorn_panther": 4,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_troll_shaman": 3,
+            "stranglethorn_gorilla": 7,
+            "stranglethorn_basilisk": 7,
+            "stranglethorn_crocolisk": 7
           },
           "surge": 136
         },
         {
           "start": 1080,
           "name": "Stranglethorn Vale Siege 19",
-          "rate": 13.807500000000001,
+          "rate": 18.459,
           "batch": 6,
           "density": 1795,
-          "health": 4.697579999999999,
+          "health": 5.3902399999999995,
           "damage": 1.4564000000000001,
           "xp": 2.6790000000000003,
           "speed": 19.8,
           "weights": {
-            "stranglethorn_raptor": 12,
-            "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4,
-            "stranglethorn_troll_shaman": 3
+            "stranglethorn_raptor": 8,
+            "stranglethorn_troll": 5,
+            "stranglethorn_panther": 4,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_troll_shaman": 3,
+            "stranglethorn_gorilla": 7,
+            "stranglethorn_basilisk": 7,
+            "stranglethorn_crocolisk": 7
           },
           "surge": 154
         },
         {
           "start": 1140,
           "name": "Stranglethorn Vale Siege 20",
-          "rate": 14.91,
+          "rate": 20.558999999999997,
           "batch": 6,
           "density": 1960,
-          "health": 4.9996599999999995,
+          "health": 5.8280199999999995,
           "damage": 1.4762000000000002,
           "xp": 2.7645,
           "speed": 20.900000000000002,
           "weights": {
-            "stranglethorn_raptor": 12,
-            "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4,
-            "stranglethorn_troll_shaman": 3
+            "stranglethorn_raptor": 8,
+            "stranglethorn_troll": 5,
+            "stranglethorn_panther": 4,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_troll_shaman": 3,
+            "stranglethorn_gorilla": 7,
+            "stranglethorn_basilisk": 7,
+            "stranglethorn_crocolisk": 7
           },
           "surge": 172
         },
         {
           "start": 1200,
           "name": "Stranglethorn Vale Siege 21",
-          "rate": 16.0125,
+          "rate": 22.753500000000003,
           "batch": 6,
           "density": 2125,
-          "health": 5.3064599999999995,
+          "health": 6.284679999999999,
           "damage": 1.4960000000000002,
           "xp": 2.8500000000000005,
           "speed": 22.0,
           "weights": {
-            "stranglethorn_raptor": 12,
-            "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4,
-            "stranglethorn_troll_shaman": 3
+            "stranglethorn_raptor": 8,
+            "stranglethorn_troll": 5,
+            "stranglethorn_panther": 4,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_troll_shaman": 3,
+            "stranglethorn_gorilla": 7,
+            "stranglethorn_basilisk": 7,
+            "stranglethorn_crocolisk": 7
           },
           "surge": 190
         },
         {
           "start": 1260,
           "name": "Stranglethorn Vale Siege 22",
-          "rate": 17.115000000000002,
+          "rate": 25.042500000000004,
           "batch": 6,
           "density": 2290,
-          "health": 5.619159999999999,
+          "health": 6.75786,
           "damage": 1.5158,
           "xp": 2.9355000000000007,
           "speed": 23.1,
           "weights": {
-            "stranglethorn_raptor": 12,
-            "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4,
-            "stranglethorn_troll_shaman": 3
+            "stranglethorn_raptor": 8,
+            "stranglethorn_troll": 5,
+            "stranglethorn_panther": 4,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_troll_shaman": 3,
+            "stranglethorn_gorilla": 7,
+            "stranglethorn_basilisk": 7,
+            "stranglethorn_crocolisk": 7
           },
           "surge": 208
         },
         {
           "start": 1320,
           "name": "Stranglethorn Vale Siege 23",
-          "rate": 18.2175,
+          "rate": 27.426000000000002,
           "batch": 6,
           "density": 2455,
-          "health": 5.936579999999999,
+          "health": 7.24874,
           "damage": 1.5356,
           "xp": 3.0210000000000004,
           "speed": 24.200000000000003,
           "weights": {
-            "stranglethorn_raptor": 12,
-            "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4,
-            "stranglethorn_troll_shaman": 3
+            "stranglethorn_raptor": 8,
+            "stranglethorn_troll": 5,
+            "stranglethorn_panther": 4,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_troll_shaman": 3,
+            "stranglethorn_gorilla": 7,
+            "stranglethorn_basilisk": 7,
+            "stranglethorn_crocolisk": 7
           },
           "surge": 226
         },
         {
           "start": 1380,
           "name": "Stranglethorn Vale Siege 24",
-          "rate": 19.32,
+          "rate": 29.8935,
           "batch": 6,
           "density": 2620,
-          "health": 6.25754,
+          "health": 7.75614,
           "damage": 1.5554000000000001,
           "xp": 3.1065000000000005,
           "speed": 25.3,
           "weights": {
-            "stranglethorn_raptor": 12,
-            "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4,
-            "stranglethorn_troll_shaman": 3
+            "stranglethorn_raptor": 8,
+            "stranglethorn_troll": 5,
+            "stranglethorn_panther": 4,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_troll_shaman": 3,
+            "stranglethorn_gorilla": 7,
+            "stranglethorn_basilisk": 7,
+            "stranglethorn_crocolisk": 7
           },
           "surge": 244
         },
         {
           "start": 1440,
           "name": "Stranglethorn Vale Siege 25",
-          "rate": 20.4225,
+          "rate": 32.466,
           "batch": 6,
           "density": 2785,
-          "health": 6.5844,
+          "health": 8.281239999999999,
           "damage": 1.5752000000000002,
           "xp": 3.192,
           "speed": 26.400000000000002,
           "weights": {
-            "stranglethorn_raptor": 12,
-            "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4,
-            "stranglethorn_troll_shaman": 3
+            "stranglethorn_raptor": 8,
+            "stranglethorn_troll": 5,
+            "stranglethorn_panther": 4,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_troll_shaman": 3,
+            "stranglethorn_gorilla": 7,
+            "stranglethorn_basilisk": 7,
+            "stranglethorn_crocolisk": 7
           },
           "surge": 262
         },
         {
           "start": 1500,
           "name": "Stranglethorn Vale Last Stand 26",
-          "rate": 22.05,
+          "rate": 35.973,
           "batch": 8,
           "density": 3200,
-          "health": 6.91362,
+          "health": 8.82404,
           "damage": 1.595,
           "xp": 3.2775000000000003,
           "speed": 27.500000000000004,
           "weights": {
-            "stranglethorn_raptor": 12,
-            "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4,
-            "stranglethorn_troll_shaman": 3
+            "stranglethorn_raptor": 8,
+            "stranglethorn_troll": 5,
+            "stranglethorn_panther": 4,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_troll_shaman": 3,
+            "stranglethorn_gorilla": 7,
+            "stranglethorn_basilisk": 7,
+            "stranglethorn_crocolisk": 7
           },
-          "surge": 350
+          "surge": 600
         },
         {
           "start": 1560,
           "name": "Stranglethorn Vale Last Stand 27",
-          "rate": 23.730000000000004,
+          "rate": 39.7215,
           "batch": 8,
           "density": 3550,
-          "health": 7.24756,
+          "health": 9.38336,
           "damage": 1.6148,
           "xp": 3.3630000000000004,
           "speed": 28.6,
           "weights": {
-            "stranglethorn_raptor": 12,
-            "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4,
-            "stranglethorn_troll_shaman": 3
+            "stranglethorn_raptor": 8,
+            "stranglethorn_troll": 5,
+            "stranglethorn_panther": 4,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_troll_shaman": 3,
+            "stranglethorn_gorilla": 7,
+            "stranglethorn_basilisk": 7,
+            "stranglethorn_crocolisk": 7
           },
-          "surge": 450
+          "surge": 775
         },
         {
           "start": 1620,
           "name": "Stranglethorn Vale Last Stand 28",
-          "rate": 25.41,
+          "rate": 43.596000000000004,
           "batch": 8,
           "density": 3900,
-          "health": 7.583859999999999,
+          "health": 9.9592,
           "damage": 1.6346,
           "xp": 3.4485,
           "speed": 29.700000000000003,
           "weights": {
-            "stranglethorn_raptor": 12,
-            "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4,
-            "stranglethorn_troll_shaman": 3
+            "stranglethorn_raptor": 8,
+            "stranglethorn_troll": 5,
+            "stranglethorn_panther": 4,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_troll_shaman": 3,
+            "stranglethorn_gorilla": 7,
+            "stranglethorn_basilisk": 7,
+            "stranglethorn_crocolisk": 7
           },
-          "surge": 550
+          "surge": 950
         },
         {
           "start": 1680,
           "name": "Stranglethorn Vale Last Stand 29",
-          "rate": 27.090000000000003,
+          "rate": 47.61750000000001,
           "batch": 8,
           "density": 4250,
-          "health": 7.92488,
+          "health": 10.552739999999998,
           "damage": 1.6544,
           "xp": 3.5340000000000007,
           "speed": 30.800000000000004,
           "weights": {
-            "stranglethorn_raptor": 12,
-            "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4,
-            "stranglethorn_troll_shaman": 3
+            "stranglethorn_raptor": 8,
+            "stranglethorn_troll": 5,
+            "stranglethorn_panther": 4,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_troll_shaman": 3,
+            "stranglethorn_gorilla": 7,
+            "stranglethorn_basilisk": 7,
+            "stranglethorn_crocolisk": 7
           },
-          "surge": 650
+          "surge": 1125
         },
         {
           "start": 1740,
           "name": "Stranglethorn Vale Last Stand 30",
-          "rate": 28.77,
+          "rate": 51.786,
           "batch": 8,
           "density": 4600,
-          "health": 8.26944,
+          "health": 11.16398,
           "damage": 1.6742000000000001,
           "xp": 3.6195000000000004,
           "speed": 31.900000000000002,
           "weights": {
-            "stranglethorn_raptor": 12,
-            "stranglethorn_troll": 7,
-            "stranglethorn_panther": 8,
-            "stranglethorn_jungle_boar": 4,
-            "stranglethorn_troll_shaman": 3
+            "stranglethorn_raptor": 8,
+            "stranglethorn_troll": 5,
+            "stranglethorn_panther": 4,
+            "stranglethorn_jungle_boar": 3,
+            "stranglethorn_troll_shaman": 3,
+            "stranglethorn_gorilla": 7,
+            "stranglethorn_basilisk": 7,
+            "stranglethorn_crocolisk": 7
           },
-          "surge": 750
+          "surge": 1300
         }
       ],
       "music": "stranglethorn",
@@ -1985,11 +2125,15 @@
         "plaguelands_cultist",
         "plaguelands_plague_hound",
         "plaguelands_crypt_fiend",
-        "plaguelands_bone_knight"
+        "plaguelands_bone_knight",
+        "plaguelands_banshee",
+        "plaguelands_gargoyle",
+        "plaguelands_abomination"
       ],
       "elites": [
         "plaguelands_elite_0",
-        "plaguelands_elite_1"
+        "plaguelands_elite_1",
+        "plaguelands_elite_2"
       ],
       "boss_pool": [
         "rivendare"
@@ -2056,7 +2200,7 @@
           "weights": {
             "plaguelands_ghoul": 12,
             "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8
+            "plaguelands_plague_hound": 5
           },
           "surge": 0
         },
@@ -2073,7 +2217,8 @@
           "weights": {
             "plaguelands_ghoul": 12,
             "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8
+            "plaguelands_plague_hound": 5,
+            "plaguelands_banshee": 6
           },
           "surge": 0
         },
@@ -2090,8 +2235,9 @@
           "weights": {
             "plaguelands_ghoul": 12,
             "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4
+            "plaguelands_plague_hound": 5,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_banshee": 6
           },
           "surge": 0
         },
@@ -2108,8 +2254,9 @@
           "weights": {
             "plaguelands_ghoul": 12,
             "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4
+            "plaguelands_plague_hound": 5,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_banshee": 6
           },
           "surge": 0
         },
@@ -2126,8 +2273,9 @@
           "weights": {
             "plaguelands_ghoul": 12,
             "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4
+            "plaguelands_plague_hound": 5,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_banshee": 6
           },
           "surge": 0
         },
@@ -2144,8 +2292,10 @@
           "weights": {
             "plaguelands_ghoul": 12,
             "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4
+            "plaguelands_plague_hound": 5,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_banshee": 6,
+            "plaguelands_gargoyle": 5
           },
           "surge": 35
         },
@@ -2162,8 +2312,10 @@
           "weights": {
             "plaguelands_ghoul": 12,
             "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4
+            "plaguelands_plague_hound": 5,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_banshee": 6,
+            "plaguelands_gargoyle": 5
           },
           "surge": 44
         },
@@ -2180,372 +2332,430 @@
           "weights": {
             "plaguelands_ghoul": 12,
             "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4,
-            "plaguelands_bone_knight": 3
+            "plaguelands_plague_hound": 5,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_bone_knight": 3,
+            "plaguelands_banshee": 6,
+            "plaguelands_gargoyle": 5
           },
           "surge": 53
         },
         {
           "start": 660,
           "name": "Eastern Plaguelands Siege 12",
-          "rate": 7.2025,
+          "rate": 7.5035,
           "batch": 4,
           "density": 750,
-          "health": 3.01625,
+          "health": 3.07213,
           "damage": 1.3777,
           "xp": 2.20825,
           "speed": 12.100000000000001,
           "weights": {
             "plaguelands_ghoul": 12,
             "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4,
-            "plaguelands_bone_knight": 3
+            "plaguelands_plague_hound": 5,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_bone_knight": 3,
+            "plaguelands_banshee": 6,
+            "plaguelands_gargoyle": 5
           },
           "surge": 62
         },
         {
           "start": 720,
           "name": "Eastern Plaguelands Siege 13",
-          "rate": 7.901249999999999,
+          "rate": 8.56775,
           "batch": 4,
           "density": 835,
-          "health": 3.2702500000000003,
+          "health": 3.3909,
           "damage": 1.3983999999999999,
           "xp": 2.299,
           "speed": 13.200000000000001,
           "weights": {
             "plaguelands_ghoul": 12,
             "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4,
-            "plaguelands_bone_knight": 3
+            "plaguelands_plague_hound": 5,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_bone_knight": 3,
+            "plaguelands_banshee": 6,
+            "plaguelands_gargoyle": 5,
+            "plaguelands_abomination": 4
           },
           "surge": 71
         },
         {
           "start": 780,
           "name": "Eastern Plaguelands Siege 14",
-          "rate": 8.6,
+          "rate": 9.685749999999999,
           "batch": 5,
           "density": 920,
-          "health": 3.5420300000000005,
+          "health": 3.73888,
           "damage": 1.4190999999999998,
           "xp": 2.38975,
           "speed": 14.3,
           "weights": {
             "plaguelands_ghoul": 12,
             "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4,
-            "plaguelands_bone_knight": 3
+            "plaguelands_plague_hound": 5,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_bone_knight": 3,
+            "plaguelands_banshee": 6,
+            "plaguelands_gargoyle": 5,
+            "plaguelands_abomination": 4
           },
           "surge": 80
         },
         {
           "start": 840,
           "name": "Eastern Plaguelands Siege 15",
-          "rate": 9.29875,
+          "rate": 10.86825,
           "batch": 5,
           "density": 1005,
-          "health": 3.82651,
+          "health": 4.10972,
           "damage": 1.4398,
           "xp": 2.4804999999999997,
           "speed": 15.400000000000002,
           "weights": {
             "plaguelands_ghoul": 12,
             "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4,
-            "plaguelands_bone_knight": 3
+            "plaguelands_plague_hound": 5,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_bone_knight": 3,
+            "plaguelands_banshee": 6,
+            "plaguelands_gargoyle": 5,
+            "plaguelands_abomination": 4
           },
           "surge": 89
         },
         {
           "start": 900,
           "name": "Eastern Plaguelands Siege 16",
-          "rate": 10.75,
+          "rate": 13.018249999999998,
           "batch": 6,
           "density": 1300,
-          "health": 4.12242,
+          "health": 4.50215,
           "damage": 1.4605,
           "xp": 2.57125,
           "speed": 16.5,
           "weights": {
-            "plaguelands_ghoul": 12,
-            "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4,
-            "plaguelands_bone_knight": 3
+            "plaguelands_ghoul": 8,
+            "plaguelands_cultist": 5,
+            "plaguelands_plague_hound": 4,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_bone_knight": 3,
+            "plaguelands_banshee": 7,
+            "plaguelands_gargoyle": 7,
+            "plaguelands_abomination": 7
           },
           "surge": 100
         },
         {
           "start": 960,
           "name": "Eastern Plaguelands Siege 17",
-          "rate": 11.87875,
+          "rate": 14.878,
           "batch": 6,
           "density": 1465,
-          "health": 4.42595,
+          "health": 4.9149,
           "damage": 1.4811999999999999,
           "xp": 2.662,
           "speed": 17.6,
           "weights": {
-            "plaguelands_ghoul": 12,
-            "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4,
-            "plaguelands_bone_knight": 3
+            "plaguelands_ghoul": 8,
+            "plaguelands_cultist": 5,
+            "plaguelands_plague_hound": 4,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_bone_knight": 3,
+            "plaguelands_banshee": 7,
+            "plaguelands_gargoyle": 7,
+            "plaguelands_abomination": 7
           },
           "surge": 118
         },
         {
           "start": 1020,
           "name": "Eastern Plaguelands Siege 18",
-          "rate": 13.007499999999999,
+          "rate": 16.84525,
           "batch": 6,
           "density": 1630,
-          "health": 4.7371,
+          "health": 5.34797,
           "damage": 1.5019,
           "xp": 2.75275,
           "speed": 18.700000000000003,
           "weights": {
-            "plaguelands_ghoul": 12,
-            "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4,
-            "plaguelands_bone_knight": 3
+            "plaguelands_ghoul": 8,
+            "plaguelands_cultist": 5,
+            "plaguelands_plague_hound": 4,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_bone_knight": 3,
+            "plaguelands_banshee": 7,
+            "plaguelands_gargoyle": 7,
+            "plaguelands_abomination": 7
           },
           "surge": 136
         },
         {
           "start": 1080,
           "name": "Eastern Plaguelands Siege 19",
-          "rate": 14.13625,
+          "rate": 18.8985,
           "batch": 6,
           "density": 1795,
-          "health": 5.05587,
+          "health": 5.80136,
           "damage": 1.5226,
           "xp": 2.8435,
           "speed": 19.8,
           "weights": {
-            "plaguelands_ghoul": 12,
-            "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4,
-            "plaguelands_bone_knight": 3
+            "plaguelands_ghoul": 8,
+            "plaguelands_cultist": 5,
+            "plaguelands_plague_hound": 4,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_bone_knight": 3,
+            "plaguelands_banshee": 7,
+            "plaguelands_gargoyle": 7,
+            "plaguelands_abomination": 7
           },
           "surge": 154
         },
         {
           "start": 1140,
           "name": "Eastern Plaguelands Siege 20",
-          "rate": 15.264999999999999,
+          "rate": 21.048499999999997,
           "batch": 6,
           "density": 1960,
-          "health": 5.380990000000001,
+          "health": 6.27253,
           "damage": 1.5433,
           "xp": 2.9342499999999996,
           "speed": 20.900000000000002,
           "weights": {
-            "plaguelands_ghoul": 12,
-            "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4,
-            "plaguelands_bone_knight": 3
+            "plaguelands_ghoul": 8,
+            "plaguelands_cultist": 5,
+            "plaguelands_plague_hound": 4,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_bone_knight": 3,
+            "plaguelands_banshee": 7,
+            "plaguelands_gargoyle": 7,
+            "plaguelands_abomination": 7
           },
           "surge": 172
         },
         {
           "start": 1200,
           "name": "Eastern Plaguelands Siege 21",
-          "rate": 16.39375,
+          "rate": 23.29525,
           "batch": 6,
           "density": 2125,
-          "health": 5.71119,
+          "health": 6.7640199999999995,
           "damage": 1.564,
           "xp": 3.025,
           "speed": 22.0,
           "weights": {
-            "plaguelands_ghoul": 12,
-            "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4,
-            "plaguelands_bone_knight": 3
+            "plaguelands_ghoul": 8,
+            "plaguelands_cultist": 5,
+            "plaguelands_plague_hound": 4,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_bone_knight": 3,
+            "plaguelands_banshee": 7,
+            "plaguelands_gargoyle": 7,
+            "plaguelands_abomination": 7
           },
           "surge": 190
         },
         {
           "start": 1260,
           "name": "Eastern Plaguelands Siege 22",
-          "rate": 17.5225,
+          "rate": 25.63875,
           "batch": 6,
           "density": 2290,
-          "health": 6.047739999999999,
+          "health": 7.27329,
           "damage": 1.5846999999999998,
           "xp": 3.1157500000000002,
           "speed": 23.1,
           "weights": {
-            "plaguelands_ghoul": 12,
-            "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4,
-            "plaguelands_bone_knight": 3
+            "plaguelands_ghoul": 8,
+            "plaguelands_cultist": 5,
+            "plaguelands_plague_hound": 4,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_bone_knight": 3,
+            "plaguelands_banshee": 7,
+            "plaguelands_gargoyle": 7,
+            "plaguelands_abomination": 7
           },
           "surge": 208
         },
         {
           "start": 1320,
           "name": "Eastern Plaguelands Siege 23",
-          "rate": 18.65125,
+          "rate": 28.079,
           "batch": 6,
           "density": 2455,
-          "health": 6.3893699999999995,
+          "health": 7.80161,
           "damage": 1.6053999999999997,
           "xp": 3.2064999999999997,
           "speed": 24.200000000000003,
           "weights": {
-            "plaguelands_ghoul": 12,
-            "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4,
-            "plaguelands_bone_knight": 3
+            "plaguelands_ghoul": 8,
+            "plaguelands_cultist": 5,
+            "plaguelands_plague_hound": 4,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_bone_knight": 3,
+            "plaguelands_banshee": 7,
+            "plaguelands_gargoyle": 7,
+            "plaguelands_abomination": 7
           },
           "surge": 226
         },
         {
           "start": 1380,
           "name": "Eastern Plaguelands Siege 24",
-          "rate": 19.779999999999998,
+          "rate": 30.605249999999998,
           "batch": 6,
           "density": 2620,
-          "health": 6.73481,
+          "health": 8.347710000000001,
           "damage": 1.6260999999999999,
           "xp": 3.29725,
           "speed": 25.3,
           "weights": {
-            "plaguelands_ghoul": 12,
-            "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4,
-            "plaguelands_bone_knight": 3
+            "plaguelands_ghoul": 8,
+            "plaguelands_cultist": 5,
+            "plaguelands_plague_hound": 4,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_bone_knight": 3,
+            "plaguelands_banshee": 7,
+            "plaguelands_gargoyle": 7,
+            "plaguelands_abomination": 7
           },
           "surge": 244
         },
         {
           "start": 1440,
           "name": "Eastern Plaguelands Siege 25",
-          "rate": 20.908749999999998,
+          "rate": 33.239,
           "batch": 6,
           "density": 2785,
-          "health": 7.0866,
+          "health": 8.91286,
           "damage": 1.6467999999999998,
           "xp": 3.388,
           "speed": 26.400000000000002,
           "weights": {
-            "plaguelands_ghoul": 12,
-            "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4,
-            "plaguelands_bone_knight": 3
+            "plaguelands_ghoul": 8,
+            "plaguelands_cultist": 5,
+            "plaguelands_plague_hound": 4,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_bone_knight": 3,
+            "plaguelands_banshee": 7,
+            "plaguelands_gargoyle": 7,
+            "plaguelands_abomination": 7
           },
           "surge": 262
         },
         {
           "start": 1500,
           "name": "Eastern Plaguelands Last Stand 26",
-          "rate": 22.575,
+          "rate": 36.829499999999996,
           "batch": 8,
           "density": 3200,
-          "health": 7.44093,
+          "health": 9.49706,
           "damage": 1.6674999999999998,
           "xp": 3.47875,
           "speed": 27.500000000000004,
           "weights": {
-            "plaguelands_ghoul": 12,
-            "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4,
-            "plaguelands_bone_knight": 3
+            "plaguelands_ghoul": 8,
+            "plaguelands_cultist": 5,
+            "plaguelands_plague_hound": 4,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_bone_knight": 3,
+            "plaguelands_banshee": 7,
+            "plaguelands_gargoyle": 7,
+            "plaguelands_abomination": 7
           },
-          "surge": 350
+          "surge": 600
         },
         {
           "start": 1560,
           "name": "Eastern Plaguelands Last Stand 27",
-          "rate": 24.295,
+          "rate": 40.667249999999996,
           "batch": 8,
           "density": 3550,
-          "health": 7.80034,
+          "health": 10.09904,
           "damage": 1.6882,
           "xp": 3.5695,
           "speed": 28.6,
           "weights": {
-            "plaguelands_ghoul": 12,
-            "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4,
-            "plaguelands_bone_knight": 3
+            "plaguelands_ghoul": 8,
+            "plaguelands_cultist": 5,
+            "plaguelands_plague_hound": 4,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_bone_knight": 3,
+            "plaguelands_banshee": 7,
+            "plaguelands_gargoyle": 7,
+            "plaguelands_abomination": 7
           },
-          "surge": 450
+          "surge": 775
         },
         {
           "start": 1620,
           "name": "Eastern Plaguelands Last Stand 28",
-          "rate": 26.014999999999997,
+          "rate": 44.634,
           "batch": 8,
           "density": 3900,
-          "health": 8.16229,
+          "health": 10.7188,
           "damage": 1.7088999999999999,
           "xp": 3.66025,
           "speed": 29.700000000000003,
           "weights": {
-            "plaguelands_ghoul": 12,
-            "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4,
-            "plaguelands_bone_knight": 3
+            "plaguelands_ghoul": 8,
+            "plaguelands_cultist": 5,
+            "plaguelands_plague_hound": 4,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_bone_knight": 3,
+            "plaguelands_banshee": 7,
+            "plaguelands_gargoyle": 7,
+            "plaguelands_abomination": 7
           },
-          "surge": 550
+          "surge": 950
         },
         {
           "start": 1680,
           "name": "Eastern Plaguelands Last Stand 29",
-          "rate": 27.735,
+          "rate": 48.75125,
           "batch": 8,
           "density": 4250,
-          "health": 8.52932,
+          "health": 11.35761,
           "damage": 1.7295999999999998,
           "xp": 3.751,
           "speed": 30.800000000000004,
           "weights": {
-            "plaguelands_ghoul": 12,
-            "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4,
-            "plaguelands_bone_knight": 3
+            "plaguelands_ghoul": 8,
+            "plaguelands_cultist": 5,
+            "plaguelands_plague_hound": 4,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_bone_knight": 3,
+            "plaguelands_banshee": 7,
+            "plaguelands_gargoyle": 7,
+            "plaguelands_abomination": 7
           },
-          "surge": 650
+          "surge": 1125
         },
         {
           "start": 1740,
           "name": "Eastern Plaguelands Last Stand 30",
-          "rate": 29.455,
+          "rate": 53.019,
           "batch": 8,
           "density": 4600,
-          "health": 8.90016,
+          "health": 12.01547,
           "damage": 1.7503,
           "xp": 3.8417499999999998,
           "speed": 31.900000000000002,
           "weights": {
-            "plaguelands_ghoul": 12,
-            "plaguelands_cultist": 7,
-            "plaguelands_plague_hound": 8,
-            "plaguelands_crypt_fiend": 4,
-            "plaguelands_bone_knight": 3
+            "plaguelands_ghoul": 8,
+            "plaguelands_cultist": 5,
+            "plaguelands_plague_hound": 4,
+            "plaguelands_crypt_fiend": 3,
+            "plaguelands_bone_knight": 3,
+            "plaguelands_banshee": 7,
+            "plaguelands_gargoyle": 7,
+            "plaguelands_abomination": 7
           },
-          "surge": 750
+          "surge": 1300
         }
       ],
       "music": "plaguelands",
@@ -2592,11 +2802,15 @@
         "icecrown_vrykul",
         "icecrown_frost_hound",
         "icecrown_frost_cultist",
-        "icecrown_frost_abomination"
+        "icecrown_frost_abomination",
+        "icecrown_nerubian",
+        "icecrown_frost_revenant",
+        "icecrown_wyrm_hatchling"
       ],
       "elites": [
         "icecrown_elite_0",
-        "icecrown_elite_1"
+        "icecrown_elite_1",
+        "icecrown_elite_2"
       ],
       "boss_pool": [
         "lich_king"
@@ -2663,7 +2877,7 @@
           "weights": {
             "icecrown_geist": 12,
             "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8
+            "icecrown_frost_hound": 5
           },
           "surge": 0
         },
@@ -2680,7 +2894,8 @@
           "weights": {
             "icecrown_geist": 12,
             "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8
+            "icecrown_frost_hound": 5,
+            "icecrown_nerubian": 6
           },
           "surge": 0
         },
@@ -2697,8 +2912,9 @@
           "weights": {
             "icecrown_geist": 12,
             "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4
+            "icecrown_frost_hound": 5,
+            "icecrown_frost_cultist": 3,
+            "icecrown_nerubian": 6
           },
           "surge": 0
         },
@@ -2715,8 +2931,9 @@
           "weights": {
             "icecrown_geist": 12,
             "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4
+            "icecrown_frost_hound": 5,
+            "icecrown_frost_cultist": 3,
+            "icecrown_nerubian": 6
           },
           "surge": 0
         },
@@ -2733,8 +2950,9 @@
           "weights": {
             "icecrown_geist": 12,
             "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4
+            "icecrown_frost_hound": 5,
+            "icecrown_frost_cultist": 3,
+            "icecrown_nerubian": 6
           },
           "surge": 0
         },
@@ -2751,8 +2969,10 @@
           "weights": {
             "icecrown_geist": 12,
             "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4
+            "icecrown_frost_hound": 5,
+            "icecrown_frost_cultist": 3,
+            "icecrown_nerubian": 6,
+            "icecrown_frost_revenant": 5
           },
           "surge": 35
         },
@@ -2769,8 +2989,10 @@
           "weights": {
             "icecrown_geist": 12,
             "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4
+            "icecrown_frost_hound": 5,
+            "icecrown_frost_cultist": 3,
+            "icecrown_nerubian": 6,
+            "icecrown_frost_revenant": 5
           },
           "surge": 44
         },
@@ -2787,372 +3009,430 @@
           "weights": {
             "icecrown_geist": 12,
             "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4,
-            "icecrown_frost_abomination": 3
+            "icecrown_frost_hound": 5,
+            "icecrown_frost_cultist": 3,
+            "icecrown_frost_abomination": 3,
+            "icecrown_nerubian": 6,
+            "icecrown_frost_revenant": 5
           },
           "surge": 53
         },
         {
           "start": 660,
           "name": "Icecrown Siege 12",
-          "rate": 7.370000000000001,
+          "rate": 7.678000000000001,
           "batch": 4,
           "density": 750,
-          "health": 3.2299999999999995,
+          "health": 3.28984,
           "damage": 1.4376,
           "xp": 2.336,
           "speed": 12.100000000000001,
           "weights": {
             "icecrown_geist": 12,
             "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4,
-            "icecrown_frost_abomination": 3
+            "icecrown_frost_hound": 5,
+            "icecrown_frost_cultist": 3,
+            "icecrown_frost_abomination": 3,
+            "icecrown_nerubian": 6,
+            "icecrown_frost_revenant": 5
           },
           "surge": 62
         },
         {
           "start": 720,
           "name": "Icecrown Siege 13",
-          "rate": 8.085,
+          "rate": 8.767000000000001,
           "batch": 4,
           "density": 835,
-          "health": 3.502,
+          "health": 3.6311999999999998,
           "damage": 1.4591999999999998,
           "xp": 2.432,
           "speed": 13.200000000000001,
           "weights": {
             "icecrown_geist": 12,
             "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4,
-            "icecrown_frost_abomination": 3
+            "icecrown_frost_hound": 5,
+            "icecrown_frost_cultist": 3,
+            "icecrown_frost_abomination": 3,
+            "icecrown_nerubian": 6,
+            "icecrown_frost_revenant": 5,
+            "icecrown_wyrm_hatchling": 4
           },
           "surge": 71
         },
         {
           "start": 780,
           "name": "Icecrown Siege 14",
-          "rate": 8.8,
+          "rate": 9.911000000000001,
           "batch": 5,
           "density": 920,
-          "health": 3.79304,
+          "health": 4.003839999999999,
           "damage": 1.4808,
           "xp": 2.528,
           "speed": 14.3,
           "weights": {
             "icecrown_geist": 12,
             "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4,
-            "icecrown_frost_abomination": 3
+            "icecrown_frost_hound": 5,
+            "icecrown_frost_cultist": 3,
+            "icecrown_frost_abomination": 3,
+            "icecrown_nerubian": 6,
+            "icecrown_frost_revenant": 5,
+            "icecrown_wyrm_hatchling": 4
           },
           "surge": 80
         },
         {
           "start": 840,
           "name": "Icecrown Siege 15",
-          "rate": 9.515,
+          "rate": 11.121,
           "batch": 5,
           "density": 1005,
-          "health": 4.0976799999999995,
+          "health": 4.4009599999999995,
           "damage": 1.5024,
           "xp": 2.6239999999999997,
           "speed": 15.400000000000002,
           "weights": {
             "icecrown_geist": 12,
             "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4,
-            "icecrown_frost_abomination": 3
+            "icecrown_frost_hound": 5,
+            "icecrown_frost_cultist": 3,
+            "icecrown_frost_abomination": 3,
+            "icecrown_nerubian": 6,
+            "icecrown_frost_revenant": 5,
+            "icecrown_wyrm_hatchling": 4
           },
           "surge": 89
         },
         {
           "start": 900,
           "name": "Icecrown Siege 16",
-          "rate": 11.0,
+          "rate": 13.321,
           "batch": 6,
           "density": 1300,
-          "health": 4.41456,
+          "health": 4.821199999999999,
           "damage": 1.524,
           "xp": 2.72,
           "speed": 16.5,
           "weights": {
-            "icecrown_geist": 12,
-            "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4,
-            "icecrown_frost_abomination": 3
+            "icecrown_geist": 8,
+            "icecrown_vrykul": 5,
+            "icecrown_frost_hound": 4,
+            "icecrown_frost_cultist": 3,
+            "icecrown_frost_abomination": 3,
+            "icecrown_nerubian": 7,
+            "icecrown_frost_revenant": 7,
+            "icecrown_wyrm_hatchling": 7
           },
           "surge": 100
         },
         {
           "start": 960,
           "name": "Icecrown Siege 17",
-          "rate": 12.155000000000001,
+          "rate": 15.224,
           "batch": 6,
           "density": 1465,
-          "health": 4.739599999999999,
+          "health": 5.263199999999999,
           "damage": 1.5456,
           "xp": 2.8160000000000003,
           "speed": 17.6,
           "weights": {
-            "icecrown_geist": 12,
-            "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4,
-            "icecrown_frost_abomination": 3
+            "icecrown_geist": 8,
+            "icecrown_vrykul": 5,
+            "icecrown_frost_hound": 4,
+            "icecrown_frost_cultist": 3,
+            "icecrown_frost_abomination": 3,
+            "icecrown_nerubian": 7,
+            "icecrown_frost_revenant": 7,
+            "icecrown_wyrm_hatchling": 7
           },
           "surge": 118
         },
         {
           "start": 1020,
           "name": "Icecrown Siege 18",
-          "rate": 13.31,
+          "rate": 17.237000000000002,
           "batch": 6,
           "density": 1630,
-          "health": 5.072799999999999,
+          "health": 5.72696,
           "damage": 1.5672,
           "xp": 2.912,
           "speed": 18.700000000000003,
           "weights": {
-            "icecrown_geist": 12,
-            "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4,
-            "icecrown_frost_abomination": 3
+            "icecrown_geist": 8,
+            "icecrown_vrykul": 5,
+            "icecrown_frost_hound": 4,
+            "icecrown_frost_cultist": 3,
+            "icecrown_frost_abomination": 3,
+            "icecrown_nerubian": 7,
+            "icecrown_frost_revenant": 7,
+            "icecrown_wyrm_hatchling": 7
           },
           "surge": 136
         },
         {
           "start": 1080,
           "name": "Icecrown Siege 19",
-          "rate": 14.465000000000002,
+          "rate": 19.338,
           "batch": 6,
           "density": 1795,
-          "health": 5.414159999999999,
+          "health": 6.212479999999999,
           "damage": 1.5888,
           "xp": 3.008,
           "speed": 19.8,
           "weights": {
-            "icecrown_geist": 12,
-            "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4,
-            "icecrown_frost_abomination": 3
+            "icecrown_geist": 8,
+            "icecrown_vrykul": 5,
+            "icecrown_frost_hound": 4,
+            "icecrown_frost_cultist": 3,
+            "icecrown_frost_abomination": 3,
+            "icecrown_nerubian": 7,
+            "icecrown_frost_revenant": 7,
+            "icecrown_wyrm_hatchling": 7
           },
           "surge": 154
         },
         {
           "start": 1140,
           "name": "Icecrown Siege 20",
-          "rate": 15.620000000000001,
+          "rate": 21.538,
           "batch": 6,
           "density": 1960,
-          "health": 5.76232,
+          "health": 6.71704,
           "damage": 1.6104,
           "xp": 3.1039999999999996,
           "speed": 20.900000000000002,
           "weights": {
-            "icecrown_geist": 12,
-            "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4,
-            "icecrown_frost_abomination": 3
+            "icecrown_geist": 8,
+            "icecrown_vrykul": 5,
+            "icecrown_frost_hound": 4,
+            "icecrown_frost_cultist": 3,
+            "icecrown_frost_abomination": 3,
+            "icecrown_nerubian": 7,
+            "icecrown_frost_revenant": 7,
+            "icecrown_wyrm_hatchling": 7
           },
           "surge": 172
         },
         {
           "start": 1200,
           "name": "Icecrown Siege 21",
-          "rate": 16.775000000000002,
+          "rate": 23.837000000000003,
           "batch": 6,
           "density": 2125,
-          "health": 6.115919999999999,
+          "health": 7.243359999999999,
           "damage": 1.6320000000000001,
           "xp": 3.2,
           "speed": 22.0,
           "weights": {
-            "icecrown_geist": 12,
-            "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4,
-            "icecrown_frost_abomination": 3
+            "icecrown_geist": 8,
+            "icecrown_vrykul": 5,
+            "icecrown_frost_hound": 4,
+            "icecrown_frost_cultist": 3,
+            "icecrown_frost_abomination": 3,
+            "icecrown_nerubian": 7,
+            "icecrown_frost_revenant": 7,
+            "icecrown_wyrm_hatchling": 7
           },
           "surge": 190
         },
         {
           "start": 1260,
           "name": "Icecrown Siege 22",
-          "rate": 17.930000000000003,
+          "rate": 26.235000000000003,
           "batch": 6,
           "density": 2290,
-          "health": 6.4763199999999985,
+          "health": 7.78872,
           "damage": 1.6535999999999997,
           "xp": 3.2960000000000003,
           "speed": 23.1,
           "weights": {
-            "icecrown_geist": 12,
-            "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4,
-            "icecrown_frost_abomination": 3
+            "icecrown_geist": 8,
+            "icecrown_vrykul": 5,
+            "icecrown_frost_hound": 4,
+            "icecrown_frost_cultist": 3,
+            "icecrown_frost_abomination": 3,
+            "icecrown_nerubian": 7,
+            "icecrown_frost_revenant": 7,
+            "icecrown_wyrm_hatchling": 7
           },
           "surge": 208
         },
         {
           "start": 1320,
           "name": "Icecrown Siege 23",
-          "rate": 19.085000000000004,
+          "rate": 28.732000000000003,
           "batch": 6,
           "density": 2455,
-          "health": 6.842159999999999,
+          "health": 8.354479999999999,
           "damage": 1.6751999999999998,
           "xp": 3.392,
           "speed": 24.200000000000003,
           "weights": {
-            "icecrown_geist": 12,
-            "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4,
-            "icecrown_frost_abomination": 3
+            "icecrown_geist": 8,
+            "icecrown_vrykul": 5,
+            "icecrown_frost_hound": 4,
+            "icecrown_frost_cultist": 3,
+            "icecrown_frost_abomination": 3,
+            "icecrown_nerubian": 7,
+            "icecrown_frost_revenant": 7,
+            "icecrown_wyrm_hatchling": 7
           },
           "surge": 226
         },
         {
           "start": 1380,
           "name": "Icecrown Siege 24",
-          "rate": 20.24,
+          "rate": 31.317,
           "batch": 6,
           "density": 2620,
-          "health": 7.212079999999999,
+          "health": 8.93928,
           "damage": 1.6967999999999999,
           "xp": 3.488,
           "speed": 25.3,
           "weights": {
-            "icecrown_geist": 12,
-            "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4,
-            "icecrown_frost_abomination": 3
+            "icecrown_geist": 8,
+            "icecrown_vrykul": 5,
+            "icecrown_frost_hound": 4,
+            "icecrown_frost_cultist": 3,
+            "icecrown_frost_abomination": 3,
+            "icecrown_nerubian": 7,
+            "icecrown_frost_revenant": 7,
+            "icecrown_wyrm_hatchling": 7
           },
           "surge": 244
         },
         {
           "start": 1440,
           "name": "Icecrown Siege 25",
-          "rate": 21.395,
+          "rate": 34.01200000000001,
           "batch": 6,
           "density": 2785,
-          "health": 7.588799999999999,
+          "health": 9.544479999999998,
           "damage": 1.7184,
           "xp": 3.5839999999999996,
           "speed": 26.400000000000002,
           "weights": {
-            "icecrown_geist": 12,
-            "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4,
-            "icecrown_frost_abomination": 3
+            "icecrown_geist": 8,
+            "icecrown_vrykul": 5,
+            "icecrown_frost_hound": 4,
+            "icecrown_frost_cultist": 3,
+            "icecrown_frost_abomination": 3,
+            "icecrown_nerubian": 7,
+            "icecrown_frost_revenant": 7,
+            "icecrown_wyrm_hatchling": 7
           },
           "surge": 262
         },
         {
           "start": 1500,
           "name": "Icecrown Last Stand 26",
-          "rate": 23.1,
+          "rate": 37.686,
           "batch": 8,
           "density": 3200,
-          "health": 7.968239999999999,
+          "health": 10.170079999999999,
           "damage": 1.74,
           "xp": 3.68,
           "speed": 27.500000000000004,
           "weights": {
-            "icecrown_geist": 12,
-            "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4,
-            "icecrown_frost_abomination": 3
+            "icecrown_geist": 8,
+            "icecrown_vrykul": 5,
+            "icecrown_frost_hound": 4,
+            "icecrown_frost_cultist": 3,
+            "icecrown_frost_abomination": 3,
+            "icecrown_nerubian": 7,
+            "icecrown_frost_revenant": 7,
+            "icecrown_wyrm_hatchling": 7
           },
-          "surge": 350
+          "surge": 600
         },
         {
           "start": 1560,
           "name": "Icecrown Last Stand 27",
-          "rate": 24.860000000000003,
+          "rate": 41.613,
           "batch": 8,
           "density": 3550,
-          "health": 8.35312,
+          "health": 10.81472,
           "damage": 1.7615999999999998,
           "xp": 3.7760000000000002,
           "speed": 28.6,
           "weights": {
-            "icecrown_geist": 12,
-            "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4,
-            "icecrown_frost_abomination": 3
+            "icecrown_geist": 8,
+            "icecrown_vrykul": 5,
+            "icecrown_frost_hound": 4,
+            "icecrown_frost_cultist": 3,
+            "icecrown_frost_abomination": 3,
+            "icecrown_nerubian": 7,
+            "icecrown_frost_revenant": 7,
+            "icecrown_wyrm_hatchling": 7
           },
-          "surge": 450
+          "surge": 775
         },
         {
           "start": 1620,
           "name": "Icecrown Last Stand 28",
-          "rate": 26.62,
+          "rate": 45.672000000000004,
           "batch": 8,
           "density": 3900,
-          "health": 8.740719999999998,
+          "health": 11.478399999999999,
           "damage": 1.7832,
           "xp": 3.872,
           "speed": 29.700000000000003,
           "weights": {
-            "icecrown_geist": 12,
-            "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4,
-            "icecrown_frost_abomination": 3
+            "icecrown_geist": 8,
+            "icecrown_vrykul": 5,
+            "icecrown_frost_hound": 4,
+            "icecrown_frost_cultist": 3,
+            "icecrown_frost_abomination": 3,
+            "icecrown_nerubian": 7,
+            "icecrown_frost_revenant": 7,
+            "icecrown_wyrm_hatchling": 7
           },
-          "surge": 550
+          "surge": 950
         },
         {
           "start": 1680,
           "name": "Icecrown Last Stand 29",
-          "rate": 28.380000000000003,
+          "rate": 49.885000000000005,
           "batch": 8,
           "density": 4250,
-          "health": 9.133759999999999,
+          "health": 12.162479999999999,
           "damage": 1.8048,
           "xp": 3.9680000000000004,
           "speed": 30.800000000000004,
           "weights": {
-            "icecrown_geist": 12,
-            "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4,
-            "icecrown_frost_abomination": 3
+            "icecrown_geist": 8,
+            "icecrown_vrykul": 5,
+            "icecrown_frost_hound": 4,
+            "icecrown_frost_cultist": 3,
+            "icecrown_frost_abomination": 3,
+            "icecrown_nerubian": 7,
+            "icecrown_frost_revenant": 7,
+            "icecrown_wyrm_hatchling": 7
           },
-          "surge": 650
+          "surge": 1125
         },
         {
           "start": 1740,
           "name": "Icecrown Last Stand 30",
-          "rate": 30.14,
+          "rate": 54.252,
           "batch": 8,
           "density": 4600,
-          "health": 9.53088,
+          "health": 12.866959999999999,
           "damage": 1.8264,
           "xp": 4.064,
           "speed": 31.900000000000002,
           "weights": {
-            "icecrown_geist": 12,
-            "icecrown_vrykul": 7,
-            "icecrown_frost_hound": 8,
-            "icecrown_frost_cultist": 4,
-            "icecrown_frost_abomination": 3
+            "icecrown_geist": 8,
+            "icecrown_vrykul": 5,
+            "icecrown_frost_hound": 4,
+            "icecrown_frost_cultist": 3,
+            "icecrown_frost_abomination": 3,
+            "icecrown_nerubian": 7,
+            "icecrown_frost_revenant": 7,
+            "icecrown_wyrm_hatchling": 7
           },
-          "surge": 750
+          "surge": 1300
         }
       ],
       "music": "icecrown",
@@ -3329,6 +3609,96 @@
       "faction": ""
     },
     {
+      "id": "duskwood_restless_spirit",
+      "name": "Restless Spirit",
+      "health": 38,
+      "speed": 112,
+      "damage": 13,
+      "xp": 10,
+      "radius": 13,
+      "weight": 1,
+      "color": [
+        140,
+        180,
+        160
+      ],
+      "sprite": "duskwood_restless_spirit",
+      "behavior": "flank",
+      "attacks": [
+        "spirit_wail"
+      ],
+      "min_time": 240,
+      "max_time": 1800,
+      "terrain": "any",
+      "health_scaling": 1,
+      "damage_scaling": 1,
+      "xp_scaling": 1,
+      "class_xp": 4,
+      "gold_chance": 0.12,
+      "family": "undead",
+      "faction": ""
+    },
+    {
+      "id": "duskwood_worgen",
+      "name": "Nightbane Stalker",
+      "health": 76,
+      "speed": 151,
+      "damage": 19,
+      "xp": 14,
+      "radius": 17,
+      "weight": 1,
+      "color": [
+        140,
+        180,
+        160
+      ],
+      "sprite": "duskwood_worgen",
+      "behavior": "charge",
+      "attacks": [
+        "worgen_lunge"
+      ],
+      "min_time": 480,
+      "max_time": 1800,
+      "terrain": "any",
+      "health_scaling": 1,
+      "damage_scaling": 1,
+      "xp_scaling": 1,
+      "class_xp": 5,
+      "gold_chance": 0.12,
+      "family": "humanoid",
+      "faction": ""
+    },
+    {
+      "id": "duskwood_skeletal_archer",
+      "name": "Raven Hill Archer",
+      "health": 52,
+      "speed": 84,
+      "damage": 16,
+      "xp": 12,
+      "radius": 13,
+      "weight": 1,
+      "color": [
+        140,
+        180,
+        160
+      ],
+      "sprite": "duskwood_skeletal_archer",
+      "behavior": "ranged",
+      "attacks": [
+        "arrow"
+      ],
+      "min_time": 720,
+      "max_time": 1800,
+      "terrain": "any",
+      "health_scaling": 1,
+      "damage_scaling": 1,
+      "xp_scaling": 1,
+      "class_xp": 5,
+      "gold_chance": 0.12,
+      "family": "undead",
+      "faction": ""
+    },
+    {
       "id": "stranglethorn_raptor",
       "name": "Jungle Raptor",
       "health": 38,
@@ -3472,6 +3842,96 @@
       "class_xp": 4,
       "gold_chance": 0.12,
       "family": "humanoid",
+      "faction": ""
+    },
+    {
+      "id": "stranglethorn_gorilla",
+      "name": "Jungle Gorilla",
+      "health": 118,
+      "speed": 78,
+      "damage": 24,
+      "xp": 20,
+      "radius": 23,
+      "weight": 1,
+      "color": [
+        140,
+        180,
+        160
+      ],
+      "sprite": "stranglethorn_gorilla",
+      "behavior": "bruiser",
+      "attacks": [
+        "gorilla_slam"
+      ],
+      "min_time": 240,
+      "max_time": 1800,
+      "terrain": "any",
+      "health_scaling": 1,
+      "damage_scaling": 1,
+      "xp_scaling": 1,
+      "class_xp": 4,
+      "gold_chance": 0.12,
+      "family": "beast",
+      "faction": ""
+    },
+    {
+      "id": "stranglethorn_basilisk",
+      "name": "Crystal Basilisk",
+      "health": 74,
+      "speed": 108,
+      "damage": 18,
+      "xp": 15,
+      "radius": 18,
+      "weight": 1,
+      "color": [
+        140,
+        180,
+        160
+      ],
+      "sprite": "stranglethorn_basilisk",
+      "behavior": "ranged",
+      "attacks": [
+        "basilisk_gaze"
+      ],
+      "min_time": 480,
+      "max_time": 1800,
+      "terrain": "any",
+      "health_scaling": 1,
+      "damage_scaling": 1,
+      "xp_scaling": 1,
+      "class_xp": 5,
+      "gold_chance": 0.12,
+      "family": "beast",
+      "faction": ""
+    },
+    {
+      "id": "stranglethorn_crocolisk",
+      "name": "River Crocolisk",
+      "health": 103,
+      "speed": 111,
+      "damage": 22,
+      "xp": 18,
+      "radius": 21,
+      "weight": 1,
+      "color": [
+        140,
+        180,
+        160
+      ],
+      "sprite": "stranglethorn_crocolisk",
+      "behavior": "charge",
+      "attacks": [
+        "boar_charge"
+      ],
+      "min_time": 720,
+      "max_time": 1800,
+      "terrain": "any",
+      "health_scaling": 1,
+      "damage_scaling": 1,
+      "xp_scaling": 1,
+      "class_xp": 5,
+      "gold_chance": 0.12,
+      "family": "beast",
       "faction": ""
     },
     {
@@ -3621,6 +4081,96 @@
       "faction": ""
     },
     {
+      "id": "plaguelands_banshee",
+      "name": "Plague Banshee",
+      "health": 62,
+      "speed": 110,
+      "damage": 19,
+      "xp": 16,
+      "radius": 13,
+      "weight": 1,
+      "color": [
+        140,
+        180,
+        160
+      ],
+      "sprite": "plaguelands_banshee",
+      "behavior": "ranged",
+      "attacks": [
+        "spirit_wail"
+      ],
+      "min_time": 240,
+      "max_time": 1800,
+      "terrain": "any",
+      "health_scaling": 1,
+      "damage_scaling": 1,
+      "xp_scaling": 1,
+      "class_xp": 4,
+      "gold_chance": 0.12,
+      "family": "undead",
+      "faction": ""
+    },
+    {
+      "id": "plaguelands_gargoyle",
+      "name": "Scourge Gargoyle",
+      "health": 94,
+      "speed": 149,
+      "damage": 24,
+      "xp": 20,
+      "radius": 18,
+      "weight": 1,
+      "color": [
+        140,
+        180,
+        160
+      ],
+      "sprite": "plaguelands_gargoyle",
+      "behavior": "flank",
+      "attacks": [
+        "gargoyle_dive"
+      ],
+      "min_time": 480,
+      "max_time": 1800,
+      "terrain": "any",
+      "health_scaling": 1,
+      "damage_scaling": 1,
+      "xp_scaling": 1,
+      "class_xp": 5,
+      "gold_chance": 0.12,
+      "family": "undead",
+      "faction": ""
+    },
+    {
+      "id": "plaguelands_abomination",
+      "name": "Plague Abomination",
+      "health": 184,
+      "speed": 68,
+      "damage": 30,
+      "xp": 30,
+      "radius": 25,
+      "weight": 1,
+      "color": [
+        140,
+        180,
+        160
+      ],
+      "sprite": "plaguelands_abomination",
+      "behavior": "bruiser",
+      "attacks": [
+        "plague_bile"
+      ],
+      "min_time": 720,
+      "max_time": 1800,
+      "terrain": "any",
+      "health_scaling": 1,
+      "damage_scaling": 1,
+      "xp_scaling": 1,
+      "class_xp": 5,
+      "gold_chance": 0.12,
+      "family": "undead",
+      "faction": ""
+    },
+    {
       "id": "icecrown_geist",
       "name": "Frozen Geist",
       "health": 57,
@@ -3762,6 +4312,96 @@
       "damage_scaling": 1,
       "xp_scaling": 1,
       "class_xp": 4,
+      "gold_chance": 0.12,
+      "family": "undead",
+      "faction": ""
+    },
+    {
+      "id": "icecrown_nerubian",
+      "name": "Nerubian Soldier",
+      "health": 138,
+      "speed": 105,
+      "damage": 29,
+      "xp": 26,
+      "radius": 22,
+      "weight": 1,
+      "color": [
+        140,
+        180,
+        160
+      ],
+      "sprite": "icecrown_nerubian",
+      "behavior": "charge",
+      "attacks": [
+        "nerubian_rush"
+      ],
+      "min_time": 240,
+      "max_time": 1800,
+      "terrain": "any",
+      "health_scaling": 1,
+      "damage_scaling": 1,
+      "xp_scaling": 1,
+      "class_xp": 4,
+      "gold_chance": 0.12,
+      "family": "undead",
+      "faction": ""
+    },
+    {
+      "id": "icecrown_frost_revenant",
+      "name": "Frost Revenant",
+      "health": 114,
+      "speed": 90,
+      "damage": 25,
+      "xp": 24,
+      "radius": 18,
+      "weight": 1,
+      "color": [
+        140,
+        180,
+        160
+      ],
+      "sprite": "icecrown_frost_revenant",
+      "behavior": "ranged",
+      "attacks": [
+        "revenant_shards"
+      ],
+      "min_time": 480,
+      "max_time": 1800,
+      "terrain": "any",
+      "health_scaling": 1,
+      "damage_scaling": 1,
+      "xp_scaling": 1,
+      "class_xp": 5,
+      "gold_chance": 0.12,
+      "family": "undead",
+      "faction": ""
+    },
+    {
+      "id": "icecrown_wyrm_hatchling",
+      "name": "Frost Wyrm Hatchling",
+      "health": 122,
+      "speed": 145,
+      "damage": 26,
+      "xp": 25,
+      "radius": 20,
+      "weight": 1,
+      "color": [
+        140,
+        180,
+        160
+      ],
+      "sprite": "icecrown_wyrm_hatchling",
+      "behavior": "flank",
+      "attacks": [
+        "wyrm_breath"
+      ],
+      "min_time": 720,
+      "max_time": 1800,
+      "terrain": "any",
+      "health_scaling": 1,
+      "damage_scaling": 1,
+      "xp_scaling": 1,
+      "class_xp": 5,
       "gold_chance": 0.12,
       "family": "undead",
       "faction": ""
@@ -4131,6 +4771,191 @@
       "slow_duration": 2,
       "armor_penetration": 0.5,
       "health_damage": 0.06
+    },
+    {
+      "id": "spirit_wail",
+      "name": "Spectral Wail",
+      "kind": "ring",
+      "damage": 13,
+      "cooldown": 7.5,
+      "warning": 1.1,
+      "duration": 0.8,
+      "radius": 125,
+      "reach": 330,
+      "speed": 0,
+      "count": 1,
+      "angle": 100,
+      "effect": "hostile_shadow",
+      "color": [
+        189,
+        146,
+        238
+      ]
+    },
+    {
+      "id": "worgen_lunge",
+      "name": "Stalker Lunge",
+      "kind": "charge",
+      "damage": 20,
+      "cooldown": 7,
+      "warning": 0.95,
+      "duration": 0.45,
+      "radius": 19,
+      "reach": 270,
+      "speed": 330,
+      "count": 1,
+      "angle": 100,
+      "effect": "hostile_arrow",
+      "color": [
+        245,
+        131,
+        80
+      ]
+    },
+    {
+      "id": "gorilla_slam",
+      "name": "Knuckle Slam",
+      "kind": "circle",
+      "damage": 24,
+      "cooldown": 8,
+      "warning": 1.25,
+      "duration": 0.2,
+      "radius": 105,
+      "reach": 210,
+      "speed": 0,
+      "count": 1,
+      "angle": 100,
+      "effect": "hostile_arrow",
+      "color": [
+        245,
+        131,
+        80
+      ]
+    },
+    {
+      "id": "basilisk_gaze",
+      "name": "Crystalline Gaze",
+      "kind": "missile",
+      "damage": 16,
+      "cooldown": 8,
+      "warning": 1.2,
+      "duration": 0.2,
+      "radius": 9,
+      "reach": 440,
+      "speed": 230,
+      "count": 1,
+      "angle": 100,
+      "effect": "hostile_poison",
+      "color": [
+        245,
+        131,
+        80
+      ],
+      "slow": 0.2,
+      "slow_duration": 1.5
+    },
+    {
+      "id": "gargoyle_dive",
+      "name": "Stonewing Dive",
+      "kind": "leap",
+      "damage": 23,
+      "cooldown": 8,
+      "warning": 1.15,
+      "duration": 0.25,
+      "radius": 65,
+      "reach": 440,
+      "speed": 0,
+      "count": 1,
+      "angle": 100,
+      "effect": "hostile_arrow",
+      "color": [
+        245,
+        131,
+        80
+      ]
+    },
+    {
+      "id": "plague_bile",
+      "name": "Bile Pool",
+      "kind": "circle",
+      "damage": 12,
+      "cooldown": 9,
+      "warning": 1.3,
+      "duration": 3,
+      "radius": 85,
+      "reach": 350,
+      "speed": 0,
+      "count": 1,
+      "angle": 100,
+      "effect": "hostile_poison",
+      "color": [
+        159,
+        213,
+        83
+      ],
+      "pulse": 1
+    },
+    {
+      "id": "nerubian_rush",
+      "name": "Chitin Rush",
+      "kind": "charge",
+      "damage": 27,
+      "cooldown": 8,
+      "warning": 1.1,
+      "duration": 0.65,
+      "radius": 24,
+      "reach": 340,
+      "speed": 300,
+      "count": 1,
+      "angle": 100,
+      "effect": "hostile_arrow",
+      "color": [
+        245,
+        131,
+        80
+      ]
+    },
+    {
+      "id": "revenant_shards",
+      "name": "Ice Shards",
+      "kind": "missile",
+      "damage": 20,
+      "cooldown": 8,
+      "warning": 1.2,
+      "duration": 0.2,
+      "radius": 10,
+      "reach": 470,
+      "speed": 260,
+      "count": 3,
+      "angle": 40,
+      "effect": "hostile_frost",
+      "color": [
+        130,
+        217,
+        248
+      ]
+    },
+    {
+      "id": "wyrm_breath",
+      "name": "Chilling Breath",
+      "kind": "arc",
+      "damage": 24,
+      "cooldown": 8,
+      "warning": 1.2,
+      "duration": 0.3,
+      "radius": 120,
+      "reach": 260,
+      "speed": 0,
+      "count": 1,
+      "angle": 100,
+      "effect": "hostile_frost",
+      "color": [
+        130,
+        217,
+        248
+      ],
+      "slow": 0.15,
+      "slow_duration": 1.5
     }
   ],
   "elites": [
@@ -4160,6 +4985,22 @@
       "attacks": [
         "stitches_cleave",
         "stitches_stomp"
+      ],
+      "class_xp": 150,
+      "gold": 40,
+      "xp": 14,
+      "radius_scale": 1.55
+    },
+    {
+      "id": "duskwood_elite_2",
+      "name": "Nightbane Alpha",
+      "enemy": "duskwood_worgen",
+      "sprite": "duskwood_elite_2",
+      "health": 40,
+      "damage": 1.45,
+      "attacks": [
+        "worgen_lunge",
+        "bangalash_roar"
       ],
       "class_xp": 150,
       "gold": 40,
@@ -4199,6 +5040,22 @@
       "radius_scale": 1.55
     },
     {
+      "id": "stranglethorn_elite_2",
+      "name": "Ancient Silverback",
+      "enemy": "stranglethorn_gorilla",
+      "sprite": "stranglethorn_elite_2",
+      "health": 40,
+      "damage": 1.45,
+      "attacks": [
+        "gorilla_slam",
+        "pack_smash"
+      ],
+      "class_xp": 200,
+      "gold": 55,
+      "xp": 14,
+      "radius_scale": 1.55
+    },
+    {
       "id": "plaguelands_elite_0",
       "name": "Plague Commander",
       "enemy": "plaguelands_cultist",
@@ -4231,6 +5088,22 @@
       "radius_scale": 1.55
     },
     {
+      "id": "plaguelands_elite_2",
+      "name": "Furnace Abomination",
+      "enemy": "plaguelands_abomination",
+      "sprite": "plaguelands_elite_2",
+      "health": 40,
+      "damage": 1.45,
+      "attacks": [
+        "plague_bile",
+        "stitches_hook"
+      ],
+      "class_xp": 250,
+      "gold": 70,
+      "xp": 14,
+      "radius_scale": 1.55
+    },
+    {
       "id": "icecrown_elite_0",
       "name": "Frozen Warlord",
       "enemy": "icecrown_vrykul",
@@ -4256,6 +5129,22 @@
       "attacks": [
         "lich_reaper",
         "lich_winter"
+      ],
+      "class_xp": 300,
+      "gold": 85,
+      "xp": 14,
+      "radius_scale": 1.55
+    },
+    {
+      "id": "icecrown_elite_2",
+      "name": "Nerubian Lord",
+      "enemy": "icecrown_nerubian",
+      "sprite": "icecrown_elite_2",
+      "health": 40,
+      "damage": 1.45,
+      "attacks": [
+        "nerubian_rush",
+        "lich_volley"
       ],
       "class_xp": 300,
       "gold": 85,

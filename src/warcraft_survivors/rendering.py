@@ -212,6 +212,11 @@ class Renderer:
         pygame.draw.rect(self.canvas, (89, 106, 103), rect, 1, border_radius=3)
 
     def draw_game(self, sim: Simulation, fps: float = 60, debug: bool = False) -> None:
+        from .balance_metrics import BalanceMetrics
+
+        if self.presentation.sim is not sim:
+            self.balance_metrics = BalanceMetrics()
+        sim.grid.track_queries = sim.world.grid.track_queries = debug
         self.presentation.quality = self.quality
         self.presentation.observe(sim)
         p = sim.player
@@ -602,12 +607,18 @@ class Renderer:
             self.panel(Rect(300, y, 680, 29))
             self.wrapped(message, Rect(312, y + 5, 656, 22), 21, CREAM)
         if debug:
-            self.text(
-                f"{fps:.0f} FPS / {len(sim.enemies)} enemies / {len(sim.projectiles)} shots / {len(sim.combat.fields)} fields / {len(sim.combat.companions)} pets / {len(sim.pickups)} loot",
-                (360, 200 if sim.director.boss_spawned else 116),
-                20,
-                CREAM,
+            spawn_rate, kill_rate, xp_rate = self.balance_metrics.observe(
+                sim.elapsed, sim.spawner.next_id, sim.kills, sim.run_xp_collected
             )
+            lines = [
+                f"{fps:.0f} FPS | {len(sim.enemies)} enemies | {sum(e.elite for e in sim.enemies)} elites | Lv {p.level} | {sim.elapsed / 60:.1f}m | Wave {sim.wave_index + 1}",
+                f"Spawn {spawn_rate:.1f}/s | Kill {kill_rate:.1f}/s | XP {xp_rate:.0f}/min | {len(sim.pickups)} loot",
+                f"Shots {len(sim.projectiles) + len(sim.enemy_combat.projectiles)} | Fields {len(sim.combat.fields)} | Pets {len(sim.combat.companions)} | Particles {len(self.presentation.particles.active)} | Checks {sim.grid.candidate_checks + sim.world.grid.candidate_checks}",
+            ]
+            y = 280 if sim.director.boss_spawned else 250
+            self.panel(Rect(350, y, 840, 72))
+            for row, line in enumerate(lines):
+                self.text(line, (360, y + 5 + row * 22), 18, CREAM)
         statuses: list[str] = []
         if p.slow_time > 0:
             statuses.append(f"SLOWED {p.slow_time:.1f}s")

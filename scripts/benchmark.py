@@ -30,6 +30,9 @@ def main() -> None:
     parser.add_argument("--frames", type=int, default=300)
     parser.add_argument("--quality", choices=("low", "medium", "high"), default="medium")
     parser.add_argument("--class", dest="class_id", default="paladin")
+    parser.add_argument("--zone", default="elwynn")
+    parser.add_argument("--track-collisions", action="store_true")
+    parser.add_argument("--capture", action="store_true")
     parser.add_argument("--complete-loadout", action="store_true")
     parser.add_argument("--time", type=float, default=1740)
     parser.add_argument("--output", type=Path, default=Path("artifacts/milestone5/performance"))
@@ -39,7 +42,8 @@ def main() -> None:
     content = load_content()
     renderer = Renderer(content)
     renderer.quality = args.quality
-    sim = Simulation(content, args.class_id, seed=47)
+    sim = Simulation(content, args.class_id, seed=47, zone_id=args.zone)
+    sim.grid.track_queries = sim.world.grid.track_queries = args.track_collisions
     sim.time = max(0, min(1740, args.time))
     sim.director.seek(sim.time)
     sim.spawner.wave_start = sim.director.wave(sim.time).start
@@ -63,17 +67,21 @@ def main() -> None:
         enemy = sim.spawn(pos=sim.player.pos + Vector2(radius, 0).rotate_rad(index * 2.39996))
         enemy.health = enemy.max_health = 10**9
     measured = []
+    checks = []
     destination = pygame.Surface((1920, 1080))
     for frame in range(args.frames + 30):
         start = time.perf_counter()
         sim.step(FIXED_DT)
         middle = time.perf_counter()
         renderer.draw_game(sim)
+        # Renderer follows HUD visibility; benchmark instrumentation is explicit.
+        sim.grid.track_queries = sim.world.grid.track_queries = args.track_collisions
         pygame.transform.scale(renderer.canvas, (1920, 1080), destination)
         end = time.perf_counter()
         sim.sound_events.clear()
         if frame >= 30:
             measured.append(((middle - start) * 1000, (end - middle) * 1000))
+            checks.append(sim.grid.candidate_checks + sim.world.grid.candidate_checks)
     combined = [simulation + render for simulation, render in measured]
     result = {
         "enemies": len(sim.enemies),
@@ -84,10 +92,15 @@ def main() -> None:
         "hostile_projectiles": len(sim.enemy_combat.projectiles),
         "telegraphs": len(sim.enemy_combat.attacks),
         "class": args.class_id,
+        "zone": args.zone,
         "complete_loadout": args.complete_loadout,
         "projectiles": len(sim.projectiles),
         "fields": len(sim.combat.fields),
         "companions": len(sim.combat.companions),
+        "particles": len(renderer.presentation.particles.active),
+        "xp_gems": sum(p.kind == "xp" for p in sim.pickups.values()),
+        "spatial_candidate_checks_mean": round(statistics.mean(checks)),
+        "collision_metrics_enabled": args.track_collisions,
         "simulation_mean_ms": round(statistics.mean(s for s, _ in measured), 2),
         "render_mean_ms": round(statistics.mean(r for _, r in measured), 2),
         "combined_mean_ms": round(statistics.mean(combined), 2),
@@ -96,10 +109,12 @@ def main() -> None:
     }
     output = (
         args.output
-        / f"benchmark-{args.class_id}-{args.enemies}-{args.quality}-{args.complete_loadout}.json"
+        / f"benchmark-{args.zone}-{args.class_id}-{args.enemies}-{args.quality}-{args.complete_loadout}.json"
     )
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, indent=2), "utf-8")
+    if args.capture:
+        pygame.image.save(renderer.canvas, output.with_suffix(".png"))
     print(json.dumps(result, indent=2))
     pygame.quit()
 

@@ -134,7 +134,11 @@ class Spawner:
             self.pending_surge = 0
         if self.pending_surge:
             self.surge_budget += wave.surge / 3 * dt
-            amount = min(self.pending_surge, int(self.surge_budget), max(0, density - len(enemies)))
+            amount = min(
+                self.pending_surge,
+                int(self.surge_budget + 1e-9),
+                max(0, min(ENEMY_LIMIT, density) - len(enemies)),
+            )
             for _ in range(amount):
                 enemies.append(self.create(seconds, camera, player_pos))
             self.pending_surge -= amount
